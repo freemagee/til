@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Meat on TIL</title>
+    <link>/categories/meat/</link>
+    <description>Recent content in Meat on TIL</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Thu, 12 Jul 2018 10:50:06 +0100</lastBuildDate>
+    
+	<atom:link href="/categories/meat/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Fluid</title>
+      <link>/posts/fluid/</link>
+      <pubDate>Thu, 12 Jul 2018 10:50:06 +0100</pubDate>
+      
+      <guid>/posts/fluid/</guid>
+      <description>Bresaola chuck shank short loin, buffalo ground round tail prosciutto pork loin. Meatball cow pork chop spare ribs filet mignon jerky kielbasa. Buffalo pastrami tenderloin kevin picanha pancetta leberkas, venison pork loin capicola ball tip prosciutto alcatra. Drumstick kielbasa t-bone ribeye chicken. Spare ribs jerky short loin landjaeger corned beef.</description>
+    </item>
+    
+    <item>
+      <title>Static</title>
+      <link>/posts/static/</link>
+      <pubDate>Thu, 12 Jul 2018 10:23:06 +0100</pubDate>
+      
+      <guid>/posts/static/</guid>
+      <description>Bresaola chuck shank short loin, buffalo ground round tail prosciutto pork loin. Meatball cow pork chop spare ribs filet mignon jerky kielbasa. Buffalo pastrami tenderloin kevin picanha pancetta leberkas, venison pork loin capicola ball tip prosciutto alcatra. Drumstick kielbasa t-bone ribeye chicken. Spare ribs jerky short loin landjaeger corned beef.</description>
+    </item>
+    
+  </channel>
+</rss>

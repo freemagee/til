@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>/posts/super-long/</loc>
+    <lastmod>2018-07-30T15:20:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/code-examples/</loc>
+    <lastmod>2018-07-30T09:42:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/commonmark/</loc>
+    <lastmod>2018-07-12T10:56:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/fluid/</loc>
+    <lastmod>2018-07-12T10:50:06+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/paginate/</loc>
+    <lastmod>2018-07-12T10:23:51+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/static/</loc>
+    <lastmod>2018-07-12T10:23:06+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/exciting/</loc>
+    <lastmod>2018-07-12T10:20:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2018-07-12T09:57:34+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/hello/</loc>
+    <lastmod>2018-07-12T09:50:52+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/about/</loc>
+    <lastmod>2018-07-12T09:50:18+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/somuch/</loc>
+    <lastmod>2018-07-12T09:20:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/code/</loc>
+    <lastmod>2018-07-30T09:42:00+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/javascript/</loc>
+    <lastmod>2018-07-30T09:42:00+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/meat/</loc>
+    <lastmod>2018-07-12T10:50:06+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/misc/</loc>
+    <lastmod>2018-07-30T15:20:27+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/php/</loc>
+    <lastmod>2018-07-30T09:42:00+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/posts/</loc>
+    <lastmod>2018-07-30T15:20:27+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2018-07-30T09:42:00+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
