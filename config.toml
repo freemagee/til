@@ -2,6 +2,7 @@ baseURL= "/"
 languageCode= "en-gb"
 title= "TIL"
 paginate = 3
+theme = "comfortable-basic"
 pluralizelisttitles = false
 
 [params]
