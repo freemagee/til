@@ -1,0 +1,13 @@
+baseURL= "/"
+languageCode= "en-gb"
+title= "TIL"
+paginate = 3
+pluralizelisttitles = false
+
+[params]
+  author = "Neil Magee"
+  authorwebsite = "http://neilmagee.com"
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
