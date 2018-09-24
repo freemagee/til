@@ -1,6 +1,7 @@
 ---
 title: "My super long title will make mince meat of your petty design"
 date: 2018-07-30T15:20:27+01:00
+type: "post"
 categories: ["misc"]
 ---
 

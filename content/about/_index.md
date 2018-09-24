@@ -1,8 +1,7 @@
 ---
 title: "About"
-date: 2018-07-12T09:50:18+01:00
-type: "page"
-layout: "about"
+date: 2018-09-24T11:52:34+01:00
+draft: false
 ---
 
 Hello and yes this is all going to be about me
