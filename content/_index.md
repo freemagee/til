@@ -1,9 +1,8 @@
 ---
-title: "TIL"
-date: 2018-07-12T09:57:34+01:00
-draft: false
+title: "Today I Learned"
+date: 2018-09-27T16:30:00+01:00
 ---
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.
+We are all on an adventure of daily learning. This journey happens to belong to [Neil Magee](https://neilmagee.com).
 
-Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.
+In an attempt to catalogue and not forget what has been learnt, this blog will record it for the future.
