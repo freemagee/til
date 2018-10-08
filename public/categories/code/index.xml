@@ -6,40 +6,31 @@
     <description>Recent content in Code on TIL</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Mon, 30 Jul 2018 09:42:00 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 08 Oct 2018 14:54:52 +0100</lastBuildDate>
     
 	<atom:link href="/categories/code/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Code Examples</title>
-      <link>/posts/code-examples/</link>
-      <pubDate>Mon, 30 Jul 2018 09:42:00 +0100</pubDate>
+      <title>Hugo template logic</title>
+      <link>/posts/hugo-templates/</link>
+      <pubDate>Mon, 08 Oct 2018 14:54:52 +0100</pubDate>
       
-      <guid>/posts/code-examples/</guid>
-      <description>Here are some code samples
-&amp;lt;?php phpinfo() ?&amp;gt;  And some more
-console.log(&amp;quot;I am JavaScript&amp;quot;);  Very pretty, now use some proper syntax highlighting
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25  module.exports = {&amp;#34;parserOptions&amp;#34;: {&amp;#34;ecmaVersion&amp;#34;: 6},&amp;#34;env&amp;#34;: {&amp;#34;browser&amp;#34;: true,&amp;#34;node&amp;#34;: true}, &amp;#34;extends&amp;#34;: [&amp;#34;airbnb-base&amp;#34;,&amp;#34;prettier&amp;#34;],&amp;#34;plugins&amp;#34;: [&amp;#34;import&amp;#34;,&amp;#34;prettier&amp;#34;],&amp;#34;rules&amp;#34;: { &amp;#34;prettier/prettier&amp;#34;: &amp;#34;error&amp;#34;,&amp;#34;linebreak-style&amp;#34;: 0,&amp;#34;no-use-before-define&amp;#34;: [&amp;#34;error&amp;#34;, { &amp;#34;functions&amp;#34;: false, &amp;#34;classes&amp;#34;: false }],&amp;#34;no-plusplus&amp;#34;: [&amp;#34;error&amp;#34;, { &amp;#34;allowForLoopAfterthoughts&amp;#34;: true }],&amp;#34;no-restricted-imports&amp;#34;: [&amp;#34;error&amp;#34;, &amp;#34;fs&amp;#34;]},&amp;#34;globals&amp;#34;: {}};   </description>
-    </item>
-    
-    <item>
-      <title>Commonmark</title>
-      <link>/posts/commonmark/</link>
-      <pubDate>Thu, 12 Jul 2018 10:56:00 +0100</pubDate>
-      
-      <guid>/posts/commonmark/</guid>
-      <description>h1 Heading 8-) h2 Heading h3 Heading h4 Heading h5 Heading h6 Heading Horizontal Rules Typographic replacements Enable typographer option to see result.
-&amp;copy; &amp;copy; &amp;reg; &amp;reg; &amp;trade; &amp;trade; (p) (P) +-
-test.. test&amp;hellip; test&amp;hellip;.. test?&amp;hellip;.. test!&amp;hellip;.
-!!!!!! ???? ,, &amp;ndash; &amp;mdash;
-&amp;ldquo;Smartypants, double quotes&amp;rdquo; and &amp;lsquo;single quotes&amp;rsquo;
-Emphasis This is bold text
-This is bold text
-This is italic text
-This is italic text
-Strikethrough
-Blockquotes  Blockquotes can also be nested&amp;hellip; &amp;gt; &amp;hellip;by using additional greater-than signs right next to each other&amp;hellip; &amp;gt; &amp;gt; &amp;hellip;or with spaces between arrows.</description>
+      <guid>/posts/hugo-templates/</guid>
+      <description>&lt;p&gt;Today I made some improvements to the &lt;a href=&#34;https://github.com/freemagee/comfortable-basic&#34;&gt;Hugo theme&lt;/a&gt; I created for this site. Adding some conditional statements to the templates to cater for various scenarios that don&amp;rsquo;t fit how I intend to use the theme.&lt;/p&gt;
+
+&lt;p&gt;Although the theme is limited in scope, I want to eventually release it on &lt;a href=&#34;https://themes.gohugo.io/&#34;&gt;Hugo Themes&lt;/a&gt; and have it be flexible enough for another others to use.&lt;/p&gt;
+
+&lt;h2 id=&#34;deal-with-no-posts&#34;&gt;Deal with no posts&lt;/h2&gt;
+
+&lt;p&gt;On the &lt;code&gt;layouts/partials/pagination.html&lt;/code&gt; template, it has been wrapped in&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-golang&#34;&gt;{{ if ne .TotalPages 0}}
+  // Content
+{{end}}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>
