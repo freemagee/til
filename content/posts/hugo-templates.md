@@ -1,7 +1,6 @@
 ---
-title: "Hugo Templates"
-date: 2018-10-08T12:10:43+01:00
-draft: true
+title: "Hugo template logic"
+date: 2018-10-08T14:54:52+01:00
 categories:
   - code
   - hugo
@@ -9,9 +8,9 @@ tags:
   - golang
 ---
 
-Today I made some improvements to the [Hugo theme](https://github.com/freemagee/comfortable-basic) I created for this site. Adding some conditional statements to the templates to cater for various scenarios.
+Today I made some improvements to the [Hugo theme](https://github.com/freemagee/comfortable-basic) I created for this site. Adding some conditional statements to the templates to cater for various scenarios that don't fit how I intend to use the theme.
 
-Although the theme is limited in scope, I want to eventually release the theme on [Hugo Themes](https://themes.gohugo.io/) and have it be flexible enough for another user to use.
+Although the theme is limited in scope, I want to eventually release it on [Hugo Themes](https://themes.gohugo.io/) and have it be flexible enough for another others to use.
 
 ## Deal with no posts
 
@@ -24,7 +23,7 @@ On the `layouts/partials/pagination.html` template, it has been wrapped in
 ```
 <!--more-->
 
-So for the brief time that a new site contains no posts, there will not be weird pagination at the bottom listing "You are on page 0/1".
+So for the brief time that a new site contains no posts, there will not be weird pagination at the bottom listing "You are on page 0/1". I may move this logic to a parent template.
 
 ## Deal with intro content after first page
 
@@ -45,7 +44,7 @@ Pretty simple, if the page number does not equal 1, then do not show the intro. 
 {{ end }}
 ```
 
-Does not work. In other languages such as JavaScript I could express something similar as:
+Does not work. In other languages such as JavaScript I could express something similar using a logical operator:
 
 ```javascript
 if (Paginator.PageNumber === 1 && Content !== "") {
@@ -53,4 +52,16 @@ if (Paginator.PageNumber === 1 && Content !== "") {
 }
 ```
 
-I am sure I will look up the Go way of doing this soon.
+I am sure I will find out why my `golang` syntax was not correct soon.
+
+## Show/Hide about page on nav
+
+If an about page does not exist, then it should not appear on the nav. Simple!
+
+```golang
+{{ with .Site.GetPage "/about" }}
+  // nav link to about
+{{end}}
+```
+
+I have used `with` here. It works. Maybe using an `if` would be better.
