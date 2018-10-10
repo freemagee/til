@@ -6,10 +6,20 @@
     <description>Recent content in Development on TIL</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Mon, 08 Oct 2018 14:54:52 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 10 Oct 2018 16:31:28 +0100</lastBuildDate>
     
 	<atom:link href="/categories/development/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Hugo deploy</title>
+      <link>/posts/hugo-deploy/</link>
+      <pubDate>Wed, 10 Oct 2018 16:31:28 +0100</pubDate>
+      
+      <guid>/posts/hugo-deploy/</guid>
+      <description>&lt;p&gt;Today I had a lesson in &lt;a href=&#34;https://en.wikipedia.org/wiki/RTFM&#34;&gt;RTFM&lt;/a&gt;. I noticed my Hugo &lt;code&gt;public/&lt;/code&gt; folder had a bunch of orphaned content from a previous deploy that used dummy content. There is a clear reference to this in the &lt;a href=&#34;https://gohugo.io/getting-started/usage/#deploy-your-website&#34;&gt;Hugo documentation&lt;/a&gt;.
+&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Hugo template logic</title>

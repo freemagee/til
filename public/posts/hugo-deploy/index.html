@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en-gb">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>
+  TIL
+    -
+  Hugo deploy
+</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Neil Magee">
+  <meta name="referrer" content="no-referrer-when-downgrade">
+
+  <link href="/images/favicon/favicon-16x16.png" rel="shortcut icon" type="image/png">
+
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+  <section class="site-header__ident">
+    <a href="/" class="site-header__link">TIL</a>
+  </section>
+  <nav class="site-header__nav">
+    
+    <a href="/about/" class="site-header__nav-item active">About</a>
+    
+  </nav>
+</header>
+  <div class="site-container">
+    <div class="site-container__inner">
+      <main role="main">
+        
+  <article class="post post--single">
+    <header class="post__header">
+      <h1 class="post__title post__title--single">Hugo deploy</h1>
+      <div class="post__meta">
+        <time class="post__date" datetime="2018-10-10T16:31:28&#43;01:00">
+          <span class="post__published">Published:</span>
+          <span class="post__published-value">2018-10-10</span>
+        </time>
+        
+        <ul class="post__categories">
+          
+          <li class="post__category">
+            <a href="/categories/development/" class="post__category-link">development</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </header>
+    <section class="post-content">
+      <p>Today I had a lesson in <a href="https://en.wikipedia.org/wiki/RTFM">RTFM</a>. I noticed my Hugo <code>public/</code> folder had a bunch of orphaned content from a previous deploy that used dummy content. There is a clear reference to this in the <a href="https://gohugo.io/getting-started/usage/#deploy-your-website">Hugo documentation</a>.
+</p>
+
+<blockquote>
+<p>Running <em>hugo</em> does not remove generated files before building. This means that you should delete your <em>public/</em> directory (or the publish directory you specified via flag or configuration file) before running the <em>hugo</em> command. If you do not remove these files, you run the risk of the wrong files (e.g., drafts or future posts) being left in the generated site.</p>
+</blockquote>
+
+<p>A large part of being a developer is reading documentation. I obviously need to read more wisely.</p>
+
+<p>After deleting <code>public/</code> and regenerating my content, all is good once more. I will need to build a delete step into my build process to avoid this in the future.</p>
+    </section>
+  </article>
+
+  
+
+      </main>
+      <footer class="site-footer">
+        <div class="site-footer__inner">
+          <p class="site-footer__copyright">&copy; 2018 <a href="http://neilmagee.com">Neil Magee</a>. Icons from <a href="http://entypo.com">Entypo+</a>. Made with <a href="https://gohugo.io/" class="site-footer__hugo-logo"><img src="/images/hugo-logo.png" width="22" height="22"></a></p>
+        </div>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>

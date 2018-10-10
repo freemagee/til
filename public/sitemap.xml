@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/posts/hugo-deploy/</loc>
+    <lastmod>2018-10-10T16:31:28+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/posts/hugo-templates/</loc>
     <lastmod>2018-10-08T14:54:52+01:00</lastmod>
   </url>
@@ -24,7 +29,7 @@
   
   <url>
     <loc>/categories/development/</loc>
-    <lastmod>2018-10-08T14:54:52+01:00</lastmod>
+    <lastmod>2018-10-10T16:31:28+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -36,13 +41,13 @@
   
   <url>
     <loc>/tags/hugo/</loc>
-    <lastmod>2018-10-08T14:54:52+01:00</lastmod>
+    <lastmod>2018-10-10T16:31:28+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/posts/</loc>
-    <lastmod>2018-10-08T14:54:52+01:00</lastmod>
+    <lastmod>2018-10-10T16:31:28+01:00</lastmod>
     <priority>0</priority>
   </url>
   
