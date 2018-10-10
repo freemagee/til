@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on TIL</title>
+    <link>/posts/</link>
+    <description>Recent content in Posts on TIL</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Mon, 08 Oct 2018 14:54:52 +0100</lastBuildDate>
+    
+	<atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hugo template logic</title>
+      <link>/posts/hugo-templates/</link>
+      <pubDate>Mon, 08 Oct 2018 14:54:52 +0100</pubDate>
+      
+      <guid>/posts/hugo-templates/</guid>
+      <description>&lt;p&gt;Today I made some improvements to the &lt;a href=&#34;https://github.com/freemagee/comfortable-basic&#34;&gt;Hugo theme&lt;/a&gt; I created for this site. Adding some conditional statements to the templates to cater for various scenarios that don&amp;rsquo;t fit how I intend to use the theme.&lt;/p&gt;
+
+&lt;p&gt;Although the theme is limited in scope, I want to eventually release it on &lt;a href=&#34;https://themes.gohugo.io/&#34;&gt;Hugo Themes&lt;/a&gt; and have it be flexible enough for others to use.&lt;/p&gt;
+
+&lt;h2 id=&#34;deal-with-no-posts&#34;&gt;Deal with no posts&lt;/h2&gt;
+
+&lt;p&gt;On the &lt;code&gt;layouts/partials/pagination.html&lt;/code&gt; template, it has been wrapped in&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-golang&#34;&gt;{{ if ne .TotalPages 0}}
+  // Content
+{{end}}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

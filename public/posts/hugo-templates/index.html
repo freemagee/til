@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en-gb">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>
+  TIL
+    -
+  Hugo template logic
+</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Neil Magee">
+  <meta name="referrer" content="no-referrer-when-downgrade">
+
+  <link href="/images/favicon/favicon-16x16.png" rel="shortcut icon" type="image/png">
+
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+  <section class="site-header__ident">
+    <a href="/" class="site-header__link">TIL</a>
+  </section>
+  <nav class="site-header__nav">
+    
+    <a href="/about/" class="site-header__nav-item active">About</a>
+    
+  </nav>
+</header>
+  <div class="site-container">
+    <div class="site-container__inner">
+      <main role="main">
+        
+  <article class="post post--single">
+    <header class="post__header">
+      <h1 class="post__title post__title--single">Hugo template logic</h1>
+      <div class="post__meta">
+        <time class="post__date" datetime="2018-10-08T14:54:52&#43;01:00">
+          <span class="post__published">Published:</span>
+          <span class="post__published-value">2018-10-08</span>
+        </time>
+        
+        <ul class="post__categories">
+          
+          <li class="post__category">
+            <a href="/categories/development/" class="post__category-link">development</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </header>
+    <section class="post-content">
+      <p>Today I made some improvements to the <a href="https://github.com/freemagee/comfortable-basic">Hugo theme</a> I created for this site. Adding some conditional statements to the templates to cater for various scenarios that don&rsquo;t fit how I intend to use the theme.</p>
+
+<p>Although the theme is limited in scope, I want to eventually release it on <a href="https://themes.gohugo.io/">Hugo Themes</a> and have it be flexible enough for others to use.</p>
+
+<h2 id="deal-with-no-posts">Deal with no posts</h2>
+
+<p>On the <code>layouts/partials/pagination.html</code> template, it has been wrapped in</p>
+
+<pre><code class="language-golang">{{ if ne .TotalPages 0}}
+  // Content
+{{end}}
+</code></pre>
+
+<p></p>
+
+<p>So for the brief time that a new site contains no posts, there will not be weird pagination at the bottom listing &ldquo;You are on page 0/1&rdquo;. I may move this logic to a parent template.</p>
+
+<h2 id="deal-with-intro-content-after-first-page">Deal with intro content after first page</h2>
+
+<p>I have chosen to provide some intro content on my homepage, but once you use the pagination to move to page two or beyond, the intro is just taking up vertical space. It also could confuse a user as nothing visual changes between pages.</p>
+
+<pre><code class="language-golang">{{ if eq .Paginator.PageNumber 1 }}
+  {{ if .Content }}
+    // Content
+  {{ end }}
+{{ end }}
+</code></pre>
+
+<p>Pretty simple, if the page number does not equal 1, then do not show the intro. As I am new to <code>golang</code>, I was looking for a way to merge the two conditionals into one, but have not found that yet. The following:</p>
+
+<pre><code class="language-golang">{{ if eq .Paginator.PageNumber 1 &amp;&amp; .Content }}
+{{ end }}
+</code></pre>
+
+<p>Does not work. In other languages such as JavaScript I could express something similar using a logical operator:</p>
+
+<pre><code class="language-javascript">if (Paginator.PageNumber === 1 &amp;&amp; Content !== &quot;&quot;) {
+  // Do something
+}
+</code></pre>
+
+<p>I am sure I will find out why my <code>golang</code> syntax was not correct soon.</p>
+
+<h2 id="show-hide-about-page-on-nav">Show/Hide about page on nav</h2>
+
+<p>If an about page does not exist, then it should not appear on the nav. Simple!</p>
+
+<pre><code class="language-golang">{{ with .Site.GetPage &quot;/about&quot; }}
+  // nav link to about
+{{end}}
+</code></pre>
+
+<p>I have used <code>with</code> here. It works. Maybe using an <code>if</code> would be better.</p>
+    </section>
+  </article>
+
+  
+
+      </main>
+      <footer class="site-footer">
+        <div class="site-footer__inner">
+          <p class="site-footer__copyright">&copy; 2018 <a href="http://neilmagee.com">Neil Magee</a>. Icons from <a href="http://entypo.com">Entypo+</a>. Made with <a href="https://gohugo.io/" class="site-footer__hugo-logo"><img src="/images/hugo-logo.png" width="22" height="22"></a></p>
+        </div>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>
