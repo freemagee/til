@@ -2,15 +2,15 @@
 title: "Hugo template logic"
 date: 2018-10-08T14:54:52+01:00
 categories:
-  - code
-  - hugo
+  - development
 tags:
   - golang
+  - hugo
 ---
 
 Today I made some improvements to the [Hugo theme](https://github.com/freemagee/comfortable-basic) I created for this site. Adding some conditional statements to the templates to cater for various scenarios that don't fit how I intend to use the theme.
 
-Although the theme is limited in scope, I want to eventually release it on [Hugo Themes](https://themes.gohugo.io/) and have it be flexible enough for another others to use.
+Although the theme is limited in scope, I want to eventually release it on [Hugo Themes](https://themes.gohugo.io/) and have it be flexible enough for others to use.
 
 ## Deal with no posts
 
