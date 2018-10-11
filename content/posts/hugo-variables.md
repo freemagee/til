@@ -25,6 +25,7 @@ My [Hugo theme](https://github.com/freemagee/comfortable-basic) has an 'about' p
   </nav>
 </header>
 ```
+<!--more-->
 
 ### The new code
 
