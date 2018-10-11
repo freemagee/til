@@ -17,8 +17,25 @@
       <pubDate>Thu, 11 Oct 2018 12:39:12 +0100</pubDate>
       
       <guid>https://til.neilmagee.com/posts/hugo-variables/</guid>
-      <description>Today I learned that I do not know how to concatenate strings using golang.
-My Hugo theme has an &amp;lsquo;about&amp;rsquo; page, which is supposed to have a conditional css class applied to the navigation when you are actually on that page. The default class is site-header__nav-item and that is meant to become site-header__nav-item active when visiting the &amp;lsquo;about&amp;rsquo; page. This was not happening, so I have refactored the code a little and fixed the issue.</description>
+      <description>&lt;p&gt;Today I learned that I do not know how to concatenate strings using &lt;code&gt;golang&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;My &lt;a href=&#34;https://github.com/freemagee/comfortable-basic&#34;&gt;Hugo theme&lt;/a&gt; has an &amp;lsquo;about&amp;rsquo; page, which is supposed to have a conditional css class applied to the navigation when you are actually on that page. The default class is &lt;code&gt;site-header__nav-item&lt;/code&gt; and that is meant to become &lt;code&gt;site-header__nav-item active&lt;/code&gt; when visiting the &amp;lsquo;about&amp;rsquo; page. This was not happening, so I have refactored the code a little and fixed the issue.&lt;/p&gt;
+
+&lt;h3 id=&#34;the-old-code&#34;&gt;The old code&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-golang&#34;&gt;&amp;lt;header class=&amp;quot;site-header&amp;quot;&amp;gt;
+  &amp;lt;section class=&amp;quot;site-header__ident&amp;quot;&amp;gt;
+    &amp;lt;a href=&amp;quot;{{ .Site.BaseURL }}&amp;quot; class=&amp;quot;site-header__link&amp;quot;&amp;gt;{{- .Site.Title -}}&amp;lt;/a&amp;gt;
+  &amp;lt;/section&amp;gt;
+  &amp;lt;nav class=&amp;quot;site-header__nav&amp;quot;&amp;gt;
+    {{ with .Site.GetPage &amp;quot;about&amp;quot; }}
+    &amp;lt;a href=&amp;quot;{{ .Site.BaseURL }}about/&amp;quot; class=&amp;quot;site-header__nav-item {{ if eq .URL &amp;quot;/about/&amp;quot;}}active{{ end }}&amp;quot;&amp;gt;About&amp;lt;/a&amp;gt;
+    {{ end }}
+  &amp;lt;/nav&amp;gt;
+&amp;lt;/header&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
