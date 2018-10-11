@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Golang on TIL</title>
-    <link>/tags/golang/</link>
+    <link>https://til.neilmagee.com/tags/golang/</link>
     <description>Recent content in Golang on TIL</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <lastBuildDate>Mon, 08 Oct 2018 14:54:52 +0100</lastBuildDate>
     
-	<atom:link href="/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://til.neilmagee.com/tags/golang/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Hugo template logic</title>
-      <link>/posts/hugo-templates/</link>
+      <link>https://til.neilmagee.com/posts/hugo-templates/</link>
       <pubDate>Mon, 08 Oct 2018 14:54:52 +0100</pubDate>
       
-      <guid>/posts/hugo-templates/</guid>
+      <guid>https://til.neilmagee.com/posts/hugo-templates/</guid>
       <description>&lt;p&gt;Today I made some improvements to the &lt;a href=&#34;https://github.com/freemagee/comfortable-basic&#34;&gt;Hugo theme&lt;/a&gt; I created for this site. Adding some conditional statements to the templates to cater for various scenarios that don&amp;rsquo;t fit how I intend to use the theme.&lt;/p&gt;
 
 &lt;p&gt;Although the theme is limited in scope, I want to eventually release it on &lt;a href=&#34;https://themes.gohugo.io/&#34;&gt;Hugo Themes&lt;/a&gt; and have it be flexible enough for others to use.&lt;/p&gt;

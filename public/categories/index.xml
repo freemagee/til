@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on TIL</title>
-    <link>/categories/</link>
+    <link>https://til.neilmagee.com/categories/</link>
     <description>Recent content in Categories on TIL</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     
-	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://til.neilmagee.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Development</title>
-      <link>/categories/development/</link>
+      <link>https://til.neilmagee.com/categories/development/</link>
       <pubDate>Wed, 10 Oct 2018 16:31:28 +0100</pubDate>
       
-      <guid>/categories/development/</guid>
+      <guid>https://til.neilmagee.com/categories/development/</guid>
       <description></description>
     </item>
     
