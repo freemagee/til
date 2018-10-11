@@ -12,6 +12,16 @@
     
     
     <item>
+      <title>Hugo Variables</title>
+      <link>https://til.neilmagee.com/posts/hugo-variables/</link>
+      <pubDate>Thu, 11 Oct 2018 12:39:12 +0100</pubDate>
+      
+      <guid>https://til.neilmagee.com/posts/hugo-variables/</guid>
+      <description>Today I learned that I do not know how to concatenate strings using golang.
+My Hugo theme has an &amp;lsquo;about&amp;rsquo; page, which is supposed to have a conditional css class applied to the navigation when you are actually on that page. The default class is site-header__nav-item and that is meant to become site-header__nav-item active when visiting the &amp;lsquo;about&amp;rsquo; page. This was not happening, so I have refactored the code a little and fixed the issue.</description>
+    </item>
+    
+    <item>
       <title>Hugo deploy</title>
       <link>https://til.neilmagee.com/posts/hugo-deploy/</link>
       <pubDate>Wed, 10 Oct 2018 16:31:28 +0100</pubDate>
