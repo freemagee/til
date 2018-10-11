@@ -1,4 +1,4 @@
-baseURL= "/"
+baseURL= "https://til.neilmagee.com/"
 languageCode= "en-gb"
 title= "TIL"
 paginate = 3
