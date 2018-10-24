@@ -19,7 +19,7 @@
       <guid>https://til.neilmagee.com/posts/hugo-templates/</guid>
       <description>&lt;p&gt;Today I made some improvements to the &lt;a href=&#34;https://github.com/freemagee/comfortable-basic&#34;&gt;Hugo theme&lt;/a&gt; I created for this site. Adding some conditional statements to the templates to cater for various scenarios that don&amp;rsquo;t fit how I intend to use the theme.&lt;/p&gt;
 
-&lt;p&gt;Although the theme is limited in scope, I want to eventually release it on &lt;a href=&#34;https://themes.gohugo.io/&#34;&gt;Hugo Themes&lt;/a&gt; and have it be flexible enough for others to use.&lt;/p&gt;
+&lt;p&gt;Although the theme is limited in scope, I want to eventually release it on &lt;a href=&#34;https://themes.gohugo.io/&#34;&gt;Hugo Themes&lt;/a&gt; and allow it to be flexible enough for others to use.&lt;/p&gt;
 
 &lt;h2 id=&#34;deal-with-no-posts&#34;&gt;Deal with no posts&lt;/h2&gt;
 
