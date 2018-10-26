@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en-gb">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>
+  TIL
+    -
+  React With Debounce
+</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Neil Magee">
+  <meta name="referrer" content="no-referrer-when-downgrade">
+
+  <link href="https://til.neilmagee.com/images/favicon/favicon-16x16.png" rel="shortcut icon" type="image/png">
+
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://til.neilmagee.com/css/style.css" />
+</head>
+<body>
+  
+
+<header class="site-header">
+  <section class="site-header__ident">
+    <a href="https://til.neilmagee.com/" class="site-header__link">TIL</a>
+  </section>
+  <nav class="site-header__nav">
+  
+    <a href="https://til.neilmagee.com/about/" class="site-header__nav-item">About</a>
+  
+  </nav>
+</header>
+  <div class="site-container">
+    <div class="site-container__inner">
+      <main role="main">
+        
+  <article class="post post--single">
+    <header class="post__header">
+      <h1 class="post__title post__title--single">React With Debounce</h1>
+      <div class="post__meta">
+        <time class="post__date" datetime="2018-10-24T20:10:38&#43;01:00">
+          <span class="post__published">Published:</span>
+          <span class="post__published-value">2018-10-24</span>
+        </time>
+        
+        <ul class="post__categories">
+          
+          <li class="post__category">
+            <a href="https://til.neilmagee.com/categories/development/" class="post__category-link">development</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </header>
+    <section class="post-content">
+      <p>Today I learned how to debounce inputs in a <a href="https://reactjs.org/">React</a> component. This is something I have done in many other places, in plain JavaScript, in jQuery, in AngularJs and in VueJs. Whilst the concept is the same - have a user input some data (text, date, email, whatever), wait a short amount of time so that the user has finished typing and then do something. The idea being the &ldquo;do something&rdquo; does not happen whilst the user is still adding their data.</p>
+
+<p>Here is a simplified example of what I did:</p>
+
+<pre><code class="language-javascript">import React from &quot;react&quot;;
+import debounce from &quot;lodash/debounce&quot;;
+
+export default class MyForm extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      name: &quot;&quot;,
+      output: &quot;&quot;
+    };
+  }
+  handleChange = e =&gt; {
+    const value = this.parseInput(e.target.value);
+    this.setState({ name: value });
+    this.delayedChange();
+  }
+  delayedChange = debounce(() =&gt; {
+    // Do something cool!
+    this.setState({ output: `Hi! My name is ${this.state.name}` });
+  }, 1000)
+  parseInput(val) {
+    // do some parsing!
+    return val;
+  }
+  render() {
+    return (
+      &lt;div className=&quot;myForm&quot;&gt;
+        &lt;div className=&quot;myForm__form-group&quot;&gt;
+          &lt;label htmlFor=&quot;name&quot; className=&quot;myForm__form-label&quot;&gt;
+            Name
+          &lt;/label&gt;
+          &lt;input
+            type=&quot;text&quot;
+            className=&quot;myForm__form-control&quot;
+            id=&quot;name&quot;
+            value={this.state.name}
+            onChange={this.handleChange}
+          /&gt;
+        &lt;/div&gt;
+        &lt;p&gt;{this.state.output}&lt;/p&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+</code></pre>
+
+<p>The only way I could get this to work was to have one method that handled the input and then triggered another debounced method. I am using <a href="https://lodash.com/docs/4.17.10#debounce">lodash</a> for the debounce functionality. There is a really good explanation by Sebastian Lorber on <a href="https://stackoverflow.com/a/28046731">Stack Overflow</a> on how to do this properly.</p>
+
+    </section>
+    <footer class="post__footer">
+      
+      <ul class="post__tags">
+        
+        <li class="post__tag"><a href="https://til.neilmagee.com/tags/react/" class="post__tag-link"><span class="post__tag-label">#</span>react</a></li>
+        
+      </ul>
+      
+    </footer>
+  </article>
+
+  
+
+      </main>
+      <footer class="site-footer">
+        <div class="site-footer__inner">
+          <p class="site-footer__copyright">&copy; 2018 <a href="http://neilmagee.com">Neil Magee</a>. Icons from <a href="http://entypo.com">Entypo+</a>. Made with <a href="https://gohugo.io/" class="site-footer__hugo-logo"><img src="/images/hugo-logo.png" alt="Hugo logo" width="22" height="22"></a></p>
+        </div>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>

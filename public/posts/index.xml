@@ -6,10 +6,19 @@
     <description>Recent content in Posts on TIL</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Thu, 11 Oct 2018 12:39:12 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 24 Oct 2018 20:10:38 +0100</lastBuildDate>
     
 	<atom:link href="https://til.neilmagee.com/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>React With Debounce</title>
+      <link>https://til.neilmagee.com/posts/react-with-debounce/</link>
+      <pubDate>Wed, 24 Oct 2018 20:10:38 +0100</pubDate>
+      
+      <guid>https://til.neilmagee.com/posts/react-with-debounce/</guid>
+      <description>Today I learned how to debounce inputs in a React component. This is something I have done in many other places, in plain JavaScript, in jQuery, in AngularJs and in VueJs. Whilst the concept is the same - have a user input some data (text, date, email, whatever), wait a short amount of time so that the user has finished typing and then do something. The idea being the &amp;ldquo;do something&amp;rdquo; does not happen whilst the user is still adding their data.</description>
+    </item>
     
     <item>
       <title>Hugo Variables</title>
