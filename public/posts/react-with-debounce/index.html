@@ -56,7 +56,8 @@
       </div>
     </header>
     <section class="post-content">
-      <p>Today I learned how to debounce inputs in a <a href="https://reactjs.org/">React</a> component. This is something I have done in many other places, in plain JavaScript, in jQuery, in AngularJs and in VueJs. Whilst the concept is the same - have a user input some data (text, date, email, whatever), wait a short amount of time so that the user has finished typing and then do something. The idea being the &ldquo;do something&rdquo; does not happen whilst the user is still adding their data.</p>
+      <p>Today I learned how to debounce inputs in a <a href="https://reactjs.org/">React</a> component. This is something I have done in many other places, in plain JavaScript, in jQuery, in AngularJs and in VueJs. Whilst the concept is the same - have a user input some data (text, date, email, whatever), wait a short amount of time so that the user has finished typing and then do something. The idea being the &ldquo;do something&rdquo; does not happen whilst the user is still adding their data.
+</p>
 
 <p>Here is a simplified example of what I did:</p>
 
@@ -108,7 +109,6 @@ export default class MyForm extends React.Component {
 </code></pre>
 
 <p>The only way I could get this to work was to have one method that handled the input and then triggered another debounced method. I am using <a href="https://lodash.com/docs/4.17.10#debounce">lodash</a> for the debounce functionality. There is a really good explanation by Sebastian Lorber on <a href="https://stackoverflow.com/a/28046731">Stack Overflow</a> on how to do this properly.</p>
-
     </section>
     <footer class="post__footer">
       
