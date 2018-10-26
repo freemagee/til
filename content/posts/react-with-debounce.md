@@ -7,7 +7,8 @@ tags:
   - react
 ---
 
-Today I learned how to debounce inputs in a [React](https://reactjs.org/) component. This is something I have done in many other places, in plain JavaScript, in jQuery, in AngularJs and in VueJs. Whilst the concept is the same - have a user input some data (text, date, email, whatever), wait a short amount of time so that the user has finished typing and then do something. The idea being the "do something" does not happen whilst the user is still adding their data. 
+Today I learned how to debounce inputs in a [React](https://reactjs.org/) component. This is something I have done in many other places, in plain JavaScript, in jQuery, in AngularJs and in VueJs. Whilst the concept is the same - have a user input some data (text, date, email, whatever), wait a short amount of time so that the user has finished typing and then do something. The idea being the "do something" does not happen whilst the user is still adding their data.
+<!--more-->
 
 Here is a simplified example of what I did:
 
