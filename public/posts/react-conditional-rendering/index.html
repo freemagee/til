@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en-gb">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>
+  TIL
+    -
+  React Conditional Rendering
+</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Neil Magee">
+  <meta name="referrer" content="no-referrer-when-downgrade">
+
+  <link href="https://til.neilmagee.com/images/favicon/favicon-16x16.png" rel="shortcut icon" type="image/png">
+
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://til.neilmagee.com/css/style.css" />
+</head>
+<body>
+  
+
+<header class="site-header">
+  <section class="site-header__ident">
+    <a href="https://til.neilmagee.com/" class="site-header__link">TIL</a>
+  </section>
+  <nav class="site-header__nav">
+  
+    <a href="https://til.neilmagee.com/about/" class="site-header__nav-item">About</a>
+  
+  </nav>
+</header>
+  <div class="site-container">
+    <div class="site-container__inner">
+      <main role="main">
+        
+  <article class="post post--single">
+    <header class="post__header">
+      <h1 class="post__title post__title--single">React Conditional Rendering</h1>
+      <div class="post__meta">
+        <time class="post__date" datetime="2018-11-05T17:13:02Z">
+          <span class="post__published">Published:</span>
+          <span class="post__published-value">2018-11-05</span>
+        </time>
+        
+        <ul class="post__categories">
+          
+          <li class="post__category">
+            <a href="https://til.neilmagee.com/categories/development/" class="post__category-link">development</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </header>
+    <section class="post-content">
+      <p>Today I learned how to conditionally render a React component. I was using CSS to show and hide different components in reaction to the App&rsquo;s state. Setting a component to be <code>display: none;</code> or control it&rsquo;s opacity. The problem was that React was throwing up some warnings that were coming from &ldquo;invisible&rdquo; components, that were receiving props before they were really meant to. This is probably representative of a deeper problem in my App structure.</p>
+
+<p>Having finally read the <a href="https://reactjs.org/docs/conditional-rendering.html">conditional rendering</a> page, I have chosen the &ldquo;Inline If with Logical &amp;&amp; Operator&rdquo; pattern for my App. Below is a stripped down example:</p>
+
+<h2 id="parent-app">Parent App</h2>
+
+<pre><code class="language-javascript">import React, {Component} from &quot;react&quot;;
+import MyComponent from &quot;./components/MyComponent.jsx&quot;;
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      componentIsActive: false
+    };
+  }
+  setComponentActive() {
+    // Something else could trigger this
+    this.setState({
+        componentIsActive: true
+    });
+  }
+  render() {
+    return (
+      // The component is passed a prop from the state
+      &lt;MyComponent
+        active={this.state.componentIsActive}
+      /&gt;
+    );
+  }
+}
+
+export default App;
+</code></pre>
+
+<p></p>
+
+<h2 id="child-component">Child Component</h2>
+
+<pre><code class="language-javascript">import React from &quot;react&quot;;
+
+export default class MyComponent extends React.Component {
+  render() {
+    // Whilst the prop is false, the component will render &quot;empty&quot;
+    const active = this.props.active;
+
+    return (
+      &lt;div className=&quot;myComponent&quot;&gt;
+        {active &amp;&amp; (
+            &lt;p&gt;Yipee, I am active&lt;/p&gt;
+        )}
+      &lt;/div&gt;
+    );
+  }
+}
+</code></pre>
+
+<h3 id="a-catch">A catch</h3>
+
+<p>One catch to watch out for is the conditional element must comprise of only one DOM node. In my App, I have two form fields, so I need two conditionals:</p>
+
+<pre><code class="language-javascript">&lt;div className=&quot;EditNote&quot; data-edit-mode={this.props.mode}&gt;
+  {title !== &quot;&quot; &amp;&amp; (
+    &lt;div className=&quot;EditNote__control&quot;&gt;
+      &lt;input
+        className=&quot;EditNote__title&quot;
+        type=&quot;text&quot;
+        value={title}
+        name=&quot;title&quot;
+        onChange={this.handleChange}
+      /&gt;
+    &lt;/div&gt;
+  )}
+  {content !== &quot;&quot; &amp;&amp; (
+    &lt;div className=&quot;EditNote__control&quot;&gt;
+      &lt;textarea
+        className=&quot;EditNote__content&quot;
+        value={content}
+        name=&quot;content&quot;
+        onChange={this.handleChange}
+      /&gt;
+    &lt;/div&gt;
+  )}
+&lt;/div&gt;
+</code></pre>
+
+<p>I was initially confused by this because of my experience using VueJS. In that framework, it appears that a component is not rendered until it is needed. If you inspect the DOM, there is nothing there. But if I inspect my ReactJs App DOM, I can see the elements are there, although they may be invisible.</p>
+    </section>
+    <footer class="post__footer">
+      
+      <ul class="post__tags">
+        
+        <li class="post__tag"><a href="https://til.neilmagee.com/tags/react/" class="post__tag-link"><span class="post__tag-label">#</span>react</a></li>
+        
+      </ul>
+      
+    </footer>
+  </article>
+
+  
+
+      </main>
+      <footer class="site-footer">
+        <div class="site-footer__inner">
+          <p class="site-footer__copyright">&copy; 2018 <a href="http://neilmagee.com">Neil Magee</a>. Icons from <a href="http://entypo.com">Entypo+</a>. Made with <a href="https://gohugo.io/" class="site-footer__hugo-logo"><img src="/images/hugo-logo.png" alt="Hugo logo" width="22" height="22"></a></p>
+        </div>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>

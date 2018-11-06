@@ -12,6 +12,50 @@
     
     
     <item>
+      <title>React Conditional Rendering</title>
+      <link>https://til.neilmagee.com/posts/react-conditional-rendering/</link>
+      <pubDate>Mon, 05 Nov 2018 17:13:02 +0000</pubDate>
+      
+      <guid>https://til.neilmagee.com/posts/react-conditional-rendering/</guid>
+      <description>&lt;p&gt;Today I learned how to conditionally render a React component. I was using CSS to show and hide different components in reaction to the App&amp;rsquo;s state. Setting a component to be &lt;code&gt;display: none;&lt;/code&gt; or control it&amp;rsquo;s opacity. The problem was that React was throwing up some warnings that were coming from &amp;ldquo;invisible&amp;rdquo; components, that were receiving props before they were really meant to. This is probably representative of a deeper problem in my App structure.&lt;/p&gt;
+
+&lt;p&gt;Having finally read the &lt;a href=&#34;https://reactjs.org/docs/conditional-rendering.html&#34;&gt;conditional rendering&lt;/a&gt; page, I have chosen the &amp;ldquo;Inline If with Logical &amp;amp;&amp;amp; Operator&amp;rdquo; pattern for my App. Below is a stripped down example:&lt;/p&gt;
+
+&lt;h2 id=&#34;parent-app&#34;&gt;Parent App&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;import React, {Component} from &amp;quot;react&amp;quot;;
+import MyComponent from &amp;quot;./components/MyComponent.jsx&amp;quot;;
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      componentIsActive: false
+    };
+  }
+  setComponentActive() {
+    // Something else could trigger this
+    this.setState({
+        componentIsActive: true
+    });
+  }
+  render() {
+    return (
+      // The component is passed a prop from the state
+      &amp;lt;MyComponent
+        active={this.state.componentIsActive}
+      /&amp;gt;
+    );
+  }
+}
+
+export default App;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>React With Debounce</title>
       <link>https://til.neilmagee.com/posts/react-with-debounce/</link>
       <pubDate>Wed, 24 Oct 2018 20:10:38 +0100</pubDate>
