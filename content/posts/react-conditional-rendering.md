@@ -95,4 +95,4 @@ One catch to watch out for is the conditional element must comprise of only one 
 </div>
 ```
 
-I was initially confused by this because of my experience using VueJS. In that framework, it appears that a component is not rendered until it is needed. If you inspect the DOM, there is nothing there. But if I inspect my ReactJs App DOM, I can see the elements are there, although they may be invisible.
+I was initially confused by this because of my experience using VueJS. In that framework, it appears that a component is not rendered until it is needed. If you inspect the DOM, there is nothing there. But if I inspect my React App DOM, I can see the elements are there, although they may be invisible.

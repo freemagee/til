@@ -4,7 +4,6 @@ date: 2018-10-08T14:54:52+01:00
 categories:
   - development
 tags:
-  - golang
   - hugo
 ---
 
