@@ -12,6 +12,28 @@
     
     
     <item>
+      <title>React Prevent Re-renders</title>
+      <link>https://til.neilmagee.com/posts/react-prevent-re-renders/</link>
+      <pubDate>Wed, 07 Nov 2018 09:26:33 +0000</pubDate>
+      
+      <guid>https://til.neilmagee.com/posts/react-prevent-re-renders/</guid>
+      <description>&lt;p&gt;Today I learned how to prevent React from unnecessarily re-rendering a component:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;shouldComponentUpdate(nextProps) {
+  // Compare the props with one another
+  if (this.props.actions !== nextProps.actions) {
+    return true;
+  }
+
+  return false;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I was trying to use a loop to sort some items prior to rendering them in a component. During the debug step I kept seeing the loop run twice, when I was only expecting it to run once.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>React Conditional Rendering</title>
       <link>https://til.neilmagee.com/posts/react-conditional-rendering/</link>
       <pubDate>Mon, 05 Nov 2018 17:13:02 +0000</pubDate>

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en-gb">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>
+  TIL
+    -
+  React Prevent Re-renders
+</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Neil Magee">
+  <meta name="referrer" content="no-referrer-when-downgrade">
+
+  <link href="https://til.neilmagee.com/images/favicon/favicon-16x16.png" rel="shortcut icon" type="image/png">
+
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://til.neilmagee.com/css/style.css" />
+</head>
+<body>
+  
+
+<header class="site-header">
+  <section class="site-header__ident">
+    <a href="https://til.neilmagee.com/" class="site-header__link">TIL</a>
+  </section>
+  <nav class="site-header__nav">
+  
+    <a href="https://til.neilmagee.com/about/" class="site-header__nav-item">About</a>
+  
+  </nav>
+</header>
+  <div class="site-container">
+    <div class="site-container__inner">
+      <main role="main">
+        
+  <article class="post post--single">
+    <header class="post__header">
+      <h1 class="post__title post__title--single">React Prevent Re-renders</h1>
+      <div class="post__meta">
+        <time class="post__date" datetime="2018-11-07T09:26:33Z">
+          <span class="post__published">Published:</span>
+          <span class="post__published-value">2018-11-07</span>
+        </time>
+        
+        <ul class="post__categories">
+          
+          <li class="post__category">
+            <a href="https://til.neilmagee.com/categories/development/" class="post__category-link">development</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </header>
+    <section class="post-content">
+      <p>Today I learned how to prevent React from unnecessarily re-rendering a component:</p>
+
+<pre><code class="language-javascript">shouldComponentUpdate(nextProps) {
+  // Compare the props with one another
+  if (this.props.actions !== nextProps.actions) {
+    return true;
+  }
+
+  return false;
+}
+</code></pre>
+
+<p>I was trying to use a loop to sort some items prior to rendering them in a component. During the debug step I kept seeing the loop run twice, when I was only expecting it to run once.
+</p>
+
+<p>After spending a little too long thinking my loop was the problem, it suddenly clicked that React was re-rendering my component in reaction to a prop change. Although the props have changed only once, for some (slightly unknown <strong>†</strong>) reason the component was being rendered twice. By implementing a check with <code>shouldComponentUpdate</code> I can prevent the unnecessary render.</p>
+
+<p><strong>†</strong> I used another React lifecyle method initially to confirm the component was being re-rendered:</p>
+
+<pre><code class="language-javascript">componentDidUpdate(prevProps) {
+  if (this.props !== prevProps) {
+    console.log(&quot;Re-rendering...&quot;);
+  }
+}
+</code></pre>
+
+<p>Although I visually inspected <code>this.props</code> against <code>prevProps</code> and to me they looked identical, they obviously aren&rsquo;t.</p>
+
+<p>A final note from React&rsquo;s documentation to remember when debugging:</p>
+
+<p><strong><code>componentDidUpdate()</code> will not be invoked if <code>shouldComponentUpdate()</code> returns false.</strong></p>
+    </section>
+    <footer class="post__footer">
+      
+      <ul class="post__tags">
+        
+        <li class="post__tag"><a href="https://til.neilmagee.com/tags/react/" class="post__tag-link"><span class="post__tag-label">#</span>react</a></li>
+        
+      </ul>
+      
+    </footer>
+  </article>
+
+  
+
+      </main>
+      <footer class="site-footer">
+        <div class="site-footer__inner">
+          <p class="site-footer__copyright">&copy; 2018 <a href="http://neilmagee.com">Neil Magee</a>. Icons from <a href="http://entypo.com">Entypo+</a>. Made with <a href="https://gohugo.io/" class="site-footer__hugo-logo"><img src="/images/hugo-logo.png" alt="Hugo logo" width="22" height="22"></a></p>
+        </div>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>
