@@ -1,7 +1,7 @@
 baseURL= "https://til.neilmagee.com/"
 languageCode= "en-gb"
 title= "TIL"
-paginate = 3
+paginate = 7
 theme = "comfortable-basic"
 pluralizelisttitles = false
 
