@@ -12,6 +12,16 @@
     
     
     <item>
+      <title>Editor config is still hard</title>
+      <link>https://til.neilmagee.com/posts/hugo-deploy/</link>
+      <pubDate>Wed, 14 Nov 2018 11:16:00 +0000</pubDate>
+      
+      <guid>https://til.neilmagee.com/posts/hugo-deploy/</guid>
+      <description>Today I learned that configuring your code editor to lint and format code in a predictable way is still hard.
+I use two editors frequently - Sublime Text and VS Code. Both are great. Both have plugins and their own settings. Today I was trying to update my environment for a Vue project in VS Code. I wanted the .vue files to be linted with ESLint, and for Prettier to handle the formatting.</description>
+    </item>
+    
+    <item>
       <title>React Prevent Re-renders</title>
       <link>https://til.neilmagee.com/posts/react-prevent-re-renders/</link>
       <pubDate>Wed, 07 Nov 2018 09:26:33 +0000</pubDate>
@@ -112,16 +122,6 @@ export default App;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Hugo deploy</title>
-      <link>https://til.neilmagee.com/posts/hugo-deploy/</link>
-      <pubDate>Wed, 10 Oct 2018 16:31:28 +0100</pubDate>
-      
-      <guid>https://til.neilmagee.com/posts/hugo-deploy/</guid>
-      <description>&lt;p&gt;Today I had a lesson in &lt;a href=&#34;https://en.wikipedia.org/wiki/RTFM&#34;&gt;RTFM&lt;/a&gt;. I noticed my Hugo &lt;code&gt;public/&lt;/code&gt; folder had a bunch of orphaned content from a previous deploy that used dummy content. There is a clear reference to this in the &lt;a href=&#34;https://gohugo.io/getting-started/usage/#deploy-your-website&#34;&gt;Hugo documentation&lt;/a&gt;.
-&lt;/p&gt;</description>
     </item>
     
     <item>
