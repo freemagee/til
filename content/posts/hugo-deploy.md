@@ -1,17 +1,67 @@
 ---
-title: "Hugo deploy"
-date: 2018-10-10T16:31:28+01:00
+title: "Editor config is still hard"
+date: 2018-11-14T11:16:00+00:00
 categories:
   - development
 tags:
-  - hugo
+  - eslint
+  - vue
 ---
 
-Today I had a lesson in [RTFM](https://en.wikipedia.org/wiki/RTFM). I noticed my Hugo `public/` folder had a bunch of orphaned content from a previous deploy that used dummy content. There is a clear reference to this in the [Hugo documentation](https://gohugo.io/getting-started/usage/#deploy-your-website).
-<!--more-->
+Today I learned that configuring your code editor to lint and format code in a predictable way is still hard.
 
-> Running *hugo* does not remove generated files before building. This means that you should delete your *public/* directory (or the publish directory you specified via flag or configuration file) before running the *hugo* command. If you do not remove these files, you run the risk of the wrong files (e.g., drafts or future posts) being left in the generated site.
+I use two editors frequently - Sublime Text and VS Code. Both are great. Both have plugins and their own settings. Today I was trying to update my environment for a Vue project in VS Code. I wanted the `.vue` files to be linted with ESLint, and for Prettier to handle the formatting. I was concentrating on how multiple attributes per line were being formatted on the `<template>` part.
 
-A large part of being a developer is reading documentation. I obviously need to read more wisely.
+After following some advice on [Stack Overflow](https://stackoverflow.com/questions/52102705/cant-get-correct-autoformat-on-save-in-visual-studio-code-with-eslint-and-prett), which led me to an article on [Medium](https://medium.com/@doppelmutzi/eslint-prettier-vue-workflow-46a3cf54332f), an issue on [GitHub](https://github.com/vuejs/eslint-plugin-vue/issues/557) and a video by Wes Bos on [YouTube](https://youtu.be/YIvjKId9m2c). I got somewhere...but not where I want to be. I can not get this code:
 
-After deleting `public/` and regenerating my content, all is good once more. I will need to build a delete step into my build process to avoid this in the future.
+```vue
+<template>
+  <div v-cloak id="app" class="w-100 mw8 center">
+    <food-search
+      :search-query="search.searchQuery"
+      :search-branded="search.searchBranded"
+      :loading="loading"
+      @set-search-data="setSearchData"
+    ></food-search>
+    <search-results
+      :food-list="foodList"
+      :selected-id="selectedRawData.id"
+      @retrieve="getDataForSelected"
+    ></search-results>
+    <nutrition-information
+      :name="information.name"
+      :nutrition="information.nutrition"
+    ></nutrition-information>
+  </div>
+</template>
+```
+
+to format like this on save:
+
+```vue
+<template>
+  <div
+    v-cloak
+    id="app"
+    class="w-100 mw8 center"
+  >
+    <food-search
+      :search-query="search.searchQuery"
+      :search-branded="search.searchBranded"
+      :loading="loading"
+      @set-search-data="setSearchData"
+    ></food-search>
+    <search-results
+      :food-list="foodList"
+      :selected-id="selectedRawData.id"
+      @retrieve="getDataForSelected"
+    ></search-results>
+    <nutrition-information
+      :name="information.name"
+      :nutrition="information.nutrition"
+    ></nutrition-information>
+  </div>
+</template>
+```
+
+I will figure it out eventually, but this is often an element of development that can be overlooked - configuration and tooling.
