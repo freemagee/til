@@ -11,6 +11,7 @@ tags:
 Today I learned that configuring your code editor to lint and format code in a predictable way is still hard.
 
 I use two editors frequently - Sublime Text and VS Code. Both are great. Both have plugins and their own settings. Today I was trying to update my environment for a Vue project in VS Code. I wanted the `.vue` files to be linted with ESLint, and for Prettier to handle the formatting. I was concentrating on how multiple attributes per line were being formatted on the `<template>` part.
+<!--more-->
 
 After following some advice on [Stack Overflow](https://stackoverflow.com/questions/52102705/cant-get-correct-autoformat-on-save-in-visual-studio-code-with-eslint-and-prett), which led me to an article on [Medium](https://medium.com/@doppelmutzi/eslint-prettier-vue-workflow-46a3cf54332f), an issue on [GitHub](https://github.com/vuejs/eslint-plugin-vue/issues/557) and a video by Wes Bos on [YouTube](https://youtu.be/YIvjKId9m2c). I got somewhere...but not where I want to be. I can not get this code:
 
