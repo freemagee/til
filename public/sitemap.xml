@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://til.neilmagee.com/posts/hugo-deploy/</loc>
+    <loc>https://til.neilmagee.com/posts/editor-config-is-still-hard/</loc>
     <lastmod>2018-11-14T11:16:00+00:00</lastmod>
   </url>
   
@@ -25,6 +25,11 @@
   <url>
     <loc>https://til.neilmagee.com/posts/hugo-variables/</loc>
     <lastmod>2018-10-11T12:39:12+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://til.neilmagee.com/posts/hugo-deploy/</loc>
+    <lastmod>2018-10-10T16:31:28+01:00</lastmod>
   </url>
   
   <url>

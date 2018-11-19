@@ -7,7 +7,7 @@
   <title>
   TIL
     -
-  Editor config is still hard
+  Hugo deploy
 </title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -38,11 +38,11 @@
         
   <article class="post post--single">
     <header class="post__header">
-      <h1 class="post__title post__title--single">Editor config is still hard</h1>
+      <h1 class="post__title post__title--single">Hugo deploy</h1>
       <div class="post__meta">
-        <time class="post__date" datetime="2018-11-14T11:16:00Z">
+        <time class="post__date" datetime="2018-10-10T16:31:28&#43;01:00">
           <span class="post__published">Published:</span>
-          <span class="post__published-value">2018-11-14</span>
+          <span class="post__published-value">2018-10-10</span>
         </time>
         
         <ul class="post__categories">
@@ -56,70 +56,22 @@
       </div>
     </header>
     <section class="post-content">
-      <p>Today I learned that configuring your code editor to lint and format code in a predictable way is still hard.</p>
+      <p>Today I had a lesson in <a href="https://en.wikipedia.org/wiki/RTFM">RTFM</a>. I noticed my Hugo <code>public/</code> folder had a bunch of orphaned content from a previous deploy that used dummy content. There is a clear reference to this in the <a href="https://gohugo.io/getting-started/usage/#deploy-your-website">Hugo documentation</a>.
+</p>
 
-<p>I use two editors frequently - Sublime Text and VS Code. Both are great. Both have plugins and their own settings. Today I was trying to update my environment for a Vue project in VS Code. I wanted the <code>.vue</code> files to be linted with ESLint, and for Prettier to handle the formatting. I was concentrating on how multiple attributes per line were being formatted on the <code>&lt;template&gt;</code> part.</p>
+<blockquote>
+<p>Running <em>hugo</em> does not remove generated files before building. This means that you should delete your <em>public/</em> directory (or the publish directory you specified via flag or configuration file) before running the <em>hugo</em> command. If you do not remove these files, you run the risk of the wrong files (e.g., drafts or future posts) being left in the generated site.</p>
+</blockquote>
 
-<p>After following some advice on <a href="https://stackoverflow.com/questions/52102705/cant-get-correct-autoformat-on-save-in-visual-studio-code-with-eslint-and-prett">Stack Overflow</a>, which led me to an article on <a href="https://medium.com/@doppelmutzi/eslint-prettier-vue-workflow-46a3cf54332f">Medium</a>, an issue on <a href="https://github.com/vuejs/eslint-plugin-vue/issues/557">GitHub</a> and a video by Wes Bos on <a href="https://youtu.be/YIvjKId9m2c">YouTube</a>. I got somewhere&hellip;but not where I want to be. I can not get this code:</p>
+<p>A large part of being a developer is reading documentation. I obviously need to read more wisely.</p>
 
-<pre><code class="language-vue">&lt;template&gt;
-  &lt;div v-cloak id=&quot;app&quot; class=&quot;w-100 mw8 center&quot;&gt;
-    &lt;food-search
-      :search-query=&quot;search.searchQuery&quot;
-      :search-branded=&quot;search.searchBranded&quot;
-      :loading=&quot;loading&quot;
-      @set-search-data=&quot;setSearchData&quot;
-    &gt;&lt;/food-search&gt;
-    &lt;search-results
-      :food-list=&quot;foodList&quot;
-      :selected-id=&quot;selectedRawData.id&quot;
-      @retrieve=&quot;getDataForSelected&quot;
-    &gt;&lt;/search-results&gt;
-    &lt;nutrition-information
-      :name=&quot;information.name&quot;
-      :nutrition=&quot;information.nutrition&quot;
-    &gt;&lt;/nutrition-information&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
-</code></pre>
-
-<p>to format like this on save:</p>
-
-<pre><code class="language-vue">&lt;template&gt;
-  &lt;div
-    v-cloak
-    id=&quot;app&quot;
-    class=&quot;w-100 mw8 center&quot;
-  &gt;
-    &lt;food-search
-      :search-query=&quot;search.searchQuery&quot;
-      :search-branded=&quot;search.searchBranded&quot;
-      :loading=&quot;loading&quot;
-      @set-search-data=&quot;setSearchData&quot;
-    &gt;&lt;/food-search&gt;
-    &lt;search-results
-      :food-list=&quot;foodList&quot;
-      :selected-id=&quot;selectedRawData.id&quot;
-      @retrieve=&quot;getDataForSelected&quot;
-    &gt;&lt;/search-results&gt;
-    &lt;nutrition-information
-      :name=&quot;information.name&quot;
-      :nutrition=&quot;information.nutrition&quot;
-    &gt;&lt;/nutrition-information&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
-</code></pre>
-
-<p>I will figure it out eventually, but this is often an element of development that can be overlooked - configuration and tooling.</p>
-
+<p>After deleting <code>public/</code> and regenerating my content, all is good once more. I will need to build a delete step into my build process to avoid this in the future.</p>
     </section>
     <footer class="post__footer">
       
       <ul class="post__tags">
         
-        <li class="post__tag"><a href="https://til.neilmagee.com/tags/eslint/" class="post__tag-link"><span class="post__tag-label">#</span>eslint</a></li>
-        
-        <li class="post__tag"><a href="https://til.neilmagee.com/tags/vue/" class="post__tag-link"><span class="post__tag-label">#</span>vue</a></li>
+        <li class="post__tag"><a href="https://til.neilmagee.com/tags/hugo/" class="post__tag-link"><span class="post__tag-label">#</span>hugo</a></li>
         
       </ul>
       
@@ -127,6 +79,31 @@
   </article>
 
   
+<aside class="post-siblings">
+  <span class="post-siblings__more">More posts</span>
+  
+    <a class="post-siblings__nav post-siblings__nav--next" href="https://til.neilmagee.com/posts/hugo-variables/"><span class="post-siblings__nav-icon">
+    <svg version="1.1" id="Chevron_left" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+   y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
+    <path d="M12.452,4.516c0.446,0.436,0.481,1.043,0,1.576L8.705,10l3.747,3.908c0.481,0.533,0.446,1.141,0,1.574
+      c-0.445,0.436-1.197,0.408-1.615,0c-0.418-0.406-4.502-4.695-4.502-4.695C6.112,10.57,6,10.285,6,10s0.112-0.57,0.335-0.789
+      c0,0,4.084-4.287,4.502-4.695C11.255,4.107,12.007,4.08,12.452,4.516z" class="post-siblings__nav-icon-next" />
+    </svg>
+  </span>Next</a>
+  
+
+  
+  <a class="post-siblings__nav post-siblings__nav--previous" href="https://til.neilmagee.com/posts/hugo-templates/">Previous<span class="post-siblings__nav-icon">
+    <svg version="1.1" id="Chevron_right" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+   y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
+    <path d="M9.163,4.516c0.418,0.408,4.502,4.695,4.502,4.695C13.888,9.43,14,9.715,14,10s-0.112,0.57-0.335,0.787
+      c0,0-4.084,4.289-4.502,4.695c-0.418,0.408-1.17,0.436-1.615,0c-0.446-0.434-0.481-1.041,0-1.574L11.295,10L7.548,6.092
+      c-0.481-0.533-0.446-1.141,0-1.576C7.993,4.08,8.745,4.107,9.163,4.516z" class="post-siblings__nav-icon-previous" />
+    </svg>
+  </span></a>
+  
+</aside>
+
 
       </main>
       <footer class="site-footer">
