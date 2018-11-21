@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Php on TIL</title>
+    <link>https://til.neilmagee.com/tags/php/</link>
+    <description>Recent content in Php on TIL</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Wed, 21 Nov 2018 16:28:33 +0000</lastBuildDate>
+    
+	<atom:link href="https://til.neilmagee.com/tags/php/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>PHP The right way</title>
+      <link>https://til.neilmagee.com/posts/php-the-right-way/</link>
+      <pubDate>Wed, 21 Nov 2018 16:28:33 +0000</pubDate>
+      
+      <guid>https://til.neilmagee.com/posts/php-the-right-way/</guid>
+      <description>Today I learned about PHP The right way. Whilst I am a Frontend developer who focuses on JavaScript, CSS, HTML, UX, design etc etc, I am still responsible for writing PHP every now and again. That can be Wordpress themes or plugins, login systems and in the past I have written basic e-commerce. PHP is still my server side language of choice for my own projects.
+I have made effort in my JavaScript to try to follow some practices - ESLint, Prettier for code formatting, use Babel, learn design patterns and more.</description>
+    </item>
+    
+  </channel>
+</rss>

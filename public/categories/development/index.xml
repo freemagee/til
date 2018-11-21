@@ -6,10 +6,20 @@
     <description>Recent content in Development on TIL</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Mon, 19 Nov 2018 14:54:11 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 21 Nov 2018 16:28:33 +0000</lastBuildDate>
     
 	<atom:link href="https://til.neilmagee.com/categories/development/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>PHP The right way</title>
+      <link>https://til.neilmagee.com/posts/php-the-right-way/</link>
+      <pubDate>Wed, 21 Nov 2018 16:28:33 +0000</pubDate>
+      
+      <guid>https://til.neilmagee.com/posts/php-the-right-way/</guid>
+      <description>Today I learned about PHP The right way. Whilst I am a Frontend developer who focuses on JavaScript, CSS, HTML, UX, design etc etc, I am still responsible for writing PHP every now and again. That can be Wordpress themes or plugins, login systems and in the past I have written basic e-commerce. PHP is still my server side language of choice for my own projects.
+I have made effort in my JavaScript to try to follow some practices - ESLint, Prettier for code formatting, use Babel, learn design patterns and more.</description>
+    </item>
     
     <item>
       <title>Tachyons Components</title>
