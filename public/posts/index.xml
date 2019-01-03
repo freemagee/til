@@ -6,10 +6,36 @@
     <description>Recent content in Posts on TIL</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Wed, 21 Nov 2018 16:28:33 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 03 Jan 2019 14:52:45 +0000</lastBuildDate>
     
 	<atom:link href="https://til.neilmagee.com/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Undo a Git commit and redo</title>
+      <link>https://til.neilmagee.com/posts/git-undo-commit/</link>
+      <pubDate>Thu, 03 Jan 2019 14:52:45 +0000</pubDate>
+      
+      <guid>https://til.neilmagee.com/posts/git-undo-commit/</guid>
+      <description>&lt;p&gt;Today I learned how to sort out a &lt;strong&gt;local&lt;/strong&gt; mistake in Git&lt;sup&gt;1&lt;/sup&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git commit -m &amp;quot;Something terribly misguided&amp;quot;             # (1)
+$ git reset HEAD~                                          # (2)
+&amp;lt;&amp;lt; edit files as necessary &amp;gt;&amp;gt;                              # (3)
+$ git add ...                                              # (4)
+$ git commit -c ORIG_HEAD                                  # (5)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;This is what you want to undo&lt;/li&gt;
+&lt;li&gt;This leaves your working tree (the state of your files on disk) unchanged but undoes the commit and leaves the changes you committed unstaged (so they&amp;rsquo;ll appear as &amp;ldquo;Changes not staged for commit&amp;rdquo; in &lt;code&gt;git status&lt;/code&gt;, and you&amp;rsquo;ll need to add them again before committing). If you only want to add more changes to the previous commit, or change the commit message&lt;sup&gt;2&lt;/sup&gt;, you could use &lt;code&gt;git reset --soft HEAD~&lt;/code&gt; instead, which is like &lt;code&gt;git reset HEAD~&lt;/code&gt; (where &lt;code&gt;HEAD~&lt;/code&gt; is the same as &lt;code&gt;HEAD~1&lt;/code&gt;) but leaves your existing changes staged.&lt;/li&gt;
+&lt;li&gt;Make corrections to working tree files.&lt;/li&gt;
+&lt;li&gt;git add anything that you want to include in your new commit.&lt;/li&gt;
+&lt;li&gt;Commit the changes, reusing the old commit message. reset copied the old head to &lt;code&gt;.git/ORIG_HEAD&lt;/code&gt;; &lt;code&gt;commit&lt;/code&gt; with &lt;code&gt;-c ORIG_HEAD&lt;/code&gt; will open an editor, which initially contains the log message from the old commit and allows you to edit it. If you do not need to edit the message, you could use the &lt;code&gt;-C&lt;/code&gt; option.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>PHP The right way</title>
