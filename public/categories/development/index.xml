@@ -6,10 +6,28 @@
     <description>Recent content in Development on TIL</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Thu, 03 Jan 2019 14:52:45 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 08 Jan 2019 11:11:05 +0000</lastBuildDate>
     
 	<atom:link href="https://til.neilmagee.com/categories/development/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Update state from props in React</title>
+      <link>https://til.neilmagee.com/posts/react-update-state-from-props/</link>
+      <pubDate>Tue, 08 Jan 2019 11:11:05 +0000</pubDate>
+      
+      <guid>https://til.neilmagee.com/posts/react-update-state-from-props/</guid>
+      <description>&lt;p&gt;Today I learned how to use a new(ish) React lifecycle hook called &lt;code&gt;getDerivedStateFromProps&lt;/code&gt; (&lt;a href=&#34;https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props&#34;&gt;link&lt;/a&gt;). I have struggled a little bit with form components that allow you to edit data. In my example below it is &amp;ldquo;user&amp;rdquo; data, but in reality this could affect all forms with any data in React.&lt;/p&gt;
+
+&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
+
+&lt;p&gt;The reason for the struggle is a slight conflict for the one true source of the data for the form. When the &amp;ldquo;user&amp;rdquo; is edited, and the &lt;strong&gt;user form component&lt;/strong&gt; is used, data is fed into it via props from it&amp;rsquo;s &lt;em&gt;parent component&lt;/em&gt;. So the Employer and Job title current values can appear in their relevant inputs.&lt;/p&gt;
+
+&lt;p&gt;That would be ok if that data was static, but the data is not and it needs to be editable. So the props are copied into the &lt;strong&gt;user form component&lt;/strong&gt; state. And this state is used as the value of the relevant inputs. That allows the inputs to receive new data, which triggers off a chain of events.&lt;/p&gt;
+
+&lt;p&gt;The new data is processed via a &lt;code&gt;handleChange&lt;/code&gt; event in the &lt;strong&gt;user form component&lt;/strong&gt;. Two things happen, it is added to the current state and also passed to a &lt;em&gt;parent component&lt;/em&gt; for other actions to happen. When that &lt;em&gt;parent component&lt;/em&gt; is done, it sends that data back to this &lt;strong&gt;user form component&lt;/strong&gt; as props and the cycle can continue.
+&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Undo a Git commit and redo</title>
