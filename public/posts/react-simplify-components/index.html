@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en-gb">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>
+  TIL
+    -
+  
+</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Neil Magee">
+  <meta name="referrer" content="no-referrer-when-downgrade">
+
+  <link href="https://til.neilmagee.com/images/favicon/favicon-16x16.png" rel="shortcut icon" type="image/png">
+
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://til.neilmagee.com/css/style.css" />
+</head>
+<body>
+  
+
+<header class="site-header">
+  <section class="site-header__ident">
+    <a href="https://til.neilmagee.com/" class="site-header__link">TIL</a>
+  </section>
+  <nav class="site-header__nav">
+  
+    <a href="https://til.neilmagee.com/about/" class="site-header__nav-item">About</a>
+  
+  </nav>
+</header>
+  <div class="site-container">
+    <div class="site-container__inner">
+      <main role="main">
+        
+  <article class="post post--single">
+    <header class="post__header">
+      <h1 class="post__title post__title--single"></h1>
+      <div class="post__meta">
+        <time class="post__date" datetime="2019-01-09T17:04:41Z">
+          <span class="post__published">Published:</span>
+          <span class="post__published-value">2019-01-09</span>
+        </time>
+        
+        <ul class="post__categories">
+          
+          <li class="post__category">
+            <a href="https://til.neilmagee.com/categories/development/" class="post__category-link">development</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </header>
+    <section class="post-content">
+      <p>Today I learned a bit more about why setting props against state is considered an anti-pattern. After my <a href="https://til.neilmagee.com/posts/react-update-state-from-props/">previous article</a>, I was not happy with the component. It still felt like <code>getDerivedStateFromProps</code> was a hack rather than a maintainable fix. Plus in using the component, I was still triggering bugs that were quite situational.</p>
+
+<p>I read more on <a href="https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html#recap">the react blog</a> and the recap really nailed what I needed to do.</p>
+
+<blockquote>
+<p>For example, rather than a child accepting a “committed” props.value and tracking a “draft” state.value, have the parent manage both state.draftValue and state.committedValue and control the child’s value directly.</p>
+</blockquote>
+
+<p>This accurately described a process, to make my component simpler (I think it qualifies as a controlled component now), that would remove side effects. So I set out to remove state from this component and make it&rsquo;s parent responsible for passing in the correct data as props.
+</p>
+
+<h2 id="user-form-component-before">User Form Component - Before</h2>
+
+<pre><code class="language-javascript">import React from &quot;react&quot;;
+
+export default class User extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      employer: this.props.user.employer,
+      jobTitle: this.props.user.jobTitle
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+  static getDerivedStateFromProps(nextProps, nextState) {
+    if (
+      nextProps.user.employer !== nextState.employer ||
+      nextProps.user.jobTitle !== nextState.jobTitle
+    ) {
+      // The props have changed. So update state accordingly.
+      return {
+        employer: nextProps.user.employer,
+        jobTitle: nextProps.user.jobTitle
+      };
+    }
+
+    // Return null to indicate no change to state.
+    return null;
+  }
+  handleChange(event) {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value
+    });
+
+    // The following update the data in a parent component, which will eventually come back to this component via props.
+    if (name === &quot;employer&quot;) {
+      this.props.onEmployerUpdate(value);
+    }
+
+    if (name === &quot;jobTitle&quot;) {
+      this.props.onJobTitleUpdate(value);
+    }
+  }
+  render() {
+    const employerClass =
+      this.props.user.employer !== &quot;&quot;
+        ? &quot;User__employer&quot;
+        : &quot;User__employer is-invalid&quot;;
+    const jobTitleClass =
+      this.props.user.jobTitle !== &quot;&quot;
+        ? &quot;User__jobTitle&quot;
+        : &quot;User__jobTitle is-invalid&quot;;
+
+    if (this.props.appMode === &quot;edit&quot;) {
+      return (
+        &lt;div className=&quot;User&quot;&gt;
+          &lt;div className=&quot;User__control&quot;&gt;
+            &lt;input
+              className={employerClass}
+              type=&quot;text&quot;
+              value={this.state.employer}
+              name=&quot;employer&quot;
+              onChange={this.handleChange}
+            /&gt;
+          &lt;/div&gt;
+          &lt;div className=&quot;User__control&quot;&gt;
+            &lt;input
+              className={jobTitleClass}
+              type=&quot;text&quot;
+              value={this.state.jobTitle}
+              name=&quot;jobTitle&quot;
+              onChange={this.handleChange}
+            /&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      );
+    } else {
+      return &lt;div className=&quot;User is-hidden&quot; /&gt;;
+    }
+  }
+}
+
+</code></pre>
+
+<p>The before version used set <code>props</code> against <code>state</code>. It then handled input from the user and used <code>getDerivedStateFromProps</code> to watch for changes to the props. I ran into multiple warnings from the React debugger whilst using this component as I changed other components in my app.</p>
+
+<h2 id="user-form-component-after-refactor">User Form Component - After Refactor</h2>
+
+<pre><code class="language-javascript">import React from &quot;react&quot;;
+
+export default class User extends React.Component {
+  constructor(props) {
+    super(props);
+    // Look, no state!
+    this.handleChange = this.handleChange.bind(this);
+  }
+  handleChange(event) {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+    // Record the current props data
+    const stateOfValues = {
+      employer: this.props.user.employer,
+      jobTitle: this.props.user.jobTitle
+    };
+    // Record the newly changed value
+    const newValue = {
+      [name]: value
+    };
+    // Use spread operator for object merge.
+    // In the case of a key collision, the right-most (last) object's value wins out.
+    const merged = { ...stateOfValues, ...newValue };
+
+    this.props.onDraftChange(merged);
+  }
+  render() {
+    // Initially the incoming user props can be undefined, so handle that.
+    const employer =
+      typeof this.props.user.employer !== &quot;undefined&quot; ? this.props.user.employer : &quot;&quot;;
+    const jobTitle =
+      typeof this.props.user.jobTitle !== &quot;undefined&quot;
+        ? this.props.user.jobTitle
+        : &quot;&quot;;
+    // TODO: The invalid classes are applied on a new user straight away, they should wait until a 'user' has started to input data/ or when they click an action
+    const employerClass =
+      employer !== &quot;&quot;
+        ? &quot;User__employer&quot;
+        : &quot;User__employer isInvalid&quot;;
+    const jobTitleClass =
+      jobTitle !== &quot;&quot;
+        ? &quot;User__jobTitle&quot;
+        : &quot;User__jobTitle isInvalid&quot;;
+
+    return (
+      &lt;div className=&quot;User&quot;&gt;
+        &lt;div className=&quot;User__control&quot;&gt;
+          &lt;input
+            className={employerClass}
+            type=&quot;text&quot;
+            value={employer}
+            name=&quot;employer&quot;
+            placeholder=&quot;Please enter a employer&quot;
+            onChange={this.handleChange}
+          /&gt;
+        &lt;/div&gt;
+        &lt;div className=&quot;User__control&quot;&gt;
+          &lt;input
+            className={jobTitleClass}
+            type=&quot;text&quot;
+            name=&quot;jobTitle&quot;
+            value={jobTitle}
+            placeholder=&quot;Please enter a job title&quot;
+            onChange={this.handleChange}
+          /&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+</code></pre>
+
+<p>So one of the main differences is the method <code>handleChange</code>. As a user changes data, it triggers <code>handleChange</code>. Before that was where I updated the internal <code>state</code>, and then pushed the new values out to the parent component. But now I take a record of the current <code>props</code>, take the newly edited value and merge them into a new object. That object is pushed to the parent component. Various other steps are taken in the parent, but eventually the newly changed data comes back into the <code>user form component</code> as <code>props</code> and the value in the input is changed.</p>
+
+<p>I hope I have got this pattern right this time&hellip;if not the knowledge is serving me well.</p>
+    </section>
+    <footer class="post__footer">
+      
+      <ul class="post__tags">
+        
+        <li class="post__tag"><a href="https://til.neilmagee.com/tags/react/" class="post__tag-link"><span class="post__tag-label">#</span>react</a></li>
+        
+      </ul>
+      
+    </footer>
+  </article>
+
+  
+
+      </main>
+      <footer class="site-footer">
+        <div class="site-footer__inner">
+          <p class="site-footer__copyright">&copy; 2019 <a href="http://neilmagee.com">Neil Magee</a>. Icons from <a href="http://entypo.com">Entypo+</a>. Made with <a href="https://gohugo.io/" class="site-footer__hugo-logo"><img src="/images/hugo-logo.png" alt="Hugo logo" width="22" height="22"></a></p>
+        </div>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>

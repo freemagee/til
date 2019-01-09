@@ -6,10 +6,28 @@
     <description>Recent content in Posts on TIL</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Tue, 08 Jan 2019 11:11:05 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 09 Jan 2019 17:04:41 +0000</lastBuildDate>
     
 	<atom:link href="https://til.neilmagee.com/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title></title>
+      <link>https://til.neilmagee.com/posts/react-simplify-components/</link>
+      <pubDate>Wed, 09 Jan 2019 17:04:41 +0000</pubDate>
+      
+      <guid>https://til.neilmagee.com/posts/react-simplify-components/</guid>
+      <description>&lt;p&gt;Today I learned a bit more about why setting props against state is considered an anti-pattern. After my &lt;a href=&#34;https://til.neilmagee.com/posts/react-update-state-from-props/&#34;&gt;previous article&lt;/a&gt;, I was not happy with the component. It still felt like &lt;code&gt;getDerivedStateFromProps&lt;/code&gt; was a hack rather than a maintainable fix. Plus in using the component, I was still triggering bugs that were quite situational.&lt;/p&gt;
+
+&lt;p&gt;I read more on &lt;a href=&#34;https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html#recap&#34;&gt;the react blog&lt;/a&gt; and the recap really nailed what I needed to do.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;For example, rather than a child accepting a “committed” props.value and tracking a “draft” state.value, have the parent manage both state.draftValue and state.committedValue and control the child’s value directly.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This accurately described a process, to make my component simpler (I think it qualifies as a controlled component now), that would remove side effects. So I set out to remove state from this component and make it&amp;rsquo;s parent responsible for passing in the correct data as props.
+&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Update state from props in React</title>
