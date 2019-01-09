@@ -1,5 +1,5 @@
 ---
-employer: "Simplify React components"
+title: "Simplify React components"
 date: 2019-01-09T17:04:41+00:00
 categories:
   - development
