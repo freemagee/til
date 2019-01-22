@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en-gb">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>
+  TIL
+    -
+  Get Jest working with Babel 7
+</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Neil Magee">
+  <meta name="referrer" content="no-referrer-when-downgrade">
+
+  <link href="https://til.neilmagee.com/images/favicon/favicon-16x16.png" rel="shortcut icon" type="image/png">
+
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://til.neilmagee.com/css/style.css" />
+</head>
+<body>
+  
+
+<header class="site-header">
+  <section class="site-header__ident">
+    <a href="https://til.neilmagee.com/" class="site-header__link">TIL</a>
+  </section>
+  <nav class="site-header__nav">
+  
+    <a href="https://til.neilmagee.com/about/" class="site-header__nav-item">About</a>
+  
+  </nav>
+</header>
+  <div class="site-container">
+    <div class="site-container__inner">
+      <main role="main" id="content">
+        
+  <article class="post post--single" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post__header">
+      <h1 class="post__title post__title--single" itemprop="title">Get Jest working with Babel 7</h1>
+      <div class="post__meta">
+        <time class="post__date" datetime="2019-01-22" itemprop="dateCreated pubdate datePublished">
+          <span class="post__published">Published:</span>
+          <span class="post__published-value">2019-01-22</span>
+        </time>
+        
+        <ul class="post__categories">
+          
+          <li class="post__category">
+            <a href="https://til.neilmagee.com/categories/development/" class="post__category-link">development</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </header>
+    <section class="post-content">
+      <p>Today I learned how to get <a href="https://jestjs.io">Jest</a> to work with Babel 7. Often development involves tool configuration. I have lost many hours to this over the years. Something changes a version number and suddenly you are hunting through Stack Overflow and GitHub with a good idea of the problem, but lacking the <code>magic inscriptions</code> to solve it. Or there are version conflicts. Today&rsquo;s example is the latter.</p>
+
+<p>I was writing a small tool for a maths problem, <a href="https://github.com/freemagee/number-difference-table">Number difference table</a>, and I thought it would benefit from having some unit tests written for it. I wanted to test some of the calculations and using the UI over and over, or console logging had become tedious.</p>
+
+<p>So I chose to use <a href="https://jestjs.io">Jest</a> and installed it.</p>
+
+<pre><code class="language-bash">yarn add -D jest
+</code></pre>
+
+<p></p>
+
+<p>I set up a test and imported my code and ran the test. I was met with</p>
+
+<pre><code class="language-bash">$ jest
+ FAIL  tests/solveSequence.test.js
+  ● Test suite failed to run
+
+    Jest encountered an unexpected token
+
+    --- LOG SHORTENED ---
+
+    D:\dev\github\number-difference-table\tests\solveSequence.test.js:1
+    ({&quot;Object.&lt;anonymous&gt;&quot;:function(module,exports,require,__dirname,__filename,global,jest){import solveSequence from &quot;solveSequence&quot;;
+
+                   ^^^^^^
+
+    SyntaxError: Unexpected token import
+
+      at ScriptTransformer._transformAndBuildScript (node_modules/jest-runtime/build/script_transformer.js:403:17)
+
+Test Suites: 1 failed, 1 total
+Tests:       0 total
+Snapshots:   0 total
+Time:        5.823s
+Ran all test suites.
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+</code></pre>
+
+<p>I immediately could see this was an ES6 module import issue. My <code>solveSequence</code> module code was fine and looking at <a href="https://jestjs.io/docs/en/getting-started">Jest&rsquo;s docs</a> they use a require statement in their examples.</p>
+
+<p>So I Googled getting Jest to work with ES6 imports. This led me on a process of installing Babel, adding a Jest config to my package.json, adding a Babel config file (<code>.babelrc</code>) and installing a few other packages. This sadly led to more error messages!</p>
+
+<p>This message:</p>
+
+<pre><code class="language-bash">$ jest
+ FAIL  tests/solveSequence.test.js
+  ● Test suite failed to run
+
+    Requires Babel &quot;^7.0.0-0&quot;, but was loaded with &quot;6.26.3&quot;. If you are sure you have a compatible version of @babel/core, it is likely that something in your build process is loading the wrong version. Inspect the stack trace of this error to look for the first entry that doesn't mention &quot;@babel/core&quot; or &quot;babel-core&quot; to see what is calling Babel. (While processing preset: &quot;D:\\dev\\github\\number-difference-table\\node_modules\\@babel\\preset-env\\lib\\index.js&quot;)
+</code></pre>
+
+<p>That gave me more of a clue what was happening. I ended up on a <a href="https://github.com/facebook/jest/issues/6913">GitHub issue</a>, and after reading it I got to a point where I removed my <code>node_modules</code> folder (I use <code>rimraf</code> for this). Removed <code>Jest</code> and any other packages I had installed and got back to my initial <code>package.json</code> config. I used <code>yarn install</code> to get my initial config installed once more. I then added <code>@babel/core</code>. After that I added <code>babel-core</code> using <code>7.0.0-bridge.0</code>. Finally <code>Jest</code> and <code>babel-jest</code> (not 100% sure <code>babel-jest</code> was necessary as some docs said it is installed as part of Jest). After <code>yarn</code> had done it&rsquo;s thing I ran my test. Bingo. The test was run successfully. No more error messages and I was getting results from my test.</p>
+
+<p>My final <code>package.json</code> was:</p>
+
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;number-difference-table&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;main&quot;: &quot;index.js&quot;,
+  &quot;scripts&quot;: {
+    &quot;start&quot;: &quot;parcel index.html&quot;,
+    &quot;build&quot;: &quot;rimraf dist/ &amp;&amp; parcel build index.html --public-url https://freemagee.github.io/number-difference-table/ --no-source-maps&quot;,
+    &quot;deploy&quot;: &quot;gh-pages -d dist&quot;,
+    &quot;test&quot;: &quot;jest&quot;
+  },
+  &quot;license&quot;: &quot;MIT&quot;,
+  &quot;dependencies&quot;: {
+    &quot;tachyons&quot;: &quot;^4.11.1&quot;
+  },
+  &quot;devDependencies&quot;: {
+    &quot;@babel/cli&quot;: &quot;^7.2.3&quot;,
+    &quot;@babel/core&quot;: &quot;^7.2.2&quot;,
+    &quot;@babel/polyfill&quot;: &quot;^7.2.5&quot;,
+    &quot;@babel/preset-env&quot;: &quot;^7.2.3&quot;,
+    &quot;babel-core&quot;: &quot;^7.0.0-bridge.0&quot;,
+    &quot;babel-jest&quot;: &quot;^23.6.0&quot;,
+    &quot;eslint&quot;: &quot;^5.12.0&quot;,
+    &quot;eslint-config-airbnb-base&quot;: &quot;^13.1.0&quot;,
+    &quot;eslint-config-prettier&quot;: &quot;^3.4.0&quot;,
+    &quot;eslint-plugin-import&quot;: &quot;^2.14.0&quot;,
+    &quot;eslint-plugin-prettier&quot;: &quot;^3.0.1&quot;,
+    &quot;gh-pages&quot;: &quot;^2.0.1&quot;,
+    &quot;jest&quot;: &quot;^23.6.0&quot;,
+    &quot;parcel-bundler&quot;: &quot;^1.11.0&quot;,
+    &quot;prettier&quot;: &quot;^1.15.3&quot;
+  },
+  &quot;browserslist&quot;: [
+    &quot;&gt;0.2%&quot;,
+    &quot;not dead&quot;,
+    &quot;not ie &lt;= 11&quot;,
+    &quot;not op_mini all&quot;
+  ],
+  &quot;jest&quot;: {
+    &quot;verbose&quot;: true,
+    &quot;moduleDirectories&quot;: [
+      &quot;node_modules&quot;,
+      &quot;src&quot;
+    ]
+  },
+  &quot;babel&quot;: {
+    &quot;presets&quot;: [
+      &quot;@babel/preset-env&quot;
+    ]
+  }
+}
+</code></pre>
+
+<h2 id="wrap-up">Wrap up</h2>
+
+<p>So this led me to begin looking at <a href="https://jestjs.io/docs/en/getting-started#using-babel">using babel</a> in the Jest docs. They state:</p>
+
+<blockquote>
+<p>Note: If you are using Babel version 7 then you need to install babel-jest, babel-core@^7.0.0-bridge.0 and @babel/core with the following command:</p>
+</blockquote>
+
+<pre><code class="language-bash">yarn add --dev babel-jest babel-core@^7.0.0-bridge.0 @babel/core regenerator-runtime
+</code></pre>
+
+<p>This may have been the solution all along. But I know that having added Babel to my project <em>after</em> I initially added Jest caused the problems I faced. Jest then want to use Babel 6 instead of 7 and thus the conflicts caused an error.</p>
+    </section>
+    <footer class="post__footer">
+      
+      <ul class="post__tags">
+        
+        <li class="post__tag"><a href="https://til.neilmagee.com/tags/jest/" class="post__tag-link"><span class="post__tag-label">#</span>jest</a></li>
+        
+      </ul>
+      
+    </footer>
+  </article>
+
+  
+
+      </main>
+      <footer class="site-footer">
+        <div class="site-footer__inner">
+          <p class="site-footer__copyright">&copy; 2019 <a href="https://neilmagee.com">Neil Magee</a>. Icons from <a href="http://entypo.com">Entypo+</a>. Made with <a href="https://gohugo.io/" class="site-footer__hugo-logo"><img src="/images/hugo-logo.png" alt="Hugo logo" width="22" height="22"></a></p>
+        </div>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>

@@ -34,13 +34,13 @@
 </header>
   <div class="site-container">
     <div class="site-container__inner">
-      <main role="main">
+      <main role="main" id="content">
         
-  <article class="post post--single">
+  <article class="post post--single" itemscope itemtype="http://schema.org/BlogPosting">
     <header class="post__header">
-      <h1 class="post__title post__title--single">Undo a Git commit and redo</h1>
+      <h1 class="post__title post__title--single" itemprop="title">Undo a Git commit and redo</h1>
       <div class="post__meta">
-        <time class="post__date" datetime="2019-01-03T14:52:45Z">
+        <time class="post__date" datetime="2019-01-03" itemprop="dateCreated pubdate datePublished">
           <span class="post__published">Published:</span>
           <span class="post__published-value">2019-01-03</span>
         </time>
@@ -129,7 +129,7 @@ $ git commit -c ORIG_HEAD                                  # (5)
       </main>
       <footer class="site-footer">
         <div class="site-footer__inner">
-          <p class="site-footer__copyright">&copy; 2019 <a href="http://neilmagee.com">Neil Magee</a>. Icons from <a href="http://entypo.com">Entypo+</a>. Made with <a href="https://gohugo.io/" class="site-footer__hugo-logo"><img src="/images/hugo-logo.png" alt="Hugo logo" width="22" height="22"></a></p>
+          <p class="site-footer__copyright">&copy; 2019 <a href="https://neilmagee.com">Neil Magee</a>. Icons from <a href="http://entypo.com">Entypo+</a>. Made with <a href="https://gohugo.io/" class="site-footer__hugo-logo"><img src="/images/hugo-logo.png" alt="Hugo logo" width="22" height="22"></a></p>
         </div>
       </footer>
     </div>

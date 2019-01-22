@@ -6,10 +6,28 @@
     <description>Recent content in Development on TIL</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Wed, 09 Jan 2019 17:04:41 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 22 Jan 2019 09:32:32 +0000</lastBuildDate>
     
 	<atom:link href="https://til.neilmagee.com/categories/development/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Get Jest working with Babel 7</title>
+      <link>https://til.neilmagee.com/posts/jest-with-babel-7/</link>
+      <pubDate>Tue, 22 Jan 2019 09:32:32 +0000</pubDate>
+      
+      <guid>https://til.neilmagee.com/posts/jest-with-babel-7/</guid>
+      <description>&lt;p&gt;Today I learned how to get &lt;a href=&#34;https://jestjs.io&#34;&gt;Jest&lt;/a&gt; to work with Babel 7. Often development involves tool configuration. I have lost many hours to this over the years. Something changes a version number and suddenly you are hunting through Stack Overflow and GitHub with a good idea of the problem, but lacking the &lt;code&gt;magic inscriptions&lt;/code&gt; to solve it. Or there are version conflicts. Today&amp;rsquo;s example is the latter.&lt;/p&gt;
+
+&lt;p&gt;I was writing a small tool for a maths problem, &lt;a href=&#34;https://github.com/freemagee/number-difference-table&#34;&gt;Number difference table&lt;/a&gt;, and I thought it would benefit from having some unit tests written for it. I wanted to test some of the calculations and using the UI over and over, or console logging had become tedious.&lt;/p&gt;
+
+&lt;p&gt;So I chose to use &lt;a href=&#34;https://jestjs.io&#34;&gt;Jest&lt;/a&gt; and installed it.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;yarn add -D jest
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Simplify React components</title>
