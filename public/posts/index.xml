@@ -6,10 +6,26 @@
     <description>Recent content in Posts on TIL</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Tue, 22 Jan 2019 09:32:32 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 04 Feb 2019 14:54:05 +0000</lastBuildDate>
     
 	<atom:link href="https://til.neilmagee.com/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Apache virtual host redirection with ssl</title>
+      <link>https://til.neilmagee.com/posts/apache-virtual-host-redirection-with-ssl/</link>
+      <pubDate>Mon, 04 Feb 2019 14:54:05 +0000</pubDate>
+      
+      <guid>https://til.neilmagee.com/posts/apache-virtual-host-redirection-with-ssl/</guid>
+      <description>&lt;p&gt;Today I learned more about Apache virtual hosting and redirection. I decided to change my server host to &lt;a href=&#34;https://www.digitalocean.com&#34;&gt;Digital Ocean&lt;/a&gt; a few months ago. There was nothing wrong with my then host, it was a shared web host, which I mainly used to access and manage with cPanel.&lt;/p&gt;
+
+&lt;p&gt;During my day job I have been administering a CentOS based virtual server hosted by Rackspace and have become more comfortable with using a SSH to manage it. &lt;em&gt;Comfortable&lt;/em&gt;, but still with lots of Googling and Stack Overflowing.&lt;/p&gt;
+
+&lt;p&gt;So I thought I would challenge myself a bit and make the jump to Digital Ocean and take more control of my own server. I wanted to be able to make any sites I run use SSL via &lt;a href=&#34;https://letsencrypt.org/&#34;&gt;Let&amp;rsquo;s Encrypt&lt;/a&gt;. This was not possible with my old host, as they had a more traditional &amp;ldquo;buy a certificate&amp;rdquo; business model and I could not administer the server to install Certbot.&lt;/p&gt;
+
+&lt;p&gt;After setting this new server up and getting &lt;strong&gt;neilmagee.com&lt;/strong&gt; served on port 80, I used Let&amp;rsquo;s Encrypt to generate some certs for the &lt;code&gt;www&lt;/code&gt; and &lt;code&gt;non-www&lt;/code&gt; versions of the sites (&lt;em&gt;Why? See &lt;a href=&#34;#notes&#34;&gt;notes&lt;/a&gt; at end of article&lt;/em&gt;). This worked well, and I could now access &lt;a href=&#34;https://neilmagee.com&#34;&gt;https://neilmagee.com&lt;/a&gt; and &lt;a href=&#34;https://www.neilmagee.com&#34;&gt;https://www.neilmagee.com&lt;/a&gt;. My goal was to redirect all traffic (http{s} and www) to my canonical domain, &lt;a href=&#34;https://neilmagee.com&#34;&gt;https://neilmagee.com&lt;/a&gt;.
+&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Get Jest working with Babel 7</title>

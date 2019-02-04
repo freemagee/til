@@ -50,6 +50,60 @@
     
       <section class="post post--summary">
   <header class="post__header">
+    <a href="/posts/apache-virtual-host-redirection-with-ssl/" class="post__title">Apache virtual host redirection with ssl</a>
+    <div class="post__meta">
+      <time class="post__date" datetime="2019-02-04T14:54:05Z">
+        <span class="post__published">Published:</span>
+        <span class="post__published-value">2019-02-04</span>
+      </time>
+      
+      <ul class="post__categories">
+        
+        <li class="post__category"><a href="https://til.neilmagee.com/categories/development/" class="post__category-link">development</a></li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="post-content">
+    <p>Today I learned more about Apache virtual hosting and redirection. I decided to change my server host to <a href="https://www.digitalocean.com">Digital Ocean</a> a few months ago. There was nothing wrong with my then host, it was a shared web host, which I mainly used to access and manage with cPanel.</p>
+
+<p>During my day job I have been administering a CentOS based virtual server hosted by Rackspace and have become more comfortable with using a SSH to manage it. <em>Comfortable</em>, but still with lots of Googling and Stack Overflowing.</p>
+
+<p>So I thought I would challenge myself a bit and make the jump to Digital Ocean and take more control of my own server. I wanted to be able to make any sites I run use SSL via <a href="https://letsencrypt.org/">Let&rsquo;s Encrypt</a>. This was not possible with my old host, as they had a more traditional &ldquo;buy a certificate&rdquo; business model and I could not administer the server to install Certbot.</p>
+
+<p>After setting this new server up and getting <strong>neilmagee.com</strong> served on port 80, I used Let&rsquo;s Encrypt to generate some certs for the <code>www</code> and <code>non-www</code> versions of the sites (<em>Why? See <a href="#notes">notes</a> at end of article</em>). This worked well, and I could now access <a href="https://neilmagee.com">https://neilmagee.com</a> and <a href="https://www.neilmagee.com">https://www.neilmagee.com</a>. My goal was to redirect all traffic (http{s} and www) to my canonical domain, <a href="https://neilmagee.com">https://neilmagee.com</a>.
+</p>
+  </div>
+  <footer class="post__footer">
+    
+    <ul class="post__tags">
+      
+      <li class="post__tag"><a href="https://til.neilmagee.com/tags/apache/" class="post__tag-link"><span class="post__tag-label">#</span>apache</a></li>
+      
+    </ul>
+    
+    
+    <div class="post__truncated">
+    
+    <a href="/posts/apache-virtual-host-redirection-with-ssl/" class="post__read-more">
+      <span class="post__read-more-label">Read full post</span>
+      <span class="post__read-more-icon">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+        y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
+        <path d="M9.163,4.516c0.418,0.408,4.502,4.695,4.502,4.695C13.888,9.43,14,9.715,14,10s-0.112,0.57-0.335,0.787
+        c0,0-4.084,4.289-4.502,4.695c-0.418,0.408-1.17,0.436-1.615,0c-0.446-0.434-0.481-1.041,0-1.574L11.295,10L7.548,6.092
+        c-0.481-0.533-0.446-1.141,0-1.576C7.993,4.08,8.745,4.107,9.163,4.516z" />
+        </svg>
+      </span>
+    </a>
+    </div>
+    
+  </footer>
+</section>
+    
+      <section class="post post--summary">
+  <header class="post__header">
     <a href="/posts/jest-with-babel-7/" class="post__title">Get Jest working with Babel 7</a>
     <div class="post__meta">
       <time class="post__date" datetime="2019-01-22T09:32:32Z">
@@ -365,58 +419,6 @@ $ git commit -c ORIG_HEAD                                  # (5)
     <div class="post__truncated">
     
     <a href="/posts/tachyons-components/" class="post__read-more">
-      <span class="post__read-more-label">Read full post</span>
-      <span class="post__read-more-icon">
-        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-        y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
-        <path d="M9.163,4.516c0.418,0.408,4.502,4.695,4.502,4.695C13.888,9.43,14,9.715,14,10s-0.112,0.57-0.335,0.787
-        c0,0-4.084,4.289-4.502,4.695c-0.418,0.408-1.17,0.436-1.615,0c-0.446-0.434-0.481-1.041,0-1.574L11.295,10L7.548,6.092
-        c-0.481-0.533-0.446-1.141,0-1.576C7.993,4.08,8.745,4.107,9.163,4.516z" />
-        </svg>
-      </span>
-    </a>
-    </div>
-    
-  </footer>
-</section>
-    
-      <section class="post post--summary">
-  <header class="post__header">
-    <a href="/posts/editor-config-is-still-hard/" class="post__title">Editor config is still hard</a>
-    <div class="post__meta">
-      <time class="post__date" datetime="2018-11-14T11:16:00Z">
-        <span class="post__published">Published:</span>
-        <span class="post__published-value">2018-11-14</span>
-      </time>
-      
-      <ul class="post__categories">
-        
-        <li class="post__category"><a href="https://til.neilmagee.com/categories/development/" class="post__category-link">development</a></li>
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="post-content">
-    <p>Today I learned that configuring your code editor to lint and format code in a predictable way is still hard.</p>
-
-<p>I use two editors frequently - Sublime Text and VS Code. Both are great. Both have plugins and their own settings. Today I was trying to update my environment for a Vue project in VS Code. I wanted the <code>.vue</code> files to be linted with ESLint, and for Prettier to handle the formatting. I was concentrating on how multiple attributes per line were being formatted on the <code>&lt;template&gt;</code> part.
-</p>
-  </div>
-  <footer class="post__footer">
-    
-    <ul class="post__tags">
-      
-      <li class="post__tag"><a href="https://til.neilmagee.com/tags/eslint/" class="post__tag-link"><span class="post__tag-label">#</span>eslint</a></li>
-      
-      <li class="post__tag"><a href="https://til.neilmagee.com/tags/vue/" class="post__tag-link"><span class="post__tag-label">#</span>vue</a></li>
-      
-    </ul>
-    
-    
-    <div class="post__truncated">
-    
-    <a href="/posts/editor-config-is-still-hard/" class="post__read-more">
       <span class="post__read-more-label">Read full post</span>
       <span class="post__read-more-icon">
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"

@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://til.neilmagee.com/posts/apache-virtual-host-redirection-with-ssl/</loc>
+    <lastmod>2019-02-04T14:54:05+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://til.neilmagee.com/posts/jest-with-babel-7/</loc>
     <lastmod>2019-01-22T09:32:32+00:00</lastmod>
   </url>
@@ -78,6 +83,12 @@
   </url>
   
   <url>
+    <loc>https://til.neilmagee.com/tags/apache/</loc>
+    <lastmod>2019-02-04T14:54:05+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://til.neilmagee.com/categories/</loc>
     <priority>0</priority>
   </url>
@@ -90,7 +101,7 @@
   
   <url>
     <loc>https://til.neilmagee.com/categories/development/</loc>
-    <lastmod>2019-01-22T09:32:32+00:00</lastmod>
+    <lastmod>2019-02-04T14:54:05+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -126,7 +137,7 @@
   
   <url>
     <loc>https://til.neilmagee.com/posts/</loc>
-    <lastmod>2019-01-22T09:32:32+00:00</lastmod>
+    <lastmod>2019-02-04T14:54:05+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -138,7 +149,7 @@
   
   <url>
     <loc>https://til.neilmagee.com/tags/</loc>
-    <lastmod>2018-11-19T14:54:11+00:00</lastmod>
+    <lastmod>2019-02-04T14:54:05+00:00</lastmod>
     <priority>0</priority>
   </url>
   
