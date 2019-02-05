@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="en-gb">
+<html class="no-js" lang="en-gb">
 
 <head>
-	<meta name="generator" content="Hugo 0.49.2" />
+	<meta name="generator" content="Hugo 0.54.0" />
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title> TIL </title>
@@ -56,8 +56,7 @@
   <div class="post-content">
     <p>Today I learned that configuring your code editor to lint and format code in a predictable way is still hard.</p>
 
-<p>I use two editors frequently - Sublime Text and VS Code. Both are great. Both have plugins and their own settings. Today I was trying to update my environment for a Vue project in VS Code. I wanted the <code>.vue</code> files to be linted with ESLint, and for Prettier to handle the formatting. I was concentrating on how multiple attributes per line were being formatted on the <code>&lt;template&gt;</code> part.
-</p>
+<p>I use two editors frequently - Sublime Text and VS Code. Both are great. Both have plugins and their own settings. Today I was trying to update my environment for a Vue project in VS Code. I wanted the <code>.vue</code> files to be linted with ESLint, and for Prettier to handle the formatting. I was concentrating on how multiple attributes per line were being formatted on the <code>&lt;template&gt;</code> part.</p>
   </div>
   <footer class="post__footer">
     
@@ -118,8 +117,7 @@
 }
 </code></pre>
 
-<p>I was trying to use a loop to sort some items prior to rendering them in a component. During the debug step I kept seeing the loop run twice, when I was only expecting it to run once.
-</p>
+<p>I was trying to use a loop to sort some items prior to rendering them in a component. During the debug step I kept seeing the loop run twice, when I was only expecting it to run once.</p>
   </div>
   <footer class="post__footer">
     
@@ -200,8 +198,6 @@ class App extends Component {
 
 export default App;
 </code></pre>
-
-<p></p>
   </div>
   <footer class="post__footer">
     
@@ -248,8 +244,7 @@ export default App;
     </div>
   </header>
   <div class="post-content">
-    <p>Today I learned how to debounce inputs in a <a href="https://reactjs.org/">React</a> component. This is something I have done in many other places, in plain JavaScript, in jQuery, in AngularJs and in VueJs. Whilst the concept is the same - have a user input some data (text, date, email, whatever), wait a short amount of time so that the user has finished typing and then do something. The idea being the &ldquo;do something&rdquo; does not happen whilst the user is still adding their data.
-</p>
+    <p>Today I learned how to debounce inputs in a <a href="https://reactjs.org/">React</a> component. This is something I have done in many other places, in plain JavaScript, in jQuery, in AngularJs and in VueJs. Whilst the concept is the same - have a user input some data (text, date, email, whatever), wait a short amount of time so that the user has finished typing and then do something. The idea being the &ldquo;do something&rdquo; does not happen whilst the user is still adding their data.</p>
   </div>
   <footer class="post__footer">
     
@@ -313,8 +308,6 @@ export default App;
   &lt;/nav&gt;
 &lt;/header&gt;
 </code></pre>
-
-<p></p>
   </div>
   <footer class="post__footer">
     
@@ -361,8 +354,7 @@ export default App;
     </div>
   </header>
   <div class="post-content">
-    <p>Today I had a lesson in <a href="https://en.wikipedia.org/wiki/RTFM">RTFM</a>. I noticed my Hugo <code>public/</code> folder had a bunch of orphaned content from a previous deploy that used dummy content. There is a clear reference to this in the <a href="https://gohugo.io/getting-started/usage/#deploy-your-website">Hugo documentation</a>.
-</p>
+    <p>Today I had a lesson in <a href="https://en.wikipedia.org/wiki/RTFM">RTFM</a>. I noticed my Hugo <code>public/</code> folder had a bunch of orphaned content from a previous deploy that used dummy content. There is a clear reference to this in the <a href="https://gohugo.io/getting-started/usage/#deploy-your-website">Hugo documentation</a>.</p>
   </div>
   <footer class="post__footer">
     
@@ -421,8 +413,6 @@ export default App;
   // Content
 {{end}}
 </code></pre>
-
-<p></p>
   </div>
   <footer class="post__footer">
     
@@ -482,5 +472,16 @@ export default App;
       </footer>
     </div>
   </div>
+
+  <script src="https://til.neilmagee.com/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", event => {
+    document.documentElement.classList.remove("no-js");
+    document.querySelectorAll("pre:not(.chroma) code").forEach(block => {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
 </body>
 </html>

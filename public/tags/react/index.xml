@@ -25,8 +25,7 @@
 &lt;p&gt;For example, rather than a child accepting a “committed” props.value and tracking a “draft” state.value, have the parent manage both state.draftValue and state.committedValue and control the child’s value directly.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;This accurately described a process, to make my component simpler (I think it qualifies as a controlled component now), that would remove side effects. So I set out to remove state from this component and make it&amp;rsquo;s parent responsible for passing in the correct data as props.
-&lt;/p&gt;</description>
+&lt;p&gt;This accurately described a process, to make my component simpler (I think it qualifies as a controlled component now), that would remove side effects. So I set out to remove state from this component and make it&amp;rsquo;s parent responsible for passing in the correct data as props.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -43,8 +42,7 @@
 
 &lt;p&gt;That would be ok if that data was static, but the data is not and it needs to be editable. So the props are copied into the &lt;strong&gt;user form component&lt;/strong&gt; state. And this state is used as the value of the relevant inputs. That allows the inputs to receive new data, which triggers off a chain of events.&lt;/p&gt;
 
-&lt;p&gt;The new data is processed via a &lt;code&gt;handleChange&lt;/code&gt; event in the &lt;strong&gt;user form component&lt;/strong&gt;. Two things happen, it is added to the current state and also passed to a &lt;em&gt;parent component&lt;/em&gt; for other actions to happen. When that &lt;em&gt;parent component&lt;/em&gt; is done, it sends that data back to this &lt;strong&gt;user form component&lt;/strong&gt; as props and the cycle can continue.
-&lt;/p&gt;</description>
+&lt;p&gt;The new data is processed via a &lt;code&gt;handleChange&lt;/code&gt; event in the &lt;strong&gt;user form component&lt;/strong&gt;. Two things happen, it is added to the current state and also passed to a &lt;em&gt;parent component&lt;/em&gt; for other actions to happen. When that &lt;em&gt;parent component&lt;/em&gt; is done, it sends that data back to this &lt;strong&gt;user form component&lt;/strong&gt; as props and the cycle can continue.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -65,8 +63,7 @@
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;I was trying to use a loop to sort some items prior to rendering them in a component. During the debug step I kept seeing the loop run twice, when I was only expecting it to run once.
-&lt;/p&gt;</description>
+&lt;p&gt;I was trying to use a loop to sort some items prior to rendering them in a component. During the debug step I kept seeing the loop run twice, when I was only expecting it to run once.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -108,9 +105,7 @@ class App extends Component {
 }
 
 export default App;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     
     <item>
@@ -119,8 +114,7 @@ export default App;
       <pubDate>Wed, 24 Oct 2018 20:10:38 +0100</pubDate>
       
       <guid>https://til.neilmagee.com/posts/react-with-debounce/</guid>
-      <description>&lt;p&gt;Today I learned how to debounce inputs in a &lt;a href=&#34;https://reactjs.org/&#34;&gt;React&lt;/a&gt; component. This is something I have done in many other places, in plain JavaScript, in jQuery, in AngularJs and in VueJs. Whilst the concept is the same - have a user input some data (text, date, email, whatever), wait a short amount of time so that the user has finished typing and then do something. The idea being the &amp;ldquo;do something&amp;rdquo; does not happen whilst the user is still adding their data.
-&lt;/p&gt;</description>
+      <description>&lt;p&gt;Today I learned how to debounce inputs in a &lt;a href=&#34;https://reactjs.org/&#34;&gt;React&lt;/a&gt; component. This is something I have done in many other places, in plain JavaScript, in jQuery, in AngularJs and in VueJs. Whilst the concept is the same - have a user input some data (text, date, email, whatever), wait a short amount of time so that the user has finished typing and then do something. The idea being the &amp;ldquo;do something&amp;rdquo; does not happen whilst the user is still adding their data.&lt;/p&gt;</description>
     </item>
     
   </channel>

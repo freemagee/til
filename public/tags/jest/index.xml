@@ -24,9 +24,7 @@
 &lt;p&gt;So I chose to use &lt;a href=&#34;https://jestjs.io&#34;&gt;Jest&lt;/a&gt; and installed it.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;yarn add -D jest
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     
   </channel>

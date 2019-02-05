@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en-gb">
+<html class="no-js" lang="en-gb">
 
 <head>
   <meta charset="utf-8">
@@ -61,8 +61,7 @@
 
 <p>So I thought I would challenge myself a bit and make the jump to Digital Ocean and take more control of my own server. I wanted to be able to make any sites I run use SSL via <a href="https://letsencrypt.org/">Let&rsquo;s Encrypt</a>. This was not possible with my old host, as they had a more traditional &ldquo;buy a certificate&rdquo; business model and I could not administer the server to install Certbot.</p>
 
-<p>After setting this new server up and getting <strong>neilmagee.com</strong> served on port 80, I used Let&rsquo;s Encrypt to generate some certs for the <code>www</code> and <code>non-www</code> versions of the sites (<em>Why? See <a href="#notes">notes</a> at end of article</em>). This worked well, and I could now access <a href="https://neilmagee.com">https://neilmagee.com</a> and <a href="https://www.neilmagee.com">https://www.neilmagee.com</a>. My goal was to redirect all traffic (http{s} and www) to my canonical domain, <a href="https://neilmagee.com">https://neilmagee.com</a>.
-</p>
+<p>After setting this new server up and getting <strong>neilmagee.com</strong> served on port 80, I used Let&rsquo;s Encrypt to generate some certs for the <code>www</code> and <code>non-www</code> versions of the sites (<em>Why? See <a href="#notes">notes</a> at end of article</em>). This worked well, and I could now access <a href="https://neilmagee.com">https://neilmagee.com</a> and <a href="https://www.neilmagee.com">https://www.neilmagee.com</a>. My goal was to redirect all traffic (http{s} and www) to my canonical domain, <a href="https://neilmagee.com">https://neilmagee.com</a>.</p>
 
 <p>I chose to avoid doing the domain configuration in <code>.htaccess</code> files and wanted to do it all in Apache .conf files. On this server, which is running Ubuntu, they are located in <code>/etc/apache2/sites-enabled</code>. To get those config files to be included by Apache, I added this line to the bottom of my <code>apache2.conf</code> located in <code>/etc/apache2</code>:</p>
 
@@ -142,5 +141,16 @@ IncludeOptional sites-enabled/*.conf
       </footer>
     </div>
   </div>
+
+  <script src="https://til.neilmagee.com/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", event => {
+    document.documentElement.classList.remove("no-js");
+    document.querySelectorAll("pre:not(.chroma) code").forEach(block => {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
 </body>
 </html>

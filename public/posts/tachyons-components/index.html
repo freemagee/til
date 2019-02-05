@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en-gb">
+<html class="no-js" lang="en-gb">
 
 <head>
   <meta charset="utf-8">
@@ -57,8 +57,7 @@
     <section class="post-content">
       <p>Today I learned a bit more about using <a href="http://tachyons.io/">Tachyons</a> to make components. I read about Tachyons a long time ago and had a pretty common reaction to it which was to dismiss it outright. I come from a background of having learnt CSS when semantics were being preached. Carefully named classes were chosen for their meaning, and keeping styles out of HTML was important.</p>
 
-<p>But my views have matured over time as I started to use BEM for CSS naming and realised the limitations of creating classes and how rubbish humans are at naming things. Especially when maintaining larger systems. I read <a href="https://hackernoon.com/full-re-write-with-tachyons-and-functional-css-a-case-study-part-1-635ccb5fb00b">articles</a> about <a href="https://adamwathan.me/css-utility-classes-and-separation-of-concerns/">utility classes</a> and slowly I began to agree with their perspective.
-</p>
+<p>But my views have matured over time as I started to use BEM for CSS naming and realised the limitations of creating classes and how rubbish humans are at naming things. Especially when maintaining larger systems. I read <a href="https://hackernoon.com/full-re-write-with-tachyons-and-functional-css-a-case-study-part-1-635ccb5fb00b">articles</a> about <a href="https://adamwathan.me/css-utility-classes-and-separation-of-concerns/">utility classes</a> and slowly I began to agree with their perspective.</p>
 
 <p>Often before I use new technologies in actual client work, I will make demos or side projects (<a href="https://freemagee.github.io/sugar-cubed/">Sugar Cubed</a>) using the tech I want to explore. I am considering refactoring one of the admin areas of a client project using Tachyons. I wanted to make a navigation component with simple drop down menus. I coded a demo on <a href="https://codepen.io/freemagee/pen/EOweRE">CodePen</a> to see what that might look like:</p>
 
@@ -192,5 +191,16 @@
       </footer>
     </div>
   </div>
+
+  <script src="https://til.neilmagee.com/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", event => {
+    document.documentElement.classList.remove("no-js");
+    document.querySelectorAll("pre:not(.chroma) code").forEach(block => {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
 </body>
 </html>

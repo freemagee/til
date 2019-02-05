@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en-gb">
+<html class="no-js" lang="en-gb">
 
 <head>
   <meta charset="utf-8">
@@ -67,8 +67,6 @@
   // Content
 {{end}}
 </code></pre>
-
-<p></p>
 
 <p>So for the brief time that a new site contains no posts, there will not be weird pagination at the bottom listing &ldquo;You are on page 0/1&rdquo;. I may move this logic to a parent template.</p>
 
@@ -146,5 +144,16 @@
       </footer>
     </div>
   </div>
+
+  <script src="https://til.neilmagee.com/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", event => {
+    document.documentElement.classList.remove("no-js");
+    document.querySelectorAll("pre:not(.chroma) code").forEach(block => {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
 </body>
 </html>

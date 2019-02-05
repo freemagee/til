@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en-gb">
+<html class="no-js" lang="en-gb">
 
 <head>
   <meta charset="utf-8">
@@ -63,8 +63,7 @@
 <p>For example, rather than a child accepting a “committed” props.value and tracking a “draft” state.value, have the parent manage both state.draftValue and state.committedValue and control the child’s value directly.</p>
 </blockquote>
 
-<p>This accurately described a process, to make my component simpler (I think it qualifies as a controlled component now), that would remove side effects. So I set out to remove state from this component and make it&rsquo;s parent responsible for passing in the correct data as props.
-</p>
+<p>This accurately described a process, to make my component simpler (I think it qualifies as a controlled component now), that would remove side effects. So I set out to remove state from this component and make it&rsquo;s parent responsible for passing in the correct data as props.</p>
 
 <h2 id="user-form-component-before">User Form Component - Before</h2>
 
@@ -281,5 +280,16 @@ export default class User extends React.Component {
       </footer>
     </div>
   </div>
+
+  <script src="https://til.neilmagee.com/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", event => {
+    document.documentElement.classList.remove("no-js");
+    document.querySelectorAll("pre:not(.chroma) code").forEach(block => {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en-gb">
+<html class="no-js" lang="en-gb">
 
 <head>
   <meta charset="utf-8">
@@ -67,8 +67,7 @@
 }
 </code></pre>
 
-<p>I was trying to use a loop to sort some items prior to rendering them in a component. During the debug step I kept seeing the loop run twice, when I was only expecting it to run once.
-</p>
+<p>I was trying to use a loop to sort some items prior to rendering them in a component. During the debug step I kept seeing the loop run twice, when I was only expecting it to run once.</p>
 
 <p>After spending a little too long thinking my loop was the problem, it suddenly clicked that React was re-rendering my component in reaction to a prop change. Although the props have changed only once, for some (slightly unknown <strong>†</strong>) reason the component was being rendered twice. By implementing a check with <code>shouldComponentUpdate</code> I can prevent the unnecessary render.</p>
 
@@ -133,5 +132,16 @@
       </footer>
     </div>
   </div>
+
+  <script src="https://til.neilmagee.com/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", event => {
+    document.documentElement.classList.remove("no-js");
+    document.querySelectorAll("pre:not(.chroma) code").forEach(block => {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
 </body>
 </html>

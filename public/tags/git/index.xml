@@ -32,9 +32,7 @@ $ git commit -c ORIG_HEAD                                  # (5)
 &lt;li&gt;Make corrections to working tree files.&lt;/li&gt;
 &lt;li&gt;git add anything that you want to include in your new commit.&lt;/li&gt;
 &lt;li&gt;Commit the changes, reusing the old commit message. reset copied the old head to &lt;code&gt;.git/ORIG_HEAD&lt;/code&gt;; &lt;code&gt;commit&lt;/code&gt; with &lt;code&gt;-c ORIG_HEAD&lt;/code&gt; will open an editor, which initially contains the log message from the old commit and allows you to edit it. If you do not need to edit the message, you could use the &lt;code&gt;-C&lt;/code&gt; option.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;/ol&gt;</description>
     </item>
     
   </channel>

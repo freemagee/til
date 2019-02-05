@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en-gb">
+<html class="no-js" lang="en-gb">
 
 <head>
   <meta charset="utf-8">
@@ -63,8 +63,6 @@
 
 <pre><code class="language-bash">yarn add -D jest
 </code></pre>
-
-<p></p>
 
 <p>I set up a test and imported my code and ran the test. I was met with</p>
 
@@ -222,5 +220,16 @@ info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this comm
       </footer>
     </div>
   </div>
+
+  <script src="https://til.neilmagee.com/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", event => {
+    document.documentElement.classList.remove("no-js");
+    document.querySelectorAll("pre:not(.chroma) code").forEach(block => {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en-gb">
+<html class="no-js" lang="en-gb">
 
 <head>
   <meta charset="utf-8">
@@ -72,8 +72,6 @@ $ git commit -c ORIG_HEAD                                  # (5)
 <li>Commit the changes, reusing the old commit message. reset copied the old head to <code>.git/ORIG_HEAD</code>; <code>commit</code> with <code>-c ORIG_HEAD</code> will open an editor, which initially contains the log message from the old commit and allows you to edit it. If you do not need to edit the message, you could use the <code>-C</code> option.</li>
 </ol>
 
-<p></p>
-
 <p>Apparently the tilde character <code>~</code> is used in this example as DOS has problems with carats <code>^</code> (The <code>^</code> is a continuation character in DOS so it won&rsquo;t work properly). Otherwise the statement would be <code>git reset HEAD^</code>.</p>
 
 <p>I am normally pretty careful with my local Git operations. But sometimes using the up arrow to move through last used commands can cause premature committing!</p>
@@ -133,5 +131,16 @@ $ git commit -c ORIG_HEAD                                  # (5)
       </footer>
     </div>
   </div>
+
+  <script src="https://til.neilmagee.com/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", event => {
+    document.documentElement.classList.remove("no-js");
+    document.querySelectorAll("pre:not(.chroma) code").forEach(block => {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
 </body>
 </html>

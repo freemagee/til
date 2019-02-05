@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="en-gb">
+<html class="no-js" lang="en-gb">
 
 <head>
-	<meta name="generator" content="Hugo 0.49.2" />
+	<meta name="generator" content="Hugo 0.54.0" />
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title> TIL </title>
@@ -72,8 +72,7 @@
 
 <p>So I thought I would challenge myself a bit and make the jump to Digital Ocean and take more control of my own server. I wanted to be able to make any sites I run use SSL via <a href="https://letsencrypt.org/">Let&rsquo;s Encrypt</a>. This was not possible with my old host, as they had a more traditional &ldquo;buy a certificate&rdquo; business model and I could not administer the server to install Certbot.</p>
 
-<p>After setting this new server up and getting <strong>neilmagee.com</strong> served on port 80, I used Let&rsquo;s Encrypt to generate some certs for the <code>www</code> and <code>non-www</code> versions of the sites (<em>Why? See <a href="#notes">notes</a> at end of article</em>). This worked well, and I could now access <a href="https://neilmagee.com">https://neilmagee.com</a> and <a href="https://www.neilmagee.com">https://www.neilmagee.com</a>. My goal was to redirect all traffic (http{s} and www) to my canonical domain, <a href="https://neilmagee.com">https://neilmagee.com</a>.
-</p>
+<p>After setting this new server up and getting <strong>neilmagee.com</strong> served on port 80, I used Let&rsquo;s Encrypt to generate some certs for the <code>www</code> and <code>non-www</code> versions of the sites (<em>Why? See <a href="#notes">notes</a> at end of article</em>). This worked well, and I could now access <a href="https://neilmagee.com">https://neilmagee.com</a> and <a href="https://www.neilmagee.com">https://www.neilmagee.com</a>. My goal was to redirect all traffic (http{s} and www) to my canonical domain, <a href="https://neilmagee.com">https://neilmagee.com</a>.</p>
   </div>
   <footer class="post__footer">
     
@@ -128,8 +127,6 @@
 
 <pre><code class="language-bash">yarn add -D jest
 </code></pre>
-
-<p></p>
   </div>
   <footer class="post__footer">
     
@@ -184,8 +181,7 @@
 <p>For example, rather than a child accepting a “committed” props.value and tracking a “draft” state.value, have the parent manage both state.draftValue and state.committedValue and control the child’s value directly.</p>
 </blockquote>
 
-<p>This accurately described a process, to make my component simpler (I think it qualifies as a controlled component now), that would remove side effects. So I set out to remove state from this component and make it&rsquo;s parent responsible for passing in the correct data as props.
-</p>
+<p>This accurately described a process, to make my component simpler (I think it qualifies as a controlled component now), that would remove side effects. So I set out to remove state from this component and make it&rsquo;s parent responsible for passing in the correct data as props.</p>
   </div>
   <footer class="post__footer">
     
@@ -240,8 +236,7 @@
 
 <p>That would be ok if that data was static, but the data is not and it needs to be editable. So the props are copied into the <strong>user form component</strong> state. And this state is used as the value of the relevant inputs. That allows the inputs to receive new data, which triggers off a chain of events.</p>
 
-<p>The new data is processed via a <code>handleChange</code> event in the <strong>user form component</strong>. Two things happen, it is added to the current state and also passed to a <em>parent component</em> for other actions to happen. When that <em>parent component</em> is done, it sends that data back to this <strong>user form component</strong> as props and the cycle can continue.
-</p>
+<p>The new data is processed via a <code>handleChange</code> event in the <strong>user form component</strong>. Two things happen, it is added to the current state and also passed to a <em>parent component</em> for other actions to happen. When that <em>parent component</em> is done, it sends that data back to this <strong>user form component</strong> as props and the cycle can continue.</p>
   </div>
   <footer class="post__footer">
     
@@ -304,8 +299,6 @@ $ git commit -c ORIG_HEAD                                  # (5)
 <li>git add anything that you want to include in your new commit.</li>
 <li>Commit the changes, reusing the old commit message. reset copied the old head to <code>.git/ORIG_HEAD</code>; <code>commit</code> with <code>-c ORIG_HEAD</code> will open an editor, which initially contains the log message from the old commit and allows you to edit it. If you do not need to edit the message, you could use the <code>-C</code> option.</li>
 </ol>
-
-<p></p>
   </div>
   <footer class="post__footer">
     
@@ -354,8 +347,7 @@ $ git commit -c ORIG_HEAD                                  # (5)
   <div class="post-content">
     <p>Today I learned about <a href="https://phptherightway.com/">PHP The right way</a>. Whilst I am a Frontend developer who focuses on JavaScript, CSS, HTML, UX, design etc etc, I am still responsible for writing PHP every now and again. That can be Wordpress themes or plugins, login systems and in the past I have written basic e-commerce. PHP is still my server side language of choice for my own projects.</p>
 
-<p>I have made effort in my JavaScript to try to follow some practices - ESLint, Prettier for code formatting, use Babel, learn design patterns and more. But my PHP code style has always remained pretty procedural. Import some classes, set some variables, handle form input, and then write to a view using a template language (if possible). There is always inevitably a bunch of <code>if/else</code> statements. I never really feel like I am writing as clean code as my JavaScript and that my PHP knowledge is probably a bit dated.
-</p>
+<p>I have made effort in my JavaScript to try to follow some practices - ESLint, Prettier for code formatting, use Babel, learn design patterns and more. But my PHP code style has always remained pretty procedural. Import some classes, set some variables, handle form input, and then write to a view using a template language (if possible). There is always inevitably a bunch of <code>if/else</code> statements. I never really feel like I am writing as clean code as my JavaScript and that my PHP knowledge is probably a bit dated.</p>
   </div>
   <footer class="post__footer">
     
@@ -404,8 +396,7 @@ $ git commit -c ORIG_HEAD                                  # (5)
   <div class="post-content">
     <p>Today I learned a bit more about using <a href="http://tachyons.io/">Tachyons</a> to make components. I read about Tachyons a long time ago and had a pretty common reaction to it which was to dismiss it outright. I come from a background of having learnt CSS when semantics were being preached. Carefully named classes were chosen for their meaning, and keeping styles out of HTML was important.</p>
 
-<p>But my views have matured over time as I started to use BEM for CSS naming and realised the limitations of creating classes and how rubbish humans are at naming things. Especially when maintaining larger systems. I read <a href="https://hackernoon.com/full-re-write-with-tachyons-and-functional-css-a-case-study-part-1-635ccb5fb00b">articles</a> about <a href="https://adamwathan.me/css-utility-classes-and-separation-of-concerns/">utility classes</a> and slowly I began to agree with their perspective.
-</p>
+<p>But my views have matured over time as I started to use BEM for CSS naming and realised the limitations of creating classes and how rubbish humans are at naming things. Especially when maintaining larger systems. I read <a href="https://hackernoon.com/full-re-write-with-tachyons-and-functional-css-a-case-study-part-1-635ccb5fb00b">articles</a> about <a href="https://adamwathan.me/css-utility-classes-and-separation-of-concerns/">utility classes</a> and slowly I began to agree with their perspective.</p>
   </div>
   <footer class="post__footer">
     
@@ -465,5 +456,16 @@ $ git commit -c ORIG_HEAD                                  # (5)
       </footer>
     </div>
   </div>
+
+  <script src="https://til.neilmagee.com/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", event => {
+    document.documentElement.classList.remove("no-js");
+    document.querySelectorAll("pre:not(.chroma) code").forEach(block => {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
 </body>
 </html>
