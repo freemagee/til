@@ -2,8 +2,4 @@
 
 ### Today I Learned
 
-We are all on an adventure of daily learning. This journey happens to belong to [Neil Magee](https://neilmagee.com).
-
-In an attempt to catalogue and not forget what has been learnt, this blog will record it for the future.
-
-Visit [TIL](https://til.neilmagee.com) to see whats been learnt.
+Hi, I am [Neil Magee](https://neilmagee.com), currently I work as a Lead front-end developer. Day to day I often learn a lot. As a way to carry that knowledge forward and maybe provide something useful for others I started writing on my blog, [TIL](https://til.neilmagee.com).
