@@ -30,7 +30,7 @@ After spending a lot of time changing and adding different rewrite rules to `nei
 ### neilmagee.com.conf
 ```apache
 <VirtualHost *:80>
-    # Other config emitted
+    # Other config omitted
 
     <Directory /absolute/path>
         RewriteEngine On
@@ -51,7 +51,7 @@ After spending a lot of time changing and adding different rewrite rules to `nei
 ```apache
 <IfModule mod_ssl.c>
 <VirtualHost *:443>
-    # Other config emitted
+    # Other config omitted
 
     <Directory /absolute/path>
         RewriteEngine On
