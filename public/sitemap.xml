@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://til.neilmagee.com/posts/eslint-and-prettier-conflicts/</loc>
+    <lastmod>2019-02-12T10:07:40+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://til.neilmagee.com/posts/apache-virtual-host-redirection-with-ssl/</loc>
     <lastmod>2019-02-04T14:54:05+00:00</lastmod>
   </url>
@@ -101,13 +106,13 @@
   
   <url>
     <loc>https://til.neilmagee.com/categories/development/</loc>
-    <lastmod>2019-02-04T14:54:05+00:00</lastmod>
+    <lastmod>2019-02-12T10:07:40+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://til.neilmagee.com/tags/eslint/</loc>
-    <lastmod>2018-11-14T11:16:00+00:00</lastmod>
+    <lastmod>2019-02-12T10:07:40+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -137,7 +142,7 @@
   
   <url>
     <loc>https://til.neilmagee.com/posts/</loc>
-    <lastmod>2019-02-04T14:54:05+00:00</lastmod>
+    <lastmod>2019-02-12T10:07:40+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -155,7 +160,7 @@
   
   <url>
     <loc>https://til.neilmagee.com/tags/vue/</loc>
-    <lastmod>2018-11-14T11:16:00+00:00</lastmod>
+    <lastmod>2019-02-12T10:07:40+00:00</lastmod>
     <priority>0</priority>
   </url>
   

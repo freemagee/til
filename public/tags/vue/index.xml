@@ -6,10 +6,36 @@
     <description>Recent content in Vue on TIL</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Wed, 14 Nov 2018 11:16:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 12 Feb 2019 10:07:40 +0000</lastBuildDate>
     
 	<atom:link href="https://til.neilmagee.com/tags/vue/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Resolve eslint and prettier conflicts</title>
+      <link>https://til.neilmagee.com/posts/eslint-and-prettier-conflicts/</link>
+      <pubDate>Tue, 12 Feb 2019 10:07:40 +0000</pubDate>
+      
+      <guid>https://til.neilmagee.com/posts/eslint-and-prettier-conflicts/</guid>
+      <description>&lt;p&gt;Today I learned about a handy utility called &lt;code&gt;eslint-config-prettier-check&lt;/code&gt; which I saw referenced in this GitHub &lt;a href=&#34;https://github.com/prettier/prettier/issues/2609&#34;&gt;issue&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I was editting a &lt;code&gt;.vue&lt;/code&gt; component in Visual Studio Code. I had a code section with red underlines, generally indicating that eslint was not happy with something. I could see it was a formatting issue, so I used &lt;code&gt;eslint --fix&lt;/code&gt; to solve the issue and re-format the code. But then that triggered a new lint problem where &lt;em&gt;Prettier&lt;/em&gt; was now unhappy with how &lt;em&gt;eslint&lt;/em&gt; had formatted the code. The difference between the two is small, and involves a couple of indented spaces. See the images below for both examples.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://til.neilmagee.com/images/eslint-and-prettier-conflicts/eslint-formatted.png&#34;
+         alt=&#34;Example of code formatted with eslint&#34;/&gt; &lt;figcaption&gt;
+            &lt;h4&gt;eslint Formatted&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://til.neilmagee.com/images/eslint-and-prettier-conflicts/prettier-formatted.png&#34;
+         alt=&#34;Example of code formatted with Prettier&#34;/&gt; &lt;figcaption&gt;
+            &lt;h4&gt;Prettier Formatted&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;</description>
+    </item>
     
     <item>
       <title>Editor config is still hard</title>

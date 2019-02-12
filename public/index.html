@@ -51,6 +51,72 @@
     
       <section class="post post--summary">
   <header class="post__header">
+    <a href="/posts/eslint-and-prettier-conflicts/" class="post__title">Resolve eslint and prettier conflicts</a>
+    <div class="post__meta">
+      <time class="post__date" datetime="2019-02-12T10:07:40Z">
+        <span class="post__published">Published:</span>
+        <span class="post__published-value">2019-02-12</span>
+      </time>
+      
+      <ul class="post__categories">
+        
+        <li class="post__category"><a href="https://til.neilmagee.com/categories/development/" class="post__category-link">development</a></li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="post-content">
+    <p>Today I learned about a handy utility called <code>eslint-config-prettier-check</code> which I saw referenced in this GitHub <a href="https://github.com/prettier/prettier/issues/2609">issue</a>.</p>
+
+<p>I was editting a <code>.vue</code> component in Visual Studio Code. I had a code section with red underlines, generally indicating that eslint was not happy with something. I could see it was a formatting issue, so I used <code>eslint --fix</code> to solve the issue and re-format the code. But then that triggered a new lint problem where <em>Prettier</em> was now unhappy with how <em>eslint</em> had formatted the code. The difference between the two is small, and involves a couple of indented spaces. See the images below for both examples.</p>
+
+<figure>
+    <img src="/images/eslint-and-prettier-conflicts/eslint-formatted.png"
+         alt="Example of code formatted with eslint"/> <figcaption>
+            <h4>eslint Formatted</h4>
+        </figcaption>
+</figure>
+
+
+<figure>
+    <img src="/images/eslint-and-prettier-conflicts/prettier-formatted.png"
+         alt="Example of code formatted with Prettier"/> <figcaption>
+            <h4>Prettier Formatted</h4>
+        </figcaption>
+</figure>
+  </div>
+  <footer class="post__footer">
+    
+    <ul class="post__tags">
+      
+      <li class="post__tag"><a href="https://til.neilmagee.com/tags/eslint/" class="post__tag-link"><span class="post__tag-label">#</span>eslint</a></li>
+      
+      <li class="post__tag"><a href="https://til.neilmagee.com/tags/vue/" class="post__tag-link"><span class="post__tag-label">#</span>vue</a></li>
+      
+    </ul>
+    
+    
+    <div class="post__truncated">
+    
+    <a href="/posts/eslint-and-prettier-conflicts/" class="post__read-more">
+      <span class="post__read-more-label">Read full post</span>
+      <span class="post__read-more-icon">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+        y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
+        <path d="M9.163,4.516c0.418,0.408,4.502,4.695,4.502,4.695C13.888,9.43,14,9.715,14,10s-0.112,0.57-0.335,0.787
+        c0,0-4.084,4.289-4.502,4.695c-0.418,0.408-1.17,0.436-1.615,0c-0.446-0.434-0.481-1.041,0-1.574L11.295,10L7.548,6.092
+        c-0.481-0.533-0.446-1.141,0-1.576C7.993,4.08,8.745,4.107,9.163,4.516z" />
+        </svg>
+      </span>
+    </a>
+    </div>
+    
+  </footer>
+</section>
+    
+      <section class="post post--summary">
+  <header class="post__header">
     <a href="/posts/apache-virtual-host-redirection-with-ssl/" class="post__title">Apache virtual host redirection with ssl</a>
     <div class="post__meta">
       <time class="post__date" datetime="2019-02-04T14:54:05Z">
@@ -377,55 +443,6 @@ $ git commit -c ORIG_HEAD                                  # (5)
   </footer>
 </section>
     
-      <section class="post post--summary">
-  <header class="post__header">
-    <a href="/posts/tachyons-components/" class="post__title">Tachyons Components</a>
-    <div class="post__meta">
-      <time class="post__date" datetime="2018-11-19T14:54:11Z">
-        <span class="post__published">Published:</span>
-        <span class="post__published-value">2018-11-19</span>
-      </time>
-      
-      <ul class="post__categories">
-        
-        <li class="post__category"><a href="https://til.neilmagee.com/categories/development/" class="post__category-link">development</a></li>
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="post-content">
-    <p>Today I learned a bit more about using <a href="http://tachyons.io/">Tachyons</a> to make components. I read about Tachyons a long time ago and had a pretty common reaction to it which was to dismiss it outright. I come from a background of having learnt CSS when semantics were being preached. Carefully named classes were chosen for their meaning, and keeping styles out of HTML was important.</p>
-
-<p>But my views have matured over time as I started to use BEM for CSS naming and realised the limitations of creating classes and how rubbish humans are at naming things. Especially when maintaining larger systems. I read <a href="https://hackernoon.com/full-re-write-with-tachyons-and-functional-css-a-case-study-part-1-635ccb5fb00b">articles</a> about <a href="https://adamwathan.me/css-utility-classes-and-separation-of-concerns/">utility classes</a> and slowly I began to agree with their perspective.</p>
-  </div>
-  <footer class="post__footer">
-    
-    <ul class="post__tags">
-      
-      <li class="post__tag"><a href="https://til.neilmagee.com/tags/css/" class="post__tag-link"><span class="post__tag-label">#</span>css</a></li>
-      
-    </ul>
-    
-    
-    <div class="post__truncated">
-    
-    <a href="/posts/tachyons-components/" class="post__read-more">
-      <span class="post__read-more-label">Read full post</span>
-      <span class="post__read-more-icon">
-        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-        y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
-        <path d="M9.163,4.516c0.418,0.408,4.502,4.695,4.502,4.695C13.888,9.43,14,9.715,14,10s-0.112,0.57-0.335,0.787
-        c0,0-4.084,4.289-4.502,4.695c-0.418,0.408-1.17,0.436-1.615,0c-0.446-0.434-0.481-1.041,0-1.574L11.295,10L7.548,6.092
-        c-0.481-0.533-0.446-1.141,0-1.576C7.993,4.08,8.745,4.107,9.163,4.516z" />
-        </svg>
-      </span>
-    </a>
-    </div>
-    
-  </footer>
-</section>
-    
   </div>
 
   
@@ -445,7 +462,7 @@ $ git commit -c ORIG_HEAD                                  # (5)
     
   </div>
 
-  <span class="pagination__count">Page 1 of 2</span>
+  <span class="pagination__count">Page 1 of 3</span>
 </nav>
 
 

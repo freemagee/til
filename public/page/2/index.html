@@ -39,6 +39,55 @@
     
       <section class="post post--summary">
   <header class="post__header">
+    <a href="/posts/tachyons-components/" class="post__title">Tachyons Components</a>
+    <div class="post__meta">
+      <time class="post__date" datetime="2018-11-19T14:54:11Z">
+        <span class="post__published">Published:</span>
+        <span class="post__published-value">2018-11-19</span>
+      </time>
+      
+      <ul class="post__categories">
+        
+        <li class="post__category"><a href="https://til.neilmagee.com/categories/development/" class="post__category-link">development</a></li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="post-content">
+    <p>Today I learned a bit more about using <a href="http://tachyons.io/">Tachyons</a> to make components. I read about Tachyons a long time ago and had a pretty common reaction to it which was to dismiss it outright. I come from a background of having learnt CSS when semantics were being preached. Carefully named classes were chosen for their meaning, and keeping styles out of HTML was important.</p>
+
+<p>But my views have matured over time as I started to use BEM for CSS naming and realised the limitations of creating classes and how rubbish humans are at naming things. Especially when maintaining larger systems. I read <a href="https://hackernoon.com/full-re-write-with-tachyons-and-functional-css-a-case-study-part-1-635ccb5fb00b">articles</a> about <a href="https://adamwathan.me/css-utility-classes-and-separation-of-concerns/">utility classes</a> and slowly I began to agree with their perspective.</p>
+  </div>
+  <footer class="post__footer">
+    
+    <ul class="post__tags">
+      
+      <li class="post__tag"><a href="https://til.neilmagee.com/tags/css/" class="post__tag-link"><span class="post__tag-label">#</span>css</a></li>
+      
+    </ul>
+    
+    
+    <div class="post__truncated">
+    
+    <a href="/posts/tachyons-components/" class="post__read-more">
+      <span class="post__read-more-label">Read full post</span>
+      <span class="post__read-more-icon">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+        y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
+        <path d="M9.163,4.516c0.418,0.408,4.502,4.695,4.502,4.695C13.888,9.43,14,9.715,14,10s-0.112,0.57-0.335,0.787
+        c0,0-4.084,4.289-4.502,4.695c-0.418,0.408-1.17,0.436-1.615,0c-0.446-0.434-0.481-1.041,0-1.574L11.295,10L7.548,6.092
+        c-0.481-0.533-0.446-1.141,0-1.576C7.993,4.08,8.745,4.107,9.163,4.516z" />
+        </svg>
+      </span>
+    </a>
+    </div>
+    
+  </footer>
+</section>
+    
+      <section class="post post--summary">
+  <header class="post__header">
     <a href="/posts/editor-config-is-still-hard/" class="post__title">Editor config is still hard</a>
     <div class="post__meta">
       <time class="post__date" datetime="2018-11-14T11:16:00Z">
@@ -384,64 +433,6 @@ export default App;
   </footer>
 </section>
     
-      <section class="post post--summary">
-  <header class="post__header">
-    <a href="/posts/hugo-templates/" class="post__title">Hugo template logic</a>
-    <div class="post__meta">
-      <time class="post__date" datetime="2018-10-08T14:54:52&#43;01:00">
-        <span class="post__published">Published:</span>
-        <span class="post__published-value">2018-10-08</span>
-      </time>
-      
-      <ul class="post__categories">
-        
-        <li class="post__category"><a href="https://til.neilmagee.com/categories/development/" class="post__category-link">development</a></li>
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="post-content">
-    <p>Today I made some improvements to the <a href="https://github.com/freemagee/comfortable-basic">Hugo theme</a> I created for this site. Adding some conditional statements to the templates to cater for various scenarios that don&rsquo;t fit how I intend to use the theme.</p>
-
-<p>Although the theme is limited in scope, I want to eventually release it on <a href="https://themes.gohugo.io/">Hugo Themes</a> and allow it to be flexible enough for others to use.</p>
-
-<h2 id="deal-with-no-posts">Deal with no posts</h2>
-
-<p>On the <code>layouts/partials/pagination.html</code> template, it has been wrapped in</p>
-
-<pre><code class="language-golang">{{ if ne .TotalPages 0}}
-  // Content
-{{end}}
-</code></pre>
-  </div>
-  <footer class="post__footer">
-    
-    <ul class="post__tags">
-      
-      <li class="post__tag"><a href="https://til.neilmagee.com/tags/hugo/" class="post__tag-link"><span class="post__tag-label">#</span>hugo</a></li>
-      
-    </ul>
-    
-    
-    <div class="post__truncated">
-    
-    <a href="/posts/hugo-templates/" class="post__read-more">
-      <span class="post__read-more-label">Read full post</span>
-      <span class="post__read-more-icon">
-        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-        y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
-        <path d="M9.163,4.516c0.418,0.408,4.502,4.695,4.502,4.695C13.888,9.43,14,9.715,14,10s-0.112,0.57-0.335,0.787
-        c0,0-4.084,4.289-4.502,4.695c-0.418,0.408-1.17,0.436-1.615,0c-0.446-0.434-0.481-1.041,0-1.574L11.295,10L7.548,6.092
-        c-0.481-0.533-0.446-1.141,0-1.576C7.993,4.08,8.745,4.107,9.163,4.516z" />
-        </svg>
-      </span>
-    </a>
-    </div>
-    
-  </footer>
-</section>
-    
   </div>
 
   
@@ -459,9 +450,18 @@ export default App;
     
 
     
+    <a href="/page/3/" class="pagination__nav pagination__nav--older">Older posts<span class="pagination__nav-icon">
+      <svg version="1.1" id="Chevron_right" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+      y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
+      <path d="M9.163,4.516c0.418,0.408,4.502,4.695,4.502,4.695C13.888,9.43,14,9.715,14,10s-0.112,0.57-0.335,0.787
+      c0,0-4.084,4.289-4.502,4.695c-0.418,0.408-1.17,0.436-1.615,0c-0.446-0.434-0.481-1.041,0-1.574L11.295,10L7.548,6.092
+      c-0.481-0.533-0.446-1.141,0-1.576C7.993,4.08,8.745,4.107,9.163,4.516z" class="pagination__nav-icon-previous" />
+      </svg>
+    </span></a>
+    
   </div>
 
-  <span class="pagination__count">Page 2 of 2</span>
+  <span class="pagination__count">Page 2 of 3</span>
 </nav>
 
 
