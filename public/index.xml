@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>Authentication vs. Authorisation</title>
+      <link>https://til.neilmagee.com/posts/authentication-versus-authorisation/</link>
+      <pubDate>Tue, 09 Apr 2019 12:26:24 +0100</pubDate>
+      
+      <guid>https://til.neilmagee.com/posts/authentication-versus-authorisation/</guid>
+      <description>&lt;p&gt;Today I learned more about the distinction between &lt;em&gt;authentication&lt;/em&gt; and &lt;em&gt;authorisation&lt;/em&gt;. I have probably thought of those terms as being synonymous with eachother and fulfilling the same needs. But I was wrong.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Resolve eslint and prettier conflicts</title>
       <link>https://til.neilmagee.com/posts/eslint-and-prettier-conflicts/</link>
       <pubDate>Tue, 12 Feb 2019 10:07:40 +0000</pubDate>

@@ -6,10 +6,19 @@
     <description>Recent content in Posts on TIL</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Tue, 12 Feb 2019 10:07:40 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 09 Apr 2019 12:26:24 +0100</lastBuildDate>
     
 	<atom:link href="https://til.neilmagee.com/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Authentication vs. Authorisation</title>
+      <link>https://til.neilmagee.com/posts/authentication-versus-authorisation/</link>
+      <pubDate>Tue, 09 Apr 2019 12:26:24 +0100</pubDate>
+      
+      <guid>https://til.neilmagee.com/posts/authentication-versus-authorisation/</guid>
+      <description>&lt;p&gt;Today I learned more about the distinction between &lt;em&gt;authentication&lt;/em&gt; and &lt;em&gt;authorisation&lt;/em&gt;. I have probably thought of those terms as being synonymous with eachother and fulfilling the same needs. But I was wrong.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Resolve eslint and prettier conflicts</title>
