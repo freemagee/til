@@ -145,7 +145,7 @@ Again I found it tricky at first to get the correct syntax to be able to style c
 
 This allowed me to use the theme utilities such as `theme.spacing()` and also keep default theme styling where I wanted it. I gave the component a touch of orange:
 
-{{< figure src="/images/frontend-test-drive-material-ui/custom-colours.png" title="A beautiful mess" alt="UI Test Custom Colours" >}}
+{{< figure src="/images/frontend-test-drive-material-ui/extended-default-theme.png" title="Tangerine dream" alt="UI Test Modified Default Theme" >}}
 
 ```javascript
 import React from 'react';
