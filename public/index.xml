@@ -12,6 +12,19 @@
     
     
     <item>
+      <title>Front-end test drive: Material UI</title>
+      <link>https://til.neilmagee.com/posts/frontend-test-drive-material-ui/</link>
+      <pubDate>Thu, 16 May 2019 16:37:08 +0100</pubDate>
+      
+      <guid>https://til.neilmagee.com/posts/frontend-test-drive-material-ui/</guid>
+      <description>&lt;p&gt;Today I learned how to apply style overrides to &lt;a href=&#34;https://next.material-ui.com&#34;&gt;Material UI&lt;/a&gt; (v4.0.0-beat.2), a React front-end component library.&lt;/p&gt;
+
+&lt;p&gt;The company I work for is looking to develop some new tools, which we want to get to a prototype stage as soon as possible. We have decided to use React as part of our tech stack (&lt;em&gt;which is good&lt;/em&gt;), and knowing that the UI that these tools require is going to need a lot of UI components, I started to look at front-end component libraries (mainly Material UI and Ant Design).&lt;/p&gt;
+
+&lt;p&gt;I did a analysis of the types of UI components we need to build our tool - tooltips, various inputs, switch style buttons, modals, dialogs &amp;amp; drop downs. I wanted to make a test &amp;lsquo;App&amp;rsquo; that would combine various components from the library. My main goal was to see how this library was going to be to work with.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Authentication vs. Authorisation</title>
       <link>https://til.neilmagee.com/posts/authentication-versus-authorisation/</link>
       <pubDate>Tue, 09 Apr 2019 12:26:24 +0100</pubDate>

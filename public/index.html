@@ -51,6 +51,57 @@
     
       <section class="post post--summary">
   <header class="post__header">
+    <a href="/posts/frontend-test-drive-material-ui/" class="post__title">Front-end test drive: Material UI</a>
+    <div class="post__meta">
+      <time class="post__date" datetime="2019-05-16T16:37:08&#43;01:00">
+        <span class="post__published">Published:</span>
+        <span class="post__published-value">2019-05-16</span>
+      </time>
+      
+      <ul class="post__categories">
+        
+        <li class="post__category"><a href="https://til.neilmagee.com/categories/development/" class="post__category-link">development</a></li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="post-content">
+    <p>Today I learned how to apply style overrides to <a href="https://next.material-ui.com">Material UI</a> (v4.0.0-beat.2), a React front-end component library.</p>
+
+<p>The company I work for is looking to develop some new tools, which we want to get to a prototype stage as soon as possible. We have decided to use React as part of our tech stack (<em>which is good</em>), and knowing that the UI that these tools require is going to need a lot of UI components, I started to look at front-end component libraries (mainly Material UI and Ant Design).</p>
+
+<p>I did a analysis of the types of UI components we need to build our tool - tooltips, various inputs, switch style buttons, modals, dialogs &amp; drop downs. I wanted to make a test &lsquo;App&rsquo; that would combine various components from the library. My main goal was to see how this library was going to be to work with.</p>
+  </div>
+  <footer class="post__footer">
+    
+    <ul class="post__tags">
+      
+      <li class="post__tag"><a href="https://til.neilmagee.com/tags/react/" class="post__tag-link"><span class="post__tag-label">#</span>react</a></li>
+      
+    </ul>
+    
+    
+    <div class="post__truncated">
+    
+    <a href="/posts/frontend-test-drive-material-ui/" class="post__read-more">
+      <span class="post__read-more-label">Read full post</span>
+      <span class="post__read-more-icon">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+        y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
+        <path d="M9.163,4.516c0.418,0.408,4.502,4.695,4.502,4.695C13.888,9.43,14,9.715,14,10s-0.112,0.57-0.335,0.787
+        c0,0-4.084,4.289-4.502,4.695c-0.418,0.408-1.17,0.436-1.615,0c-0.446-0.434-0.481-1.041,0-1.574L11.295,10L7.548,6.092
+        c-0.481-0.533-0.446-1.141,0-1.576C7.993,4.08,8.745,4.107,9.163,4.516z" />
+        </svg>
+      </span>
+    </a>
+    </div>
+    
+  </footer>
+</section>
+    
+      <section class="post post--summary">
+  <header class="post__header">
     <a href="/posts/authentication-versus-authorisation/" class="post__title">Authentication vs. Authorisation</a>
     <div class="post__meta">
       <time class="post__date" datetime="2019-04-09T12:26:24&#43;01:00">
@@ -364,68 +415,6 @@
     <div class="post__truncated">
     
     <a href="/posts/react-update-state-from-props/" class="post__read-more">
-      <span class="post__read-more-label">Read full post</span>
-      <span class="post__read-more-icon">
-        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-        y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
-        <path d="M9.163,4.516c0.418,0.408,4.502,4.695,4.502,4.695C13.888,9.43,14,9.715,14,10s-0.112,0.57-0.335,0.787
-        c0,0-4.084,4.289-4.502,4.695c-0.418,0.408-1.17,0.436-1.615,0c-0.446-0.434-0.481-1.041,0-1.574L11.295,10L7.548,6.092
-        c-0.481-0.533-0.446-1.141,0-1.576C7.993,4.08,8.745,4.107,9.163,4.516z" />
-        </svg>
-      </span>
-    </a>
-    </div>
-    
-  </footer>
-</section>
-    
-      <section class="post post--summary">
-  <header class="post__header">
-    <a href="/posts/git-undo-commit/" class="post__title">Undo a Git commit and redo</a>
-    <div class="post__meta">
-      <time class="post__date" datetime="2019-01-03T14:52:45Z">
-        <span class="post__published">Published:</span>
-        <span class="post__published-value">2019-01-03</span>
-      </time>
-      
-      <ul class="post__categories">
-        
-        <li class="post__category"><a href="https://til.neilmagee.com/categories/development/" class="post__category-link">development</a></li>
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="post-content">
-    <p>Today I learned how to sort out a <strong>local</strong> mistake in Git<sup>1</sup>:</p>
-
-<pre><code>$ git commit -m &quot;Something terribly misguided&quot;             # (1)
-$ git reset HEAD~                                          # (2)
-&lt;&lt; edit files as necessary &gt;&gt;                              # (3)
-$ git add ...                                              # (4)
-$ git commit -c ORIG_HEAD                                  # (5)
-</code></pre>
-
-<ol>
-<li>This is what you want to undo</li>
-<li>This leaves your working tree (the state of your files on disk) unchanged but undoes the commit and leaves the changes you committed unstaged (so they&rsquo;ll appear as &ldquo;Changes not staged for commit&rdquo; in <code>git status</code>, and you&rsquo;ll need to add them again before committing). If you only want to add more changes to the previous commit, or change the commit message<sup>2</sup>, you could use <code>git reset --soft HEAD~</code> instead, which is like <code>git reset HEAD~</code> (where <code>HEAD~</code> is the same as <code>HEAD~1</code>) but leaves your existing changes staged.</li>
-<li>Make corrections to working tree files.</li>
-<li>git add anything that you want to include in your new commit.</li>
-<li>Commit the changes, reusing the old commit message. reset copied the old head to <code>.git/ORIG_HEAD</code>; <code>commit</code> with <code>-c ORIG_HEAD</code> will open an editor, which initially contains the log message from the old commit and allows you to edit it. If you do not need to edit the message, you could use the <code>-C</code> option.</li>
-</ol>
-  </div>
-  <footer class="post__footer">
-    
-    <ul class="post__tags">
-      
-      <li class="post__tag"><a href="https://til.neilmagee.com/tags/git/" class="post__tag-link"><span class="post__tag-label">#</span>git</a></li>
-      
-    </ul>
-    
-    
-    <div class="post__truncated">
-    
-    <a href="/posts/git-undo-commit/" class="post__read-more">
       <span class="post__read-more-label">Read full post</span>
       <span class="post__read-more-icon">
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
