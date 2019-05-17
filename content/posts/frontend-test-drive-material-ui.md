@@ -124,11 +124,11 @@ function UITester() {
 export default UITester;
 ```
 
-This achieved some little goals. I could modify pseudo classes, states and component children.
+This achieved some little goals. I could modify pseudo classes, states and component children. So that gave me some confidence that I could control the style on the components if I needed to.
 
 I had seen in the [docs](https://next.material-ui.com/customization/default-theme/) that the default theme had some nice utilities, such as pixel to rem functionality, that I wanted to take advantage of. The above code uses the `withStyles` Higher-order component API. I don't fully understand what a Higher-order component API is to be honest. It seemed like I could use the `makeStyles` Hook API to access the default theme utilities.
 
-Again I found it tricky at first to get the correct syntax to be able to style component child elements, such as the switch's 'track'. I looked at a lot examples, re-read the docs (*once more*) and figured out this syntax pattern would override the default theme styling:
+Again I found it tricky at first to get the correct syntax to be able to style component child elements, such as the switch's 'track'. I looked at a lot of examples, re-read the docs (*once more*) and figured out this syntax pattern would override the default theme styling:
 
 ```javascript
   switchBase: {
@@ -242,4 +242,4 @@ function UITesterThemed() {
 export default UITesterThemed;
 ```
 
-CSS in JS is pretty much brand new to me and I am unsure if there is sytax here that is specific to Material UIs way of doing things. I am sure I will learn more about that soon.
+CSS in JS is pretty much brand new to me and I am unsure if there is syntax here that is specific to Material UIs way of doing things. I am sure I will learn more about that soon.
