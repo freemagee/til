@@ -177,11 +177,11 @@ function UITester() {
 export default UITester;
 </code></pre>
 
-<p>This achieved some little goals. I could modify pseudo classes, states and component children.</p>
+<p>This achieved some little goals. I could modify pseudo classes, states and component children. So that gave me some confidence that I could control the style on the components if I needed to.</p>
 
 <p>I had seen in the <a href="https://next.material-ui.com/customization/default-theme/">docs</a> that the default theme had some nice utilities, such as pixel to rem functionality, that I wanted to take advantage of. The above code uses the <code>withStyles</code> Higher-order component API. I don&rsquo;t fully understand what a Higher-order component API is to be honest. It seemed like I could use the <code>makeStyles</code> Hook API to access the default theme utilities.</p>
 
-<p>Again I found it tricky at first to get the correct syntax to be able to style component child elements, such as the switch&rsquo;s &lsquo;track&rsquo;. I looked at a lot examples, re-read the docs (<em>once more</em>) and figured out this syntax pattern would override the default theme styling:</p>
+<p>Again I found it tricky at first to get the correct syntax to be able to style component child elements, such as the switch&rsquo;s &lsquo;track&rsquo;. I looked at a lot of examples, re-read the docs (<em>once more</em>) and figured out this syntax pattern would override the default theme styling:</p>
 
 <pre><code class="language-javascript">  switchBase: {
     '&amp;$checked': {
@@ -299,7 +299,7 @@ function UITesterThemed() {
 export default UITesterThemed;
 </code></pre>
 
-<p>CSS in JS is pretty much brand new to me and I am unsure if there is sytax here that is specific to Material UIs way of doing things. I am sure I will learn more about that soon.</p>
+<p>CSS in JS is pretty much brand new to me and I am unsure if there is syntax here that is specific to Material UIs way of doing things. I am sure I will learn more about that soon.</p>
     </section>
     <footer class="post__footer">
       
