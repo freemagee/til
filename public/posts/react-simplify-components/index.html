@@ -1,74 +1,7 @@
-<!doctype html>
-<html class="no-js" lang="en-gb">
-
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>
-  TIL
-    -
-  Simplify React components
-</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="author" content="Neil Magee">
-  <meta name="referrer" content="no-referrer-when-downgrade">
-
-  <link href="https://til.neilmagee.com/images/favicon/favicon-16x16.png" rel="shortcut icon" type="image/png">
-
-  <link rel="stylesheet" href="https://til.neilmagee.com/css/style-c7a45906.css" />
-
-</head>
-<body>
-  
-
-<header class="site-header">
-  <section class="site-header__ident">
-    <a href="https://til.neilmagee.com/" class="site-header__link">TIL</a>
-  </section>
-  <nav class="site-header__nav">
-  
-    <a href="https://til.neilmagee.com/about/" class="site-header__nav-item">About</a>
-  
-  </nav>
-</header>
-  <div class="site-container">
-    <div class="site-container__inner">
-      <main role="main" id="content">
-        
-  <article class="post post--single" itemscope itemtype="http://schema.org/BlogPosting">
-    <header class="post__header">
-      <h1 class="post__title post__title--single" itemprop="title">Simplify React components</h1>
-      <div class="post__meta">
-        <time class="post__date" datetime="2019-01-09" itemprop="dateCreated pubdate datePublished">
-          <span class="post__published">Published:</span>
-          <span class="post__published-value">2019-01-09</span>
-        </time>
-        
-        <ul class="post__categories">
-          
-          <li class="post__category">
-            <a href="https://til.neilmagee.com/categories/development/" class="post__category-link">development</a>
-          </li>
-          
-        </ul>
-        
-      </div>
-    </header>
-    <section class="post-content">
-      <p>Today I learned a bit more about why setting props against state is considered an anti-pattern. After my <a href="https://til.neilmagee.com/posts/react-update-state-from-props/">previous article</a>, I was not happy with the component. It still felt like <code>getDerivedStateFromProps</code> was a hack rather than a maintainable fix. Plus in using the component, I was still triggering bugs that were quite situational.</p>
-
-<p>I read more on <a href="https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html#recap">the react blog</a> and the recap really nailed what I needed to do.</p>
-
-<blockquote>
-<p>For example, rather than a child accepting a “committed” props.value and tracking a “draft” state.value, have the parent manage both state.draftValue and state.committedValue and control the child’s value directly.</p>
-</blockquote>
-
-<p>This accurately described a process, to make my component simpler (I think it qualifies as a controlled component now), that would remove side effects. So I set out to remove state from this component and make it&rsquo;s parent responsible for passing in the correct data as props.</p>
-
-<h2 id="user-form-component-before">User Form Component - Before</h2>
-
-<pre><code class="language-javascript">import React from &quot;react&quot;;
+<!doctype html><html class=no-js lang=en-gb><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><title>TIL
+-
+Simplify React components</title><meta name=description content><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=author content="Neil Magee"><meta name=referrer content=no-referrer-when-downgrade><link href=https://til.neilmagee.com/images/favicon/favicon-16x16.png rel="shortcut icon" type=image/png><link rel=stylesheet href=https://til.neilmagee.com/css/style-c7a45906.css></head><body><header class=site-header><section class=site-header__ident><a href=https://til.neilmagee.com/ class=site-header__link>TIL</a></section><nav class=site-header__nav><a href=https://til.neilmagee.com/about/ class=site-header__nav-item>About</a></nav></header><div class=site-container><div class=site-container__inner><main role=main id=content><article class="post post--single" itemscope itemtype=http://schema.org/BlogPosting><header class=post__header><h1 class="post__title post__title--single" itemprop=title>Simplify React components</h1><div class=post__meta><time class=post__date datetime=2019-01-09 itemprop="dateCreated pubdate datePublished"><span class=post__published>Published:</span>
+<span class=post__published-value>2019-01-09</span></time><ul class=post__categories><li class=post__category><a href=https://til.neilmagee.com/categories/development/ class=post__category-link>development</a></li></ul></div></header><section class=post-content><p>Today I learned a bit more about why setting props against state is considered an anti-pattern. After my <a href=https://til.neilmagee.com/posts/react-update-state-from-props/>previous article</a>, I was not happy with the component. It still felt like <code>getDerivedStateFromProps</code> was a hack rather than a maintainable fix. Plus in using the component, I was still triggering bugs that were quite situational.</p><p>I read more on <a href=https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html#recap>the react blog</a> and the recap really nailed what I needed to do.</p><blockquote><p>For example, rather than a child accepting a “committed” props.value and tracking a “draft” state.value, have the parent manage both state.draftValue and state.committedValue and control the child’s value directly.</p></blockquote><p>This accurately described a process, to make my component simpler (I think it qualifies as a controlled component now), that would remove side effects. So I set out to remove state from this component and make it&rsquo;s parent responsible for passing in the correct data as props.</p><h2 id=user-form-component-before>User Form Component - Before</h2><pre><code class=language-javascript>import React from &quot;react&quot;;
 
 export default class User extends React.Component {
   constructor(props) {
@@ -152,13 +85,7 @@ export default class User extends React.Component {
   }
 }
 
-</code></pre>
-
-<p>The before version used set <code>props</code> against <code>state</code>. It then handled input from the user and used <code>getDerivedStateFromProps</code> to watch for changes to the props. I ran into multiple warnings from the React debugger whilst using this component as I changed other components in my app.</p>
-
-<h2 id="user-form-component-after-refactor">User Form Component - After Refactor</h2>
-
-<pre><code class="language-javascript">import React from &quot;react&quot;;
+</code></pre><p>The before version used set <code>props</code> against <code>state</code>. It then handled input from the user and used <code>getDerivedStateFromProps</code> to watch for changes to the props. I ran into multiple warnings from the React debugger whilst using this component as I changed other components in my app.</p><h2 id=user-form-component-after-refactor>User Form Component - After Refactor</h2><pre><code class=language-javascript>import React from &quot;react&quot;;
 
 export default class User extends React.Component {
   constructor(props) {
@@ -229,68 +156,6 @@ export default class User extends React.Component {
     );
   }
 }
-</code></pre>
-
-<p>So one of the main differences is the method <code>handleChange</code>. As a user changes data, it triggers <code>handleChange</code>. Before that was where I updated the internal <code>state</code>, and then pushed the new values out to the parent component. But now I take a record of the current <code>props</code>, take the newly edited value and merge them into a new object. That object is pushed to the parent component. Various other steps are taken in the parent, but eventually the newly changed data comes back into the <code>user form component</code> as <code>props</code> and the value in the input is changed.</p>
-
-<p>I hope I have got this pattern right this time&hellip;if not the knowledge is serving me well.</p>
-    </section>
-    <footer class="post__footer">
-      
-      <ul class="post__tags">
-        
-        <li class="post__tag"><a href="https://til.neilmagee.com/tags/react/" class="post__tag-link"><span class="post__tag-label">#</span>react</a></li>
-        
-      </ul>
-      
-    </footer>
-  </article>
-
-  
-<aside class="post-siblings">
-  <span class="post-siblings__more">More posts</span>
-  
-    <a class="post-siblings__nav post-siblings__nav--next" href="https://til.neilmagee.com/posts/jest-with-babel-7/"><span class="post-siblings__nav-icon">
-    <svg version="1.1" id="Chevron_left" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-   y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
-    <path d="M12.452,4.516c0.446,0.436,0.481,1.043,0,1.576L8.705,10l3.747,3.908c0.481,0.533,0.446,1.141,0,1.574
-      c-0.445,0.436-1.197,0.408-1.615,0c-0.418-0.406-4.502-4.695-4.502-4.695C6.112,10.57,6,10.285,6,10s0.112-0.57,0.335-0.789
-      c0,0,4.084-4.287,4.502-4.695C11.255,4.107,12.007,4.08,12.452,4.516z" class="post-siblings__nav-icon-next" />
-    </svg>
-  </span>Next</a>
-  
-
-  
-  <a class="post-siblings__nav post-siblings__nav--previous" href="https://til.neilmagee.com/posts/react-update-state-from-props/">Previous<span class="post-siblings__nav-icon">
-    <svg version="1.1" id="Chevron_right" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-   y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
-    <path d="M9.163,4.516c0.418,0.408,4.502,4.695,4.502,4.695C13.888,9.43,14,9.715,14,10s-0.112,0.57-0.335,0.787
-      c0,0-4.084,4.289-4.502,4.695c-0.418,0.408-1.17,0.436-1.615,0c-0.446-0.434-0.481-1.041,0-1.574L11.295,10L7.548,6.092
-      c-0.481-0.533-0.446-1.141,0-1.576C7.993,4.08,8.745,4.107,9.163,4.516z" class="post-siblings__nav-icon-previous" />
-    </svg>
-  </span></a>
-  
-</aside>
-
-
-      </main>
-      <footer class="site-footer">
-        <div class="site-footer__inner">
-          <p class="site-footer__copyright">&copy; 2019 <a href="https://neilmagee.com">Neil Magee</a>. Icons from <a href="http://entypo.com">Entypo+</a>. Made with <a href="https://gohugo.io/" class="site-footer__hugo-logo"><img src="/images/hugo-logo.png" alt="Hugo logo" width="22" height="22"></a></p>
-        </div>
-      </footer>
-    </div>
-  </div>
-
-  <script src="https://til.neilmagee.com/js/highlight.pack.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", event => {
-    document.documentElement.classList.remove("no-js");
-    document.querySelectorAll("pre:not(.chroma) code").forEach(block => {
-      hljs.highlightBlock(block);
-    });
-  });
-</script>
-
-</body>
-</html>
+</code></pre><p>So one of the main differences is the method <code>handleChange</code>. As a user changes data, it triggers <code>handleChange</code>. Before that was where I updated the internal <code>state</code>, and then pushed the new values out to the parent component. But now I take a record of the current <code>props</code>, take the newly edited value and merge them into a new object. That object is pushed to the parent component. Various other steps are taken in the parent, but eventually the newly changed data comes back into the <code>user form component</code> as <code>props</code> and the value in the input is changed.</p><p>I hope I have got this pattern right this time&hellip;if not the knowledge is serving me well.</p></section><footer class=post__footer><ul class=post__tags><li class=post__tag><a href=https://til.neilmagee.com/tags/react/ class=post__tag-link><span class=post__tag-label>#</span>react</a></li></ul></footer></article><aside class=post-siblings><span class=post-siblings__more>More posts</span>
+<a class="post-siblings__nav post-siblings__nav--next" href=https://til.neilmagee.com/posts/jest-with-babel-7/><span class=post-siblings__nav-icon><svg id="Chevron_left" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 20" enable-background="new 0 0 20 20"><path d="M12.452 4.516c.446.436.481 1.043.0 1.576L8.705 10l3.747 3.908c.481.533.446 1.141.0 1.574-.445.436-1.197.408-1.615.0-.418-.406-4.502-4.695-4.502-4.695C6.112 10.57 6 10.285 6 10s.112-.57.335-.789c0 0 4.084-4.287 4.502-4.695C11.255 4.107 12.007 4.08 12.452 4.516z" class="post-siblings__nav-icon-next" /></svg></span>Next</a>
+<a class="post-siblings__nav post-siblings__nav--previous" href=https://til.neilmagee.com/posts/react-update-state-from-props/>Previous<span class=post-siblings__nav-icon><svg id="Chevron_right" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 20" enable-background="new 0 0 20 20"><path d="M9.163 4.516c.418.408 4.502 4.695 4.502 4.695C13.888 9.43 14 9.715 14 10s-.112.57-.335.787c0 0-4.084 4.289-4.502 4.695-.418.408-1.17.436-1.615.0-.446-.434-.481-1.041.0-1.574L11.295 10 7.548 6.092c-.481-.533-.446-1.141.0-1.576C7.993 4.08 8.745 4.107 9.163 4.516z" class="post-siblings__nav-icon-previous" /></svg></span></a></aside></main><footer class=site-footer><div class=site-footer__inner><p class=site-footer__copyright>&copy; 2019 <a href=https://neilmagee.com>Neil Magee</a>. Icons from <a href=http://entypo.com>Entypo+</a>. Made with <a href=https://gohugo.io/ class=site-footer__hugo-logo><img src=/images/hugo-logo.png alt="Hugo logo" width=22 height=22></a></p></div></footer></div></div><script src=https://til.neilmagee.com/js/highlight.pack.js></script><script>document.addEventListener("DOMContentLoaded",event=>{document.documentElement.classList.remove("no-js");document.querySelectorAll("pre:not(.chroma) code").forEach(block=>{hljs.highlightBlock(block);});});</script></body></html>

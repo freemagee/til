@@ -1,134 +1,49 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>React on TIL</title>
-    <link>https://til.neilmagee.com/tags/react/</link>
-    <description>Recent content in React on TIL</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-gb</language>
-    <lastBuildDate>Thu, 16 May 2019 16:37:08 +0100</lastBuildDate>
-    
-	<atom:link href="https://til.neilmagee.com/tags/react/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Front-end test drive: Material UI</title>
-      <link>https://til.neilmagee.com/posts/frontend-test-drive-material-ui/</link>
-      <pubDate>Thu, 16 May 2019 16:37:08 +0100</pubDate>
-      
-      <guid>https://til.neilmagee.com/posts/frontend-test-drive-material-ui/</guid>
-      <description>&lt;p&gt;Today I learned how to apply style overrides to &lt;a href=&#34;https://next.material-ui.com&#34;&gt;Material UI&lt;/a&gt; (v4.0.0-beat.2), a React front-end component library.&lt;/p&gt;
-
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>react on TIL</title><link>https://til.neilmagee.com/tags/react/</link><description>Recent content in react on TIL</description><generator>Hugo -- gohugo.io</generator><language>en-gb</language><lastBuildDate>Thu, 16 May 2019 16:37:08 +0100</lastBuildDate><atom:link href="https://til.neilmagee.com/tags/react/index.xml" rel="self" type="application/rss+xml"/><item><title>Front-end test drive: Material UI</title><link>https://til.neilmagee.com/posts/frontend-test-drive-material-ui/</link><pubDate>Thu, 16 May 2019 16:37:08 +0100</pubDate><guid>https://til.neilmagee.com/posts/frontend-test-drive-material-ui/</guid><description>&lt;p&gt;Today I learned how to apply style overrides to &lt;a href=&#34;https://next.material-ui.com&#34;&gt;Material UI&lt;/a&gt; (v4.0.0-beat.2), a React front-end component library.&lt;/p&gt;
 &lt;p&gt;The company I work for is looking to develop some new tools, which we want to get to a prototype stage as soon as possible. We have decided to use React as part of our tech stack (&lt;em&gt;which is good&lt;/em&gt;), and knowing that the UI that these tools require is going to need a lot of UI components, I started to look at front-end component libraries (mainly Material UI and Ant Design).&lt;/p&gt;
-
-&lt;p&gt;I did a analysis of the types of UI components we need to build our tool - tooltips, various inputs, switch style buttons, modals, dialogs &amp;amp; drop downs. I wanted to make a test &amp;lsquo;App&amp;rsquo; that would combine various components from the library. My main goal was to see how this library was going to be to work with.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Simplify React components</title>
-      <link>https://til.neilmagee.com/posts/react-simplify-components/</link>
-      <pubDate>Wed, 09 Jan 2019 17:04:41 +0000</pubDate>
-      
-      <guid>https://til.neilmagee.com/posts/react-simplify-components/</guid>
-      <description>&lt;p&gt;Today I learned a bit more about why setting props against state is considered an anti-pattern. After my &lt;a href=&#34;https://til.neilmagee.com/posts/react-update-state-from-props/&#34;&gt;previous article&lt;/a&gt;, I was not happy with the component. It still felt like &lt;code&gt;getDerivedStateFromProps&lt;/code&gt; was a hack rather than a maintainable fix. Plus in using the component, I was still triggering bugs that were quite situational.&lt;/p&gt;
-
+&lt;p&gt;I did a analysis of the types of UI components we need to build our tool - tooltips, various inputs, switch style buttons, modals, dialogs &amp;amp; drop downs. I wanted to make a test &amp;lsquo;App&amp;rsquo; that would combine various components from the library. My main goal was to see how this library was going to be to work with.&lt;/p&gt;</description></item><item><title>Simplify React components</title><link>https://til.neilmagee.com/posts/react-simplify-components/</link><pubDate>Wed, 09 Jan 2019 17:04:41 +0000</pubDate><guid>https://til.neilmagee.com/posts/react-simplify-components/</guid><description>&lt;p&gt;Today I learned a bit more about why setting props against state is considered an anti-pattern. After my &lt;a href=&#34;https://til.neilmagee.com/posts/react-update-state-from-props/&#34;&gt;previous article&lt;/a&gt;, I was not happy with the component. It still felt like &lt;code&gt;getDerivedStateFromProps&lt;/code&gt; was a hack rather than a maintainable fix. Plus in using the component, I was still triggering bugs that were quite situational.&lt;/p&gt;
 &lt;p&gt;I read more on &lt;a href=&#34;https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html#recap&#34;&gt;the react blog&lt;/a&gt; and the recap really nailed what I needed to do.&lt;/p&gt;
-
 &lt;blockquote&gt;
 &lt;p&gt;For example, rather than a child accepting a “committed” props.value and tracking a “draft” state.value, have the parent manage both state.draftValue and state.committedValue and control the child’s value directly.&lt;/p&gt;
 &lt;/blockquote&gt;
-
-&lt;p&gt;This accurately described a process, to make my component simpler (I think it qualifies as a controlled component now), that would remove side effects. So I set out to remove state from this component and make it&amp;rsquo;s parent responsible for passing in the correct data as props.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Update state from props in React</title>
-      <link>https://til.neilmagee.com/posts/react-update-state-from-props/</link>
-      <pubDate>Tue, 08 Jan 2019 11:11:05 +0000</pubDate>
-      
-      <guid>https://til.neilmagee.com/posts/react-update-state-from-props/</guid>
-      <description>&lt;p&gt;Today I learned how to use a new(ish) React lifecycle hook called &lt;code&gt;getDerivedStateFromProps&lt;/code&gt; (&lt;a href=&#34;https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props&#34;&gt;link&lt;/a&gt;). I have struggled a little bit with form components that allow you to edit data. In my example below it is &amp;ldquo;user&amp;rdquo; data, but in reality this could affect all forms with any data in React.&lt;/p&gt;
-
+&lt;p&gt;This accurately described a process, to make my component simpler (I think it qualifies as a controlled component now), that would remove side effects. So I set out to remove state from this component and make it&amp;rsquo;s parent responsible for passing in the correct data as props.&lt;/p&gt;</description></item><item><title>Update state from props in React</title><link>https://til.neilmagee.com/posts/react-update-state-from-props/</link><pubDate>Tue, 08 Jan 2019 11:11:05 +0000</pubDate><guid>https://til.neilmagee.com/posts/react-update-state-from-props/</guid><description>&lt;p&gt;Today I learned how to use a new(ish) React lifecycle hook called &lt;code&gt;getDerivedStateFromProps&lt;/code&gt; (&lt;a href=&#34;https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props&#34;&gt;link&lt;/a&gt;). I have struggled a little bit with form components that allow you to edit data. In my example below it is &amp;ldquo;user&amp;rdquo; data, but in reality this could affect all forms with any data in React.&lt;/p&gt;
 &lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
-
 &lt;p&gt;The reason for the struggle is a slight conflict for the one true source of the data for the form. When the &amp;ldquo;user&amp;rdquo; is edited, and the &lt;strong&gt;user form component&lt;/strong&gt; is used, data is fed into it via props from it&amp;rsquo;s &lt;em&gt;parent component&lt;/em&gt;. So the Employer and Job title current values can appear in their relevant inputs.&lt;/p&gt;
-
 &lt;p&gt;That would be ok if that data was static, but the data is not and it needs to be editable. So the props are copied into the &lt;strong&gt;user form component&lt;/strong&gt; state. And this state is used as the value of the relevant inputs. That allows the inputs to receive new data, which triggers off a chain of events.&lt;/p&gt;
-
-&lt;p&gt;The new data is processed via a &lt;code&gt;handleChange&lt;/code&gt; event in the &lt;strong&gt;user form component&lt;/strong&gt;. Two things happen, it is added to the current state and also passed to a &lt;em&gt;parent component&lt;/em&gt; for other actions to happen. When that &lt;em&gt;parent component&lt;/em&gt; is done, it sends that data back to this &lt;strong&gt;user form component&lt;/strong&gt; as props and the cycle can continue.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>React Prevent Re-renders</title>
-      <link>https://til.neilmagee.com/posts/react-prevent-re-renders/</link>
-      <pubDate>Wed, 07 Nov 2018 09:26:33 +0000</pubDate>
-      
-      <guid>https://til.neilmagee.com/posts/react-prevent-re-renders/</guid>
-      <description>&lt;p&gt;Today I learned how to prevent React from unnecessarily re-rendering a component:&lt;/p&gt;
-
+&lt;p&gt;The new data is processed via a &lt;code&gt;handleChange&lt;/code&gt; event in the &lt;strong&gt;user form component&lt;/strong&gt;. Two things happen, it is added to the current state and also passed to a &lt;em&gt;parent component&lt;/em&gt; for other actions to happen. When that &lt;em&gt;parent component&lt;/em&gt; is done, it sends that data back to this &lt;strong&gt;user form component&lt;/strong&gt; as props and the cycle can continue.&lt;/p&gt;</description></item><item><title>React Prevent Re-renders</title><link>https://til.neilmagee.com/posts/react-prevent-re-renders/</link><pubDate>Wed, 07 Nov 2018 09:26:33 +0000</pubDate><guid>https://til.neilmagee.com/posts/react-prevent-re-renders/</guid><description>&lt;p&gt;Today I learned how to prevent React from unnecessarily re-rendering a component:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;shouldComponentUpdate(nextProps) {
-  // Compare the props with one another
-  if (this.props.actions !== nextProps.actions) {
-    return true;
-  }
-
-  return false;
+// Compare the props with one another
+if (this.props.actions !== nextProps.actions) {
+return true;
+}
+return false;
 }
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;I was trying to use a loop to sort some items prior to rendering them in a component. During the debug step I kept seeing the loop run twice, when I was only expecting it to run once.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>React Conditional Rendering</title>
-      <link>https://til.neilmagee.com/posts/react-conditional-rendering/</link>
-      <pubDate>Mon, 05 Nov 2018 17:13:02 +0000</pubDate>
-      
-      <guid>https://til.neilmagee.com/posts/react-conditional-rendering/</guid>
-      <description>&lt;p&gt;Today I learned how to conditionally render a React component. I was using CSS to show and hide different components in reaction to the App&amp;rsquo;s state. Setting a component to be &lt;code&gt;display: none;&lt;/code&gt; or control it&amp;rsquo;s opacity. The problem was that React was throwing up some warnings that were coming from &amp;ldquo;invisible&amp;rdquo; components, that were receiving props before they were really meant to. This is probably representative of a deeper problem in my App structure.&lt;/p&gt;
-
+&lt;p&gt;I was trying to use a loop to sort some items prior to rendering them in a component. During the debug step I kept seeing the loop run twice, when I was only expecting it to run once.&lt;/p&gt;</description></item><item><title>React Conditional Rendering</title><link>https://til.neilmagee.com/posts/react-conditional-rendering/</link><pubDate>Mon, 05 Nov 2018 17:13:02 +0000</pubDate><guid>https://til.neilmagee.com/posts/react-conditional-rendering/</guid><description>&lt;p&gt;Today I learned how to conditionally render a React component. I was using CSS to show and hide different components in reaction to the App&amp;rsquo;s state. Setting a component to be &lt;code&gt;display: none;&lt;/code&gt; or control it&amp;rsquo;s opacity. The problem was that React was throwing up some warnings that were coming from &amp;ldquo;invisible&amp;rdquo; components, that were receiving props before they were really meant to. This is probably representative of a deeper problem in my App structure.&lt;/p&gt;
 &lt;p&gt;Having finally read the &lt;a href=&#34;https://reactjs.org/docs/conditional-rendering.html&#34;&gt;conditional rendering&lt;/a&gt; page, I have chosen the &amp;ldquo;Inline If with Logical &amp;amp;&amp;amp; Operator&amp;rdquo; pattern for my App. Below is a stripped down example:&lt;/p&gt;
-
 &lt;h2 id=&#34;parent-app&#34;&gt;Parent App&lt;/h2&gt;
-
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;import React, {Component} from &amp;quot;react&amp;quot;;
 import MyComponent from &amp;quot;./components/MyComponent.jsx&amp;quot;;
-
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      componentIsActive: false
-    };
-  }
-  setComponentActive() {
-    // Something else could trigger this
-    this.setState({
-        componentIsActive: true
-    });
-  }
-  render() {
-    return (
-      // The component is passed a prop from the state
-      &amp;lt;MyComponent
-        active={this.state.componentIsActive}
-      /&amp;gt;
-    );
-  }
+constructor(props) {
+super(props);
+this.state = {
+componentIsActive: false
+};
 }
-
+setComponentActive() {
+// Something else could trigger this
+this.setState({
+componentIsActive: true
+});
+}
+render() {
+return (
+// The component is passed a prop from the state
+&amp;lt;MyComponent
+active={this.state.componentIsActive}
+/&amp;gt;
+);
+}
+}
 export default App;
-&lt;/code&gt;&lt;/pre&gt;</description>
-    </item>
-    
-    <item>
-      <title>React With Debounce</title>
-      <link>https://til.neilmagee.com/posts/react-with-debounce/</link>
-      <pubDate>Wed, 24 Oct 2018 20:10:38 +0100</pubDate>
-      
-      <guid>https://til.neilmagee.com/posts/react-with-debounce/</guid>
-      <description>&lt;p&gt;Today I learned how to debounce inputs in a &lt;a href=&#34;https://reactjs.org/&#34;&gt;React&lt;/a&gt; component. This is something I have done in many other places, in plain JavaScript, in jQuery, in AngularJs and in VueJs. Whilst the concept is the same - have a user input some data (text, date, email, whatever), wait a short amount of time so that the user has finished typing and then do something. The idea being the &amp;ldquo;do something&amp;rdquo; does not happen whilst the user is still adding their data.&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>React With Debounce</title><link>https://til.neilmagee.com/posts/react-with-debounce/</link><pubDate>Wed, 24 Oct 2018 20:10:38 +0100</pubDate><guid>https://til.neilmagee.com/posts/react-with-debounce/</guid><description>&lt;p&gt;Today I learned how to debounce inputs in a &lt;a href=&#34;https://reactjs.org/&#34;&gt;React&lt;/a&gt; component. This is something I have done in many other places, in plain JavaScript, in jQuery, in AngularJs and in VueJs. Whilst the concept is the same - have a user input some data (text, date, email, whatever), wait a short amount of time so that the user has finished typing and then do something. The idea being the &amp;ldquo;do something&amp;rdquo; does not happen whilst the user is still adding their data.&lt;/p&gt;</description></item></channel></rss>
