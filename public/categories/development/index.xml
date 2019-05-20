@@ -4,13 +4,15 @@
 &lt;p&gt;I was editting a &lt;code&gt;.vue&lt;/code&gt; component in Visual Studio Code. I had a code section with red underlines, generally indicating that eslint was not happy with something. I could see it was a formatting issue, so I used &lt;code&gt;eslint --fix&lt;/code&gt; to solve the issue and re-format the code. But then that triggered a new lint problem where &lt;em&gt;Prettier&lt;/em&gt; was now unhappy with how &lt;em&gt;eslint&lt;/em&gt; had formatted the code. The difference between the two is small, and involves a couple of indented spaces. See the images below for both examples.&lt;/p&gt;
 &lt;figure&gt;
 &lt;img src=&#34;https://til.neilmagee.com/images/eslint-and-prettier-conflicts/eslint-formatted.png&#34;
-alt=&#34;Example of code formatted with eslint&#34;/&gt; &lt;figcaption&gt;
+alt=&#34;Example of code formatted with eslint&#34;loading=&#34;lazy&#34;
+/&gt; &lt;figcaption&gt;
 &lt;h4&gt;eslint Formatted&lt;/h4&gt;
 &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;figure&gt;
 &lt;img src=&#34;https://til.neilmagee.com/images/eslint-and-prettier-conflicts/prettier-formatted.png&#34;
-alt=&#34;Example of code formatted with Prettier&#34;/&gt; &lt;figcaption&gt;
+alt=&#34;Example of code formatted with Prettier&#34;loading=&#34;lazy&#34;
+/&gt; &lt;figcaption&gt;
 &lt;h4&gt;Prettier Formatted&lt;/h4&gt;
 &lt;/figcaption&gt;
 &lt;/figure&gt;</description></item><item><title>Apache virtual host redirection with ssl</title><link>https://til.neilmagee.com/posts/apache-virtual-host-redirection-with-ssl/</link><pubDate>Mon, 04 Feb 2019 14:54:05 +0000</pubDate><guid>https://til.neilmagee.com/posts/apache-virtual-host-redirection-with-ssl/</guid><description>&lt;p&gt;Today I learned more about Apache virtual hosting and redirection. I decided to change my server host to &lt;a href=&#34;https://www.digitalocean.com&#34;&gt;Digital Ocean&lt;/a&gt; a few months ago. There was nothing wrong with my then host, it was a shared web host, which I mainly used to access and manage with cPanel.&lt;/p&gt;
