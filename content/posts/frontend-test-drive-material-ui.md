@@ -5,6 +5,7 @@ categories:
   - development
 tags:
   - react
+  - material-ui
 ---
 
 Today I learned how to apply style overrides to [Material UI](https://next.material-ui.com) (v4.0.0-beat.2), a React front-end component library.
