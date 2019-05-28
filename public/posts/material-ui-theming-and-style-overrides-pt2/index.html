@@ -1,0 +1,176 @@
+<!doctype html><html class=no-js lang=en-gb><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><title>TIL
+-
+Material UI theming and style overrides - Part 2</title><meta name=description content><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=author content="Neil Magee"><meta name=referrer content=no-referrer-when-downgrade><link href=https://til.neilmagee.com/images/favicon/favicon-16x16.png rel="shortcut icon" type=image/png><link rel=stylesheet href=https://til.neilmagee.com/css/style-a707518e.css></head><body><header class=site-header><section class=site-header__ident><a href=https://til.neilmagee.com/ class=site-header__link>TIL</a></section><nav class=site-header__nav><a href=https://til.neilmagee.com/about/ class=site-header__nav-item>About</a></nav></header><div class=site-container><div class=site-container__inner><main role=main id=content><article class="post post--single" itemscope itemtype=http://schema.org/BlogPosting><header class=post__header><h1 class="post__title post__title--single" itemprop=title>Material UI theming and style overrides - Part 2</h1><div class=post__meta><time class=post__date datetime=2019-05-28 itemprop="dateCreated pubdate datePublished"><span class=post__published>Published:</span>
+<span class=post__published-value>2019-05-28</span></time><ul class=post__categories><li class=post__category><a href=https://til.neilmagee.com/categories/development/ class=post__category-link>development</a></li></ul></div></header><section class=post-content><p>Today I learned that my previous attempt at theming a <em>Material UI</em> component was not right. I thought the <em>default theme</em> overrides I was providing were also being used in the <em>component style</em> overrides. But they were not.</p><p>After debugging the theme object in Chrome, I could see that before <code>useStyles()</code> was called, my theme object was as expected, with my colour set. But the when I stepped into the <code>useStyles()</code> function and observed the theme object it was using, the colour was not right. I had assumed that the styles argument that <code>makeStyles</code> took was my <em>global</em> <code>theme</code> object. The <code>AppBar</code> background was yellow, so the theme was working in general, just not for my <em>component style</em> overrides.</p><p>I put a <a href=https://codesandbox.io/s/fervent-meninsky-hqnlq>CodeSandbox</a> together to illustrate the differences:</p><h3 id=wronglythemed-js>WronglyThemed.js</h3><pre><code class=language-javascript>import React from &quot;react&quot;;
+import { makeStyles } from &quot;@material-ui/core/styles&quot;;
+import { createMuiTheme } from &quot;@material-ui/core/styles&quot;;
+import { ThemeProvider } from &quot;@material-ui/styles&quot;;
+
+import AppBar from &quot;@material-ui/core/AppBar&quot;;
+import Toolbar from &quot;@material-ui/core/Toolbar&quot;;
+import Typography from &quot;@material-ui/core/Typography&quot;;
+import Button from &quot;@material-ui/core/Button&quot;;
+import IconButton from &quot;@material-ui/core/IconButton&quot;;
+import MenuIcon from &quot;@material-ui/icons/Menu&quot;;
+
+const newTheme = createMuiTheme({
+  palette: {
+    primary: {
+      main: &quot;#ffcc00&quot;
+    }
+  }
+});
+
+const newStyles = {
+  root: {
+    flexGrow: 1,
+    borderTop: `3px solid ${newTheme.palette.primary.dark}`
+  },
+  menuButton: {
+    marginRight: newTheme.spacing(2)
+  },
+  title: {
+    flexGrow: 1
+  }
+};
+
+const useStyles = makeStyles(newStyles);
+
+function Custom() {
+  const classes = useStyles();
+
+  return (
+    &lt;ThemeProvider theme={newTheme}&gt;
+      &lt;div className={classes.root}&gt;
+        &lt;AppBar position=&quot;static&quot;&gt;
+          &lt;Toolbar&gt;
+            &lt;IconButton
+              edge=&quot;start&quot;
+              className={classes.menuButton}
+              color=&quot;inherit&quot;
+              aria-label=&quot;Menu&quot;
+            &gt;
+              &lt;MenuIcon /&gt;
+            &lt;/IconButton&gt;
+            &lt;Typography variant=&quot;h6&quot; className={classes.title}&gt;
+              News
+            &lt;/Typography&gt;
+            &lt;Button color=&quot;inherit&quot;&gt;Login&lt;/Button&gt;
+          &lt;/Toolbar&gt;
+        &lt;/AppBar&gt;
+      &lt;/div&gt;
+    &lt;/ThemeProvider&gt;
+  );
+}
+
+export default Custom;
+
+</code></pre><p>The above will render out a yellow <code>AppBar</code> with a dark blue border on top. Not what I wanted!</p><h3 id=correctlythemed-js>CorrectlyThemed.js</h3><pre><code class=language-javascript>import React from &quot;react&quot;;
+import { makeStyles } from &quot;@material-ui/core/styles&quot;;
+import { createMuiTheme } from &quot;@material-ui/core/styles&quot;;
+import { ThemeProvider } from &quot;@material-ui/styles&quot;;
+
+import AppBar from &quot;@material-ui/core/AppBar&quot;;
+import Toolbar from &quot;@material-ui/core/Toolbar&quot;;
+import Typography from &quot;@material-ui/core/Typography&quot;;
+import Button from &quot;@material-ui/core/Button&quot;;
+import IconButton from &quot;@material-ui/core/IconButton&quot;;
+import MenuIcon from &quot;@material-ui/icons/Menu&quot;;
+
+const newTheme = createMuiTheme({
+  palette: {
+    primary: {
+      main: &quot;#ffcc00&quot;
+    }
+  }
+});
+
+const newStyles = {
+  root: {
+    flexGrow: 1,
+    borderTop: `3px solid ${newTheme.palette.primary.dark}`
+  },
+  menuButton: {
+    marginRight: newTheme.spacing(2)
+  },
+  title: {
+    flexGrow: 1
+  }
+};
+
+const useStyles = makeStyles(newStyles);
+
+function Custom() {
+  const classes = useStyles();
+
+  return (
+    &lt;ThemeProvider theme={newTheme}&gt;
+      &lt;div className={classes.root}&gt;
+        &lt;AppBar position=&quot;static&quot;&gt;
+          &lt;Toolbar&gt;
+            &lt;IconButton
+              edge=&quot;start&quot;
+              className={classes.menuButton}
+              color=&quot;inherit&quot;
+              aria-label=&quot;Menu&quot;
+            &gt;
+              &lt;MenuIcon /&gt;
+            &lt;/IconButton&gt;
+            &lt;Typography variant=&quot;h6&quot; className={classes.title}&gt;
+              News
+            &lt;/Typography&gt;
+            &lt;Button color=&quot;inherit&quot;&gt;Login&lt;/Button&gt;
+          &lt;/Toolbar&gt;
+        &lt;/AppBar&gt;
+      &lt;/div&gt;
+    &lt;/ThemeProvider&gt;
+  );
+}
+
+export default Custom;
+
+</code></pre><p>The above code will render a yellow <code>AppBar</code> with a dark yellow border on top. Yay! I figured that passing a <code>newStyles</code> styles object into <code>makeStyles()</code> that already used my <code>newTheme</code> theme object would prevent it overriding my settings.</p><figure><img src=/images/material-ui-theming-and-style-overrides-pt2/components.png alt="Both components, right and wrong(ly) themed" loading=lazy><figcaption><h4>Both components, right and wrong(ly) themed</h4></figcaption></figure><h2 id=conclusion>Conclusion</h2><p>Although this is all good to learn, and figuring out what is wrong and fixing it is ultimately a good lesson, I think some of this could have been made more obvious from the beginning if I had used better names for my variables and parameters. For example, if I had written this:</p><pre><code class=language-javascript>// ObviouslyWrongThemedComponent.js
+const newTheme = createMuiTheme({
+  palette: {
+    primary: {
+      main: &quot;#ffcc00&quot;
+    }
+  }
+});
+
+// `theme` argument is obviously not using `newTheme`
+const useStyles = makeStyles(theme =&gt; ({
+  root: {
+    flexGrow: 1,
+    borderTop: `3px solid ${theme.palette.primary.dark}`
+  },
+  menuButton: {
+    marginRight: theme.spacing(2)
+  },
+  title: {
+    flexGrow: 1
+  }
+}));
+</code></pre><p>Instead of this:</p><pre><code class=language-javascript>// WrongThemedComponent.js
+const newTheme = createMuiTheme({
+  palette: {
+    primary: {
+      main: &quot;#ffcc00&quot;
+    }
+  }
+});
+
+// Took me a while to see that `newTheme` argument and `newTheme` constant are unrelated
+const useStyles = makeStyles(newTheme =&gt; ({
+  root: {
+    flexGrow: 1,
+    borderTop: `3px solid ${newTheme.palette.primary.dark}`
+  },
+  menuButton: {
+    marginRight: newTheme.spacing(2)
+  },
+  title: {
+    flexGrow: 1
+  }
+}));
+</code></pre><p>Then I would have seen there was no relationship between the <code>makeStyles()</code> argument and the <code>newTheme</code> constant.</p></section><footer class=post__footer><ul class=post__tags><li class=post__tag><a href=https://til.neilmagee.com/tags/react/ class=post__tag-link><span class=post__tag-label>#</span>react</a></li><li class=post__tag><a href=https://til.neilmagee.com/tags/material-ui/ class=post__tag-link><span class=post__tag-label>#</span>material-ui</a></li></ul></footer></article></main><footer class=site-footer><div class=site-footer__inner><p class=site-footer__copyright>&copy; 2019 <a href=https://neilmagee.com>Neil Magee</a>. Icons from <a href=http://entypo.com>Entypo+</a>. Made with <a href=https://gohugo.io/ class=site-footer__hugo-logo><img src=/images/hugo-logo.png alt="Hugo logo" width=22 height=22></a></p></div></footer></div></div><script src=https://til.neilmagee.com/js/highlight.pack.js></script><script>document.addEventListener("DOMContentLoaded",event=>{document.documentElement.classList.remove("no-js");document.querySelectorAll("pre:not(.chroma) code").forEach(block=>{hljs.highlightBlock(block);});});</script></body></html>
