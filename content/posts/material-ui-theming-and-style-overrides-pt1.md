@@ -1,5 +1,5 @@
 ---
-title: "Material UI theming and style overrides"
+title: "Material UI theming and style overrides - Part 1"
 date: 2019-05-24T12:37:01+01:00
 categories:
   - development
@@ -13,7 +13,7 @@ Today I learned how to extend the Material UI [default theme](https://material-u
 This takes a little explaining. The **Theme** in Material UI is responsible for the higher level styling. It contains settings for the colour palette, typography and other useful helper methods such as `theme.spacing()`. **Style overrides** I would define as fine level style changes of the Material UI components, for example changing the thickness of an underline on a input component.
 <!--more-->
 
-It took me a while to understand how to achieve both of these goals. This is an example of the code (available on [CodeSandbox](https://codesandbox.io/s/damp-fog-i9j0h?fontsize=14)) I came up with:
+It took me a while to understand how to achieve both of these goals. This is an example of the code (available on [CodeSandbox](https://codesandbox.io/s/damp-fog-i9j0h)) I came up with:
 
 ### App.js
 
@@ -93,6 +93,6 @@ export default ExampleComponent;
 
 **ExampleComponent** imports the Theme, but also overrides the Material UI button's font size using the default theme helper `theme.typography.pxToRem()`.
 
-{{< figure src="/images/material-ui-theming-and-style-overrides/default-button.png" title="Default button colour" alt="Image showing the default Material UI colour scheme" >}}
+{{< figure src="/images/material-ui-theming-and-style-overrides-pt1/default-button.png" title="Default button colour" alt="Image showing the default Material UI colour scheme" >}}
 
-{{< figure src="/images/material-ui-theming-and-style-overrides/final-button.png" title="New button colour" alt="Image showing the new colour extending the Material UI colour scheme" >}}
+{{< figure src="/images/material-ui-theming-and-style-overrides-pt1/final-button.png" title="New button colour" alt="Image showing the new colour extending the Material UI colour scheme" >}}
