@@ -1,0 +1,132 @@
+<!doctype html><html class=no-js lang=en-gb><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><title>TIL
+-
+Material UI theming and style overrides - Part 3</title><meta name=description content><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=author content="Neil Magee"><meta name=referrer content=no-referrer-when-downgrade><link href=https://til.neilmagee.com/images/favicon/favicon-16x16.png rel="shortcut icon" type=image/png><link rel=stylesheet href=https://til.neilmagee.com/css/style-a707518e.css></head><body><header class=site-header><section class=site-header__ident><a href=https://til.neilmagee.com/ class=site-header__link>TIL</a></section><nav class=site-header__nav><a href=https://til.neilmagee.com/about/ class=site-header__nav-item>About</a></nav></header><div class=site-container><div class=site-container__inner><main role=main id=content><article class="post post--single" itemscope itemtype=http://schema.org/BlogPosting><header class=post__header><h1 class="post__title post__title--single" itemprop=title>Material UI theming and style overrides - Part 3</h1><div class=post__meta><time class=post__date datetime=2019-05-31 itemprop="dateCreated pubdate datePublished"><span class=post__published>Published:</span>
+<span class=post__published-value>2019-05-31</span></time><ul class=post__categories><li class=post__category><a href=https://til.neilmagee.com/categories/development/ class=post__category-link>development</a></li></ul></div></header><section class=post-content><p>Today I learned more about sharing styles across React components. Although CSS-in-JS is new to me, it is pretty easy to pick up (<em>Although I have not formed a final opinion on it yet&hellip;</em>). I think Material UI uses <a href=https://github.com/cssinjs/react-jss>React JSS</a> under the hood, so a style can be written as an object:</p><pre><code class=language-javascript>import React from 'react';
+import { makeStyles } from '@material-ui/styles';
+
+const useStyles = makeStyles({
+  root: {
+    backgroundColor: 'red',
+  },
+});
+
+export default function MyComponent() {
+  const classes = useStyles();
+  return &lt;div className={classes.root} /&gt;;
+}
+</code></pre><h2 id=refactor-to-be-more-dry>Refactor to be more DRY</h2><p>I had three components that were pretty similar to each other, with enough unique parts to keep them seperate. But they all had a style object in them. I could see the <strong>style object was about 90% duplicated</strong> between each component. So after using a diff tool to see what the differences were, I extracted the shared styles out into a new file called <code>Styles.js</code>. That looks a little like this:</p><pre><code class=language-javascript>// Provide access to my Material UI theme
+import CustomTheme from &quot;../../Theme&quot;;
+
+const Styles = {
+  title: {
+    &quot;&amp; .MuiFormLabel-root&quot;: {
+      fontSize: CustomTheme.typography.pxToRem(24)
+    },
+    &quot;&amp; .MuiInputBase-input&quot;: {
+      fontSize: CustomTheme.typography.pxToRem(24)
+    },
+    &quot;&amp; .MuiInputLabel-asterisk&quot;: {
+      color: CustomTheme.palette.error.main
+    }
+  },
+  paper: {
+    marginTop: CustomTheme.spacing(4),
+    paddingTop: CustomTheme.spacing(4),
+    paddingLeft: CustomTheme.spacing(4),
+    paddingRight: CustomTheme.spacing(4),
+    borderLeft: `3px solid transparent`
+  },
+  paperActive: {
+    boxShadow: CustomTheme.shadows[7],
+    borderLeft: `3px solid ${CustomTheme.palette.primary.main}`
+  },
+  input: {
+    marginTop: CustomTheme.spacing(1),
+    marginBottom: CustomTheme.spacing(1),
+    &quot;&amp; .MuiInputBase-input&quot;: {
+      fontSize: CustomTheme.typography.pxToRem(14)
+    }
+  },
+  button: {
+    marginLeft: CustomTheme.spacing(1),
+    marginRight: CustomTheme.spacing(1)
+  },
+  footer: {
+    display: &quot;flex&quot;,
+    justifyContent: &quot;flex-end&quot;,
+    marginTop: CustomTheme.spacing(6),
+    padding: CustomTheme.spacing(2),
+    borderTop: `1px solid ${CustomTheme.palette.grey[300]}`
+  },
+  vertDivider: {
+    width: 1,
+    height: 48
+  }
+};
+
+export default Styles;
+</code></pre><h3 id=a-little-bit-of-spread>A little bit of spread</h3><p>I can then import that file into my component and combine the shared style object (using <a href=https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#Spread_in_object_literals>ES6 spread syntax</a>) with some component specific styles like this:</p><pre><code class=language-javascript>// React &amp; Material UI
+import React from &quot;react&quot;;
+import PropTypes from &quot;prop-types&quot;;
+import { makeStyles } from &quot;@material-ui/core/styles&quot;;
+// Material UI components
+import Paper from &quot;@material-ui/core/Paper&quot;;
+import TextField from &quot;@material-ui/core/TextField&quot;;
+import Input from &quot;@material-ui/core/Input&quot;;
+// App custom
+import CustomStyles from &quot;./Shared/Styles&quot;;
+
+// Combine both objects using spread
+const componentStyleOverrides = {
+  ...CustomStyles,
+  input: {
+    width: &quot;40%&quot;
+  }
+};
+const useStyles = makeStyles(componentStyleOverrides);
+
+function ShortAnswer(props) {
+  // ...
+  // Additonal functionaliy removed for brevity
+  // ...
+
+  return (
+    &lt;Paper
+      className={
+        hasFocus === true
+          ? [classes.paper, classes.paperActive].join(&quot; &quot;)
+          : classes.paper
+      }
+      onClick={handleFocus}
+    &gt;
+      &lt;form className={classes.form} noValidate&gt;
+        &lt;TextField
+          value={props.question}
+          id=&quot;question&quot;
+          classes={{ root: classes.title }}
+          label=&quot;Question&quot;
+          onChange={handleChange(&quot;question&quot;)}
+          required
+          fullWidth
+          autoFocus
+        /&gt;
+        &lt;TextField
+          value={props.description}
+          id=&quot;description&quot;
+          label=&quot;Description (optional)&quot;
+          onChange={handleChange(&quot;description&quot;)}
+          margin=&quot;normal&quot;
+          fullWidth
+        /&gt;
+        &lt;Input
+          value=&quot;Short answer text&quot;
+          className={classes.input}
+          disabled
+        /&gt;
+      &lt;/form&gt;
+    &lt;/Paper&gt;
+  );
+}
+
+export default ShortAnswer;
+</code></pre><h2 id=conclusion>Conclusion</h2><p>My components now have a common style, which is good. But I still need to assess what the advantages to this method are to me and my team. I am knowledgeable enough with regular CSS to know how to <a href=https://css-tricks.com/css-modules-part-1-need/>modularise it</a> and keep the <a href=http://getbem.com/introduction/>scope of styles targeted</a>. I like how CSS-in-JS can take advantage of functions and logic, but a lot of that could be achieved via SCSS or PostCSS plugins. I also need to assess the overall architecture of this app, as other components will have a seperate style object of their own.</p></section><footer class=post__footer><ul class=post__tags><li class=post__tag><a href=https://til.neilmagee.com/tags/react/ class=post__tag-link><span class=post__tag-label>#</span>react</a></li><li class=post__tag><a href=https://til.neilmagee.com/tags/material-ui/ class=post__tag-link><span class=post__tag-label>#</span>material-ui</a></li></ul></footer></article></main><footer class=site-footer><div class=site-footer__inner><p class=site-footer__copyright>&copy; 2019 <a href=https://neilmagee.com>Neil Magee</a>. Icons from <a href=http://entypo.com>Entypo+</a>. Made with <a href=https://gohugo.io/ class=site-footer__hugo-logo><img src=/images/hugo-logo.png alt="Hugo logo" width=22 height=22></a></p></div></footer></div></div><script src=https://til.neilmagee.com/js/highlight.pack.js></script><script>document.addEventListener("DOMContentLoaded",event=>{document.documentElement.classList.remove("no-js");document.querySelectorAll("pre:not(.chroma) code").forEach(block=>{hljs.highlightBlock(block);});});</script></body></html>
