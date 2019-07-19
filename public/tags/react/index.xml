@@ -1,243 +1,85 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>react on TIL</title>
-    <link>https://til.neilmagee.com/tags/react/</link>
-    <description>Recent content in react on TIL</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-gb</language>
-    <lastBuildDate>Tue, 25 Jun 2019 10:17:37 +0100</lastBuildDate>
-    
-	<atom:link href="https://til.neilmagee.com/tags/react/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>React Redux is pretty great!</title>
-      <link>https://til.neilmagee.com/post/react-redux-is-pretty-great/</link>
-      <pubDate>Tue, 25 Jun 2019 10:17:37 +0100</pubDate>
-      
-      <guid>https://til.neilmagee.com/post/react-redux-is-pretty-great/</guid>
-      <description>&lt;p&gt;Today I learned to really appreciate &lt;a href=&#34;https://react-redux.js.org/&#34;&gt;React Redux&lt;/a&gt;. I have used &lt;a href=&#34;https://redux.js.org/introduction/prior-art#flux&#34;&gt;Flux&lt;/a&gt; like patterns only a handful of times. Mainly in Vue using &lt;a href=&#34;https://vuex.vuejs.org/&#34;&gt;Vuex&lt;/a&gt;. But it&amp;rsquo;s been a while since I last used one.&lt;/p&gt;
-
-&lt;p&gt;I am in the middle of building a prototype App in React and the &lt;em&gt;&amp;ldquo;main&amp;rdquo;&lt;/em&gt; component was becoming unwieldy. It contained all the main state, all the functions that were passed to child components as props and the way things were going, it was about to become responsible for asyncronous data as well. That is too much for one component.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Controlled inputs and performance</title>
-      <link>https://til.neilmagee.com/post/controlled-inputs-performance/</link>
-      <pubDate>Tue, 04 Jun 2019 09:48:31 +0100</pubDate>
-      
-      <guid>https://til.neilmagee.com/post/controlled-inputs-performance/</guid>
-      <description>&lt;p&gt;Today I learned about the performance impact of using &lt;a href=&#34;https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/&#34;&gt;controlled inputs&lt;/a&gt; in React.&lt;/p&gt;
-
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>react on TIL</title><link>https://til.neilmagee.com/tags/react/</link><description>Recent content in react on TIL</description><generator>Hugo -- gohugo.io</generator><language>en-gb</language><lastBuildDate>Tue, 25 Jun 2019 10:17:37 +0100</lastBuildDate><atom:link href="https://til.neilmagee.com/tags/react/index.xml" rel="self" type="application/rss+xml"/><item><title>React Redux is pretty great!</title><link>https://til.neilmagee.com/post/react-redux-is-pretty-great/</link><pubDate>Tue, 25 Jun 2019 10:17:37 +0100</pubDate><guid>https://til.neilmagee.com/post/react-redux-is-pretty-great/</guid><description>&lt;p&gt;Today I learned to really appreciate &lt;a href=&#34;https://react-redux.js.org/&#34;&gt;React Redux&lt;/a&gt;. I have used &lt;a href=&#34;https://redux.js.org/introduction/prior-art#flux&#34;&gt;Flux&lt;/a&gt; like patterns only a handful of times. Mainly in Vue using &lt;a href=&#34;https://vuex.vuejs.org/&#34;&gt;Vuex&lt;/a&gt;. But it&amp;rsquo;s been a while since I last used one.&lt;/p&gt;
+&lt;p&gt;I am in the middle of building a prototype App in React and the &lt;em&gt;&amp;ldquo;main&amp;rdquo;&lt;/em&gt; component was becoming unwieldy. It contained all the main state, all the functions that were passed to child components as props and the way things were going, it was about to become responsible for asyncronous data as well. That is too much for one component.&lt;/p&gt;</description></item><item><title>Controlled inputs and performance</title><link>https://til.neilmagee.com/post/controlled-inputs-performance/</link><pubDate>Tue, 04 Jun 2019 09:48:31 +0100</pubDate><guid>https://til.neilmagee.com/post/controlled-inputs-performance/</guid><description>&lt;p&gt;Today I learned about the performance impact of using &lt;a href=&#34;https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/&#34;&gt;controlled inputs&lt;/a&gt; in React.&lt;/p&gt;
 &lt;p&gt;I noticed that once I had multiples of a component I&amp;rsquo;d made on screen &lt;em&gt;(that included text inputs)&lt;/em&gt; the typing performance would begin to lag. It also got exponentially worse for each additional component.&lt;/p&gt;
-
 &lt;h2 id=&#34;onchange-vs-onblur&#34;&gt;onChange vs onBlur&lt;/h2&gt;
-
 &lt;p&gt;The main difference I tried was changing my event from &lt;code&gt;onChange&lt;/code&gt; to &lt;code&gt;onBlur&lt;/code&gt; (this was based on some &lt;a href=&#34;https://stackoverflow.com/a/38914965&#34;&gt;Stack Overflow&lt;/a&gt; advice).&lt;/p&gt;
-
 &lt;h3 id=&#34;before&#34;&gt;Before&lt;/h3&gt;
-
 &lt;figure&gt;
-    &lt;img src=&#34;https://til.neilmagee.com/images/controlled-inputs-performance/bad.gif&#34;
-         alt=&#34;Animated gif showing poor input performance&#34;loading=&#34;lazy&#34;
-    /&gt; &lt;figcaption&gt;
-            &lt;h4&gt;Laggy input performance&lt;/h4&gt;
-        &lt;/figcaption&gt;
-&lt;/figure&gt;</description>
-    </item>
-    
-    <item>
-      <title>Material UI theming and style overrides - Part 3</title>
-      <link>https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt3/</link>
-      <pubDate>Fri, 31 May 2019 14:54:14 +0100</pubDate>
-      
-      <guid>https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt3/</guid>
-      <description>&lt;p&gt;Today I learned more about sharing styles across React components. Although CSS-in-JS is new to me, it is pretty easy to pick up (&lt;em&gt;Although I have not formed a final opinion on it yet&amp;hellip;&lt;/em&gt;). I think Material UI uses &lt;a href=&#34;https://github.com/cssinjs/react-jss&#34;&gt;React JSS&lt;/a&gt; under the hood, so a style can be written as an object:&lt;/p&gt;
-
+&lt;img src=&#34;https://til.neilmagee.com/images/controlled-inputs-performance/bad.gif&#34;
+alt=&#34;Animated gif showing poor input performance&#34;loading=&#34;lazy&#34;
+/&gt; &lt;figcaption&gt;
+&lt;h4&gt;Laggy input performance&lt;/h4&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;</description></item><item><title>Material UI theming and style overrides - Part 3</title><link>https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt3/</link><pubDate>Fri, 31 May 2019 14:54:14 +0100</pubDate><guid>https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt3/</guid><description>&lt;p&gt;Today I learned more about sharing styles across React components. Although CSS-in-JS is new to me, it is pretty easy to pick up (&lt;em&gt;Although I have not formed a final opinion on it yet&amp;hellip;&lt;/em&gt;). I think Material UI uses &lt;a href=&#34;https://github.com/cssinjs/react-jss&#34;&gt;React JSS&lt;/a&gt; under the hood, so a style can be written as an object:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;import React from &#39;react&#39;;
 import { makeStyles } from &#39;@material-ui/styles&#39;;
-
 const useStyles = makeStyles({
-  root: {
-    backgroundColor: &#39;red&#39;,
-  },
+root: {
+backgroundColor: &#39;red&#39;,
+},
 });
-
 export default function MyComponent() {
-  const classes = useStyles();
-  return &amp;lt;div className={classes.root} /&amp;gt;;
+const classes = useStyles();
+return &amp;lt;div className={classes.root} /&amp;gt;;
 }
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h2 id=&#34;refactor-to-be-more-dry&#34;&gt;Refactor to be more DRY&lt;/h2&gt;
-
-&lt;p&gt;I had three components that were pretty similar to each other, with enough unique parts to keep them seperate. But they all had a style object in them. I could see the &lt;strong&gt;style object was about 90% duplicated&lt;/strong&gt; between each component. So after using a diff tool to see what the differences were, I extracted the shared styles out into a new file called &lt;code&gt;Styles.js&lt;/code&gt;. That looks a little like this:&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Material UI theming and style overrides - Part 2</title>
-      <link>https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt2/</link>
-      <pubDate>Tue, 28 May 2019 11:02:49 +0100</pubDate>
-      
-      <guid>https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt2/</guid>
-      <description>&lt;p&gt;Today I learned that my previous attempt at theming a &lt;em&gt;Material UI&lt;/em&gt; component was not right. I thought the &lt;em&gt;default theme&lt;/em&gt; overrides I was providing were also being used in the &lt;em&gt;component style&lt;/em&gt; overrides. But they were not.&lt;/p&gt;
-
+&lt;p&gt;I had three components that were pretty similar to each other, with enough unique parts to keep them seperate. But they all had a style object in them. I could see the &lt;strong&gt;style object was about 90% duplicated&lt;/strong&gt; between each component. So after using a diff tool to see what the differences were, I extracted the shared styles out into a new file called &lt;code&gt;Styles.js&lt;/code&gt;. That looks a little like this:&lt;/p&gt;</description></item><item><title>Material UI theming and style overrides - Part 2</title><link>https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt2/</link><pubDate>Tue, 28 May 2019 11:02:49 +0100</pubDate><guid>https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt2/</guid><description>&lt;p&gt;Today I learned that my previous attempt at theming a &lt;em&gt;Material UI&lt;/em&gt; component was not right. I thought the &lt;em&gt;default theme&lt;/em&gt; overrides I was providing were also being used in the &lt;em&gt;component style&lt;/em&gt; overrides. But they were not.&lt;/p&gt;
 &lt;p&gt;After debugging the theme object in Chrome, I could see that before &lt;code&gt;useStyles()&lt;/code&gt; was called, my theme object was as expected, with my colour set. But the when I stepped into the &lt;code&gt;useStyles()&lt;/code&gt; function and observed the theme object it was using, the colour was not right. I had assumed that the styles argument that &lt;code&gt;makeStyles&lt;/code&gt; took was my &lt;em&gt;global&lt;/em&gt; &lt;code&gt;theme&lt;/code&gt; object. The &lt;code&gt;AppBar&lt;/code&gt; background was yellow, so the theme was working in general, just not for my &lt;em&gt;component style&lt;/em&gt; overrides.&lt;/p&gt;
-
-&lt;p&gt;I put a &lt;a href=&#34;https://codesandbox.io/s/fervent-meninsky-hqnlq&#34;&gt;CodeSandbox&lt;/a&gt; together to illustrate the differences:&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Material UI theming and style overrides - Part 1</title>
-      <link>https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt1/</link>
-      <pubDate>Fri, 24 May 2019 12:37:01 +0100</pubDate>
-      
-      <guid>https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt1/</guid>
-      <description>&lt;p&gt;Today I learned how to extend the Material UI &lt;a href=&#34;https://material-ui.com/customization/themes/&#34;&gt;default theme&lt;/a&gt; and retain the default theme settings for my own style overrides.&lt;/p&gt;
-
-&lt;p&gt;This takes a little explaining. The &lt;strong&gt;Theme&lt;/strong&gt; in Material UI is responsible for the higher level styling. It contains settings for the colour palette, typography and other useful helper methods such as &lt;code&gt;theme.spacing()&lt;/code&gt;. &lt;strong&gt;Style overrides&lt;/strong&gt; I would define as fine level style changes of the Material UI components, for example changing the thickness of an underline on a input component.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>The basics of React Redux</title>
-      <link>https://til.neilmagee.com/post/learn-react-redux-basics/</link>
-      <pubDate>Mon, 20 May 2019 16:39:16 +0100</pubDate>
-      
-      <guid>https://til.neilmagee.com/post/learn-react-redux-basics/</guid>
-      <description>&lt;p&gt;Today I learned the basics of &lt;a href=&#34;https://react-redux.js.org/&#34;&gt;React Redux&lt;/a&gt; because the &lt;code&gt;state&lt;/code&gt; requirements of the React app I have been building are now in need of a better solution.&lt;/p&gt;
-
+&lt;p&gt;I put a &lt;a href=&#34;https://codesandbox.io/s/fervent-meninsky-hqnlq&#34;&gt;CodeSandbox&lt;/a&gt; together to illustrate the differences:&lt;/p&gt;</description></item><item><title>Material UI theming and style overrides - Part 1</title><link>https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt1/</link><pubDate>Fri, 24 May 2019 12:37:01 +0100</pubDate><guid>https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt1/</guid><description>&lt;p&gt;Today I learned how to extend the Material UI &lt;a href=&#34;https://material-ui.com/customization/themes/&#34;&gt;default theme&lt;/a&gt; and retain the default theme settings for my own style overrides.&lt;/p&gt;
+&lt;p&gt;This takes a little explaining. The &lt;strong&gt;Theme&lt;/strong&gt; in Material UI is responsible for the higher level styling. It contains settings for the colour palette, typography and other useful helper methods such as &lt;code&gt;theme.spacing()&lt;/code&gt;. &lt;strong&gt;Style overrides&lt;/strong&gt; I would define as fine level style changes of the Material UI components, for example changing the thickness of an underline on a input component.&lt;/p&gt;</description></item><item><title>The basics of React Redux</title><link>https://til.neilmagee.com/post/learn-react-redux-basics/</link><pubDate>Mon, 20 May 2019 16:39:16 +0100</pubDate><guid>https://til.neilmagee.com/post/learn-react-redux-basics/</guid><description>&lt;p&gt;Today I learned the basics of &lt;a href=&#34;https://react-redux.js.org/&#34;&gt;React Redux&lt;/a&gt; because the &lt;code&gt;state&lt;/code&gt; requirements of the React app I have been building are now in need of a better solution.&lt;/p&gt;
 &lt;p&gt;I am a fairly experienced frontend developer, and I know how to use lots of technologies. But I was struggling with grasping the fundamentals of using React Redux. I have used &lt;a href=&#34;https://vuex.vuejs.org/&#34;&gt;Vuex&lt;/a&gt; previously, which I picked up pretty quickly and I thought it would be similar. They are similar in concept, but not in execution. I think Vue deserves a lot of credit for their documentation as it is really good.&lt;/p&gt;
-
 &lt;p&gt;What I was looking for was a basic tutorial, the &lt;em&gt;most&lt;/em&gt; basic. But every &amp;ldquo;basic&amp;rdquo; tutorial was how to make a &lt;em&gt;todo&lt;/em&gt; app. But I honestly needed a &lt;em&gt;Hello world&lt;/em&gt;, just to see how the code was wired together. This is from the redux documentation:&lt;/p&gt;
-
 &lt;blockquote&gt;
 &lt;p&gt;Don&amp;rsquo;t be fooled by all the fancy talk about reducers, middleware, store enhancers—Redux is incredibly simple. If you&amp;rsquo;ve ever built a Flux application, you will feel right at home. If you&amp;rsquo;re new to Flux, it&amp;rsquo;s easy too!&lt;/p&gt;
 &lt;/blockquote&gt;
-
 &lt;p&gt;&lt;a href=&#34;https://redux-docs.netlify.com/basics/basic-tutorial&#34;&gt;Source&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;I would agree in hindsight that it is relatively easy, but the path to that knowledge is shrouded in fog. It was time to find alternative education!&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Front-end test drive: Material UI</title>
-      <link>https://til.neilmagee.com/post/frontend-test-drive-material-ui/</link>
-      <pubDate>Thu, 16 May 2019 16:37:08 +0100</pubDate>
-      
-      <guid>https://til.neilmagee.com/post/frontend-test-drive-material-ui/</guid>
-      <description>&lt;p&gt;Today I learned how to apply style overrides to &lt;a href=&#34;https://next.material-ui.com&#34;&gt;Material UI&lt;/a&gt; (v4.0.0-beat.2), a React front-end component library.&lt;/p&gt;
-
+&lt;p&gt;I would agree in hindsight that it is relatively easy, but the path to that knowledge is shrouded in fog. It was time to find alternative education!&lt;/p&gt;</description></item><item><title>Front-end test drive: Material UI</title><link>https://til.neilmagee.com/post/frontend-test-drive-material-ui/</link><pubDate>Thu, 16 May 2019 16:37:08 +0100</pubDate><guid>https://til.neilmagee.com/post/frontend-test-drive-material-ui/</guid><description>&lt;p&gt;Today I learned how to apply style overrides to &lt;a href=&#34;https://next.material-ui.com&#34;&gt;Material UI&lt;/a&gt; (v4.0.0-beat.2), a React front-end component library.&lt;/p&gt;
 &lt;p&gt;The company I work for is looking to develop some new tools, which we want to get to a prototype stage as soon as possible. We have decided to use React as part of our tech stack (&lt;em&gt;which is good&lt;/em&gt;), and knowing that the UI that these tools require is going to need a lot of UI components, I started to look at front-end component libraries (mainly Material UI and Ant Design).&lt;/p&gt;
-
-&lt;p&gt;I did a analysis of the types of UI components we need to build our tool - tooltips, various inputs, switch style buttons, modals, dialogs &amp;amp; drop downs. I wanted to make a test &amp;lsquo;App&amp;rsquo; that would combine various components from the library. My main goal was to see how this library was going to be to work with.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Simplify React components</title>
-      <link>https://til.neilmagee.com/post/react-simplify-components/</link>
-      <pubDate>Wed, 09 Jan 2019 17:04:41 +0000</pubDate>
-      
-      <guid>https://til.neilmagee.com/post/react-simplify-components/</guid>
-      <description>&lt;p&gt;Today I learned a bit more about why setting props against state is considered an anti-pattern. After my &lt;a href=&#34;https://til.neilmagee.com/posts/react-update-state-from-props/&#34;&gt;previous article&lt;/a&gt;, I was not happy with the component. It still felt like &lt;code&gt;getDerivedStateFromProps&lt;/code&gt; was a hack rather than a maintainable fix. Plus in using the component, I was still triggering bugs that were quite situational.&lt;/p&gt;
-
+&lt;p&gt;I did a analysis of the types of UI components we need to build our tool - tooltips, various inputs, switch style buttons, modals, dialogs &amp;amp; drop downs. I wanted to make a test &amp;lsquo;App&amp;rsquo; that would combine various components from the library. My main goal was to see how this library was going to be to work with.&lt;/p&gt;</description></item><item><title>Simplify React components</title><link>https://til.neilmagee.com/post/react-simplify-components/</link><pubDate>Wed, 09 Jan 2019 17:04:41 +0000</pubDate><guid>https://til.neilmagee.com/post/react-simplify-components/</guid><description>&lt;p&gt;Today I learned a bit more about why setting props against state is considered an anti-pattern. After my &lt;a href=&#34;https://til.neilmagee.com/posts/react-update-state-from-props/&#34;&gt;previous article&lt;/a&gt;, I was not happy with the component. It still felt like &lt;code&gt;getDerivedStateFromProps&lt;/code&gt; was a hack rather than a maintainable fix. Plus in using the component, I was still triggering bugs that were quite situational.&lt;/p&gt;
 &lt;p&gt;I read more on &lt;a href=&#34;https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html#recap&#34;&gt;the react blog&lt;/a&gt; and the recap really nailed what I needed to do.&lt;/p&gt;
-
 &lt;blockquote&gt;
 &lt;p&gt;For example, rather than a child accepting a “committed” props.value and tracking a “draft” state.value, have the parent manage both state.draftValue and state.committedValue and control the child’s value directly.&lt;/p&gt;
 &lt;/blockquote&gt;
-
-&lt;p&gt;This accurately described a process, to make my component simpler (I think it qualifies as a controlled component now), that would remove side effects. So I set out to remove state from this component and make it&amp;rsquo;s parent responsible for passing in the correct data as props.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Update state from props in React</title>
-      <link>https://til.neilmagee.com/post/react-update-state-from-props/</link>
-      <pubDate>Tue, 08 Jan 2019 11:11:05 +0000</pubDate>
-      
-      <guid>https://til.neilmagee.com/post/react-update-state-from-props/</guid>
-      <description>&lt;p&gt;Today I learned how to use a new(ish) React lifecycle hook called &lt;code&gt;getDerivedStateFromProps&lt;/code&gt; (&lt;a href=&#34;https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props&#34;&gt;link&lt;/a&gt;). I have struggled a little bit with form components that allow you to edit data. In my example below it is &amp;ldquo;user&amp;rdquo; data, but in reality this could affect all forms with any data in React.&lt;/p&gt;
-
+&lt;p&gt;This accurately described a process, to make my component simpler (I think it qualifies as a controlled component now), that would remove side effects. So I set out to remove state from this component and make it&amp;rsquo;s parent responsible for passing in the correct data as props.&lt;/p&gt;</description></item><item><title>Update state from props in React</title><link>https://til.neilmagee.com/post/react-update-state-from-props/</link><pubDate>Tue, 08 Jan 2019 11:11:05 +0000</pubDate><guid>https://til.neilmagee.com/post/react-update-state-from-props/</guid><description>&lt;p&gt;Today I learned how to use a new(ish) React lifecycle hook called &lt;code&gt;getDerivedStateFromProps&lt;/code&gt; (&lt;a href=&#34;https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props&#34;&gt;link&lt;/a&gt;). I have struggled a little bit with form components that allow you to edit data. In my example below it is &amp;ldquo;user&amp;rdquo; data, but in reality this could affect all forms with any data in React.&lt;/p&gt;
 &lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
-
 &lt;p&gt;The reason for the struggle is a slight conflict for the one true source of the data for the form. When the &amp;ldquo;user&amp;rdquo; is edited, and the &lt;strong&gt;user form component&lt;/strong&gt; is used, data is fed into it via props from it&amp;rsquo;s &lt;em&gt;parent component&lt;/em&gt;. So the Employer and Job title current values can appear in their relevant inputs.&lt;/p&gt;
-
 &lt;p&gt;That would be ok if that data was static, but the data is not and it needs to be editable. So the props are copied into the &lt;strong&gt;user form component&lt;/strong&gt; state. And this state is used as the value of the relevant inputs. That allows the inputs to receive new data, which triggers off a chain of events.&lt;/p&gt;
-
-&lt;p&gt;The new data is processed via a &lt;code&gt;handleChange&lt;/code&gt; event in the &lt;strong&gt;user form component&lt;/strong&gt;. Two things happen, it is added to the current state and also passed to a &lt;em&gt;parent component&lt;/em&gt; for other actions to happen. When that &lt;em&gt;parent component&lt;/em&gt; is done, it sends that data back to this &lt;strong&gt;user form component&lt;/strong&gt; as props and the cycle can continue.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>React Prevent Re-renders</title>
-      <link>https://til.neilmagee.com/post/react-prevent-re-renders/</link>
-      <pubDate>Wed, 07 Nov 2018 09:26:33 +0000</pubDate>
-      
-      <guid>https://til.neilmagee.com/post/react-prevent-re-renders/</guid>
-      <description>&lt;p&gt;Today I learned how to prevent React from unnecessarily re-rendering a component:&lt;/p&gt;
-
+&lt;p&gt;The new data is processed via a &lt;code&gt;handleChange&lt;/code&gt; event in the &lt;strong&gt;user form component&lt;/strong&gt;. Two things happen, it is added to the current state and also passed to a &lt;em&gt;parent component&lt;/em&gt; for other actions to happen. When that &lt;em&gt;parent component&lt;/em&gt; is done, it sends that data back to this &lt;strong&gt;user form component&lt;/strong&gt; as props and the cycle can continue.&lt;/p&gt;</description></item><item><title>React Prevent Re-renders</title><link>https://til.neilmagee.com/post/react-prevent-re-renders/</link><pubDate>Wed, 07 Nov 2018 09:26:33 +0000</pubDate><guid>https://til.neilmagee.com/post/react-prevent-re-renders/</guid><description>&lt;p&gt;Today I learned how to prevent React from unnecessarily re-rendering a component:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;shouldComponentUpdate(nextProps) {
-  // Compare the props with one another
-  if (this.props.actions !== nextProps.actions) {
-    return true;
-  }
-
-  return false;
+// Compare the props with one another
+if (this.props.actions !== nextProps.actions) {
+return true;
+}
+return false;
 }
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;I was trying to use a loop to sort some items prior to rendering them in a component. During the debug step I kept seeing the loop run twice, when I was only expecting it to run once.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>React Conditional Rendering</title>
-      <link>https://til.neilmagee.com/post/react-conditional-rendering/</link>
-      <pubDate>Mon, 05 Nov 2018 17:13:02 +0000</pubDate>
-      
-      <guid>https://til.neilmagee.com/post/react-conditional-rendering/</guid>
-      <description>&lt;p&gt;Today I learned how to conditionally render a React component. I was using CSS to show and hide different components in reaction to the App&amp;rsquo;s state. Setting a component to be &lt;code&gt;display: none;&lt;/code&gt; or control it&amp;rsquo;s opacity. The problem was that React was throwing up some warnings that were coming from &amp;ldquo;invisible&amp;rdquo; components, that were receiving props before they were really meant to. This is probably representative of a deeper problem in my App structure.&lt;/p&gt;
-
+&lt;p&gt;I was trying to use a loop to sort some items prior to rendering them in a component. During the debug step I kept seeing the loop run twice, when I was only expecting it to run once.&lt;/p&gt;</description></item><item><title>React Conditional Rendering</title><link>https://til.neilmagee.com/post/react-conditional-rendering/</link><pubDate>Mon, 05 Nov 2018 17:13:02 +0000</pubDate><guid>https://til.neilmagee.com/post/react-conditional-rendering/</guid><description>&lt;p&gt;Today I learned how to conditionally render a React component. I was using CSS to show and hide different components in reaction to the App&amp;rsquo;s state. Setting a component to be &lt;code&gt;display: none;&lt;/code&gt; or control it&amp;rsquo;s opacity. The problem was that React was throwing up some warnings that were coming from &amp;ldquo;invisible&amp;rdquo; components, that were receiving props before they were really meant to. This is probably representative of a deeper problem in my App structure.&lt;/p&gt;
 &lt;p&gt;Having finally read the &lt;a href=&#34;https://reactjs.org/docs/conditional-rendering.html&#34;&gt;conditional rendering&lt;/a&gt; page, I have chosen the &amp;ldquo;Inline If with Logical &amp;amp;&amp;amp; Operator&amp;rdquo; pattern for my App. Below is a stripped down example:&lt;/p&gt;
-
 &lt;h2 id=&#34;parent-app&#34;&gt;Parent App&lt;/h2&gt;
-
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;import React, {Component} from &amp;quot;react&amp;quot;;
 import MyComponent from &amp;quot;./components/MyComponent.jsx&amp;quot;;
-
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      componentIsActive: false
-    };
-  }
-  setComponentActive() {
-    // Something else could trigger this
-    this.setState({
-        componentIsActive: true
-    });
-  }
-  render() {
-    return (
-      // The component is passed a prop from the state
-      &amp;lt;MyComponent
-        active={this.state.componentIsActive}
-      /&amp;gt;
-    );
-  }
+constructor(props) {
+super(props);
+this.state = {
+componentIsActive: false
+};
 }
-
+setComponentActive() {
+// Something else could trigger this
+this.setState({
+componentIsActive: true
+});
+}
+render() {
+return (
+// The component is passed a prop from the state
+&amp;lt;MyComponent
+active={this.state.componentIsActive}
+/&amp;gt;
+);
+}
+}
 export default App;
-&lt;/code&gt;&lt;/pre&gt;</description>
-    </item>
-    
-    <item>
-      <title>React With Debounce</title>
-      <link>https://til.neilmagee.com/post/react-with-debounce/</link>
-      <pubDate>Wed, 24 Oct 2018 20:10:38 +0100</pubDate>
-      
-      <guid>https://til.neilmagee.com/post/react-with-debounce/</guid>
-      <description>&lt;p&gt;Today I learned how to debounce inputs in a &lt;a href=&#34;https://reactjs.org/&#34;&gt;React&lt;/a&gt; component. This is something I have done in many other places, in plain JavaScript, in jQuery, in AngularJs and in VueJs. Whilst the concept is the same - have a user input some data (text, date, email, whatever), wait a short amount of time so that the user has finished typing and then do something. The idea being the &amp;ldquo;do something&amp;rdquo; does not happen whilst the user is still adding their data.&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>React With Debounce</title><link>https://til.neilmagee.com/post/react-with-debounce/</link><pubDate>Wed, 24 Oct 2018 20:10:38 +0100</pubDate><guid>https://til.neilmagee.com/post/react-with-debounce/</guid><description>&lt;p&gt;Today I learned how to debounce inputs in a &lt;a href=&#34;https://reactjs.org/&#34;&gt;React&lt;/a&gt; component. This is something I have done in many other places, in plain JavaScript, in jQuery, in AngularJs and in VueJs. Whilst the concept is the same - have a user input some data (text, date, email, whatever), wait a short amount of time so that the user has finished typing and then do something. The idea being the &amp;ldquo;do something&amp;rdquo; does not happen whilst the user is still adding their data.&lt;/p&gt;</description></item></channel></rss>

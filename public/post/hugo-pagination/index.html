@@ -1,82 +1,7 @@
-<!doctype html>
-<html class="no-js" lang="en-gb">
-
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>
-  TIL
-    -
-  Hugo theme improved pagination
-</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="author" content="Neil Magee">
-  <meta name="referrer" content="no-referrer-when-downgrade">
-
-  <link href="https://til.neilmagee.com/images/favicon/favicon-16x16.png" rel="shortcut icon" type="image/png">
-
-  <link rel="stylesheet" href="https://til.neilmagee.com/css/style-1b167369.css" />
-
-  
-  <link rel="stylesheet" href="https://til.neilmagee.com/css/code-highlighting-ad6ae847.css" />
-  
-
-</head>
-<body>
-  
-
-<header class="site-header">
-  <section class="site-header__ident">
-    <a href="https://til.neilmagee.com/" class="site-header__link">TIL</a>
-  </section>
-  <nav class="site-header__nav">
-  
-    <a href="https://til.neilmagee.com/about/" class="site-header__nav-item">About</a>
-  
-  </nav>
-</header>
-  <div class="site-container">
-    <div class="site-container__inner">
-      <main role="main" id="content">
-        
-  <article class="post post--single" itemscope itemtype="http://schema.org/BlogPosting">
-    <header class="post__header">
-      <h1 class="post__title post__title--single" itemprop="title">Hugo theme improved pagination</h1>
-      <div class="post__meta">
-        <time class="post__date" datetime="2019-07-18" itemprop="dateCreated pubdate datePublished">
-          <span class="post__published">Published:</span>
-          <span class="post__published-value">2019-07-18</span>
-        </time>
-        
-        <ul class="post__categories">
-          
-          <li class="post__category">
-            <a href="https://til.neilmagee.com/categories/development/" class="post__category-link">development</a>
-          </li>
-          
-        </ul>
-        
-      </div>
-    </header>
-    <section class="post-content">
-      <p>Today I learned how to do numbered pagination in my <a href="https://github.com/freemagee/comfortable-basic">Hugo theme</a> using <code>golang</code>. This was a bit harder than I expected as I am no expert on programming with <code>golang</code>. But once I remembered that <code>golang</code> still follows the same programming conventions that other languages do, even though the syntax is different.</p>
-
-<p>After the posts in my theme, there is a simple navigation area at the bottom. At the moment it looks like this:</p>
-
-<figure>
-    <img src="/images/improved-pagination/current-pagination.png"
-         alt="An image of my Hugo themes current pagination"loading="lazy"
-    /> <figcaption>
-            <h4>My current pagination</h4>
-        </figcaption>
-</figure>
-
-<p>It works fine, and let&rsquo;s you navigate through the posts linearly. But as this site gets more posts, I saw the need to be able to jump to a particular page. I looked for an existing theme that used pagination similarly to how I wanted. I found <a href="https://themes.gohugo.io/theme/hugo-bootstrap/">Hugo Bootstrap</a> and went to look at the <a href="https://github.com/Xzya/hugo-bootstrap/blob/master/layouts/partials/paginator.html">pagination source code</a>. It took me a while to decipher it as the syntax is so different to PHP or JavaScript that I am more familiar with.</p>
-
-<h3 id="the-hugo-bootstrap-pagination-source">The Hugo Bootstrap pagination source</h3>
-
-<pre><code class="language-golang">{{ $pag := $.Paginator }}
+<!doctype html><html class=no-js lang=en-gb><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><title>TIL
+-
+Hugo theme improved pagination</title><meta name=description content><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=author content="Neil Magee"><meta name=referrer content=no-referrer-when-downgrade><link href=https://til.neilmagee.com/images/favicon/favicon-16x16.png rel="shortcut icon" type=image/png><link rel=stylesheet href=https://til.neilmagee.com/css/style-253b86c5.css><link rel=stylesheet href=https://til.neilmagee.com/css/code-highlighting-ad6ae847.css></head><body><header class=site-header><section class=site-header__ident><a href=https://til.neilmagee.com/ class=site-header__link>TIL</a></section><nav class=site-header__nav><a href=https://til.neilmagee.com/about/ class=site-header__nav-item>About</a></nav></header><div class=site-container><div class=site-container__inner><main role=main id=content><article class="post post--single" itemscope itemtype=http://schema.org/BlogPosting><header class=post__header><h1 class="post__title post__title--single" itemprop=title>Hugo theme improved pagination</h1><div class=post__meta><time class=post__date datetime=2019-07-18 itemprop="dateCreated pubdate datePublished"><span class=post__published>Published:</span>
+<span class=post__published-value>2019-07-18</span></time><ul class=post__categories><li class=post__category><a href=https://til.neilmagee.com/categories/development/ class=post__category-link>development</a></li></ul></div></header><section class=post-content><p>Today I learned how to do numbered pagination in my <a href=https://github.com/freemagee/comfortable-basic>Hugo theme</a> using <code>golang</code>. This was a bit harder than I expected as I am no expert on programming with <code>golang</code>. But once I remembered that <code>golang</code> still follows the same programming conventions that other languages do, even though the syntax is different.</p><p>After the posts in my theme, there is a simple navigation area at the bottom. At the moment it looks like this:</p><figure><img src=/images/improved-pagination/current-pagination.png alt="An image of my Hugo themes current pagination" loading=lazy><figcaption><h4>My current pagination</h4></figcaption></figure><p>It works fine, and let&rsquo;s you navigate through the posts linearly. But as this site gets more posts, I saw the need to be able to jump to a particular page. I looked for an existing theme that used pagination similarly to how I wanted. I found <a href=https://themes.gohugo.io/theme/hugo-bootstrap/>Hugo Bootstrap</a> and went to look at the <a href=https://github.com/Xzya/hugo-bootstrap/blob/master/layouts/partials/paginator.html>pagination source code</a>. It took me a while to decipher it as the syntax is so different to PHP or JavaScript that I am more familiar with.</p><h3 id=the-hugo-bootstrap-pagination-source>The Hugo Bootstrap pagination source</h3><pre><code class=language-golang>{{ $pag := $.Paginator }}
 {{ if gt $pag.TotalPages 1 }}
 &lt;nav class=&quot;blog-pagination&quot;&gt;
     &lt;ul class=&quot;pagination justify-content-center&quot;&gt;
@@ -121,11 +46,7 @@
     &lt;/ul&gt;
 &lt;/nav&gt;
 {{ end }}
-</code></pre>
-
-<p>This can be interpreted as:</p>
-
-<pre><code>if there are more pages than 1
+</code></pre><p>This can be interpreted as:</p><pre><code>if there are more pages than 1
   show first page link
   show previous page link
   loop over pages
@@ -134,35 +55,7 @@
   show next page link
   show last page link
 end if
-</code></pre>
-
-<p>There is more going on, but this was enough to get me started. First thing I did was pasted the Hugo Bootstrap code into my partial to see what would happen. This caused Hugo to fall over and display some errors. After looking at the Hugo Bootstrap implementation I could see I was using the pagination feature of Hugo differently. In the Hugo implementation, the partial is responsible for generating a list of pages for the pagination partial. That is what <code>{{ $pag := $.Paginator }}</code> does on the first line. In my Hugo theme, I pass in the list of pages into my partial from it&rsquo;s parent (index.html). That meant instead of doing <code>$pag.TotalPages</code> I could simply do <code>.TotalPages</code> with the full stop acting a bit like <code>this</code> in JavaScript.</p>
-
-<p>After removing references to <code>$pag</code> that got the first, previous, next and last links working. The Hugo debugger was still complaining about <code>$.Scratch.Set</code>. After looking up <em>Scratch</em> in the Hugo docs I tried to set <code>Scratch</code> as a local variable <code>{{ $scratch := newScratch }}</code>. Then I changed all references to <code>$.Scratch</code> to use <code>$scratch</code> instead. <strong>Bingo</strong>. The pagination rendered. I swapped the Hugo Bootstrap elements for my own and made some new CSS classes to style the new elements. That left my pagination looking like this:</p>
-
-<figure>
-    <img src="/images/improved-pagination/pagination-working.png"
-         alt="An image of my Hugo themes new pagination"loading="lazy"
-    /> <figcaption>
-            <h4>The new pagination</h4>
-        </figcaption>
-</figure>
-
-<p>The final part for me to get working was setting the current page number as active in the pagination. I could see how it worked in the Hugo Bootstrap theme, they compared the <em>current page</em> against the <em>current item</em> in the <code>$pag.Pager</code> loop - <code>{{ if eq . $pag }}</code>. But because my theme is a little different, I could not initially get the current page number. I thought this might work for a second <code>{{ if eq . .PageNumber }}</code>. It didn&rsquo;t. It took a little while to understand how to get to the parent page variable. That&rsquo;s where I had a little <em>eureka</em> moment and set <code>{{ $thisPageNumber := .PageNumber }}</code> at the top of my pagination partial and then referenced it below <code>{{ if eq .PageNumber $thisPageNumber }}</code>. <em>Voila</em>, the active links now worked:</p>
-
-<figure>
-    <img src="/images/improved-pagination/active-page-working.png"
-         alt="An image of active page highlighted in the pagination"loading="lazy"
-    /> <figcaption>
-            <h4>Active links working</h4>
-        </figcaption>
-</figure>
-
-<p>Now all the elements I need are in place, I can refine the design more. The pagination is obviously too wide at the moment and I have not seen the <em>ellipsis</em> feature in action yet. So there may be a post to come about that.</p>
-
-<h3 id="my-wip-pagination-code">My WIP pagination code</h3>
-
-<pre><code class="language-golang">{{ $thisPageNumber := .PageNumber }}
+</code></pre><p>There is more going on, but this was enough to get me started. First thing I did was pasted the Hugo Bootstrap code into my partial to see what would happen. This caused Hugo to fall over and display some errors. After looking at the Hugo Bootstrap implementation I could see I was using the pagination feature of Hugo differently. In the Hugo implementation, the partial is responsible for generating a list of pages for the pagination partial. That is what <code>{{ $pag := $.Paginator }}</code> does on the first line. In my Hugo theme, I pass in the list of pages into my partial from it&rsquo;s parent (index.html). That meant instead of doing <code>$pag.TotalPages</code> I could simply do <code>.TotalPages</code> with the full stop acting a bit like <code>this</code> in JavaScript.</p><p>After removing references to <code>$pag</code> that got the first, previous, next and last links working. The Hugo debugger was still complaining about <code>$.Scratch.Set</code>. After looking up <em>Scratch</em> in the Hugo docs I tried to set <code>Scratch</code> as a local variable <code>{{ $scratch := newScratch }}</code>. Then I changed all references to <code>$.Scratch</code> to use <code>$scratch</code> instead. <strong>Bingo</strong>. The pagination rendered. I swapped the Hugo Bootstrap elements for my own and made some new CSS classes to style the new elements. That left my pagination looking like this:</p><figure><img src=/images/improved-pagination/pagination-working.png alt="An image of my Hugo themes new pagination" loading=lazy><figcaption><h4>The new pagination</h4></figcaption></figure><p>The final part for me to get working was setting the current page number as active in the pagination. I could see how it worked in the Hugo Bootstrap theme, they compared the <em>current page</em> against the <em>current item</em> in the <code>$pag.Pager</code> loop - <code>{{ if eq . $pag }}</code>. But because my theme is a little different, I could not initially get the current page number. I thought this might work for a second <code>{{ if eq . .PageNumber }}</code>. It didn&rsquo;t. It took a little while to understand how to get to the parent page variable. That&rsquo;s where I had a little <em>eureka</em> moment and set <code>{{ $thisPageNumber := .PageNumber }}</code> at the top of my pagination partial and then referenced it below <code>{{ if eq .PageNumber $thisPageNumber }}</code>. <em>Voila</em>, the active links now worked:</p><figure><img src=/images/improved-pagination/active-page-working.png alt="An image of active page highlighted in the pagination" loading=lazy><figcaption><h4>Active links working</h4></figcaption></figure><p>Now all the elements I need are in place, I can refine the design more. The pagination is obviously too wide at the moment and I have not seen the <em>ellipsis</em> feature in action yet. So there may be a post to come about that.</p><h3 id=my-wip-pagination-code>My WIP pagination code</h3><pre><code class=language-golang>{{ $thisPageNumber := .PageNumber }}
 {{ if ne .TotalPages 0}}
 &lt;nav class=&quot;pagination&quot;&gt;
   &lt;div class=&quot;pagination__ctrl&quot;&gt;
@@ -234,41 +127,5 @@ end if
   &lt;span class=&quot;pagination__count&quot;&gt;Page {{ .PageNumber }} of {{ .TotalPages }}&lt;/span&gt;
 &lt;/nav&gt;
 {{ end }}
-</code></pre>
-    </section>
-    <footer class="post__footer">
-      
-      <ul class="post__tags">
-        
-        <li class="post__tag"><a href="https://til.neilmagee.com/tags/hugo/" class="post__tag-link"><span class="post__tag-label">#</span>hugo</a></li>
-        
-      </ul>
-      
-    </footer>
-  </article>
-
-  
-
-      </main>
-      <footer class="site-footer">
-        <div class="site-footer__inner">
-          <p class="site-footer__copyright">&copy; 2019&nbsp;<a href="https://neilmagee.com">Neil Magee</a>
-          . Icons from <a href="http://entypo.com">Entypo+</a>. Made with <a href="https://gohugo.io/" class="site-footer__hugo-logo"><img src="https://til.neilmagee.com/images/hugo-logo.png" alt="Hugo logo" width="22" height="22"></a></p>
-        </div>
-      </footer>
-    </div>
-  </div>
-
-  
-<script src="https://til.neilmagee.com/js/highlight.pack.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", event => {
-    document.documentElement.classList.remove("no-js");
-    document.querySelectorAll("pre:not(.chroma) code").forEach(block => {
-      hljs.highlightBlock(block);
-    });
-  });
-</script>
-
-</body>
-</html>
+</code></pre></section><footer class=post__footer><ul class=post__tags><li class=post__tag><a href=https://til.neilmagee.com/tags/hugo/ class=post__tag-link><span class=post__tag-label>#</span>hugo</a></li></ul></footer></article></main><footer class=site-footer><div class=site-footer__inner><p class=site-footer__copyright>&copy; 2019&nbsp;<a href=https://neilmagee.com>Neil Magee</a>
+. Icons from <a href=http://entypo.com>Entypo+</a>. Made with <a href=https://gohugo.io/ class=site-footer__hugo-logo><img src=https://til.neilmagee.com/images/hugo-logo.png alt="Hugo logo" width=22 height=22></a></p></div></footer></div></div><script src=https://til.neilmagee.com/js/highlight.pack.js></script><script>document.addEventListener("DOMContentLoaded",event=>{document.documentElement.classList.remove("no-js");document.querySelectorAll("pre:not(.chroma) code").forEach(block=>{hljs.highlightBlock(block);});});</script></body></html>

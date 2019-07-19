@@ -1,84 +1,7 @@
-<!doctype html>
-<html class="no-js" lang="en-gb">
-
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>
-  TIL
-    -
-  Front-end test drive: Material UI
-</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="author" content="Neil Magee">
-  <meta name="referrer" content="no-referrer-when-downgrade">
-
-  <link href="https://til.neilmagee.com/images/favicon/favicon-16x16.png" rel="shortcut icon" type="image/png">
-
-  <link rel="stylesheet" href="https://til.neilmagee.com/css/style-1b167369.css" />
-
-  
-  <link rel="stylesheet" href="https://til.neilmagee.com/css/code-highlighting-ad6ae847.css" />
-  
-
-</head>
-<body>
-  
-
-<header class="site-header">
-  <section class="site-header__ident">
-    <a href="https://til.neilmagee.com/" class="site-header__link">TIL</a>
-  </section>
-  <nav class="site-header__nav">
-  
-    <a href="https://til.neilmagee.com/about/" class="site-header__nav-item">About</a>
-  
-  </nav>
-</header>
-  <div class="site-container">
-    <div class="site-container__inner">
-      <main role="main" id="content">
-        
-  <article class="post post--single" itemscope itemtype="http://schema.org/BlogPosting">
-    <header class="post__header">
-      <h1 class="post__title post__title--single" itemprop="title">Front-end test drive: Material UI</h1>
-      <div class="post__meta">
-        <time class="post__date" datetime="2019-05-16" itemprop="dateCreated pubdate datePublished">
-          <span class="post__published">Published:</span>
-          <span class="post__published-value">2019-05-16</span>
-        </time>
-        
-        <ul class="post__categories">
-          
-          <li class="post__category">
-            <a href="https://til.neilmagee.com/categories/development/" class="post__category-link">development</a>
-          </li>
-          
-        </ul>
-        
-      </div>
-    </header>
-    <section class="post-content">
-      <p>Today I learned how to apply style overrides to <a href="https://next.material-ui.com">Material UI</a> (v4.0.0-beat.2), a React front-end component library.</p>
-
-<p>The company I work for is looking to develop some new tools, which we want to get to a prototype stage as soon as possible. We have decided to use React as part of our tech stack (<em>which is good</em>), and knowing that the UI that these tools require is going to need a lot of UI components, I started to look at front-end component libraries (mainly Material UI and Ant Design).</p>
-
-<p>I did a analysis of the types of UI components we need to build our tool - tooltips, various inputs, switch style buttons, modals, dialogs &amp; drop downs. I wanted to make a test &lsquo;App&rsquo; that would combine various components from the library. My main goal was to see how this library was going to be to work with.</p>
-
-<p>After installing the relevant packages into a new <code>create-react-app</code> project, I began to import some components and read the docs. I also began to tweak anything that looked recognisable. At first things did not go well. I could not customise what I felt were basics, such as an inputs focused state.</p>
-
-<p>After reading the docs (<em>again</em>) and looking at the examples, I got to this point using <code>withStyles</code>:</p>
-
-<figure>
-    <img src="/images/frontend-test-drive-material-ui/custom-colours.png"
-         alt="UI Test Custom Colours"loading="lazy"
-    /> <figcaption>
-            <h4>A beautiful mess</h4>
-        </figcaption>
-</figure>
-
-<pre><code class="language-javascript">import React from 'react';
+<!doctype html><html class=no-js lang=en-gb><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><title>TIL
+-
+Front-end test drive: Material UI</title><meta name=description content><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=author content="Neil Magee"><meta name=referrer content=no-referrer-when-downgrade><link href=https://til.neilmagee.com/images/favicon/favicon-16x16.png rel="shortcut icon" type=image/png><link rel=stylesheet href=https://til.neilmagee.com/css/style-253b86c5.css><link rel=stylesheet href=https://til.neilmagee.com/css/code-highlighting-ad6ae847.css></head><body><header class=site-header><section class=site-header__ident><a href=https://til.neilmagee.com/ class=site-header__link>TIL</a></section><nav class=site-header__nav><a href=https://til.neilmagee.com/about/ class=site-header__nav-item>About</a></nav></header><div class=site-container><div class=site-container__inner><main role=main id=content><article class="post post--single" itemscope itemtype=http://schema.org/BlogPosting><header class=post__header><h1 class="post__title post__title--single" itemprop=title>Front-end test drive: Material UI</h1><div class=post__meta><time class=post__date datetime=2019-05-16 itemprop="dateCreated pubdate datePublished"><span class=post__published>Published:</span>
+<span class=post__published-value>2019-05-16</span></time><ul class=post__categories><li class=post__category><a href=https://til.neilmagee.com/categories/development/ class=post__category-link>development</a></li></ul></div></header><section class=post-content><p>Today I learned how to apply style overrides to <a href=https://next.material-ui.com>Material UI</a> (v4.0.0-beat.2), a React front-end component library.</p><p>The company I work for is looking to develop some new tools, which we want to get to a prototype stage as soon as possible. We have decided to use React as part of our tech stack (<em>which is good</em>), and knowing that the UI that these tools require is going to need a lot of UI components, I started to look at front-end component libraries (mainly Material UI and Ant Design).</p><p>I did a analysis of the types of UI components we need to build our tool - tooltips, various inputs, switch style buttons, modals, dialogs &amp; drop downs. I wanted to make a test &lsquo;App&rsquo; that would combine various components from the library. My main goal was to see how this library was going to be to work with.</p><p>After installing the relevant packages into a new <code>create-react-app</code> project, I began to import some components and read the docs. I also began to tweak anything that looked recognisable. At first things did not go well. I could not customise what I felt were basics, such as an inputs focused state.</p><p>After reading the docs (<em>again</em>) and looking at the examples, I got to this point using <code>withStyles</code>:</p><figure><img src=/images/frontend-test-drive-material-ui/custom-colours.png alt="UI Test Custom Colours" loading=lazy><figcaption><h4>A beautiful mess</h4></figcaption></figure><pre><code class=language-javascript>import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
@@ -179,15 +102,7 @@ function UITester() {
 }
 
 export default UITester;
-</code></pre>
-
-<p>This achieved some little goals. I could modify pseudo classes, states and component children. So that gave me some confidence that I could control the style on the components if I needed to.</p>
-
-<p>I had seen in the <a href="https://next.material-ui.com/customization/default-theme/">docs</a> that the default theme had some nice utilities, such as pixel to rem functionality, that I wanted to take advantage of. The above code uses the <code>withStyles</code> Higher-order component API. I don&rsquo;t fully understand what a Higher-order component API is to be honest. It seemed like I could use the <code>makeStyles</code> Hook API to access the default theme utilities.</p>
-
-<p>Again I found it tricky at first to get the correct syntax to be able to style component child elements, such as the switch&rsquo;s &lsquo;track&rsquo;. I looked at a lot of examples, re-read the docs (<em>once more</em>) and figured out this syntax pattern would override the default theme styling:</p>
-
-<pre><code class="language-javascript">  switchBase: {
+</code></pre><p>This achieved some little goals. I could modify pseudo classes, states and component children. So that gave me some confidence that I could control the style on the components if I needed to.</p><p>I had seen in the <a href=https://next.material-ui.com/customization/default-theme/>docs</a> that the default theme had some nice utilities, such as pixel to rem functionality, that I wanted to take advantage of. The above code uses the <code>withStyles</code> Higher-order component API. I don&rsquo;t fully understand what a Higher-order component API is to be honest. It seemed like I could use the <code>makeStyles</code> Hook API to access the default theme utilities.</p><p>Again I found it tricky at first to get the correct syntax to be able to style component child elements, such as the switch&rsquo;s &lsquo;track&rsquo;. I looked at a lot of examples, re-read the docs (<em>once more</em>) and figured out this syntax pattern would override the default theme styling:</p><pre><code class=language-javascript>  switchBase: {
     '&amp;$checked': {
       color: orange[500],
     },
@@ -197,19 +112,7 @@ export default UITester;
   },
   track: {},
   checked: {},
-</code></pre>
-
-<p>This allowed me to use the theme utilities such as <code>theme.spacing()</code> and also keep default theme styling where I wanted it. I gave the component a touch of orange:</p>
-
-<figure>
-    <img src="/images/frontend-test-drive-material-ui/extended-default-theme.png"
-         alt="UI Test Modified Default Theme"loading="lazy"
-    /> <figcaption>
-            <h4>Tangerine dream</h4>
-        </figcaption>
-</figure>
-
-<pre><code class="language-javascript">import React from 'react';
+</code></pre><p>This allowed me to use the theme utilities such as <code>theme.spacing()</code> and also keep default theme styling where I wanted it. I gave the component a touch of orange:</p><figure><img src=/images/frontend-test-drive-material-ui/extended-default-theme.png alt="UI Test Modified Default Theme" loading=lazy><figcaption><h4>Tangerine dream</h4></figcaption></figure><pre><code class=language-javascript>import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
@@ -301,70 +204,7 @@ function UITesterThemed() {
 }
 
 export default UITesterThemed;
-</code></pre>
-
-<p>CSS in JS is pretty much brand new to me and I am unsure if there is syntax here that is specific to Material UIs way of doing things. I am sure I will learn more about that soon.</p>
-    </section>
-    <footer class="post__footer">
-      
-      <ul class="post__tags">
-        
-        <li class="post__tag"><a href="https://til.neilmagee.com/tags/react/" class="post__tag-link"><span class="post__tag-label">#</span>react</a></li>
-        
-        <li class="post__tag"><a href="https://til.neilmagee.com/tags/material-ui/" class="post__tag-link"><span class="post__tag-label">#</span>material-ui</a></li>
-        
-      </ul>
-      
-    </footer>
-  </article>
-
-  
-<aside class="post-siblings">
-  <span class="post-siblings__more">More posts</span>
-  
-    <a class="post-siblings__nav post-siblings__nav--next" href="https://til.neilmagee.com/post/learn-react-redux-basics/"><span class="post-siblings__nav-icon">
-    <svg version="1.1" id="Chevron_left" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-   y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
-    <path d="M12.452,4.516c0.446,0.436,0.481,1.043,0,1.576L8.705,10l3.747,3.908c0.481,0.533,0.446,1.141,0,1.574
-      c-0.445,0.436-1.197,0.408-1.615,0c-0.418-0.406-4.502-4.695-4.502-4.695C6.112,10.57,6,10.285,6,10s0.112-0.57,0.335-0.789
-      c0,0,4.084-4.287,4.502-4.695C11.255,4.107,12.007,4.08,12.452,4.516z" class="post-siblings__nav-icon-next" />
-    </svg>
-  </span>Next</a>
-  
-
-  
-  <a class="post-siblings__nav post-siblings__nav--previous" href="https://til.neilmagee.com/post/authentication-versus-authorisation/">Previous<span class="post-siblings__nav-icon">
-    <svg version="1.1" id="Chevron_right" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-   y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
-    <path d="M9.163,4.516c0.418,0.408,4.502,4.695,4.502,4.695C13.888,9.43,14,9.715,14,10s-0.112,0.57-0.335,0.787
-      c0,0-4.084,4.289-4.502,4.695c-0.418,0.408-1.17,0.436-1.615,0c-0.446-0.434-0.481-1.041,0-1.574L11.295,10L7.548,6.092
-      c-0.481-0.533-0.446-1.141,0-1.576C7.993,4.08,8.745,4.107,9.163,4.516z" class="post-siblings__nav-icon-previous" />
-    </svg>
-  </span></a>
-  
-</aside>
-
-
-      </main>
-      <footer class="site-footer">
-        <div class="site-footer__inner">
-          <p class="site-footer__copyright">&copy; 2019&nbsp;<a href="https://neilmagee.com">Neil Magee</a>
-          . Icons from <a href="http://entypo.com">Entypo+</a>. Made with <a href="https://gohugo.io/" class="site-footer__hugo-logo"><img src="https://til.neilmagee.com/images/hugo-logo.png" alt="Hugo logo" width="22" height="22"></a></p>
-        </div>
-      </footer>
-    </div>
-  </div>
-
-  
-<script src="https://til.neilmagee.com/js/highlight.pack.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", event => {
-    document.documentElement.classList.remove("no-js");
-    document.querySelectorAll("pre:not(.chroma) code").forEach(block => {
-      hljs.highlightBlock(block);
-    });
-  });
-</script>
-
-</body>
-</html>
+</code></pre><p>CSS in JS is pretty much brand new to me and I am unsure if there is syntax here that is specific to Material UIs way of doing things. I am sure I will learn more about that soon.</p></section><footer class=post__footer><ul class=post__tags><li class=post__tag><a href=https://til.neilmagee.com/tags/react/ class=post__tag-link><span class=post__tag-label>#</span>react</a></li><li class=post__tag><a href=https://til.neilmagee.com/tags/material-ui/ class=post__tag-link><span class=post__tag-label>#</span>material-ui</a></li></ul></footer></article><aside class=post-siblings><span class=post-siblings__more>More posts</span>
+<a class="post-siblings__nav post-siblings__nav--next" href=https://til.neilmagee.com/post/learn-react-redux-basics/><span class=post-siblings__nav-icon><svg id="Chevron_left" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 20" enable-background="new 0 0 20 20"><path d="M12.452 4.516c.446.436.481 1.043.0 1.576L8.705 10l3.747 3.908c.481.533.446 1.141.0 1.574-.445.436-1.197.408-1.615.0-.418-.406-4.502-4.695-4.502-4.695C6.112 10.57 6 10.285 6 10s.112-.57.335-.789c0 0 4.084-4.287 4.502-4.695C11.255 4.107 12.007 4.08 12.452 4.516z" class="post-siblings__nav-icon-next" /></svg></span>Next</a>
+<a class="post-siblings__nav post-siblings__nav--previous" href=https://til.neilmagee.com/post/authentication-versus-authorisation/>Previous<span class=post-siblings__nav-icon><svg id="Chevron_right" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 20" enable-background="new 0 0 20 20"><path d="M9.163 4.516c.418.408 4.502 4.695 4.502 4.695C13.888 9.43 14 9.715 14 10s-.112.57-.335.787c0 0-4.084 4.289-4.502 4.695-.418.408-1.17.436-1.615.0-.446-.434-.481-1.041.0-1.574L11.295 10 7.548 6.092c-.481-.533-.446-1.141.0-1.576C7.993 4.08 8.745 4.107 9.163 4.516z" class="post-siblings__nav-icon-previous" /></svg></span></a></aside></main><footer class=site-footer><div class=site-footer__inner><p class=site-footer__copyright>&copy; 2019&nbsp;<a href=https://neilmagee.com>Neil Magee</a>
+. Icons from <a href=http://entypo.com>Entypo+</a>. Made with <a href=https://gohugo.io/ class=site-footer__hugo-logo><img src=https://til.neilmagee.com/images/hugo-logo.png alt="Hugo logo" width=22 height=22></a></p></div></footer></div></div><script src=https://til.neilmagee.com/js/highlight.pack.js></script><script>document.addEventListener("DOMContentLoaded",event=>{document.documentElement.classList.remove("no-js");document.querySelectorAll("pre:not(.chroma) code").forEach(block=>{hljs.highlightBlock(block);});});</script></body></html>

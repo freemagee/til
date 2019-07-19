@@ -1,86 +1,9 @@
-<!doctype html>
-<html class="no-js" lang="en-gb">
-
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>
-  TIL
-    -
-  Apache virtual host redirection with ssl
-</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="author" content="Neil Magee">
-  <meta name="referrer" content="no-referrer-when-downgrade">
-
-  <link href="https://til.neilmagee.com/images/favicon/favicon-16x16.png" rel="shortcut icon" type="image/png">
-
-  <link rel="stylesheet" href="https://til.neilmagee.com/css/style-1b167369.css" />
-
-  
-  <link rel="stylesheet" href="https://til.neilmagee.com/css/code-highlighting-ad6ae847.css" />
-  
-
-</head>
-<body>
-  
-
-<header class="site-header">
-  <section class="site-header__ident">
-    <a href="https://til.neilmagee.com/" class="site-header__link">TIL</a>
-  </section>
-  <nav class="site-header__nav">
-  
-    <a href="https://til.neilmagee.com/about/" class="site-header__nav-item">About</a>
-  
-  </nav>
-</header>
-  <div class="site-container">
-    <div class="site-container__inner">
-      <main role="main" id="content">
-        
-  <article class="post post--single" itemscope itemtype="http://schema.org/BlogPosting">
-    <header class="post__header">
-      <h1 class="post__title post__title--single" itemprop="title">Apache virtual host redirection with ssl</h1>
-      <div class="post__meta">
-        <time class="post__date" datetime="2019-02-04" itemprop="dateCreated pubdate datePublished">
-          <span class="post__published">Published:</span>
-          <span class="post__published-value">2019-02-04</span>
-        </time>
-        
-        <ul class="post__categories">
-          
-          <li class="post__category">
-            <a href="https://til.neilmagee.com/categories/development/" class="post__category-link">development</a>
-          </li>
-          
-        </ul>
-        
-      </div>
-    </header>
-    <section class="post-content">
-      <p>Today I learned more about Apache virtual hosting and redirection. I decided to change my server host to <a href="https://www.digitalocean.com">Digital Ocean</a> a few months ago. There was nothing wrong with my then host, it was a shared web host, which I mainly used to access and manage with cPanel.</p>
-
-<p>During my day job I have been administering a CentOS based virtual server hosted by Rackspace and have become more comfortable with using a SSH to manage it. <em>Comfortable</em>, but still with lots of Googling and Stack Overflowing.</p>
-
-<p>So I thought I would challenge myself a bit and make the jump to Digital Ocean and take more control of my own server. I wanted to be able to make any sites I run use SSL via <a href="https://letsencrypt.org/">Let&rsquo;s Encrypt</a>. This was not possible with my old host, as they had a more traditional &ldquo;buy a certificate&rdquo; business model and I could not administer the server to install Certbot.</p>
-
-<p>After setting this new server up and getting <strong>neilmagee.com</strong> served on port 80, I used Let&rsquo;s Encrypt to generate some certs for the <code>www</code> and <code>non-www</code> versions of the sites (<em>Why? See <a href="#notes">notes</a> at end of article</em>). This worked well, and I could now access <a href="https://neilmagee.com">https://neilmagee.com</a> and <a href="https://www.neilmagee.com">https://www.neilmagee.com</a>. My goal was to redirect all traffic (http{s} and www) to my canonical domain, <a href="https://neilmagee.com">https://neilmagee.com</a>.</p>
-
-<p>I chose to avoid doing the domain configuration in <code>.htaccess</code> files and wanted to do it all in Apache .conf files. On this server, which is running Ubuntu, they are located in <code>/etc/apache2/sites-enabled</code>. To get those config files to be included by Apache, I added this line to the bottom of my <code>apache2.conf</code> located in <code>/etc/apache2</code>:</p>
-
-<pre><code># Include the virtual host configurations:
+<!doctype html><html class=no-js lang=en-gb><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><title>TIL
+-
+Apache virtual host redirection with ssl</title><meta name=description content><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=author content="Neil Magee"><meta name=referrer content=no-referrer-when-downgrade><link href=https://til.neilmagee.com/images/favicon/favicon-16x16.png rel="shortcut icon" type=image/png><link rel=stylesheet href=https://til.neilmagee.com/css/style-253b86c5.css><link rel=stylesheet href=https://til.neilmagee.com/css/code-highlighting-ad6ae847.css></head><body><header class=site-header><section class=site-header__ident><a href=https://til.neilmagee.com/ class=site-header__link>TIL</a></section><nav class=site-header__nav><a href=https://til.neilmagee.com/about/ class=site-header__nav-item>About</a></nav></header><div class=site-container><div class=site-container__inner><main role=main id=content><article class="post post--single" itemscope itemtype=http://schema.org/BlogPosting><header class=post__header><h1 class="post__title post__title--single" itemprop=title>Apache virtual host redirection with ssl</h1><div class=post__meta><time class=post__date datetime=2019-02-04 itemprop="dateCreated pubdate datePublished"><span class=post__published>Published:</span>
+<span class=post__published-value>2019-02-04</span></time><ul class=post__categories><li class=post__category><a href=https://til.neilmagee.com/categories/development/ class=post__category-link>development</a></li></ul></div></header><section class=post-content><p>Today I learned more about Apache virtual hosting and redirection. I decided to change my server host to <a href=https://www.digitalocean.com>Digital Ocean</a> a few months ago. There was nothing wrong with my then host, it was a shared web host, which I mainly used to access and manage with cPanel.</p><p>During my day job I have been administering a CentOS based virtual server hosted by Rackspace and have become more comfortable with using a SSH to manage it. <em>Comfortable</em>, but still with lots of Googling and Stack Overflowing.</p><p>So I thought I would challenge myself a bit and make the jump to Digital Ocean and take more control of my own server. I wanted to be able to make any sites I run use SSL via <a href=https://letsencrypt.org/>Let&rsquo;s Encrypt</a>. This was not possible with my old host, as they had a more traditional &ldquo;buy a certificate&rdquo; business model and I could not administer the server to install Certbot.</p><p>After setting this new server up and getting <strong>neilmagee.com</strong> served on port 80, I used Let&rsquo;s Encrypt to generate some certs for the <code>www</code> and <code>non-www</code> versions of the sites (<em>Why? See <a href=#notes>notes</a> at end of article</em>). This worked well, and I could now access <a href=https://neilmagee.com>https://neilmagee.com</a> and <a href=https://www.neilmagee.com>https://www.neilmagee.com</a>. My goal was to redirect all traffic (http{s} and www) to my canonical domain, <a href=https://neilmagee.com>https://neilmagee.com</a>.</p><p>I chose to avoid doing the domain configuration in <code>.htaccess</code> files and wanted to do it all in Apache .conf files. On this server, which is running Ubuntu, they are located in <code>/etc/apache2/sites-enabled</code>. To get those config files to be included by Apache, I added this line to the bottom of my <code>apache2.conf</code> located in <code>/etc/apache2</code>:</p><pre><code># Include the virtual host configurations:
 IncludeOptional sites-enabled/*.conf
-</code></pre>
-
-<p>My config for <strong>neilmagee.com</strong> now consisted of three seperate files - <code>neilmagee.com.conf</code> for port 80, <code>neilmagee.com-le-ssl.conf</code> on port 443 and <code>www.neilmagee.com-le-ssl.conf</code> on port 443. The 443 configs were generated by Let&rsquo;s Encrypt during the certificate request process.</p>
-
-<p>After spending a lot of time changing and adding different rewrite rules to <code>neilmagee.com.conf</code> I was almost getting what I wanted. <code>http</code> and <code>https non www</code> were redirecting correctly, <code>http www</code> was redirecting to <code>https non www</code> but <code>https www</code> was not redirecting at all. It took me a while before I realised that I was not adding the redirect in the right <code>.conf</code> file. I believed the <code>www.neilmagee.com-le-ssl.conf</code> was just handling my certs and ssl, but I overlooked it <strong>was</strong> the virtual host for www on https. I added the redirect scripts to <code>www.neilmagee.com-le-ssl.conf</code> and restarted apache. I cleared the cache of my browser and used another browser to double check. Https www is now redirecting to https non www. I have truncated the scripts below to focus on the config that works for me. I have left the redirects as code <code>302</code>, temporary redirects, which will become <code>301</code> when I am 100% sure everything is working as expected.</p>
-
-<h3 id="neilmagee-com-conf">neilmagee.com.conf</h3>
-
-<pre><code class="language-apache">&lt;VirtualHost *:80&gt;
+</code></pre><p>My config for <strong>neilmagee.com</strong> now consisted of three seperate files - <code>neilmagee.com.conf</code> for port 80, <code>neilmagee.com-le-ssl.conf</code> on port 443 and <code>www.neilmagee.com-le-ssl.conf</code> on port 443. The 443 configs were generated by Let&rsquo;s Encrypt during the certificate request process.</p><p>After spending a lot of time changing and adding different rewrite rules to <code>neilmagee.com.conf</code> I was almost getting what I wanted. <code>http</code> and <code>https non www</code> were redirecting correctly, <code>http www</code> was redirecting to <code>https non www</code> but <code>https www</code> was not redirecting at all. It took me a while before I realised that I was not adding the redirect in the right <code>.conf</code> file. I believed the <code>www.neilmagee.com-le-ssl.conf</code> was just handling my certs and ssl, but I overlooked it <strong>was</strong> the virtual host for www on https. I added the redirect scripts to <code>www.neilmagee.com-le-ssl.conf</code> and restarted apache. I cleared the cache of my browser and used another browser to double check. Https www is now redirecting to https non www. I have truncated the scripts below to focus on the config that works for me. I have left the redirects as code <code>302</code>, temporary redirects, which will become <code>301</code> when I am 100% sure everything is working as expected.</p><h3 id=neilmagee-com-conf>neilmagee.com.conf</h3><pre><code class=language-apache>&lt;VirtualHost *:80&gt;
     # Other config omitted
 
     &lt;Directory /absolute/path&gt;
@@ -96,11 +19,7 @@ IncludeOptional sites-enabled/*.conf
         RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=302]
     &lt;/Directory&gt;
 &lt;/VirtualHost&gt;
-</code></pre>
-
-<h3 id="www-neilmagee-com-le-ssl-conf">www.neilmagee.com-le-ssl.conf</h3>
-
-<pre><code class="language-apache">&lt;IfModule mod_ssl.c&gt;
+</code></pre><h3 id=www-neilmagee-com-le-ssl-conf>www.neilmagee.com-le-ssl.conf</h3><pre><code class=language-apache>&lt;IfModule mod_ssl.c&gt;
 &lt;VirtualHost *:443&gt;
     # Other config omitted
 
@@ -115,74 +34,7 @@ IncludeOptional sites-enabled/*.conf
     # Other config emitted
 &lt;/VirtualHost&gt;
 &lt;/IfModule&gt;
-</code></pre>
-
-<h3 id="notes">Notes</h3>
-
-<p>The reason I requested <code>www</code> and <code>non-www</code> is to avoid certificate warnings from browsers such as Edge and Firefox. In my experience if you only have one certificate (<code>non-www</code>), and then use <code>mod_rewrite</code> to redirect <code>www</code> to <code>non-www</code>, Edge and Firefox will show warnings and the padlock will not be green. Chrome has decided to subdue warnings and just <strong>handle the redirection</strong> automatically. This was a problem I faced in my day job and as I use Chrome a lot, it took me a while to diagnose it. After I figured it out, I <strong>always</strong> request both certs.</p>
-
-<h3 id="final-note">Final Note</h3>
-
-<p>The conclusions I have made here are the results of lots of trial and error, lots of Googling and reading smarter people than me explain things. Whilst in isolation, this config is quite simple, it is very hard to find one clear example of what to do that matches your own requirements. If you take anything away from this, I am glad.</p>
-    </section>
-    <footer class="post__footer">
-      
-      <ul class="post__tags">
-        
-        <li class="post__tag"><a href="https://til.neilmagee.com/tags/apache/" class="post__tag-link"><span class="post__tag-label">#</span>apache</a></li>
-        
-      </ul>
-      
-    </footer>
-  </article>
-
-  
-<aside class="post-siblings">
-  <span class="post-siblings__more">More posts</span>
-  
-    <a class="post-siblings__nav post-siblings__nav--next" href="https://til.neilmagee.com/post/eslint-and-prettier-conflicts/"><span class="post-siblings__nav-icon">
-    <svg version="1.1" id="Chevron_left" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-   y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
-    <path d="M12.452,4.516c0.446,0.436,0.481,1.043,0,1.576L8.705,10l3.747,3.908c0.481,0.533,0.446,1.141,0,1.574
-      c-0.445,0.436-1.197,0.408-1.615,0c-0.418-0.406-4.502-4.695-4.502-4.695C6.112,10.57,6,10.285,6,10s0.112-0.57,0.335-0.789
-      c0,0,4.084-4.287,4.502-4.695C11.255,4.107,12.007,4.08,12.452,4.516z" class="post-siblings__nav-icon-next" />
-    </svg>
-  </span>Next</a>
-  
-
-  
-  <a class="post-siblings__nav post-siblings__nav--previous" href="https://til.neilmagee.com/post/jest-with-babel-7/">Previous<span class="post-siblings__nav-icon">
-    <svg version="1.1" id="Chevron_right" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-   y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
-    <path d="M9.163,4.516c0.418,0.408,4.502,4.695,4.502,4.695C13.888,9.43,14,9.715,14,10s-0.112,0.57-0.335,0.787
-      c0,0-4.084,4.289-4.502,4.695c-0.418,0.408-1.17,0.436-1.615,0c-0.446-0.434-0.481-1.041,0-1.574L11.295,10L7.548,6.092
-      c-0.481-0.533-0.446-1.141,0-1.576C7.993,4.08,8.745,4.107,9.163,4.516z" class="post-siblings__nav-icon-previous" />
-    </svg>
-  </span></a>
-  
-</aside>
-
-
-      </main>
-      <footer class="site-footer">
-        <div class="site-footer__inner">
-          <p class="site-footer__copyright">&copy; 2019&nbsp;<a href="https://neilmagee.com">Neil Magee</a>
-          . Icons from <a href="http://entypo.com">Entypo+</a>. Made with <a href="https://gohugo.io/" class="site-footer__hugo-logo"><img src="https://til.neilmagee.com/images/hugo-logo.png" alt="Hugo logo" width="22" height="22"></a></p>
-        </div>
-      </footer>
-    </div>
-  </div>
-
-  
-<script src="https://til.neilmagee.com/js/highlight.pack.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", event => {
-    document.documentElement.classList.remove("no-js");
-    document.querySelectorAll("pre:not(.chroma) code").forEach(block => {
-      hljs.highlightBlock(block);
-    });
-  });
-</script>
-
-</body>
-</html>
+</code></pre><h3 id=notes>Notes</h3><p>The reason I requested <code>www</code> and <code>non-www</code> is to avoid certificate warnings from browsers such as Edge and Firefox. In my experience if you only have one certificate (<code>non-www</code>), and then use <code>mod_rewrite</code> to redirect <code>www</code> to <code>non-www</code>, Edge and Firefox will show warnings and the padlock will not be green. Chrome has decided to subdue warnings and just <strong>handle the redirection</strong> automatically. This was a problem I faced in my day job and as I use Chrome a lot, it took me a while to diagnose it. After I figured it out, I <strong>always</strong> request both certs.</p><h3 id=final-note>Final Note</h3><p>The conclusions I have made here are the results of lots of trial and error, lots of Googling and reading smarter people than me explain things. Whilst in isolation, this config is quite simple, it is very hard to find one clear example of what to do that matches your own requirements. If you take anything away from this, I am glad.</p></section><footer class=post__footer><ul class=post__tags><li class=post__tag><a href=https://til.neilmagee.com/tags/apache/ class=post__tag-link><span class=post__tag-label>#</span>apache</a></li></ul></footer></article><aside class=post-siblings><span class=post-siblings__more>More posts</span>
+<a class="post-siblings__nav post-siblings__nav--next" href=https://til.neilmagee.com/post/eslint-and-prettier-conflicts/><span class=post-siblings__nav-icon><svg id="Chevron_left" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 20" enable-background="new 0 0 20 20"><path d="M12.452 4.516c.446.436.481 1.043.0 1.576L8.705 10l3.747 3.908c.481.533.446 1.141.0 1.574-.445.436-1.197.408-1.615.0-.418-.406-4.502-4.695-4.502-4.695C6.112 10.57 6 10.285 6 10s.112-.57.335-.789c0 0 4.084-4.287 4.502-4.695C11.255 4.107 12.007 4.08 12.452 4.516z" class="post-siblings__nav-icon-next" /></svg></span>Next</a>
+<a class="post-siblings__nav post-siblings__nav--previous" href=https://til.neilmagee.com/post/jest-with-babel-7/>Previous<span class=post-siblings__nav-icon><svg id="Chevron_right" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 20" enable-background="new 0 0 20 20"><path d="M9.163 4.516c.418.408 4.502 4.695 4.502 4.695C13.888 9.43 14 9.715 14 10s-.112.57-.335.787c0 0-4.084 4.289-4.502 4.695-.418.408-1.17.436-1.615.0-.446-.434-.481-1.041.0-1.574L11.295 10 7.548 6.092c-.481-.533-.446-1.141.0-1.576C7.993 4.08 8.745 4.107 9.163 4.516z" class="post-siblings__nav-icon-previous" /></svg></span></a></aside></main><footer class=site-footer><div class=site-footer__inner><p class=site-footer__copyright>&copy; 2019&nbsp;<a href=https://neilmagee.com>Neil Magee</a>
+. Icons from <a href=http://entypo.com>Entypo+</a>. Made with <a href=https://gohugo.io/ class=site-footer__hugo-logo><img src=https://til.neilmagee.com/images/hugo-logo.png alt="Hugo logo" width=22 height=22></a></p></div></footer></div></div><script src=https://til.neilmagee.com/js/highlight.pack.js></script><script>document.addEventListener("DOMContentLoaded",event=>{document.documentElement.classList.remove("no-js");document.querySelectorAll("pre:not(.chroma) code").forEach(block=>{hljs.highlightBlock(block);});});</script></body></html>

@@ -1,89 +1,7 @@
-<!doctype html>
-<html class="no-js" lang="en-gb">
-
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>
-  TIL
-    -
-  The basics of React Redux
-</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="author" content="Neil Magee">
-  <meta name="referrer" content="no-referrer-when-downgrade">
-
-  <link href="https://til.neilmagee.com/images/favicon/favicon-16x16.png" rel="shortcut icon" type="image/png">
-
-  <link rel="stylesheet" href="https://til.neilmagee.com/css/style-1b167369.css" />
-
-  
-  <link rel="stylesheet" href="https://til.neilmagee.com/css/code-highlighting-ad6ae847.css" />
-  
-
-</head>
-<body>
-  
-
-<header class="site-header">
-  <section class="site-header__ident">
-    <a href="https://til.neilmagee.com/" class="site-header__link">TIL</a>
-  </section>
-  <nav class="site-header__nav">
-  
-    <a href="https://til.neilmagee.com/about/" class="site-header__nav-item">About</a>
-  
-  </nav>
-</header>
-  <div class="site-container">
-    <div class="site-container__inner">
-      <main role="main" id="content">
-        
-  <article class="post post--single" itemscope itemtype="http://schema.org/BlogPosting">
-    <header class="post__header">
-      <h1 class="post__title post__title--single" itemprop="title">The basics of React Redux</h1>
-      <div class="post__meta">
-        <time class="post__date" datetime="2019-05-20" itemprop="dateCreated pubdate datePublished">
-          <span class="post__published">Published:</span>
-          <span class="post__published-value">2019-05-20</span>
-        </time>
-        
-        <ul class="post__categories">
-          
-          <li class="post__category">
-            <a href="https://til.neilmagee.com/categories/development/" class="post__category-link">development</a>
-          </li>
-          
-        </ul>
-        
-      </div>
-    </header>
-    <section class="post-content">
-      <p>Today I learned the basics of <a href="https://react-redux.js.org/">React Redux</a> because the <code>state</code> requirements of the React app I have been building are now in need of a better solution.</p>
-
-<p>I am a fairly experienced frontend developer, and I know how to use lots of technologies. But I was struggling with grasping the fundamentals of using React Redux. I have used <a href="https://vuex.vuejs.org/">Vuex</a> previously, which I picked up pretty quickly and I thought it would be similar. They are similar in concept, but not in execution. I think Vue deserves a lot of credit for their documentation as it is really good.</p>
-
-<p>What I was looking for was a basic tutorial, the <em>most</em> basic. But every &ldquo;basic&rdquo; tutorial was how to make a <em>todo</em> app. But I honestly needed a <em>Hello world</em>, just to see how the code was wired together. This is from the redux documentation:</p>
-
-<blockquote>
-<p>Don&rsquo;t be fooled by all the fancy talk about reducers, middleware, store enhancers—Redux is incredibly simple. If you&rsquo;ve ever built a Flux application, you will feel right at home. If you&rsquo;re new to Flux, it&rsquo;s easy too!</p>
-</blockquote>
-
-<p><a href="https://redux-docs.netlify.com/basics/basic-tutorial">Source</a></p>
-
-<p>I would agree in hindsight that it is relatively easy, but the path to that knowledge is shrouded in fog. It was time to find alternative education!</p>
-
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="//www.youtube.com/embed/OSSpVLpuVWA" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
-
-
-<p>So if you are in the same position as me, I took to YouTube and found <a href="https://www.youtube.com/watch?v=OSSpVLpuVWA">this video</a> by <strong>Learn Coding Tutorials</strong>, which had the one thing I needed - to see the redux code working in a single file. I have included that code below for reference. This code is working on top of an app created via <code>create-react-app</code>.</p>
-
-<h3 id="index-js">index.js</h3>
-
-<pre><code class="language-javascript">import React from &quot;react&quot;;
+<!doctype html><html class=no-js lang=en-gb><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><title>TIL
+-
+The basics of React Redux</title><meta name=description content><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=author content="Neil Magee"><meta name=referrer content=no-referrer-when-downgrade><link href=https://til.neilmagee.com/images/favicon/favicon-16x16.png rel="shortcut icon" type=image/png><link rel=stylesheet href=https://til.neilmagee.com/css/style-253b86c5.css><link rel=stylesheet href=https://til.neilmagee.com/css/code-highlighting-ad6ae847.css></head><body><header class=site-header><section class=site-header__ident><a href=https://til.neilmagee.com/ class=site-header__link>TIL</a></section><nav class=site-header__nav><a href=https://til.neilmagee.com/about/ class=site-header__nav-item>About</a></nav></header><div class=site-container><div class=site-container__inner><main role=main id=content><article class="post post--single" itemscope itemtype=http://schema.org/BlogPosting><header class=post__header><h1 class="post__title post__title--single" itemprop=title>The basics of React Redux</h1><div class=post__meta><time class=post__date datetime=2019-05-20 itemprop="dateCreated pubdate datePublished"><span class=post__published>Published:</span>
+<span class=post__published-value>2019-05-20</span></time><ul class=post__categories><li class=post__category><a href=https://til.neilmagee.com/categories/development/ class=post__category-link>development</a></li></ul></div></header><section class=post-content><p>Today I learned the basics of <a href=https://react-redux.js.org/>React Redux</a> because the <code>state</code> requirements of the React app I have been building are now in need of a better solution.</p><p>I am a fairly experienced frontend developer, and I know how to use lots of technologies. But I was struggling with grasping the fundamentals of using React Redux. I have used <a href=https://vuex.vuejs.org/>Vuex</a> previously, which I picked up pretty quickly and I thought it would be similar. They are similar in concept, but not in execution. I think Vue deserves a lot of credit for their documentation as it is really good.</p><p>What I was looking for was a basic tutorial, the <em>most</em> basic. But every &ldquo;basic&rdquo; tutorial was how to make a <em>todo</em> app. But I honestly needed a <em>Hello world</em>, just to see how the code was wired together. This is from the redux documentation:</p><blockquote><p>Don&rsquo;t be fooled by all the fancy talk about reducers, middleware, store enhancers—Redux is incredibly simple. If you&rsquo;ve ever built a Flux application, you will feel right at home. If you&rsquo;re new to Flux, it&rsquo;s easy too!</p></blockquote><p><a href=https://redux-docs.netlify.com/basics/basic-tutorial>Source</a></p><p>I would agree in hindsight that it is relatively easy, but the path to that knowledge is shrouded in fog. It was time to find alternative education!</p><div style=position:relative;padding-bottom:56.25%;height:0;overflow:hidden><iframe src=//www.youtube.com/embed/OSSpVLpuVWA style=position:absolute;top:0;left:0;width:100%;height:100%;border:0 allowfullscreen title="YouTube Video"></iframe></div><p>So if you are in the same position as me, I took to YouTube and found <a href="https://www.youtube.com/watch?v=OSSpVLpuVWA">this video</a> by <strong>Learn Coding Tutorials</strong>, which had the one thing I needed - to see the redux code working in a single file. I have included that code below for reference. This code is working on top of an app created via <code>create-react-app</code>.</p><h3 id=index-js>index.js</h3><pre><code class=language-javascript>import React from &quot;react&quot;;
 import { render } from &quot;react-dom&quot;;
 import App from &quot;./AppSimple&quot;;
 
@@ -130,11 +48,7 @@ render(
   &lt;/Provider&gt;,
   document.getElementById(&quot;root&quot;)
 );
-</code></pre>
-
-<h3 id="app-simple">App Simple</h3>
-
-<pre><code class="language-javascript">import React, { Component } from &quot;react&quot;;
+</code></pre><h3 id=app-simple>App Simple</h3><pre><code class=language-javascript>import React, { Component } from &quot;react&quot;;
 
 import { connect } from &quot;react-redux&quot;;
 
@@ -154,68 +68,7 @@ const mapStateToProps = state =&gt; ({
 
 export default connect(mapStateToProps)(App);
 
-</code></pre>
-
-<!--more-->
-    </section>
-    <footer class="post__footer">
-      
-      <ul class="post__tags">
-        
-        <li class="post__tag"><a href="https://til.neilmagee.com/tags/react/" class="post__tag-link"><span class="post__tag-label">#</span>react</a></li>
-        
-      </ul>
-      
-    </footer>
-  </article>
-
-  
-<aside class="post-siblings">
-  <span class="post-siblings__more">More posts</span>
-  
-    <a class="post-siblings__nav post-siblings__nav--next" href="https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt1/"><span class="post-siblings__nav-icon">
-    <svg version="1.1" id="Chevron_left" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-   y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
-    <path d="M12.452,4.516c0.446,0.436,0.481,1.043,0,1.576L8.705,10l3.747,3.908c0.481,0.533,0.446,1.141,0,1.574
-      c-0.445,0.436-1.197,0.408-1.615,0c-0.418-0.406-4.502-4.695-4.502-4.695C6.112,10.57,6,10.285,6,10s0.112-0.57,0.335-0.789
-      c0,0,4.084-4.287,4.502-4.695C11.255,4.107,12.007,4.08,12.452,4.516z" class="post-siblings__nav-icon-next" />
-    </svg>
-  </span>Next</a>
-  
-
-  
-  <a class="post-siblings__nav post-siblings__nav--previous" href="https://til.neilmagee.com/post/frontend-test-drive-material-ui/">Previous<span class="post-siblings__nav-icon">
-    <svg version="1.1" id="Chevron_right" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-   y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
-    <path d="M9.163,4.516c0.418,0.408,4.502,4.695,4.502,4.695C13.888,9.43,14,9.715,14,10s-0.112,0.57-0.335,0.787
-      c0,0-4.084,4.289-4.502,4.695c-0.418,0.408-1.17,0.436-1.615,0c-0.446-0.434-0.481-1.041,0-1.574L11.295,10L7.548,6.092
-      c-0.481-0.533-0.446-1.141,0-1.576C7.993,4.08,8.745,4.107,9.163,4.516z" class="post-siblings__nav-icon-previous" />
-    </svg>
-  </span></a>
-  
-</aside>
-
-
-      </main>
-      <footer class="site-footer">
-        <div class="site-footer__inner">
-          <p class="site-footer__copyright">&copy; 2019&nbsp;<a href="https://neilmagee.com">Neil Magee</a>
-          . Icons from <a href="http://entypo.com">Entypo+</a>. Made with <a href="https://gohugo.io/" class="site-footer__hugo-logo"><img src="https://til.neilmagee.com/images/hugo-logo.png" alt="Hugo logo" width="22" height="22"></a></p>
-        </div>
-      </footer>
-    </div>
-  </div>
-
-  
-<script src="https://til.neilmagee.com/js/highlight.pack.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", event => {
-    document.documentElement.classList.remove("no-js");
-    document.querySelectorAll("pre:not(.chroma) code").forEach(block => {
-      hljs.highlightBlock(block);
-    });
-  });
-</script>
-
-</body>
-</html>
+</code></pre></section><footer class=post__footer><ul class=post__tags><li class=post__tag><a href=https://til.neilmagee.com/tags/react/ class=post__tag-link><span class=post__tag-label>#</span>react</a></li></ul></footer></article><aside class=post-siblings><span class=post-siblings__more>More posts</span>
+<a class="post-siblings__nav post-siblings__nav--next" href=https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt1/><span class=post-siblings__nav-icon><svg id="Chevron_left" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 20" enable-background="new 0 0 20 20"><path d="M12.452 4.516c.446.436.481 1.043.0 1.576L8.705 10l3.747 3.908c.481.533.446 1.141.0 1.574-.445.436-1.197.408-1.615.0-.418-.406-4.502-4.695-4.502-4.695C6.112 10.57 6 10.285 6 10s.112-.57.335-.789c0 0 4.084-4.287 4.502-4.695C11.255 4.107 12.007 4.08 12.452 4.516z" class="post-siblings__nav-icon-next" /></svg></span>Next</a>
+<a class="post-siblings__nav post-siblings__nav--previous" href=https://til.neilmagee.com/post/frontend-test-drive-material-ui/>Previous<span class=post-siblings__nav-icon><svg id="Chevron_right" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 20" enable-background="new 0 0 20 20"><path d="M9.163 4.516c.418.408 4.502 4.695 4.502 4.695C13.888 9.43 14 9.715 14 10s-.112.57-.335.787c0 0-4.084 4.289-4.502 4.695-.418.408-1.17.436-1.615.0-.446-.434-.481-1.041.0-1.574L11.295 10 7.548 6.092c-.481-.533-.446-1.141.0-1.576C7.993 4.08 8.745 4.107 9.163 4.516z" class="post-siblings__nav-icon-previous" /></svg></span></a></aside></main><footer class=site-footer><div class=site-footer__inner><p class=site-footer__copyright>&copy; 2019&nbsp;<a href=https://neilmagee.com>Neil Magee</a>
+. Icons from <a href=http://entypo.com>Entypo+</a>. Made with <a href=https://gohugo.io/ class=site-footer__hugo-logo><img src=https://til.neilmagee.com/images/hugo-logo.png alt="Hugo logo" width=22 height=22></a></p></div></footer></div></div><script src=https://til.neilmagee.com/js/highlight.pack.js></script><script>document.addEventListener("DOMContentLoaded",event=>{document.documentElement.classList.remove("no-js");document.querySelectorAll("pre:not(.chroma) code").forEach(block=>{hljs.highlightBlock(block);});});</script></body></html>

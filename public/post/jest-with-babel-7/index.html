@@ -1,77 +1,8 @@
-<!doctype html>
-<html class="no-js" lang="en-gb">
-
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>
-  TIL
-    -
-  Get Jest working with Babel 7
-</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="author" content="Neil Magee">
-  <meta name="referrer" content="no-referrer-when-downgrade">
-
-  <link href="https://til.neilmagee.com/images/favicon/favicon-16x16.png" rel="shortcut icon" type="image/png">
-
-  <link rel="stylesheet" href="https://til.neilmagee.com/css/style-1b167369.css" />
-
-  
-  <link rel="stylesheet" href="https://til.neilmagee.com/css/code-highlighting-ad6ae847.css" />
-  
-
-</head>
-<body>
-  
-
-<header class="site-header">
-  <section class="site-header__ident">
-    <a href="https://til.neilmagee.com/" class="site-header__link">TIL</a>
-  </section>
-  <nav class="site-header__nav">
-  
-    <a href="https://til.neilmagee.com/about/" class="site-header__nav-item">About</a>
-  
-  </nav>
-</header>
-  <div class="site-container">
-    <div class="site-container__inner">
-      <main role="main" id="content">
-        
-  <article class="post post--single" itemscope itemtype="http://schema.org/BlogPosting">
-    <header class="post__header">
-      <h1 class="post__title post__title--single" itemprop="title">Get Jest working with Babel 7</h1>
-      <div class="post__meta">
-        <time class="post__date" datetime="2019-01-22" itemprop="dateCreated pubdate datePublished">
-          <span class="post__published">Published:</span>
-          <span class="post__published-value">2019-01-22</span>
-        </time>
-        
-        <ul class="post__categories">
-          
-          <li class="post__category">
-            <a href="https://til.neilmagee.com/categories/development/" class="post__category-link">development</a>
-          </li>
-          
-        </ul>
-        
-      </div>
-    </header>
-    <section class="post-content">
-      <p>Today I learned how to get <a href="https://jestjs.io">Jest</a> to work with Babel 7. Often development involves tool configuration. I have lost many hours to this over the years. Something changes a version number and suddenly you are hunting through Stack Overflow and GitHub with a good idea of the problem, but lacking the <code>magic inscriptions</code> to solve it. Or there are version conflicts. Today&rsquo;s example is the latter.</p>
-
-<p>I was writing a small tool for a maths problem, <a href="https://github.com/freemagee/number-difference-table">Number difference table</a>, and I thought it would benefit from having some unit tests written for it. I wanted to test some of the calculations and using the UI over and over, or console logging had become tedious.</p>
-
-<p>So I chose to use <a href="https://jestjs.io">Jest</a> and installed it.</p>
-
-<pre><code class="language-bash">yarn add -D jest
-</code></pre>
-
-<p>I set up a test and imported my code and ran the test. I was met with</p>
-
-<pre><code class="language-bash">$ jest
+<!doctype html><html class=no-js lang=en-gb><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><title>TIL
+-
+Get Jest working with Babel 7</title><meta name=description content><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=author content="Neil Magee"><meta name=referrer content=no-referrer-when-downgrade><link href=https://til.neilmagee.com/images/favicon/favicon-16x16.png rel="shortcut icon" type=image/png><link rel=stylesheet href=https://til.neilmagee.com/css/style-253b86c5.css><link rel=stylesheet href=https://til.neilmagee.com/css/code-highlighting-ad6ae847.css></head><body><header class=site-header><section class=site-header__ident><a href=https://til.neilmagee.com/ class=site-header__link>TIL</a></section><nav class=site-header__nav><a href=https://til.neilmagee.com/about/ class=site-header__nav-item>About</a></nav></header><div class=site-container><div class=site-container__inner><main role=main id=content><article class="post post--single" itemscope itemtype=http://schema.org/BlogPosting><header class=post__header><h1 class="post__title post__title--single" itemprop=title>Get Jest working with Babel 7</h1><div class=post__meta><time class=post__date datetime=2019-01-22 itemprop="dateCreated pubdate datePublished"><span class=post__published>Published:</span>
+<span class=post__published-value>2019-01-22</span></time><ul class=post__categories><li class=post__category><a href=https://til.neilmagee.com/categories/development/ class=post__category-link>development</a></li></ul></div></header><section class=post-content><p>Today I learned how to get <a href=https://jestjs.io>Jest</a> to work with Babel 7. Often development involves tool configuration. I have lost many hours to this over the years. Something changes a version number and suddenly you are hunting through Stack Overflow and GitHub with a good idea of the problem, but lacking the <code>magic inscriptions</code> to solve it. Or there are version conflicts. Today&rsquo;s example is the latter.</p><p>I was writing a small tool for a maths problem, <a href=https://github.com/freemagee/number-difference-table>Number difference table</a>, and I thought it would benefit from having some unit tests written for it. I wanted to test some of the calculations and using the UI over and over, or console logging had become tedious.</p><p>So I chose to use <a href=https://jestjs.io>Jest</a> and installed it.</p><pre><code class=language-bash>yarn add -D jest
+</code></pre><p>I set up a test and imported my code and ran the test. I was met with</p><pre><code class=language-bash>$ jest
  FAIL  tests/solveSequence.test.js
   ● Test suite failed to run
 
@@ -95,26 +26,12 @@ Time:        5.823s
 Ran all test suites.
 error Command failed with exit code 1.
 info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
-</code></pre>
-
-<p>I immediately could see this was an ES6 module import issue. My <code>solveSequence</code> module code was fine and looking at <a href="https://jestjs.io/docs/en/getting-started">Jest&rsquo;s docs</a> they use a require statement in their examples.</p>
-
-<p>So I Googled getting Jest to work with ES6 imports. This led me on a process of installing Babel, adding a Jest config to my package.json, adding a Babel config file (<code>.babelrc</code>) and installing a few other packages. This sadly led to more error messages!</p>
-
-<p>This message:</p>
-
-<pre><code class="language-bash">$ jest
+</code></pre><p>I immediately could see this was an ES6 module import issue. My <code>solveSequence</code> module code was fine and looking at <a href=https://jestjs.io/docs/en/getting-started>Jest&rsquo;s docs</a> they use a require statement in their examples.</p><p>So I Googled getting Jest to work with ES6 imports. This led me on a process of installing Babel, adding a Jest config to my package.json, adding a Babel config file (<code>.babelrc</code>) and installing a few other packages. This sadly led to more error messages!</p><p>This message:</p><pre><code class=language-bash>$ jest
  FAIL  tests/solveSequence.test.js
   ● Test suite failed to run
 
     Requires Babel &quot;^7.0.0-0&quot;, but was loaded with &quot;6.26.3&quot;. If you are sure you have a compatible version of @babel/core, it is likely that something in your build process is loading the wrong version. Inspect the stack trace of this error to look for the first entry that doesn't mention &quot;@babel/core&quot; or &quot;babel-core&quot; to see what is calling Babel. (While processing preset: &quot;D:\\dev\\github\\number-difference-table\\node_modules\\@babel\\preset-env\\lib\\index.js&quot;)
-</code></pre>
-
-<p>That gave me more of a clue what was happening. I ended up on a <a href="https://github.com/facebook/jest/issues/6913">GitHub issue</a>, and after reading it I got to a point where I removed my <code>node_modules</code> folder (I use <code>rimraf</code> for this). Removed <code>Jest</code> and any other packages I had installed and got back to my initial <code>package.json</code> config. I used <code>yarn install</code> to get my initial config installed once more. I then added <code>@babel/core</code>. After that I added <code>babel-core</code> using <code>7.0.0-bridge.0</code>. Finally <code>Jest</code> and <code>babel-jest</code> (not 100% sure <code>babel-jest</code> was necessary as some docs said it is installed as part of Jest). After <code>yarn</code> had done it&rsquo;s thing I ran my test. Bingo. The test was run successfully. No more error messages and I was getting results from my test.</p>
-
-<p>My final <code>package.json</code> was:</p>
-
-<pre><code class="language-json">{
+</code></pre><p>That gave me more of a clue what was happening. I ended up on a <a href=https://github.com/facebook/jest/issues/6913>GitHub issue</a>, and after reading it I got to a point where I removed my <code>node_modules</code> folder (I use <code>rimraf</code> for this). Removed <code>Jest</code> and any other packages I had installed and got back to my initial <code>package.json</code> config. I used <code>yarn install</code> to get my initial config installed once more. I then added <code>@babel/core</code>. After that I added <code>babel-core</code> using <code>7.0.0-bridge.0</code>. Finally <code>Jest</code> and <code>babel-jest</code> (not 100% sure <code>babel-jest</code> was necessary as some docs said it is installed as part of Jest). After <code>yarn</code> had done it&rsquo;s thing I ran my test. Bingo. The test was run successfully. No more error messages and I was getting results from my test.</p><p>My final <code>package.json</code> was:</p><pre><code class=language-json>{
   &quot;name&quot;: &quot;number-difference-table&quot;,
   &quot;version&quot;: &quot;1.0.0&quot;,
   &quot;main&quot;: &quot;index.js&quot;,
@@ -164,79 +81,8 @@ info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this comm
     ]
   }
 }
-</code></pre>
-
-<h2 id="wrap-up">Wrap up</h2>
-
-<p>So this led me to begin looking at <a href="https://jestjs.io/docs/en/getting-started#using-babel">using babel</a> in the Jest docs. They state:</p>
-
-<blockquote>
-<p>Note: If you are using Babel version 7 then you need to install babel-jest, babel-core@^7.0.0-bridge.0 and @babel/core with the following command:</p>
-</blockquote>
-
-<pre><code class="language-bash">yarn add --dev babel-jest babel-core@^7.0.0-bridge.0 @babel/core regenerator-runtime
-</code></pre>
-
-<p>This may have been the solution all along. But I know that having added Babel to my project <em>after</em> I initially added Jest caused the problems I faced. Jest then want to use Babel 6 instead of 7 and thus the conflicts caused an error.</p>
-    </section>
-    <footer class="post__footer">
-      
-      <ul class="post__tags">
-        
-        <li class="post__tag"><a href="https://til.neilmagee.com/tags/jest/" class="post__tag-link"><span class="post__tag-label">#</span>jest</a></li>
-        
-      </ul>
-      
-    </footer>
-  </article>
-
-  
-<aside class="post-siblings">
-  <span class="post-siblings__more">More posts</span>
-  
-    <a class="post-siblings__nav post-siblings__nav--next" href="https://til.neilmagee.com/post/apache-virtual-host-redirection-with-ssl/"><span class="post-siblings__nav-icon">
-    <svg version="1.1" id="Chevron_left" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-   y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
-    <path d="M12.452,4.516c0.446,0.436,0.481,1.043,0,1.576L8.705,10l3.747,3.908c0.481,0.533,0.446,1.141,0,1.574
-      c-0.445,0.436-1.197,0.408-1.615,0c-0.418-0.406-4.502-4.695-4.502-4.695C6.112,10.57,6,10.285,6,10s0.112-0.57,0.335-0.789
-      c0,0,4.084-4.287,4.502-4.695C11.255,4.107,12.007,4.08,12.452,4.516z" class="post-siblings__nav-icon-next" />
-    </svg>
-  </span>Next</a>
-  
-
-  
-  <a class="post-siblings__nav post-siblings__nav--previous" href="https://til.neilmagee.com/post/react-simplify-components/">Previous<span class="post-siblings__nav-icon">
-    <svg version="1.1" id="Chevron_right" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-   y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
-    <path d="M9.163,4.516c0.418,0.408,4.502,4.695,4.502,4.695C13.888,9.43,14,9.715,14,10s-0.112,0.57-0.335,0.787
-      c0,0-4.084,4.289-4.502,4.695c-0.418,0.408-1.17,0.436-1.615,0c-0.446-0.434-0.481-1.041,0-1.574L11.295,10L7.548,6.092
-      c-0.481-0.533-0.446-1.141,0-1.576C7.993,4.08,8.745,4.107,9.163,4.516z" class="post-siblings__nav-icon-previous" />
-    </svg>
-  </span></a>
-  
-</aside>
-
-
-      </main>
-      <footer class="site-footer">
-        <div class="site-footer__inner">
-          <p class="site-footer__copyright">&copy; 2019&nbsp;<a href="https://neilmagee.com">Neil Magee</a>
-          . Icons from <a href="http://entypo.com">Entypo+</a>. Made with <a href="https://gohugo.io/" class="site-footer__hugo-logo"><img src="https://til.neilmagee.com/images/hugo-logo.png" alt="Hugo logo" width="22" height="22"></a></p>
-        </div>
-      </footer>
-    </div>
-  </div>
-
-  
-<script src="https://til.neilmagee.com/js/highlight.pack.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", event => {
-    document.documentElement.classList.remove("no-js");
-    document.querySelectorAll("pre:not(.chroma) code").forEach(block => {
-      hljs.highlightBlock(block);
-    });
-  });
-</script>
-
-</body>
-</html>
+</code></pre><h2 id=wrap-up>Wrap up</h2><p>So this led me to begin looking at <a href=https://jestjs.io/docs/en/getting-started#using-babel>using babel</a> in the Jest docs. They state:</p><blockquote><p>Note: If you are using Babel version 7 then you need to install babel-jest, babel-core@^7.0.0-bridge.0 and @babel/core with the following command:</p></blockquote><pre><code class=language-bash>yarn add --dev babel-jest babel-core@^7.0.0-bridge.0 @babel/core regenerator-runtime
+</code></pre><p>This may have been the solution all along. But I know that having added Babel to my project <em>after</em> I initially added Jest caused the problems I faced. Jest then want to use Babel 6 instead of 7 and thus the conflicts caused an error.</p></section><footer class=post__footer><ul class=post__tags><li class=post__tag><a href=https://til.neilmagee.com/tags/jest/ class=post__tag-link><span class=post__tag-label>#</span>jest</a></li></ul></footer></article><aside class=post-siblings><span class=post-siblings__more>More posts</span>
+<a class="post-siblings__nav post-siblings__nav--next" href=https://til.neilmagee.com/post/apache-virtual-host-redirection-with-ssl/><span class=post-siblings__nav-icon><svg id="Chevron_left" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 20" enable-background="new 0 0 20 20"><path d="M12.452 4.516c.446.436.481 1.043.0 1.576L8.705 10l3.747 3.908c.481.533.446 1.141.0 1.574-.445.436-1.197.408-1.615.0-.418-.406-4.502-4.695-4.502-4.695C6.112 10.57 6 10.285 6 10s.112-.57.335-.789c0 0 4.084-4.287 4.502-4.695C11.255 4.107 12.007 4.08 12.452 4.516z" class="post-siblings__nav-icon-next" /></svg></span>Next</a>
+<a class="post-siblings__nav post-siblings__nav--previous" href=https://til.neilmagee.com/post/react-simplify-components/>Previous<span class=post-siblings__nav-icon><svg id="Chevron_right" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 20" enable-background="new 0 0 20 20"><path d="M9.163 4.516c.418.408 4.502 4.695 4.502 4.695C13.888 9.43 14 9.715 14 10s-.112.57-.335.787c0 0-4.084 4.289-4.502 4.695-.418.408-1.17.436-1.615.0-.446-.434-.481-1.041.0-1.574L11.295 10 7.548 6.092c-.481-.533-.446-1.141.0-1.576C7.993 4.08 8.745 4.107 9.163 4.516z" class="post-siblings__nav-icon-previous" /></svg></span></a></aside></main><footer class=site-footer><div class=site-footer__inner><p class=site-footer__copyright>&copy; 2019&nbsp;<a href=https://neilmagee.com>Neil Magee</a>
+. Icons from <a href=http://entypo.com>Entypo+</a>. Made with <a href=https://gohugo.io/ class=site-footer__hugo-logo><img src=https://til.neilmagee.com/images/hugo-logo.png alt="Hugo logo" width=22 height=22></a></p></div></footer></div></div><script src=https://til.neilmagee.com/js/highlight.pack.js></script><script>document.addEventListener("DOMContentLoaded",event=>{document.documentElement.classList.remove("no-js");document.querySelectorAll("pre:not(.chroma) code").forEach(block=>{hljs.highlightBlock(block);});});</script></body></html>

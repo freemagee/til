@@ -1,166 +1,22 @@
-<!doctype html>
-<html class="no-js" lang="en-gb">
-
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>
-  TIL
-    -
-  Hugo template logic
-</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="author" content="Neil Magee">
-  <meta name="referrer" content="no-referrer-when-downgrade">
-
-  <link href="https://til.neilmagee.com/images/favicon/favicon-16x16.png" rel="shortcut icon" type="image/png">
-
-  <link rel="stylesheet" href="https://til.neilmagee.com/css/style-1b167369.css" />
-
-  
-  <link rel="stylesheet" href="https://til.neilmagee.com/css/code-highlighting-ad6ae847.css" />
-  
-
-</head>
-<body>
-  
-
-<header class="site-header">
-  <section class="site-header__ident">
-    <a href="https://til.neilmagee.com/" class="site-header__link">TIL</a>
-  </section>
-  <nav class="site-header__nav">
-  
-    <a href="https://til.neilmagee.com/about/" class="site-header__nav-item">About</a>
-  
-  </nav>
-</header>
-  <div class="site-container">
-    <div class="site-container__inner">
-      <main role="main" id="content">
-        
-  <article class="post post--single" itemscope itemtype="http://schema.org/BlogPosting">
-    <header class="post__header">
-      <h1 class="post__title post__title--single" itemprop="title">Hugo template logic</h1>
-      <div class="post__meta">
-        <time class="post__date" datetime="2018-10-08" itemprop="dateCreated pubdate datePublished">
-          <span class="post__published">Published:</span>
-          <span class="post__published-value">2018-10-08</span>
-        </time>
-        
-        <ul class="post__categories">
-          
-          <li class="post__category">
-            <a href="https://til.neilmagee.com/categories/development/" class="post__category-link">development</a>
-          </li>
-          
-        </ul>
-        
-      </div>
-    </header>
-    <section class="post-content">
-      <p>Today I made some improvements to the <a href="https://github.com/freemagee/comfortable-basic">Hugo theme</a> I created for this site. Adding some conditional statements to the templates to cater for various scenarios that don&rsquo;t fit how I intend to use the theme.</p>
-
-<p>Although the theme is limited in scope, I want to eventually release it on <a href="https://themes.gohugo.io/">Hugo Themes</a> and allow it to be flexible enough for others to use.</p>
-
-<h2 id="deal-with-no-posts">Deal with no posts</h2>
-
-<p>On the <code>layouts/partials/pagination.html</code> template, it has been wrapped in</p>
-
-<pre><code class="language-golang">{{ if ne .TotalPages 0}}
+<!doctype html><html class=no-js lang=en-gb><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><title>TIL
+-
+Hugo template logic</title><meta name=description content><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=author content="Neil Magee"><meta name=referrer content=no-referrer-when-downgrade><link href=https://til.neilmagee.com/images/favicon/favicon-16x16.png rel="shortcut icon" type=image/png><link rel=stylesheet href=https://til.neilmagee.com/css/style-253b86c5.css><link rel=stylesheet href=https://til.neilmagee.com/css/code-highlighting-ad6ae847.css></head><body><header class=site-header><section class=site-header__ident><a href=https://til.neilmagee.com/ class=site-header__link>TIL</a></section><nav class=site-header__nav><a href=https://til.neilmagee.com/about/ class=site-header__nav-item>About</a></nav></header><div class=site-container><div class=site-container__inner><main role=main id=content><article class="post post--single" itemscope itemtype=http://schema.org/BlogPosting><header class=post__header><h1 class="post__title post__title--single" itemprop=title>Hugo template logic</h1><div class=post__meta><time class=post__date datetime=2018-10-08 itemprop="dateCreated pubdate datePublished"><span class=post__published>Published:</span>
+<span class=post__published-value>2018-10-08</span></time><ul class=post__categories><li class=post__category><a href=https://til.neilmagee.com/categories/development/ class=post__category-link>development</a></li></ul></div></header><section class=post-content><p>Today I made some improvements to the <a href=https://github.com/freemagee/comfortable-basic>Hugo theme</a> I created for this site. Adding some conditional statements to the templates to cater for various scenarios that don&rsquo;t fit how I intend to use the theme.</p><p>Although the theme is limited in scope, I want to eventually release it on <a href=https://themes.gohugo.io/>Hugo Themes</a> and allow it to be flexible enough for others to use.</p><h2 id=deal-with-no-posts>Deal with no posts</h2><p>On the <code>layouts/partials/pagination.html</code> template, it has been wrapped in</p><pre><code class=language-golang>{{ if ne .TotalPages 0}}
   // Content
 {{end}}
-</code></pre>
-
-<p>So for the brief time that a new site contains no posts, there will not be weird pagination at the bottom listing &ldquo;You are on page 0/1&rdquo;. I may move this logic to a parent template.</p>
-
-<h2 id="deal-with-intro-content-after-first-page">Deal with intro content after first page</h2>
-
-<p>I have chosen to provide some intro content on my homepage, but once you use the pagination to move to page two or beyond, the intro is just taking up vertical space. It also could confuse a user as nothing visual changes between pages.</p>
-
-<pre><code class="language-golang">{{ if eq .Paginator.PageNumber 1 }}
+</code></pre><p>So for the brief time that a new site contains no posts, there will not be weird pagination at the bottom listing &ldquo;You are on page 0/1&rdquo;. I may move this logic to a parent template.</p><h2 id=deal-with-intro-content-after-first-page>Deal with intro content after first page</h2><p>I have chosen to provide some intro content on my homepage, but once you use the pagination to move to page two or beyond, the intro is just taking up vertical space. It also could confuse a user as nothing visual changes between pages.</p><pre><code class=language-golang>{{ if eq .Paginator.PageNumber 1 }}
   {{ if .Content }}
     // Content
   {{ end }}
 {{ end }}
-</code></pre>
-
-<p>Pretty simple, if the page number does not equal 1, then do not show the intro. As I am new to <code>golang</code>, I was looking for a way to merge the two conditionals into one, but have not found that yet. The following:</p>
-
-<pre><code class="language-golang">{{ if eq .Paginator.PageNumber 1 &amp;&amp; .Content }}
+</code></pre><p>Pretty simple, if the page number does not equal 1, then do not show the intro. As I am new to <code>golang</code>, I was looking for a way to merge the two conditionals into one, but have not found that yet. The following:</p><pre><code class=language-golang>{{ if eq .Paginator.PageNumber 1 &amp;&amp; .Content }}
 {{ end }}
-</code></pre>
-
-<p>Does not work. In other languages such as JavaScript I could express something similar using a logical operator:</p>
-
-<pre><code class="language-javascript">if (Paginator.PageNumber === 1 &amp;&amp; Content !== &quot;&quot;) {
+</code></pre><p>Does not work. In other languages such as JavaScript I could express something similar using a logical operator:</p><pre><code class=language-javascript>if (Paginator.PageNumber === 1 &amp;&amp; Content !== &quot;&quot;) {
   // Do something
 }
-</code></pre>
-
-<p>I am sure I will find out why my <code>golang</code> syntax was not correct soon.</p>
-
-<h2 id="show-hide-about-page-on-nav">Show/Hide about page on nav</h2>
-
-<p>If an about page does not exist, then it should not appear on the nav. Simple!</p>
-
-<pre><code class="language-golang">{{ with .Site.GetPage &quot;/about&quot; }}
+</code></pre><p>I am sure I will find out why my <code>golang</code> syntax was not correct soon.</p><h2 id=show-hide-about-page-on-nav>Show/Hide about page on nav</h2><p>If an about page does not exist, then it should not appear on the nav. Simple!</p><pre><code class=language-golang>{{ with .Site.GetPage &quot;/about&quot; }}
   // nav link to about
 {{end}}
-</code></pre>
-
-<p>I have used <code>with</code> here. It works. Maybe using an <code>if</code> would be better.</p>
-    </section>
-    <footer class="post__footer">
-      
-      <ul class="post__tags">
-        
-        <li class="post__tag"><a href="https://til.neilmagee.com/tags/hugo/" class="post__tag-link"><span class="post__tag-label">#</span>hugo</a></li>
-        
-      </ul>
-      
-    </footer>
-  </article>
-
-  
-<aside class="post-siblings">
-  <span class="post-siblings__more">More posts</span>
-  
-    <a class="post-siblings__nav post-siblings__nav--next" href="https://til.neilmagee.com/post/hugo-deploy/"><span class="post-siblings__nav-icon">
-    <svg version="1.1" id="Chevron_left" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-   y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
-    <path d="M12.452,4.516c0.446,0.436,0.481,1.043,0,1.576L8.705,10l3.747,3.908c0.481,0.533,0.446,1.141,0,1.574
-      c-0.445,0.436-1.197,0.408-1.615,0c-0.418-0.406-4.502-4.695-4.502-4.695C6.112,10.57,6,10.285,6,10s0.112-0.57,0.335-0.789
-      c0,0,4.084-4.287,4.502-4.695C11.255,4.107,12.007,4.08,12.452,4.516z" class="post-siblings__nav-icon-next" />
-    </svg>
-  </span>Next</a>
-  
-
-  
-</aside>
-
-
-      </main>
-      <footer class="site-footer">
-        <div class="site-footer__inner">
-          <p class="site-footer__copyright">&copy; 2019&nbsp;<a href="https://neilmagee.com">Neil Magee</a>
-          . Icons from <a href="http://entypo.com">Entypo+</a>. Made with <a href="https://gohugo.io/" class="site-footer__hugo-logo"><img src="https://til.neilmagee.com/images/hugo-logo.png" alt="Hugo logo" width="22" height="22"></a></p>
-        </div>
-      </footer>
-    </div>
-  </div>
-
-  
-<script src="https://til.neilmagee.com/js/highlight.pack.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", event => {
-    document.documentElement.classList.remove("no-js");
-    document.querySelectorAll("pre:not(.chroma) code").forEach(block => {
-      hljs.highlightBlock(block);
-    });
-  });
-</script>
-
-</body>
-</html>
+</code></pre><p>I have used <code>with</code> here. It works. Maybe using an <code>if</code> would be better.</p></section><footer class=post__footer><ul class=post__tags><li class=post__tag><a href=https://til.neilmagee.com/tags/hugo/ class=post__tag-link><span class=post__tag-label>#</span>hugo</a></li></ul></footer></article><aside class=post-siblings><span class=post-siblings__more>More posts</span>
+<a class="post-siblings__nav post-siblings__nav--next" href=https://til.neilmagee.com/post/hugo-deploy/><span class=post-siblings__nav-icon><svg id="Chevron_left" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 20" enable-background="new 0 0 20 20"><path d="M12.452 4.516c.446.436.481 1.043.0 1.576L8.705 10l3.747 3.908c.481.533.446 1.141.0 1.574-.445.436-1.197.408-1.615.0-.418-.406-4.502-4.695-4.502-4.695C6.112 10.57 6 10.285 6 10s.112-.57.335-.789c0 0 4.084-4.287 4.502-4.695C11.255 4.107 12.007 4.08 12.452 4.516z" class="post-siblings__nav-icon-next" /></svg></span>Next</a></aside></main><footer class=site-footer><div class=site-footer__inner><p class=site-footer__copyright>&copy; 2019&nbsp;<a href=https://neilmagee.com>Neil Magee</a>
+. Icons from <a href=http://entypo.com>Entypo+</a>. Made with <a href=https://gohugo.io/ class=site-footer__hugo-logo><img src=https://til.neilmagee.com/images/hugo-logo.png alt="Hugo logo" width=22 height=22></a></p></div></footer></div></div><script src=https://til.neilmagee.com/js/highlight.pack.js></script><script>document.addEventListener("DOMContentLoaded",event=>{document.documentElement.classList.remove("no-js");document.querySelectorAll("pre:not(.chroma) code").forEach(block=>{hljs.highlightBlock(block);});});</script></body></html>
