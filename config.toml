@@ -9,6 +9,7 @@ pygmentsUseClasses = true
 [params]
   author = "Neil Magee"
   authorwebsite = "https://neilmagee.com"
+  useHighlightJS = true
 
 [taxonomies]
   category = "categories"
