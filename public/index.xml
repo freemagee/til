@@ -1,154 +1,455 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Today I Learned on TIL</title><link>https://til.neilmagee.com/</link><description>Recent content in Today I Learned on TIL</description><generator>Hugo -- gohugo.io</generator><language>en-gb</language><lastBuildDate>Thu, 27 Sep 2018 16:30:00 +0100</lastBuildDate><atom:link href="https://til.neilmagee.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Hugo theme improved pagination</title><link>https://til.neilmagee.com/posts/hugo-pagination/</link><pubDate>Thu, 18 Jul 2019 17:01:21 +0100</pubDate><guid>https://til.neilmagee.com/posts/hugo-pagination/</guid><description>&lt;p&gt;Today I learned how to do numbered pagination in my &lt;a href=&#34;https://github.com/freemagee/comfortable-basic&#34;&gt;Hugo theme&lt;/a&gt; using &lt;code&gt;golang&lt;/code&gt;. This was a bit harder than I expected as I am no expert on programming with &lt;code&gt;golang&lt;/code&gt;. But once I remembered that &lt;code&gt;golang&lt;/code&gt; still follows the same programming conventions that other languages do, even though the syntax is different.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Today I Learned on TIL</title>
+    <link>https://til.neilmagee.com/</link>
+    <description>Recent content in Today I Learned on TIL</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Thu, 27 Sep 2018 16:30:00 +0100</lastBuildDate>
+    
+	<atom:link href="https://til.neilmagee.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hugo theme improved pagination</title>
+      <link>https://til.neilmagee.com/post/hugo-pagination/</link>
+      <pubDate>Thu, 18 Jul 2019 17:01:21 +0100</pubDate>
+      
+      <guid>https://til.neilmagee.com/post/hugo-pagination/</guid>
+      <description>&lt;p&gt;Today I learned how to do numbered pagination in my &lt;a href=&#34;https://github.com/freemagee/comfortable-basic&#34;&gt;Hugo theme&lt;/a&gt; using &lt;code&gt;golang&lt;/code&gt;. This was a bit harder than I expected as I am no expert on programming with &lt;code&gt;golang&lt;/code&gt;. But once I remembered that &lt;code&gt;golang&lt;/code&gt; still follows the same programming conventions that other languages do, even though the syntax is different.&lt;/p&gt;
+
 &lt;p&gt;After the posts in my theme, there is a simple navigation area at the bottom. At the moment it looks like this:&lt;/p&gt;
+
 &lt;figure&gt;
-&lt;img src=&#34;https://til.neilmagee.com/images/improved-pagination/current-pagination.png&#34;
-alt=&#34;An image of my Hugo themes current pagination&#34;loading=&#34;lazy&#34;
-/&gt; &lt;figcaption&gt;
-&lt;h4&gt;My current pagination&lt;/h4&gt;
-&lt;/figcaption&gt;
-&lt;/figure&gt;</description></item><item><title>Using web fonts in email campaigns</title><link>https://til.neilmagee.com/posts/web-fonts-in-email/</link><pubDate>Thu, 27 Jun 2019 16:01:37 +0100</pubDate><guid>https://til.neilmagee.com/posts/web-fonts-in-email/</guid><description>&lt;p&gt;Today I learned to keep following my &lt;em&gt;intuition&lt;/em&gt;.&lt;/p&gt;
+    &lt;img src=&#34;https://til.neilmagee.com/images/improved-pagination/current-pagination.png&#34;
+         alt=&#34;An image of my Hugo themes current pagination&#34;loading=&#34;lazy&#34;
+    /&gt; &lt;figcaption&gt;
+            &lt;h4&gt;My current pagination&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;</description>
+    </item>
+    
+    <item>
+      <title>Using web fonts in email campaigns</title>
+      <link>https://til.neilmagee.com/post/web-fonts-in-email/</link>
+      <pubDate>Thu, 27 Jun 2019 16:01:37 +0100</pubDate>
+      
+      <guid>https://til.neilmagee.com/post/web-fonts-in-email/</guid>
+      <description>&lt;p&gt;Today I learned to keep following my &lt;em&gt;intuition&lt;/em&gt;.&lt;/p&gt;
+
 &lt;p&gt;&lt;strong&gt;TLDR&lt;/strong&gt; Use &lt;code&gt;woff&lt;/code&gt;, not &lt;code&gt;woff2&lt;/code&gt; for web fonts in email&lt;/p&gt;
+
 &lt;p&gt;I had been asked a question by our art director today about using web fonts in an email campaign that was being designed. The company we are designing for has a corporate identity that specifies certain font families. I had already begun to test this back in March so I had an idea of the state of web font support in email clients.&lt;/p&gt;
-&lt;p&gt;Before I answered him more definitively, I wanted to perform a few tests using our email marketing software &amp;mdash; Campaign Monitor &amp;mdash; to confirm what could be achieved.&lt;/p&gt;</description></item><item><title>React Redux is pretty great!</title><link>https://til.neilmagee.com/posts/react-redux-is-pretty-great/</link><pubDate>Tue, 25 Jun 2019 10:17:37 +0100</pubDate><guid>https://til.neilmagee.com/posts/react-redux-is-pretty-great/</guid><description>&lt;p&gt;Today I learned to really appreciate &lt;a href=&#34;https://react-redux.js.org/&#34;&gt;React Redux&lt;/a&gt;. I have used &lt;a href=&#34;https://redux.js.org/introduction/prior-art#flux&#34;&gt;Flux&lt;/a&gt; like patterns only a handful of times. Mainly in Vue using &lt;a href=&#34;https://vuex.vuejs.org/&#34;&gt;Vuex&lt;/a&gt;. But it&amp;rsquo;s been a while since I last used one.&lt;/p&gt;
-&lt;p&gt;I am in the middle of building a prototype App in React and the &lt;em&gt;&amp;ldquo;main&amp;rdquo;&lt;/em&gt; component was becoming unwieldy. It contained all the main state, all the functions that were passed to child components as props and the way things were going, it was about to become responsible for asyncronous data as well. That is too much for one component.&lt;/p&gt;</description></item><item><title>Controlled inputs and performance</title><link>https://til.neilmagee.com/posts/controlled-inputs-performance/</link><pubDate>Tue, 04 Jun 2019 09:48:31 +0100</pubDate><guid>https://til.neilmagee.com/posts/controlled-inputs-performance/</guid><description>&lt;p&gt;Today I learned about the performance impact of using &lt;a href=&#34;https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/&#34;&gt;controlled inputs&lt;/a&gt; in React.&lt;/p&gt;
+
+&lt;p&gt;Before I answered him more definitively, I wanted to perform a few tests using our email marketing software &amp;mdash; Campaign Monitor &amp;mdash; to confirm what could be achieved.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>React Redux is pretty great!</title>
+      <link>https://til.neilmagee.com/post/react-redux-is-pretty-great/</link>
+      <pubDate>Tue, 25 Jun 2019 10:17:37 +0100</pubDate>
+      
+      <guid>https://til.neilmagee.com/post/react-redux-is-pretty-great/</guid>
+      <description>&lt;p&gt;Today I learned to really appreciate &lt;a href=&#34;https://react-redux.js.org/&#34;&gt;React Redux&lt;/a&gt;. I have used &lt;a href=&#34;https://redux.js.org/introduction/prior-art#flux&#34;&gt;Flux&lt;/a&gt; like patterns only a handful of times. Mainly in Vue using &lt;a href=&#34;https://vuex.vuejs.org/&#34;&gt;Vuex&lt;/a&gt;. But it&amp;rsquo;s been a while since I last used one.&lt;/p&gt;
+
+&lt;p&gt;I am in the middle of building a prototype App in React and the &lt;em&gt;&amp;ldquo;main&amp;rdquo;&lt;/em&gt; component was becoming unwieldy. It contained all the main state, all the functions that were passed to child components as props and the way things were going, it was about to become responsible for asyncronous data as well. That is too much for one component.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Controlled inputs and performance</title>
+      <link>https://til.neilmagee.com/post/controlled-inputs-performance/</link>
+      <pubDate>Tue, 04 Jun 2019 09:48:31 +0100</pubDate>
+      
+      <guid>https://til.neilmagee.com/post/controlled-inputs-performance/</guid>
+      <description>&lt;p&gt;Today I learned about the performance impact of using &lt;a href=&#34;https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/&#34;&gt;controlled inputs&lt;/a&gt; in React.&lt;/p&gt;
+
 &lt;p&gt;I noticed that once I had multiples of a component I&amp;rsquo;d made on screen &lt;em&gt;(that included text inputs)&lt;/em&gt; the typing performance would begin to lag. It also got exponentially worse for each additional component.&lt;/p&gt;
+
 &lt;h2 id=&#34;onchange-vs-onblur&#34;&gt;onChange vs onBlur&lt;/h2&gt;
+
 &lt;p&gt;The main difference I tried was changing my event from &lt;code&gt;onChange&lt;/code&gt; to &lt;code&gt;onBlur&lt;/code&gt; (this was based on some &lt;a href=&#34;https://stackoverflow.com/a/38914965&#34;&gt;Stack Overflow&lt;/a&gt; advice).&lt;/p&gt;
+
 &lt;h3 id=&#34;before&#34;&gt;Before&lt;/h3&gt;
+
 &lt;figure&gt;
-&lt;img src=&#34;https://til.neilmagee.com/images/controlled-inputs-performance/bad.gif&#34;
-alt=&#34;Animated gif showing poor input performance&#34;loading=&#34;lazy&#34;
-/&gt; &lt;figcaption&gt;
-&lt;h4&gt;Laggy input performance&lt;/h4&gt;
-&lt;/figcaption&gt;
-&lt;/figure&gt;</description></item><item><title>Material UI theming and style overrides - Part 3</title><link>https://til.neilmagee.com/posts/material-ui-theming-and-style-overrides-pt3/</link><pubDate>Fri, 31 May 2019 14:54:14 +0100</pubDate><guid>https://til.neilmagee.com/posts/material-ui-theming-and-style-overrides-pt3/</guid><description>&lt;p&gt;Today I learned more about sharing styles across React components. Although CSS-in-JS is new to me, it is pretty easy to pick up (&lt;em&gt;Although I have not formed a final opinion on it yet&amp;hellip;&lt;/em&gt;). I think Material UI uses &lt;a href=&#34;https://github.com/cssinjs/react-jss&#34;&gt;React JSS&lt;/a&gt; under the hood, so a style can be written as an object:&lt;/p&gt;
+    &lt;img src=&#34;https://til.neilmagee.com/images/controlled-inputs-performance/bad.gif&#34;
+         alt=&#34;Animated gif showing poor input performance&#34;loading=&#34;lazy&#34;
+    /&gt; &lt;figcaption&gt;
+            &lt;h4&gt;Laggy input performance&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;</description>
+    </item>
+    
+    <item>
+      <title>Material UI theming and style overrides - Part 3</title>
+      <link>https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt3/</link>
+      <pubDate>Fri, 31 May 2019 14:54:14 +0100</pubDate>
+      
+      <guid>https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt3/</guid>
+      <description>&lt;p&gt;Today I learned more about sharing styles across React components. Although CSS-in-JS is new to me, it is pretty easy to pick up (&lt;em&gt;Although I have not formed a final opinion on it yet&amp;hellip;&lt;/em&gt;). I think Material UI uses &lt;a href=&#34;https://github.com/cssinjs/react-jss&#34;&gt;React JSS&lt;/a&gt; under the hood, so a style can be written as an object:&lt;/p&gt;
+
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;import React from &#39;react&#39;;
 import { makeStyles } from &#39;@material-ui/styles&#39;;
+
 const useStyles = makeStyles({
-root: {
-backgroundColor: &#39;red&#39;,
-},
+  root: {
+    backgroundColor: &#39;red&#39;,
+  },
 });
+
 export default function MyComponent() {
-const classes = useStyles();
-return &amp;lt;div className={classes.root} /&amp;gt;;
+  const classes = useStyles();
+  return &amp;lt;div className={classes.root} /&amp;gt;;
 }
 &lt;/code&gt;&lt;/pre&gt;
+
 &lt;h2 id=&#34;refactor-to-be-more-dry&#34;&gt;Refactor to be more DRY&lt;/h2&gt;
-&lt;p&gt;I had three components that were pretty similar to each other, with enough unique parts to keep them seperate. But they all had a style object in them. I could see the &lt;strong&gt;style object was about 90% duplicated&lt;/strong&gt; between each component. So after using a diff tool to see what the differences were, I extracted the shared styles out into a new file called &lt;code&gt;Styles.js&lt;/code&gt;. That looks a little like this:&lt;/p&gt;</description></item><item><title>Material UI theming and style overrides - Part 2</title><link>https://til.neilmagee.com/posts/material-ui-theming-and-style-overrides-pt2/</link><pubDate>Tue, 28 May 2019 11:02:49 +0100</pubDate><guid>https://til.neilmagee.com/posts/material-ui-theming-and-style-overrides-pt2/</guid><description>&lt;p&gt;Today I learned that my previous attempt at theming a &lt;em&gt;Material UI&lt;/em&gt; component was not right. I thought the &lt;em&gt;default theme&lt;/em&gt; overrides I was providing were also being used in the &lt;em&gt;component style&lt;/em&gt; overrides. But they were not.&lt;/p&gt;
+
+&lt;p&gt;I had three components that were pretty similar to each other, with enough unique parts to keep them seperate. But they all had a style object in them. I could see the &lt;strong&gt;style object was about 90% duplicated&lt;/strong&gt; between each component. So after using a diff tool to see what the differences were, I extracted the shared styles out into a new file called &lt;code&gt;Styles.js&lt;/code&gt;. That looks a little like this:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Material UI theming and style overrides - Part 2</title>
+      <link>https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt2/</link>
+      <pubDate>Tue, 28 May 2019 11:02:49 +0100</pubDate>
+      
+      <guid>https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt2/</guid>
+      <description>&lt;p&gt;Today I learned that my previous attempt at theming a &lt;em&gt;Material UI&lt;/em&gt; component was not right. I thought the &lt;em&gt;default theme&lt;/em&gt; overrides I was providing were also being used in the &lt;em&gt;component style&lt;/em&gt; overrides. But they were not.&lt;/p&gt;
+
 &lt;p&gt;After debugging the theme object in Chrome, I could see that before &lt;code&gt;useStyles()&lt;/code&gt; was called, my theme object was as expected, with my colour set. But the when I stepped into the &lt;code&gt;useStyles()&lt;/code&gt; function and observed the theme object it was using, the colour was not right. I had assumed that the styles argument that &lt;code&gt;makeStyles&lt;/code&gt; took was my &lt;em&gt;global&lt;/em&gt; &lt;code&gt;theme&lt;/code&gt; object. The &lt;code&gt;AppBar&lt;/code&gt; background was yellow, so the theme was working in general, just not for my &lt;em&gt;component style&lt;/em&gt; overrides.&lt;/p&gt;
-&lt;p&gt;I put a &lt;a href=&#34;https://codesandbox.io/s/fervent-meninsky-hqnlq&#34;&gt;CodeSandbox&lt;/a&gt; together to illustrate the differences:&lt;/p&gt;</description></item><item><title>Material UI theming and style overrides - Part 1</title><link>https://til.neilmagee.com/posts/material-ui-theming-and-style-overrides-pt1/</link><pubDate>Fri, 24 May 2019 12:37:01 +0100</pubDate><guid>https://til.neilmagee.com/posts/material-ui-theming-and-style-overrides-pt1/</guid><description>&lt;p&gt;Today I learned how to extend the Material UI &lt;a href=&#34;https://material-ui.com/customization/themes/&#34;&gt;default theme&lt;/a&gt; and retain the default theme settings for my own style overrides.&lt;/p&gt;
-&lt;p&gt;This takes a little explaining. The &lt;strong&gt;Theme&lt;/strong&gt; in Material UI is responsible for the higher level styling. It contains settings for the colour palette, typography and other useful helper methods such as &lt;code&gt;theme.spacing()&lt;/code&gt;. &lt;strong&gt;Style overrides&lt;/strong&gt; I would define as fine level style changes of the Material UI components, for example changing the thickness of an underline on a input component.&lt;/p&gt;</description></item><item><title>The basics of React Redux</title><link>https://til.neilmagee.com/posts/learn-react-redux-basics/</link><pubDate>Mon, 20 May 2019 16:39:16 +0100</pubDate><guid>https://til.neilmagee.com/posts/learn-react-redux-basics/</guid><description>&lt;p&gt;Today I learned the basics of &lt;a href=&#34;https://react-redux.js.org/&#34;&gt;React Redux&lt;/a&gt; because the &lt;code&gt;state&lt;/code&gt; requirements of the React app I have been building are now in need of a better solution.&lt;/p&gt;
+
+&lt;p&gt;I put a &lt;a href=&#34;https://codesandbox.io/s/fervent-meninsky-hqnlq&#34;&gt;CodeSandbox&lt;/a&gt; together to illustrate the differences:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Material UI theming and style overrides - Part 1</title>
+      <link>https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt1/</link>
+      <pubDate>Fri, 24 May 2019 12:37:01 +0100</pubDate>
+      
+      <guid>https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt1/</guid>
+      <description>&lt;p&gt;Today I learned how to extend the Material UI &lt;a href=&#34;https://material-ui.com/customization/themes/&#34;&gt;default theme&lt;/a&gt; and retain the default theme settings for my own style overrides.&lt;/p&gt;
+
+&lt;p&gt;This takes a little explaining. The &lt;strong&gt;Theme&lt;/strong&gt; in Material UI is responsible for the higher level styling. It contains settings for the colour palette, typography and other useful helper methods such as &lt;code&gt;theme.spacing()&lt;/code&gt;. &lt;strong&gt;Style overrides&lt;/strong&gt; I would define as fine level style changes of the Material UI components, for example changing the thickness of an underline on a input component.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>The basics of React Redux</title>
+      <link>https://til.neilmagee.com/post/learn-react-redux-basics/</link>
+      <pubDate>Mon, 20 May 2019 16:39:16 +0100</pubDate>
+      
+      <guid>https://til.neilmagee.com/post/learn-react-redux-basics/</guid>
+      <description>&lt;p&gt;Today I learned the basics of &lt;a href=&#34;https://react-redux.js.org/&#34;&gt;React Redux&lt;/a&gt; because the &lt;code&gt;state&lt;/code&gt; requirements of the React app I have been building are now in need of a better solution.&lt;/p&gt;
+
 &lt;p&gt;I am a fairly experienced frontend developer, and I know how to use lots of technologies. But I was struggling with grasping the fundamentals of using React Redux. I have used &lt;a href=&#34;https://vuex.vuejs.org/&#34;&gt;Vuex&lt;/a&gt; previously, which I picked up pretty quickly and I thought it would be similar. They are similar in concept, but not in execution. I think Vue deserves a lot of credit for their documentation as it is really good.&lt;/p&gt;
+
 &lt;p&gt;What I was looking for was a basic tutorial, the &lt;em&gt;most&lt;/em&gt; basic. But every &amp;ldquo;basic&amp;rdquo; tutorial was how to make a &lt;em&gt;todo&lt;/em&gt; app. But I honestly needed a &lt;em&gt;Hello world&lt;/em&gt;, just to see how the code was wired together. This is from the redux documentation:&lt;/p&gt;
+
 &lt;blockquote&gt;
 &lt;p&gt;Don&amp;rsquo;t be fooled by all the fancy talk about reducers, middleware, store enhancers—Redux is incredibly simple. If you&amp;rsquo;ve ever built a Flux application, you will feel right at home. If you&amp;rsquo;re new to Flux, it&amp;rsquo;s easy too!&lt;/p&gt;
 &lt;/blockquote&gt;
+
 &lt;p&gt;&lt;a href=&#34;https://redux-docs.netlify.com/basics/basic-tutorial&#34;&gt;Source&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;I would agree in hindsight that it is relatively easy, but the path to that knowledge is shrouded in fog. It was time to find alternative education!&lt;/p&gt;</description></item><item><title>Front-end test drive: Material UI</title><link>https://til.neilmagee.com/posts/frontend-test-drive-material-ui/</link><pubDate>Thu, 16 May 2019 16:37:08 +0100</pubDate><guid>https://til.neilmagee.com/posts/frontend-test-drive-material-ui/</guid><description>&lt;p&gt;Today I learned how to apply style overrides to &lt;a href=&#34;https://next.material-ui.com&#34;&gt;Material UI&lt;/a&gt; (v4.0.0-beat.2), a React front-end component library.&lt;/p&gt;
+
+&lt;p&gt;I would agree in hindsight that it is relatively easy, but the path to that knowledge is shrouded in fog. It was time to find alternative education!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Front-end test drive: Material UI</title>
+      <link>https://til.neilmagee.com/post/frontend-test-drive-material-ui/</link>
+      <pubDate>Thu, 16 May 2019 16:37:08 +0100</pubDate>
+      
+      <guid>https://til.neilmagee.com/post/frontend-test-drive-material-ui/</guid>
+      <description>&lt;p&gt;Today I learned how to apply style overrides to &lt;a href=&#34;https://next.material-ui.com&#34;&gt;Material UI&lt;/a&gt; (v4.0.0-beat.2), a React front-end component library.&lt;/p&gt;
+
 &lt;p&gt;The company I work for is looking to develop some new tools, which we want to get to a prototype stage as soon as possible. We have decided to use React as part of our tech stack (&lt;em&gt;which is good&lt;/em&gt;), and knowing that the UI that these tools require is going to need a lot of UI components, I started to look at front-end component libraries (mainly Material UI and Ant Design).&lt;/p&gt;
-&lt;p&gt;I did a analysis of the types of UI components we need to build our tool - tooltips, various inputs, switch style buttons, modals, dialogs &amp;amp; drop downs. I wanted to make a test &amp;lsquo;App&amp;rsquo; that would combine various components from the library. My main goal was to see how this library was going to be to work with.&lt;/p&gt;</description></item><item><title>Authentication vs. Authorisation</title><link>https://til.neilmagee.com/posts/authentication-versus-authorisation/</link><pubDate>Tue, 09 Apr 2019 12:26:24 +0100</pubDate><guid>https://til.neilmagee.com/posts/authentication-versus-authorisation/</guid><description>&lt;p&gt;Today I learned more about the distinction between &lt;em&gt;authentication&lt;/em&gt; and &lt;em&gt;authorisation&lt;/em&gt;. I have probably thought of those terms as being synonymous with eachother and fulfilling the same needs. But I was wrong.&lt;/p&gt;</description></item><item><title>Resolve eslint and prettier conflicts</title><link>https://til.neilmagee.com/posts/eslint-and-prettier-conflicts/</link><pubDate>Tue, 12 Feb 2019 10:07:40 +0000</pubDate><guid>https://til.neilmagee.com/posts/eslint-and-prettier-conflicts/</guid><description>&lt;p&gt;Today I learned about a handy utility called &lt;code&gt;eslint-config-prettier-check&lt;/code&gt; which I saw referenced in this GitHub &lt;a href=&#34;https://github.com/prettier/prettier/issues/2609&#34;&gt;issue&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I did a analysis of the types of UI components we need to build our tool - tooltips, various inputs, switch style buttons, modals, dialogs &amp;amp; drop downs. I wanted to make a test &amp;lsquo;App&amp;rsquo; that would combine various components from the library. My main goal was to see how this library was going to be to work with.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Authentication vs. Authorisation</title>
+      <link>https://til.neilmagee.com/post/authentication-versus-authorisation/</link>
+      <pubDate>Tue, 09 Apr 2019 12:26:24 +0100</pubDate>
+      
+      <guid>https://til.neilmagee.com/post/authentication-versus-authorisation/</guid>
+      <description>&lt;p&gt;Today I learned more about the distinction between &lt;em&gt;authentication&lt;/em&gt; and &lt;em&gt;authorisation&lt;/em&gt;. I have probably thought of those terms as being synonymous with eachother and fulfilling the same needs. But I was wrong.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Resolve eslint and prettier conflicts</title>
+      <link>https://til.neilmagee.com/post/eslint-and-prettier-conflicts/</link>
+      <pubDate>Tue, 12 Feb 2019 10:07:40 +0000</pubDate>
+      
+      <guid>https://til.neilmagee.com/post/eslint-and-prettier-conflicts/</guid>
+      <description>&lt;p&gt;Today I learned about a handy utility called &lt;code&gt;eslint-config-prettier-check&lt;/code&gt; which I saw referenced in this GitHub &lt;a href=&#34;https://github.com/prettier/prettier/issues/2609&#34;&gt;issue&lt;/a&gt;.&lt;/p&gt;
+
 &lt;p&gt;I was editting a &lt;code&gt;.vue&lt;/code&gt; component in Visual Studio Code. I had a code section with red underlines, generally indicating that eslint was not happy with something. I could see it was a formatting issue, so I used &lt;code&gt;eslint --fix&lt;/code&gt; to solve the issue and re-format the code. But then that triggered a new lint problem where &lt;em&gt;Prettier&lt;/em&gt; was now unhappy with how &lt;em&gt;eslint&lt;/em&gt; had formatted the code. The difference between the two is small, and involves a couple of indented spaces. See the images below for both examples.&lt;/p&gt;
+
 &lt;figure&gt;
-&lt;img src=&#34;https://til.neilmagee.com/images/eslint-and-prettier-conflicts/eslint-formatted.png&#34;
-alt=&#34;Example of code formatted with eslint&#34;loading=&#34;lazy&#34;
-/&gt; &lt;figcaption&gt;
-&lt;h4&gt;eslint Formatted&lt;/h4&gt;
-&lt;/figcaption&gt;
+    &lt;img src=&#34;https://til.neilmagee.com/images/eslint-and-prettier-conflicts/eslint-formatted.png&#34;
+         alt=&#34;Example of code formatted with eslint&#34;loading=&#34;lazy&#34;
+    /&gt; &lt;figcaption&gt;
+            &lt;h4&gt;eslint Formatted&lt;/h4&gt;
+        &lt;/figcaption&gt;
 &lt;/figure&gt;
+
 &lt;figure&gt;
-&lt;img src=&#34;https://til.neilmagee.com/images/eslint-and-prettier-conflicts/prettier-formatted.png&#34;
-alt=&#34;Example of code formatted with Prettier&#34;loading=&#34;lazy&#34;
-/&gt; &lt;figcaption&gt;
-&lt;h4&gt;Prettier Formatted&lt;/h4&gt;
-&lt;/figcaption&gt;
-&lt;/figure&gt;</description></item><item><title>Apache virtual host redirection with ssl</title><link>https://til.neilmagee.com/posts/apache-virtual-host-redirection-with-ssl/</link><pubDate>Mon, 04 Feb 2019 14:54:05 +0000</pubDate><guid>https://til.neilmagee.com/posts/apache-virtual-host-redirection-with-ssl/</guid><description>&lt;p&gt;Today I learned more about Apache virtual hosting and redirection. I decided to change my server host to &lt;a href=&#34;https://www.digitalocean.com&#34;&gt;Digital Ocean&lt;/a&gt; a few months ago. There was nothing wrong with my then host, it was a shared web host, which I mainly used to access and manage with cPanel.&lt;/p&gt;
+    &lt;img src=&#34;https://til.neilmagee.com/images/eslint-and-prettier-conflicts/prettier-formatted.png&#34;
+         alt=&#34;Example of code formatted with Prettier&#34;loading=&#34;lazy&#34;
+    /&gt; &lt;figcaption&gt;
+            &lt;h4&gt;Prettier Formatted&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;</description>
+    </item>
+    
+    <item>
+      <title>Apache virtual host redirection with ssl</title>
+      <link>https://til.neilmagee.com/post/apache-virtual-host-redirection-with-ssl/</link>
+      <pubDate>Mon, 04 Feb 2019 14:54:05 +0000</pubDate>
+      
+      <guid>https://til.neilmagee.com/post/apache-virtual-host-redirection-with-ssl/</guid>
+      <description>&lt;p&gt;Today I learned more about Apache virtual hosting and redirection. I decided to change my server host to &lt;a href=&#34;https://www.digitalocean.com&#34;&gt;Digital Ocean&lt;/a&gt; a few months ago. There was nothing wrong with my then host, it was a shared web host, which I mainly used to access and manage with cPanel.&lt;/p&gt;
+
 &lt;p&gt;During my day job I have been administering a CentOS based virtual server hosted by Rackspace and have become more comfortable with using a SSH to manage it. &lt;em&gt;Comfortable&lt;/em&gt;, but still with lots of Googling and Stack Overflowing.&lt;/p&gt;
+
 &lt;p&gt;So I thought I would challenge myself a bit and make the jump to Digital Ocean and take more control of my own server. I wanted to be able to make any sites I run use SSL via &lt;a href=&#34;https://letsencrypt.org/&#34;&gt;Let&amp;rsquo;s Encrypt&lt;/a&gt;. This was not possible with my old host, as they had a more traditional &amp;ldquo;buy a certificate&amp;rdquo; business model and I could not administer the server to install Certbot.&lt;/p&gt;
-&lt;p&gt;After setting this new server up and getting &lt;strong&gt;neilmagee.com&lt;/strong&gt; served on port 80, I used Let&amp;rsquo;s Encrypt to generate some certs for the &lt;code&gt;www&lt;/code&gt; and &lt;code&gt;non-www&lt;/code&gt; versions of the sites (&lt;em&gt;Why? See &lt;a href=&#34;#notes&#34;&gt;notes&lt;/a&gt; at end of article&lt;/em&gt;). This worked well, and I could now access &lt;a href=&#34;https://neilmagee.com&#34;&gt;https://neilmagee.com&lt;/a&gt; and &lt;a href=&#34;https://www.neilmagee.com&#34;&gt;https://www.neilmagee.com&lt;/a&gt;. My goal was to redirect all traffic (http{s} and www) to my canonical domain, &lt;a href=&#34;https://neilmagee.com&#34;&gt;https://neilmagee.com&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Get Jest working with Babel 7</title><link>https://til.neilmagee.com/posts/jest-with-babel-7/</link><pubDate>Tue, 22 Jan 2019 09:32:32 +0000</pubDate><guid>https://til.neilmagee.com/posts/jest-with-babel-7/</guid><description>&lt;p&gt;Today I learned how to get &lt;a href=&#34;https://jestjs.io&#34;&gt;Jest&lt;/a&gt; to work with Babel 7. Often development involves tool configuration. I have lost many hours to this over the years. Something changes a version number and suddenly you are hunting through Stack Overflow and GitHub with a good idea of the problem, but lacking the &lt;code&gt;magic inscriptions&lt;/code&gt; to solve it. Or there are version conflicts. Today&amp;rsquo;s example is the latter.&lt;/p&gt;
+
+&lt;p&gt;After setting this new server up and getting &lt;strong&gt;neilmagee.com&lt;/strong&gt; served on port 80, I used Let&amp;rsquo;s Encrypt to generate some certs for the &lt;code&gt;www&lt;/code&gt; and &lt;code&gt;non-www&lt;/code&gt; versions of the sites (&lt;em&gt;Why? See &lt;a href=&#34;#notes&#34;&gt;notes&lt;/a&gt; at end of article&lt;/em&gt;). This worked well, and I could now access &lt;a href=&#34;https://neilmagee.com&#34;&gt;https://neilmagee.com&lt;/a&gt; and &lt;a href=&#34;https://www.neilmagee.com&#34;&gt;https://www.neilmagee.com&lt;/a&gt;. My goal was to redirect all traffic (http{s} and www) to my canonical domain, &lt;a href=&#34;https://neilmagee.com&#34;&gt;https://neilmagee.com&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Get Jest working with Babel 7</title>
+      <link>https://til.neilmagee.com/post/jest-with-babel-7/</link>
+      <pubDate>Tue, 22 Jan 2019 09:32:32 +0000</pubDate>
+      
+      <guid>https://til.neilmagee.com/post/jest-with-babel-7/</guid>
+      <description>&lt;p&gt;Today I learned how to get &lt;a href=&#34;https://jestjs.io&#34;&gt;Jest&lt;/a&gt; to work with Babel 7. Often development involves tool configuration. I have lost many hours to this over the years. Something changes a version number and suddenly you are hunting through Stack Overflow and GitHub with a good idea of the problem, but lacking the &lt;code&gt;magic inscriptions&lt;/code&gt; to solve it. Or there are version conflicts. Today&amp;rsquo;s example is the latter.&lt;/p&gt;
+
 &lt;p&gt;I was writing a small tool for a maths problem, &lt;a href=&#34;https://github.com/freemagee/number-difference-table&#34;&gt;Number difference table&lt;/a&gt;, and I thought it would benefit from having some unit tests written for it. I wanted to test some of the calculations and using the UI over and over, or console logging had become tedious.&lt;/p&gt;
+
 &lt;p&gt;So I chose to use &lt;a href=&#34;https://jestjs.io&#34;&gt;Jest&lt;/a&gt; and installed it.&lt;/p&gt;
+
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;yarn add -D jest
-&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>Simplify React components</title><link>https://til.neilmagee.com/posts/react-simplify-components/</link><pubDate>Wed, 09 Jan 2019 17:04:41 +0000</pubDate><guid>https://til.neilmagee.com/posts/react-simplify-components/</guid><description>&lt;p&gt;Today I learned a bit more about why setting props against state is considered an anti-pattern. After my &lt;a href=&#34;https://til.neilmagee.com/posts/react-update-state-from-props/&#34;&gt;previous article&lt;/a&gt;, I was not happy with the component. It still felt like &lt;code&gt;getDerivedStateFromProps&lt;/code&gt; was a hack rather than a maintainable fix. Plus in using the component, I was still triggering bugs that were quite situational.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>Simplify React components</title>
+      <link>https://til.neilmagee.com/post/react-simplify-components/</link>
+      <pubDate>Wed, 09 Jan 2019 17:04:41 +0000</pubDate>
+      
+      <guid>https://til.neilmagee.com/post/react-simplify-components/</guid>
+      <description>&lt;p&gt;Today I learned a bit more about why setting props against state is considered an anti-pattern. After my &lt;a href=&#34;https://til.neilmagee.com/posts/react-update-state-from-props/&#34;&gt;previous article&lt;/a&gt;, I was not happy with the component. It still felt like &lt;code&gt;getDerivedStateFromProps&lt;/code&gt; was a hack rather than a maintainable fix. Plus in using the component, I was still triggering bugs that were quite situational.&lt;/p&gt;
+
 &lt;p&gt;I read more on &lt;a href=&#34;https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html#recap&#34;&gt;the react blog&lt;/a&gt; and the recap really nailed what I needed to do.&lt;/p&gt;
+
 &lt;blockquote&gt;
 &lt;p&gt;For example, rather than a child accepting a “committed” props.value and tracking a “draft” state.value, have the parent manage both state.draftValue and state.committedValue and control the child’s value directly.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;This accurately described a process, to make my component simpler (I think it qualifies as a controlled component now), that would remove side effects. So I set out to remove state from this component and make it&amp;rsquo;s parent responsible for passing in the correct data as props.&lt;/p&gt;</description></item><item><title>Update state from props in React</title><link>https://til.neilmagee.com/posts/react-update-state-from-props/</link><pubDate>Tue, 08 Jan 2019 11:11:05 +0000</pubDate><guid>https://til.neilmagee.com/posts/react-update-state-from-props/</guid><description>&lt;p&gt;Today I learned how to use a new(ish) React lifecycle hook called &lt;code&gt;getDerivedStateFromProps&lt;/code&gt; (&lt;a href=&#34;https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props&#34;&gt;link&lt;/a&gt;). I have struggled a little bit with form components that allow you to edit data. In my example below it is &amp;ldquo;user&amp;rdquo; data, but in reality this could affect all forms with any data in React.&lt;/p&gt;
+
+&lt;p&gt;This accurately described a process, to make my component simpler (I think it qualifies as a controlled component now), that would remove side effects. So I set out to remove state from this component and make it&amp;rsquo;s parent responsible for passing in the correct data as props.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Update state from props in React</title>
+      <link>https://til.neilmagee.com/post/react-update-state-from-props/</link>
+      <pubDate>Tue, 08 Jan 2019 11:11:05 +0000</pubDate>
+      
+      <guid>https://til.neilmagee.com/post/react-update-state-from-props/</guid>
+      <description>&lt;p&gt;Today I learned how to use a new(ish) React lifecycle hook called &lt;code&gt;getDerivedStateFromProps&lt;/code&gt; (&lt;a href=&#34;https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props&#34;&gt;link&lt;/a&gt;). I have struggled a little bit with form components that allow you to edit data. In my example below it is &amp;ldquo;user&amp;rdquo; data, but in reality this could affect all forms with any data in React.&lt;/p&gt;
+
 &lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
+
 &lt;p&gt;The reason for the struggle is a slight conflict for the one true source of the data for the form. When the &amp;ldquo;user&amp;rdquo; is edited, and the &lt;strong&gt;user form component&lt;/strong&gt; is used, data is fed into it via props from it&amp;rsquo;s &lt;em&gt;parent component&lt;/em&gt;. So the Employer and Job title current values can appear in their relevant inputs.&lt;/p&gt;
+
 &lt;p&gt;That would be ok if that data was static, but the data is not and it needs to be editable. So the props are copied into the &lt;strong&gt;user form component&lt;/strong&gt; state. And this state is used as the value of the relevant inputs. That allows the inputs to receive new data, which triggers off a chain of events.&lt;/p&gt;
-&lt;p&gt;The new data is processed via a &lt;code&gt;handleChange&lt;/code&gt; event in the &lt;strong&gt;user form component&lt;/strong&gt;. Two things happen, it is added to the current state and also passed to a &lt;em&gt;parent component&lt;/em&gt; for other actions to happen. When that &lt;em&gt;parent component&lt;/em&gt; is done, it sends that data back to this &lt;strong&gt;user form component&lt;/strong&gt; as props and the cycle can continue.&lt;/p&gt;</description></item><item><title>Undo a Git commit and redo</title><link>https://til.neilmagee.com/posts/git-undo-commit/</link><pubDate>Thu, 03 Jan 2019 14:52:45 +0000</pubDate><guid>https://til.neilmagee.com/posts/git-undo-commit/</guid><description>&lt;p&gt;Today I learned how to sort out a &lt;strong&gt;local&lt;/strong&gt; mistake in Git&lt;sup&gt;1&lt;/sup&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ git commit -m &amp;quot;Something terribly misguided&amp;quot; # (1)
-$ git reset HEAD~ # (2)
-&amp;lt;&amp;lt; edit files as necessary &amp;gt;&amp;gt; # (3)
-$ git add ... # (4)
-$ git commit -c ORIG_HEAD # (5)
+
+&lt;p&gt;The new data is processed via a &lt;code&gt;handleChange&lt;/code&gt; event in the &lt;strong&gt;user form component&lt;/strong&gt;. Two things happen, it is added to the current state and also passed to a &lt;em&gt;parent component&lt;/em&gt; for other actions to happen. When that &lt;em&gt;parent component&lt;/em&gt; is done, it sends that data back to this &lt;strong&gt;user form component&lt;/strong&gt; as props and the cycle can continue.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Undo a Git commit and redo</title>
+      <link>https://til.neilmagee.com/post/git-undo-commit/</link>
+      <pubDate>Thu, 03 Jan 2019 14:52:45 +0000</pubDate>
+      
+      <guid>https://til.neilmagee.com/post/git-undo-commit/</guid>
+      <description>&lt;p&gt;Today I learned how to sort out a &lt;strong&gt;local&lt;/strong&gt; mistake in Git&lt;sup&gt;1&lt;/sup&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git commit -m &amp;quot;Something terribly misguided&amp;quot;             # (1)
+$ git reset HEAD~                                          # (2)
+&amp;lt;&amp;lt; edit files as necessary &amp;gt;&amp;gt;                              # (3)
+$ git add ...                                              # (4)
+$ git commit -c ORIG_HEAD                                  # (5)
 &lt;/code&gt;&lt;/pre&gt;
+
 &lt;ol&gt;
 &lt;li&gt;This is what you want to undo&lt;/li&gt;
 &lt;li&gt;This leaves your working tree (the state of your files on disk) unchanged but undoes the commit and leaves the changes you committed unstaged (so they&amp;rsquo;ll appear as &amp;ldquo;Changes not staged for commit&amp;rdquo; in &lt;code&gt;git status&lt;/code&gt;, and you&amp;rsquo;ll need to add them again before committing). If you only want to add more changes to the previous commit, or change the commit message&lt;sup&gt;2&lt;/sup&gt;, you could use &lt;code&gt;git reset --soft HEAD~&lt;/code&gt; instead, which is like &lt;code&gt;git reset HEAD~&lt;/code&gt; (where &lt;code&gt;HEAD~&lt;/code&gt; is the same as &lt;code&gt;HEAD~1&lt;/code&gt;) but leaves your existing changes staged.&lt;/li&gt;
 &lt;li&gt;Make corrections to working tree files.&lt;/li&gt;
 &lt;li&gt;git add anything that you want to include in your new commit.&lt;/li&gt;
 &lt;li&gt;Commit the changes, reusing the old commit message. reset copied the old head to &lt;code&gt;.git/ORIG_HEAD&lt;/code&gt;; &lt;code&gt;commit&lt;/code&gt; with &lt;code&gt;-c ORIG_HEAD&lt;/code&gt; will open an editor, which initially contains the log message from the old commit and allows you to edit it. If you do not need to edit the message, you could use the &lt;code&gt;-C&lt;/code&gt; option.&lt;/li&gt;
-&lt;/ol&gt;</description></item><item><title>PHP The right way</title><link>https://til.neilmagee.com/posts/php-the-right-way/</link><pubDate>Wed, 21 Nov 2018 16:28:33 +0000</pubDate><guid>https://til.neilmagee.com/posts/php-the-right-way/</guid><description>&lt;p&gt;Today I learned about &lt;a href=&#34;https://phptherightway.com/&#34;&gt;PHP The right way&lt;/a&gt;. Whilst I am a Frontend developer who focuses on JavaScript, CSS, HTML, UX, design etc etc, I am still responsible for writing PHP every now and again. That can be Wordpress themes or plugins, login systems and in the past I have written basic e-commerce. PHP is still my server side language of choice for my own projects.&lt;/p&gt;
-&lt;p&gt;I have made effort in my JavaScript to try to follow some practices - ESLint, Prettier for code formatting, use Babel, learn design patterns and more. But my PHP code style has always remained pretty procedural. Import some classes, set some variables, handle form input, and then write to a view using a template language (if possible). There is always inevitably a bunch of &lt;code&gt;if/else&lt;/code&gt; statements. I never really feel like I am writing as clean code as my JavaScript and that my PHP knowledge is probably a bit dated.&lt;/p&gt;</description></item><item><title>Tachyons Components</title><link>https://til.neilmagee.com/posts/tachyons-components/</link><pubDate>Mon, 19 Nov 2018 14:54:11 +0000</pubDate><guid>https://til.neilmagee.com/posts/tachyons-components/</guid><description>&lt;p&gt;Today I learned a bit more about using &lt;a href=&#34;http://tachyons.io/&#34;&gt;Tachyons&lt;/a&gt; to make components. I read about Tachyons a long time ago and had a pretty common reaction to it which was to dismiss it outright. I come from a background of having learnt CSS when semantics were being preached. Carefully named classes were chosen for their meaning, and keeping styles out of HTML was important.&lt;/p&gt;
-&lt;p&gt;But my views have matured over time as I started to use BEM for CSS naming and realised the limitations of creating classes and how rubbish humans are at naming things. Especially when maintaining larger systems. I read &lt;a href=&#34;https://hackernoon.com/full-re-write-with-tachyons-and-functional-css-a-case-study-part-1-635ccb5fb00b&#34;&gt;articles&lt;/a&gt; about &lt;a href=&#34;https://adamwathan.me/css-utility-classes-and-separation-of-concerns/&#34;&gt;utility classes&lt;/a&gt; and slowly I began to agree with their perspective.&lt;/p&gt;</description></item><item><title>Editor config is still hard</title><link>https://til.neilmagee.com/posts/editor-config-is-still-hard/</link><pubDate>Wed, 14 Nov 2018 11:16:00 +0000</pubDate><guid>https://til.neilmagee.com/posts/editor-config-is-still-hard/</guid><description>&lt;p&gt;Today I learned that configuring your code editor to lint and format code in a predictable way is still hard.&lt;/p&gt;
-&lt;p&gt;I use two editors frequently - Sublime Text and VS Code. Both are great. Both have plugins and their own settings. Today I was trying to update my environment for a Vue project in VS Code. I wanted the &lt;code&gt;.vue&lt;/code&gt; files to be linted with ESLint, and for Prettier to handle the formatting. I was concentrating on how multiple attributes per line were being formatted on the &lt;code&gt;&amp;lt;template&amp;gt;&lt;/code&gt; part.&lt;/p&gt;</description></item><item><title>React Prevent Re-renders</title><link>https://til.neilmagee.com/posts/react-prevent-re-renders/</link><pubDate>Wed, 07 Nov 2018 09:26:33 +0000</pubDate><guid>https://til.neilmagee.com/posts/react-prevent-re-renders/</guid><description>&lt;p&gt;Today I learned how to prevent React from unnecessarily re-rendering a component:&lt;/p&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
+    <item>
+      <title>PHP The right way</title>
+      <link>https://til.neilmagee.com/post/php-the-right-way/</link>
+      <pubDate>Wed, 21 Nov 2018 16:28:33 +0000</pubDate>
+      
+      <guid>https://til.neilmagee.com/post/php-the-right-way/</guid>
+      <description>&lt;p&gt;Today I learned about &lt;a href=&#34;https://phptherightway.com/&#34;&gt;PHP The right way&lt;/a&gt;. Whilst I am a Frontend developer who focuses on JavaScript, CSS, HTML, UX, design etc etc, I am still responsible for writing PHP every now and again. That can be Wordpress themes or plugins, login systems and in the past I have written basic e-commerce. PHP is still my server side language of choice for my own projects.&lt;/p&gt;
+
+&lt;p&gt;I have made effort in my JavaScript to try to follow some practices - ESLint, Prettier for code formatting, use Babel, learn design patterns and more. But my PHP code style has always remained pretty procedural. Import some classes, set some variables, handle form input, and then write to a view using a template language (if possible). There is always inevitably a bunch of &lt;code&gt;if/else&lt;/code&gt; statements. I never really feel like I am writing as clean code as my JavaScript and that my PHP knowledge is probably a bit dated.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Tachyons Components</title>
+      <link>https://til.neilmagee.com/post/tachyons-components/</link>
+      <pubDate>Mon, 19 Nov 2018 14:54:11 +0000</pubDate>
+      
+      <guid>https://til.neilmagee.com/post/tachyons-components/</guid>
+      <description>&lt;p&gt;Today I learned a bit more about using &lt;a href=&#34;http://tachyons.io/&#34;&gt;Tachyons&lt;/a&gt; to make components. I read about Tachyons a long time ago and had a pretty common reaction to it which was to dismiss it outright. I come from a background of having learnt CSS when semantics were being preached. Carefully named classes were chosen for their meaning, and keeping styles out of HTML was important.&lt;/p&gt;
+
+&lt;p&gt;But my views have matured over time as I started to use BEM for CSS naming and realised the limitations of creating classes and how rubbish humans are at naming things. Especially when maintaining larger systems. I read &lt;a href=&#34;https://hackernoon.com/full-re-write-with-tachyons-and-functional-css-a-case-study-part-1-635ccb5fb00b&#34;&gt;articles&lt;/a&gt; about &lt;a href=&#34;https://adamwathan.me/css-utility-classes-and-separation-of-concerns/&#34;&gt;utility classes&lt;/a&gt; and slowly I began to agree with their perspective.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Editor config is still hard</title>
+      <link>https://til.neilmagee.com/post/editor-config-is-still-hard/</link>
+      <pubDate>Wed, 14 Nov 2018 11:16:00 +0000</pubDate>
+      
+      <guid>https://til.neilmagee.com/post/editor-config-is-still-hard/</guid>
+      <description>&lt;p&gt;Today I learned that configuring your code editor to lint and format code in a predictable way is still hard.&lt;/p&gt;
+
+&lt;p&gt;I use two editors frequently - Sublime Text and VS Code. Both are great. Both have plugins and their own settings. Today I was trying to update my environment for a Vue project in VS Code. I wanted the &lt;code&gt;.vue&lt;/code&gt; files to be linted with ESLint, and for Prettier to handle the formatting. I was concentrating on how multiple attributes per line were being formatted on the &lt;code&gt;&amp;lt;template&amp;gt;&lt;/code&gt; part.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>React Prevent Re-renders</title>
+      <link>https://til.neilmagee.com/post/react-prevent-re-renders/</link>
+      <pubDate>Wed, 07 Nov 2018 09:26:33 +0000</pubDate>
+      
+      <guid>https://til.neilmagee.com/post/react-prevent-re-renders/</guid>
+      <description>&lt;p&gt;Today I learned how to prevent React from unnecessarily re-rendering a component:&lt;/p&gt;
+
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;shouldComponentUpdate(nextProps) {
-// Compare the props with one another
-if (this.props.actions !== nextProps.actions) {
-return true;
-}
-return false;
+  // Compare the props with one another
+  if (this.props.actions !== nextProps.actions) {
+    return true;
+  }
+
+  return false;
 }
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;I was trying to use a loop to sort some items prior to rendering them in a component. During the debug step I kept seeing the loop run twice, when I was only expecting it to run once.&lt;/p&gt;</description></item><item><title>React Conditional Rendering</title><link>https://til.neilmagee.com/posts/react-conditional-rendering/</link><pubDate>Mon, 05 Nov 2018 17:13:02 +0000</pubDate><guid>https://til.neilmagee.com/posts/react-conditional-rendering/</guid><description>&lt;p&gt;Today I learned how to conditionally render a React component. I was using CSS to show and hide different components in reaction to the App&amp;rsquo;s state. Setting a component to be &lt;code&gt;display: none;&lt;/code&gt; or control it&amp;rsquo;s opacity. The problem was that React was throwing up some warnings that were coming from &amp;ldquo;invisible&amp;rdquo; components, that were receiving props before they were really meant to. This is probably representative of a deeper problem in my App structure.&lt;/p&gt;
+
+&lt;p&gt;I was trying to use a loop to sort some items prior to rendering them in a component. During the debug step I kept seeing the loop run twice, when I was only expecting it to run once.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>React Conditional Rendering</title>
+      <link>https://til.neilmagee.com/post/react-conditional-rendering/</link>
+      <pubDate>Mon, 05 Nov 2018 17:13:02 +0000</pubDate>
+      
+      <guid>https://til.neilmagee.com/post/react-conditional-rendering/</guid>
+      <description>&lt;p&gt;Today I learned how to conditionally render a React component. I was using CSS to show and hide different components in reaction to the App&amp;rsquo;s state. Setting a component to be &lt;code&gt;display: none;&lt;/code&gt; or control it&amp;rsquo;s opacity. The problem was that React was throwing up some warnings that were coming from &amp;ldquo;invisible&amp;rdquo; components, that were receiving props before they were really meant to. This is probably representative of a deeper problem in my App structure.&lt;/p&gt;
+
 &lt;p&gt;Having finally read the &lt;a href=&#34;https://reactjs.org/docs/conditional-rendering.html&#34;&gt;conditional rendering&lt;/a&gt; page, I have chosen the &amp;ldquo;Inline If with Logical &amp;amp;&amp;amp; Operator&amp;rdquo; pattern for my App. Below is a stripped down example:&lt;/p&gt;
+
 &lt;h2 id=&#34;parent-app&#34;&gt;Parent App&lt;/h2&gt;
+
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;import React, {Component} from &amp;quot;react&amp;quot;;
 import MyComponent from &amp;quot;./components/MyComponent.jsx&amp;quot;;
+
 class App extends Component {
-constructor(props) {
-super(props);
-this.state = {
-componentIsActive: false
-};
+  constructor(props) {
+    super(props);
+    this.state = {
+      componentIsActive: false
+    };
+  }
+  setComponentActive() {
+    // Something else could trigger this
+    this.setState({
+        componentIsActive: true
+    });
+  }
+  render() {
+    return (
+      // The component is passed a prop from the state
+      &amp;lt;MyComponent
+        active={this.state.componentIsActive}
+      /&amp;gt;
+    );
+  }
 }
-setComponentActive() {
-// Something else could trigger this
-this.setState({
-componentIsActive: true
-});
-}
-render() {
-return (
-// The component is passed a prop from the state
-&amp;lt;MyComponent
-active={this.state.componentIsActive}
-/&amp;gt;
-);
-}
-}
+
 export default App;
-&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>React With Debounce</title><link>https://til.neilmagee.com/posts/react-with-debounce/</link><pubDate>Wed, 24 Oct 2018 20:10:38 +0100</pubDate><guid>https://til.neilmagee.com/posts/react-with-debounce/</guid><description>&lt;p&gt;Today I learned how to debounce inputs in a &lt;a href=&#34;https://reactjs.org/&#34;&gt;React&lt;/a&gt; component. This is something I have done in many other places, in plain JavaScript, in jQuery, in AngularJs and in VueJs. Whilst the concept is the same - have a user input some data (text, date, email, whatever), wait a short amount of time so that the user has finished typing and then do something. The idea being the &amp;ldquo;do something&amp;rdquo; does not happen whilst the user is still adding their data.&lt;/p&gt;</description></item><item><title>Hugo Variables</title><link>https://til.neilmagee.com/posts/hugo-variables/</link><pubDate>Thu, 11 Oct 2018 12:39:12 +0100</pubDate><guid>https://til.neilmagee.com/posts/hugo-variables/</guid><description>&lt;p&gt;Today I learned that I do not know how to concatenate strings using &lt;code&gt;golang&lt;/code&gt;.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>React With Debounce</title>
+      <link>https://til.neilmagee.com/post/react-with-debounce/</link>
+      <pubDate>Wed, 24 Oct 2018 20:10:38 +0100</pubDate>
+      
+      <guid>https://til.neilmagee.com/post/react-with-debounce/</guid>
+      <description>&lt;p&gt;Today I learned how to debounce inputs in a &lt;a href=&#34;https://reactjs.org/&#34;&gt;React&lt;/a&gt; component. This is something I have done in many other places, in plain JavaScript, in jQuery, in AngularJs and in VueJs. Whilst the concept is the same - have a user input some data (text, date, email, whatever), wait a short amount of time so that the user has finished typing and then do something. The idea being the &amp;ldquo;do something&amp;rdquo; does not happen whilst the user is still adding their data.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Hugo Variables</title>
+      <link>https://til.neilmagee.com/post/hugo-variables/</link>
+      <pubDate>Thu, 11 Oct 2018 12:39:12 +0100</pubDate>
+      
+      <guid>https://til.neilmagee.com/post/hugo-variables/</guid>
+      <description>&lt;p&gt;Today I learned that I do not know how to concatenate strings using &lt;code&gt;golang&lt;/code&gt;.&lt;/p&gt;
+
 &lt;p&gt;My &lt;a href=&#34;https://github.com/freemagee/comfortable-basic&#34;&gt;Hugo theme&lt;/a&gt; has an &amp;lsquo;about&amp;rsquo; page, which is supposed to have a conditional css class applied to the navigation when you are actually on that page. The default class is &lt;code&gt;site-header__nav-item&lt;/code&gt; and that is meant to become &lt;code&gt;site-header__nav-item active&lt;/code&gt; when visiting the &amp;lsquo;about&amp;rsquo; page. This was not happening, so I have refactored the code a little and fixed the issue.&lt;/p&gt;
+
 &lt;h3 id=&#34;the-old-code&#34;&gt;The old code&lt;/h3&gt;
+
 &lt;pre&gt;&lt;code class=&#34;language-golang&#34;&gt;&amp;lt;header class=&amp;quot;site-header&amp;quot;&amp;gt;
-&amp;lt;section class=&amp;quot;site-header__ident&amp;quot;&amp;gt;
-&amp;lt;a href=&amp;quot;{{ .Site.BaseURL }}&amp;quot; class=&amp;quot;site-header__link&amp;quot;&amp;gt;{{- .Site.Title -}}&amp;lt;/a&amp;gt;
-&amp;lt;/section&amp;gt;
-&amp;lt;nav class=&amp;quot;site-header__nav&amp;quot;&amp;gt;
-{{ with .Site.GetPage &amp;quot;about&amp;quot; }}
-&amp;lt;a href=&amp;quot;{{ .Site.BaseURL }}about/&amp;quot; class=&amp;quot;site-header__nav-item {{ if eq .URL &amp;quot;/about/&amp;quot;}}active{{ end }}&amp;quot;&amp;gt;About&amp;lt;/a&amp;gt;
-{{ end }}
-&amp;lt;/nav&amp;gt;
+  &amp;lt;section class=&amp;quot;site-header__ident&amp;quot;&amp;gt;
+    &amp;lt;a href=&amp;quot;{{ .Site.BaseURL }}&amp;quot; class=&amp;quot;site-header__link&amp;quot;&amp;gt;{{- .Site.Title -}}&amp;lt;/a&amp;gt;
+  &amp;lt;/section&amp;gt;
+  &amp;lt;nav class=&amp;quot;site-header__nav&amp;quot;&amp;gt;
+    {{ with .Site.GetPage &amp;quot;about&amp;quot; }}
+    &amp;lt;a href=&amp;quot;{{ .Site.BaseURL }}about/&amp;quot; class=&amp;quot;site-header__nav-item {{ if eq .URL &amp;quot;/about/&amp;quot;}}active{{ end }}&amp;quot;&amp;gt;About&amp;lt;/a&amp;gt;
+    {{ end }}
+  &amp;lt;/nav&amp;gt;
 &amp;lt;/header&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>Hugo deploy</title><link>https://til.neilmagee.com/posts/hugo-deploy/</link><pubDate>Wed, 10 Oct 2018 16:31:28 +0100</pubDate><guid>https://til.neilmagee.com/posts/hugo-deploy/</guid><description>&lt;p&gt;Today I had a lesson in &lt;a href=&#34;https://en.wikipedia.org/wiki/RTFM&#34;&gt;RTFM&lt;/a&gt;. I noticed my Hugo &lt;code&gt;public/&lt;/code&gt; folder had a bunch of orphaned content from a previous deploy that used dummy content. There is a clear reference to this in the &lt;a href=&#34;https://gohugo.io/getting-started/usage/#deploy-your-website&#34;&gt;Hugo documentation&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Hugo template logic</title><link>https://til.neilmagee.com/posts/hugo-templates/</link><pubDate>Mon, 08 Oct 2018 14:54:52 +0100</pubDate><guid>https://til.neilmagee.com/posts/hugo-templates/</guid><description>&lt;p&gt;Today I made some improvements to the &lt;a href=&#34;https://github.com/freemagee/comfortable-basic&#34;&gt;Hugo theme&lt;/a&gt; I created for this site. Adding some conditional statements to the templates to cater for various scenarios that don&amp;rsquo;t fit how I intend to use the theme.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>Hugo deploy</title>
+      <link>https://til.neilmagee.com/post/hugo-deploy/</link>
+      <pubDate>Wed, 10 Oct 2018 16:31:28 +0100</pubDate>
+      
+      <guid>https://til.neilmagee.com/post/hugo-deploy/</guid>
+      <description>&lt;p&gt;Today I had a lesson in &lt;a href=&#34;https://en.wikipedia.org/wiki/RTFM&#34;&gt;RTFM&lt;/a&gt;. I noticed my Hugo &lt;code&gt;public/&lt;/code&gt; folder had a bunch of orphaned content from a previous deploy that used dummy content. There is a clear reference to this in the &lt;a href=&#34;https://gohugo.io/getting-started/usage/#deploy-your-website&#34;&gt;Hugo documentation&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Hugo template logic</title>
+      <link>https://til.neilmagee.com/post/hugo-templates/</link>
+      <pubDate>Mon, 08 Oct 2018 14:54:52 +0100</pubDate>
+      
+      <guid>https://til.neilmagee.com/post/hugo-templates/</guid>
+      <description>&lt;p&gt;Today I made some improvements to the &lt;a href=&#34;https://github.com/freemagee/comfortable-basic&#34;&gt;Hugo theme&lt;/a&gt; I created for this site. Adding some conditional statements to the templates to cater for various scenarios that don&amp;rsquo;t fit how I intend to use the theme.&lt;/p&gt;
+
 &lt;p&gt;Although the theme is limited in scope, I want to eventually release it on &lt;a href=&#34;https://themes.gohugo.io/&#34;&gt;Hugo Themes&lt;/a&gt; and allow it to be flexible enough for others to use.&lt;/p&gt;
+
 &lt;h2 id=&#34;deal-with-no-posts&#34;&gt;Deal with no posts&lt;/h2&gt;
+
 &lt;p&gt;On the &lt;code&gt;layouts/partials/pagination.html&lt;/code&gt; template, it has been wrapped in&lt;/p&gt;
+
 &lt;pre&gt;&lt;code class=&#34;language-golang&#34;&gt;{{ if ne .TotalPages 0}}
-// Content
+  // Content
 {{end}}
-&lt;/code&gt;&lt;/pre&gt;</description></item></channel></rss>
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

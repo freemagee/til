@@ -1,17 +1,53 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>vue on TIL</title><link>https://til.neilmagee.com/tags/vue/</link><description>Recent content in vue on TIL</description><generator>Hugo -- gohugo.io</generator><language>en-gb</language><lastBuildDate>Tue, 12 Feb 2019 10:07:40 +0000</lastBuildDate><atom:link href="https://til.neilmagee.com/tags/vue/index.xml" rel="self" type="application/rss+xml"/><item><title>Resolve eslint and prettier conflicts</title><link>https://til.neilmagee.com/posts/eslint-and-prettier-conflicts/</link><pubDate>Tue, 12 Feb 2019 10:07:40 +0000</pubDate><guid>https://til.neilmagee.com/posts/eslint-and-prettier-conflicts/</guid><description>&lt;p&gt;Today I learned about a handy utility called &lt;code&gt;eslint-config-prettier-check&lt;/code&gt; which I saw referenced in this GitHub &lt;a href=&#34;https://github.com/prettier/prettier/issues/2609&#34;&gt;issue&lt;/a&gt;.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vue on TIL</title>
+    <link>https://til.neilmagee.com/tags/vue/</link>
+    <description>Recent content in vue on TIL</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Tue, 12 Feb 2019 10:07:40 +0000</lastBuildDate>
+    
+	<atom:link href="https://til.neilmagee.com/tags/vue/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Resolve eslint and prettier conflicts</title>
+      <link>https://til.neilmagee.com/post/eslint-and-prettier-conflicts/</link>
+      <pubDate>Tue, 12 Feb 2019 10:07:40 +0000</pubDate>
+      
+      <guid>https://til.neilmagee.com/post/eslint-and-prettier-conflicts/</guid>
+      <description>&lt;p&gt;Today I learned about a handy utility called &lt;code&gt;eslint-config-prettier-check&lt;/code&gt; which I saw referenced in this GitHub &lt;a href=&#34;https://github.com/prettier/prettier/issues/2609&#34;&gt;issue&lt;/a&gt;.&lt;/p&gt;
+
 &lt;p&gt;I was editting a &lt;code&gt;.vue&lt;/code&gt; component in Visual Studio Code. I had a code section with red underlines, generally indicating that eslint was not happy with something. I could see it was a formatting issue, so I used &lt;code&gt;eslint --fix&lt;/code&gt; to solve the issue and re-format the code. But then that triggered a new lint problem where &lt;em&gt;Prettier&lt;/em&gt; was now unhappy with how &lt;em&gt;eslint&lt;/em&gt; had formatted the code. The difference between the two is small, and involves a couple of indented spaces. See the images below for both examples.&lt;/p&gt;
+
 &lt;figure&gt;
-&lt;img src=&#34;https://til.neilmagee.com/images/eslint-and-prettier-conflicts/eslint-formatted.png&#34;
-alt=&#34;Example of code formatted with eslint&#34;loading=&#34;lazy&#34;
-/&gt; &lt;figcaption&gt;
-&lt;h4&gt;eslint Formatted&lt;/h4&gt;
-&lt;/figcaption&gt;
+    &lt;img src=&#34;https://til.neilmagee.com/images/eslint-and-prettier-conflicts/eslint-formatted.png&#34;
+         alt=&#34;Example of code formatted with eslint&#34;loading=&#34;lazy&#34;
+    /&gt; &lt;figcaption&gt;
+            &lt;h4&gt;eslint Formatted&lt;/h4&gt;
+        &lt;/figcaption&gt;
 &lt;/figure&gt;
+
 &lt;figure&gt;
-&lt;img src=&#34;https://til.neilmagee.com/images/eslint-and-prettier-conflicts/prettier-formatted.png&#34;
-alt=&#34;Example of code formatted with Prettier&#34;loading=&#34;lazy&#34;
-/&gt; &lt;figcaption&gt;
-&lt;h4&gt;Prettier Formatted&lt;/h4&gt;
-&lt;/figcaption&gt;
-&lt;/figure&gt;</description></item><item><title>Editor config is still hard</title><link>https://til.neilmagee.com/posts/editor-config-is-still-hard/</link><pubDate>Wed, 14 Nov 2018 11:16:00 +0000</pubDate><guid>https://til.neilmagee.com/posts/editor-config-is-still-hard/</guid><description>&lt;p&gt;Today I learned that configuring your code editor to lint and format code in a predictable way is still hard.&lt;/p&gt;
-&lt;p&gt;I use two editors frequently - Sublime Text and VS Code. Both are great. Both have plugins and their own settings. Today I was trying to update my environment for a Vue project in VS Code. I wanted the &lt;code&gt;.vue&lt;/code&gt; files to be linted with ESLint, and for Prettier to handle the formatting. I was concentrating on how multiple attributes per line were being formatted on the &lt;code&gt;&amp;lt;template&amp;gt;&lt;/code&gt; part.&lt;/p&gt;</description></item></channel></rss>
+    &lt;img src=&#34;https://til.neilmagee.com/images/eslint-and-prettier-conflicts/prettier-formatted.png&#34;
+         alt=&#34;Example of code formatted with Prettier&#34;loading=&#34;lazy&#34;
+    /&gt; &lt;figcaption&gt;
+            &lt;h4&gt;Prettier Formatted&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;</description>
+    </item>
+    
+    <item>
+      <title>Editor config is still hard</title>
+      <link>https://til.neilmagee.com/post/editor-config-is-still-hard/</link>
+      <pubDate>Wed, 14 Nov 2018 11:16:00 +0000</pubDate>
+      
+      <guid>https://til.neilmagee.com/post/editor-config-is-still-hard/</guid>
+      <description>&lt;p&gt;Today I learned that configuring your code editor to lint and format code in a predictable way is still hard.&lt;/p&gt;
+
+&lt;p&gt;I use two editors frequently - Sublime Text and VS Code. Both are great. Both have plugins and their own settings. Today I was trying to update my environment for a Vue project in VS Code. I wanted the &lt;code&gt;.vue&lt;/code&gt; files to be linted with ESLint, and for Prettier to handle the formatting. I was concentrating on how multiple attributes per line were being formatted on the &lt;code&gt;&amp;lt;template&amp;gt;&lt;/code&gt; part.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

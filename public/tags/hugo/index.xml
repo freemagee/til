@@ -1,29 +1,88 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>hugo on TIL</title><link>https://til.neilmagee.com/tags/hugo/</link><description>Recent content in hugo on TIL</description><generator>Hugo -- gohugo.io</generator><language>en-gb</language><lastBuildDate>Thu, 18 Jul 2019 17:01:21 +0100</lastBuildDate><atom:link href="https://til.neilmagee.com/tags/hugo/index.xml" rel="self" type="application/rss+xml"/><item><title>Hugo theme improved pagination</title><link>https://til.neilmagee.com/posts/hugo-pagination/</link><pubDate>Thu, 18 Jul 2019 17:01:21 +0100</pubDate><guid>https://til.neilmagee.com/posts/hugo-pagination/</guid><description>&lt;p&gt;Today I learned how to do numbered pagination in my &lt;a href=&#34;https://github.com/freemagee/comfortable-basic&#34;&gt;Hugo theme&lt;/a&gt; using &lt;code&gt;golang&lt;/code&gt;. This was a bit harder than I expected as I am no expert on programming with &lt;code&gt;golang&lt;/code&gt;. But once I remembered that &lt;code&gt;golang&lt;/code&gt; still follows the same programming conventions that other languages do, even though the syntax is different.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hugo on TIL</title>
+    <link>https://til.neilmagee.com/tags/hugo/</link>
+    <description>Recent content in hugo on TIL</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Thu, 18 Jul 2019 17:01:21 +0100</lastBuildDate>
+    
+	<atom:link href="https://til.neilmagee.com/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hugo theme improved pagination</title>
+      <link>https://til.neilmagee.com/post/hugo-pagination/</link>
+      <pubDate>Thu, 18 Jul 2019 17:01:21 +0100</pubDate>
+      
+      <guid>https://til.neilmagee.com/post/hugo-pagination/</guid>
+      <description>&lt;p&gt;Today I learned how to do numbered pagination in my &lt;a href=&#34;https://github.com/freemagee/comfortable-basic&#34;&gt;Hugo theme&lt;/a&gt; using &lt;code&gt;golang&lt;/code&gt;. This was a bit harder than I expected as I am no expert on programming with &lt;code&gt;golang&lt;/code&gt;. But once I remembered that &lt;code&gt;golang&lt;/code&gt; still follows the same programming conventions that other languages do, even though the syntax is different.&lt;/p&gt;
+
 &lt;p&gt;After the posts in my theme, there is a simple navigation area at the bottom. At the moment it looks like this:&lt;/p&gt;
+
 &lt;figure&gt;
-&lt;img src=&#34;https://til.neilmagee.com/images/improved-pagination/current-pagination.png&#34;
-alt=&#34;An image of my Hugo themes current pagination&#34;loading=&#34;lazy&#34;
-/&gt; &lt;figcaption&gt;
-&lt;h4&gt;My current pagination&lt;/h4&gt;
-&lt;/figcaption&gt;
-&lt;/figure&gt;</description></item><item><title>Hugo Variables</title><link>https://til.neilmagee.com/posts/hugo-variables/</link><pubDate>Thu, 11 Oct 2018 12:39:12 +0100</pubDate><guid>https://til.neilmagee.com/posts/hugo-variables/</guid><description>&lt;p&gt;Today I learned that I do not know how to concatenate strings using &lt;code&gt;golang&lt;/code&gt;.&lt;/p&gt;
+    &lt;img src=&#34;https://til.neilmagee.com/images/improved-pagination/current-pagination.png&#34;
+         alt=&#34;An image of my Hugo themes current pagination&#34;loading=&#34;lazy&#34;
+    /&gt; &lt;figcaption&gt;
+            &lt;h4&gt;My current pagination&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;</description>
+    </item>
+    
+    <item>
+      <title>Hugo Variables</title>
+      <link>https://til.neilmagee.com/post/hugo-variables/</link>
+      <pubDate>Thu, 11 Oct 2018 12:39:12 +0100</pubDate>
+      
+      <guid>https://til.neilmagee.com/post/hugo-variables/</guid>
+      <description>&lt;p&gt;Today I learned that I do not know how to concatenate strings using &lt;code&gt;golang&lt;/code&gt;.&lt;/p&gt;
+
 &lt;p&gt;My &lt;a href=&#34;https://github.com/freemagee/comfortable-basic&#34;&gt;Hugo theme&lt;/a&gt; has an &amp;lsquo;about&amp;rsquo; page, which is supposed to have a conditional css class applied to the navigation when you are actually on that page. The default class is &lt;code&gt;site-header__nav-item&lt;/code&gt; and that is meant to become &lt;code&gt;site-header__nav-item active&lt;/code&gt; when visiting the &amp;lsquo;about&amp;rsquo; page. This was not happening, so I have refactored the code a little and fixed the issue.&lt;/p&gt;
+
 &lt;h3 id=&#34;the-old-code&#34;&gt;The old code&lt;/h3&gt;
+
 &lt;pre&gt;&lt;code class=&#34;language-golang&#34;&gt;&amp;lt;header class=&amp;quot;site-header&amp;quot;&amp;gt;
-&amp;lt;section class=&amp;quot;site-header__ident&amp;quot;&amp;gt;
-&amp;lt;a href=&amp;quot;{{ .Site.BaseURL }}&amp;quot; class=&amp;quot;site-header__link&amp;quot;&amp;gt;{{- .Site.Title -}}&amp;lt;/a&amp;gt;
-&amp;lt;/section&amp;gt;
-&amp;lt;nav class=&amp;quot;site-header__nav&amp;quot;&amp;gt;
-{{ with .Site.GetPage &amp;quot;about&amp;quot; }}
-&amp;lt;a href=&amp;quot;{{ .Site.BaseURL }}about/&amp;quot; class=&amp;quot;site-header__nav-item {{ if eq .URL &amp;quot;/about/&amp;quot;}}active{{ end }}&amp;quot;&amp;gt;About&amp;lt;/a&amp;gt;
-{{ end }}
-&amp;lt;/nav&amp;gt;
+  &amp;lt;section class=&amp;quot;site-header__ident&amp;quot;&amp;gt;
+    &amp;lt;a href=&amp;quot;{{ .Site.BaseURL }}&amp;quot; class=&amp;quot;site-header__link&amp;quot;&amp;gt;{{- .Site.Title -}}&amp;lt;/a&amp;gt;
+  &amp;lt;/section&amp;gt;
+  &amp;lt;nav class=&amp;quot;site-header__nav&amp;quot;&amp;gt;
+    {{ with .Site.GetPage &amp;quot;about&amp;quot; }}
+    &amp;lt;a href=&amp;quot;{{ .Site.BaseURL }}about/&amp;quot; class=&amp;quot;site-header__nav-item {{ if eq .URL &amp;quot;/about/&amp;quot;}}active{{ end }}&amp;quot;&amp;gt;About&amp;lt;/a&amp;gt;
+    {{ end }}
+  &amp;lt;/nav&amp;gt;
 &amp;lt;/header&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>Hugo deploy</title><link>https://til.neilmagee.com/posts/hugo-deploy/</link><pubDate>Wed, 10 Oct 2018 16:31:28 +0100</pubDate><guid>https://til.neilmagee.com/posts/hugo-deploy/</guid><description>&lt;p&gt;Today I had a lesson in &lt;a href=&#34;https://en.wikipedia.org/wiki/RTFM&#34;&gt;RTFM&lt;/a&gt;. I noticed my Hugo &lt;code&gt;public/&lt;/code&gt; folder had a bunch of orphaned content from a previous deploy that used dummy content. There is a clear reference to this in the &lt;a href=&#34;https://gohugo.io/getting-started/usage/#deploy-your-website&#34;&gt;Hugo documentation&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Hugo template logic</title><link>https://til.neilmagee.com/posts/hugo-templates/</link><pubDate>Mon, 08 Oct 2018 14:54:52 +0100</pubDate><guid>https://til.neilmagee.com/posts/hugo-templates/</guid><description>&lt;p&gt;Today I made some improvements to the &lt;a href=&#34;https://github.com/freemagee/comfortable-basic&#34;&gt;Hugo theme&lt;/a&gt; I created for this site. Adding some conditional statements to the templates to cater for various scenarios that don&amp;rsquo;t fit how I intend to use the theme.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>Hugo deploy</title>
+      <link>https://til.neilmagee.com/post/hugo-deploy/</link>
+      <pubDate>Wed, 10 Oct 2018 16:31:28 +0100</pubDate>
+      
+      <guid>https://til.neilmagee.com/post/hugo-deploy/</guid>
+      <description>&lt;p&gt;Today I had a lesson in &lt;a href=&#34;https://en.wikipedia.org/wiki/RTFM&#34;&gt;RTFM&lt;/a&gt;. I noticed my Hugo &lt;code&gt;public/&lt;/code&gt; folder had a bunch of orphaned content from a previous deploy that used dummy content. There is a clear reference to this in the &lt;a href=&#34;https://gohugo.io/getting-started/usage/#deploy-your-website&#34;&gt;Hugo documentation&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Hugo template logic</title>
+      <link>https://til.neilmagee.com/post/hugo-templates/</link>
+      <pubDate>Mon, 08 Oct 2018 14:54:52 +0100</pubDate>
+      
+      <guid>https://til.neilmagee.com/post/hugo-templates/</guid>
+      <description>&lt;p&gt;Today I made some improvements to the &lt;a href=&#34;https://github.com/freemagee/comfortable-basic&#34;&gt;Hugo theme&lt;/a&gt; I created for this site. Adding some conditional statements to the templates to cater for various scenarios that don&amp;rsquo;t fit how I intend to use the theme.&lt;/p&gt;
+
 &lt;p&gt;Although the theme is limited in scope, I want to eventually release it on &lt;a href=&#34;https://themes.gohugo.io/&#34;&gt;Hugo Themes&lt;/a&gt; and allow it to be flexible enough for others to use.&lt;/p&gt;
+
 &lt;h2 id=&#34;deal-with-no-posts&#34;&gt;Deal with no posts&lt;/h2&gt;
+
 &lt;p&gt;On the &lt;code&gt;layouts/partials/pagination.html&lt;/code&gt; template, it has been wrapped in&lt;/p&gt;
+
 &lt;pre&gt;&lt;code class=&#34;language-golang&#34;&gt;{{ if ne .TotalPages 0}}
-// Content
+  // Content
 {{end}}
-&lt;/code&gt;&lt;/pre&gt;</description></item></channel></rss>
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

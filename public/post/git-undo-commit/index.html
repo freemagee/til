@@ -1,0 +1,153 @@
+<!doctype html>
+<html class="no-js" lang="en-gb">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>
+  TIL
+    -
+  Undo a Git commit and redo
+</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Neil Magee">
+  <meta name="referrer" content="no-referrer-when-downgrade">
+
+  <link href="https://til.neilmagee.com/images/favicon/favicon-16x16.png" rel="shortcut icon" type="image/png">
+
+  <link rel="stylesheet" href="https://til.neilmagee.com/css/style-1b167369.css" />
+
+  
+  <link rel="stylesheet" href="https://til.neilmagee.com/css/code-highlighting-ad6ae847.css" />
+  
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <section class="site-header__ident">
+    <a href="https://til.neilmagee.com/" class="site-header__link">TIL</a>
+  </section>
+  <nav class="site-header__nav">
+  
+    <a href="https://til.neilmagee.com/about/" class="site-header__nav-item">About</a>
+  
+  </nav>
+</header>
+  <div class="site-container">
+    <div class="site-container__inner">
+      <main role="main" id="content">
+        
+  <article class="post post--single" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post__header">
+      <h1 class="post__title post__title--single" itemprop="title">Undo a Git commit and redo</h1>
+      <div class="post__meta">
+        <time class="post__date" datetime="2019-01-03" itemprop="dateCreated pubdate datePublished">
+          <span class="post__published">Published:</span>
+          <span class="post__published-value">2019-01-03</span>
+        </time>
+        
+        <ul class="post__categories">
+          
+          <li class="post__category">
+            <a href="https://til.neilmagee.com/categories/development/" class="post__category-link">development</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </header>
+    <section class="post-content">
+      <p>Today I learned how to sort out a <strong>local</strong> mistake in Git<sup>1</sup>:</p>
+
+<pre><code>$ git commit -m &quot;Something terribly misguided&quot;             # (1)
+$ git reset HEAD~                                          # (2)
+&lt;&lt; edit files as necessary &gt;&gt;                              # (3)
+$ git add ...                                              # (4)
+$ git commit -c ORIG_HEAD                                  # (5)
+</code></pre>
+
+<ol>
+<li>This is what you want to undo</li>
+<li>This leaves your working tree (the state of your files on disk) unchanged but undoes the commit and leaves the changes you committed unstaged (so they&rsquo;ll appear as &ldquo;Changes not staged for commit&rdquo; in <code>git status</code>, and you&rsquo;ll need to add them again before committing). If you only want to add more changes to the previous commit, or change the commit message<sup>2</sup>, you could use <code>git reset --soft HEAD~</code> instead, which is like <code>git reset HEAD~</code> (where <code>HEAD~</code> is the same as <code>HEAD~1</code>) but leaves your existing changes staged.</li>
+<li>Make corrections to working tree files.</li>
+<li>git add anything that you want to include in your new commit.</li>
+<li>Commit the changes, reusing the old commit message. reset copied the old head to <code>.git/ORIG_HEAD</code>; <code>commit</code> with <code>-c ORIG_HEAD</code> will open an editor, which initially contains the log message from the old commit and allows you to edit it. If you do not need to edit the message, you could use the <code>-C</code> option.</li>
+</ol>
+
+<p>Apparently the tilde character <code>~</code> is used in this example as DOS has problems with carats <code>^</code> (The <code>^</code> is a continuation character in DOS so it won&rsquo;t work properly). Otherwise the statement would be <code>git reset HEAD^</code>.</p>
+
+<p>I am normally pretty careful with my local Git operations. But sometimes using the up arrow to move through last used commands can cause premature committing!</p>
+
+<hr />
+
+<p><strong>Footnotes:</strong></p>
+
+<ol>
+<li>This is cribbed from <a href="https://stackoverflow.com/a/927386">Stack Overflow</a>. I just wanted the reference 👍</li>
+<li>Note, however, that you don&rsquo;t need to reset to an earlier commit if you just made a mistake in your commit message. The easier option is to git reset (to upstage any changes you&rsquo;ve made since) and then git commit &ndash;amend, which will open your default commit message editor pre-populated with the last commit message.</li>
+</ol>
+    </section>
+    <footer class="post__footer">
+      
+      <ul class="post__tags">
+        
+        <li class="post__tag"><a href="https://til.neilmagee.com/tags/git/" class="post__tag-link"><span class="post__tag-label">#</span>git</a></li>
+        
+      </ul>
+      
+    </footer>
+  </article>
+
+  
+<aside class="post-siblings">
+  <span class="post-siblings__more">More posts</span>
+  
+    <a class="post-siblings__nav post-siblings__nav--next" href="https://til.neilmagee.com/post/react-update-state-from-props/"><span class="post-siblings__nav-icon">
+    <svg version="1.1" id="Chevron_left" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+   y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
+    <path d="M12.452,4.516c0.446,0.436,0.481,1.043,0,1.576L8.705,10l3.747,3.908c0.481,0.533,0.446,1.141,0,1.574
+      c-0.445,0.436-1.197,0.408-1.615,0c-0.418-0.406-4.502-4.695-4.502-4.695C6.112,10.57,6,10.285,6,10s0.112-0.57,0.335-0.789
+      c0,0,4.084-4.287,4.502-4.695C11.255,4.107,12.007,4.08,12.452,4.516z" class="post-siblings__nav-icon-next" />
+    </svg>
+  </span>Next</a>
+  
+
+  
+  <a class="post-siblings__nav post-siblings__nav--previous" href="https://til.neilmagee.com/post/php-the-right-way/">Previous<span class="post-siblings__nav-icon">
+    <svg version="1.1" id="Chevron_right" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+   y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
+    <path d="M9.163,4.516c0.418,0.408,4.502,4.695,4.502,4.695C13.888,9.43,14,9.715,14,10s-0.112,0.57-0.335,0.787
+      c0,0-4.084,4.289-4.502,4.695c-0.418,0.408-1.17,0.436-1.615,0c-0.446-0.434-0.481-1.041,0-1.574L11.295,10L7.548,6.092
+      c-0.481-0.533-0.446-1.141,0-1.576C7.993,4.08,8.745,4.107,9.163,4.516z" class="post-siblings__nav-icon-previous" />
+    </svg>
+  </span></a>
+  
+</aside>
+
+
+      </main>
+      <footer class="site-footer">
+        <div class="site-footer__inner">
+          <p class="site-footer__copyright">&copy; 2019&nbsp;<a href="https://neilmagee.com">Neil Magee</a>
+          . Icons from <a href="http://entypo.com">Entypo+</a>. Made with <a href="https://gohugo.io/" class="site-footer__hugo-logo"><img src="https://til.neilmagee.com/images/hugo-logo.png" alt="Hugo logo" width="22" height="22"></a></p>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  
+<script src="https://til.neilmagee.com/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", event => {
+    document.documentElement.classList.remove("no-js");
+    document.querySelectorAll("pre:not(.chroma) code").forEach(block => {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+</body>
+</html>
