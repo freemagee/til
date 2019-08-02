@@ -1,0 +1,158 @@
+<!doctype html><html class=no-js lang=en-gb><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><title>TIL
+-
+Material UI theming and style overrides - Part 4</title><meta name=description content><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=author content="Neil Magee"><meta name=referrer content=no-referrer-when-downgrade><link href=https://til.neilmagee.com/images/favicon/favicon-16x16.png rel="shortcut icon" type=image/png><link rel=stylesheet href=https://til.neilmagee.com/css/style-16bb3f80.css><link rel=stylesheet href=https://til.neilmagee.com/css/code-highlighting-ad6ae847.css></head><body><header class=site-header><section class=site-header__ident><a href=https://til.neilmagee.com/ class=site-header__link>TIL</a></section><nav class=site-header__nav><a href=https://til.neilmagee.com/about/ class=site-header__nav-item>About</a></nav></header><div class=site-container><div class=site-container__inner><main role=main id=content><article class="post post--single" itemscope itemtype=http://schema.org/BlogPosting><header class=post__header><h1 class="post__title post__title--single" itemprop=title>Material UI theming and style overrides - Part 4</h1><div class=post__meta><time class=post__date datetime=2019-08-02 itemprop="dateCreated pubdate datePublished"><span class=post__published>Published:</span>
+<span class=post__published-value>2019-08-02</span></time><ul class=post__categories><li class=post__category><a href=https://til.neilmagee.com/categories/development/ class=post__category-link>development</a></li></ul></div></header><section class=post-content><p>Today I learned I still don&rsquo;t have a good answer when it comes to managing <strong>CSS-in-JS</strong>. <a href=https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt3/>Last time</a> I discussed this topic I had decided to make a single <code>Styles.js</code> object that contained style overrides to Material UI. I consolidated all my components styles into that <code>Styles.js</code> file. Abbreviated example below:</p><pre><code class=language-javascript>import CustomTheme from &quot;../Theme&quot;;
+
+const Styles = {
+  formPreviewContainer: {
+    maxWidth: &quot;770px&quot;,
+    paddingTop: CustomTheme.spacing(8),
+    paddingBottom: CustomTheme.spacing(8)
+  },
+  formHeader: {
+    position: &quot;relative&quot;,
+    paddingTop: CustomTheme.spacing(4),
+    paddingBottom: CustomTheme.spacing(4),
+    paddingLeft: CustomTheme.spacing(4),
+    paddingRight: CustomTheme.spacing(8),
+    marginBottom: CustomTheme.spacing(4),
+    backgroundColor: CustomTheme.palette.primary.main
+  },
+  // ... other styles omitted for brevity ...
+  textInput: {
+    &quot;&amp; .MuiInput-underline:before&quot;: {
+      borderBottom: `1px solid ${CustomTheme.palette.grey[300]}`
+    },
+    [CustomTheme.breakpoints.down(&quot;sm&quot;)]: {
+      width: &quot;100%&quot;
+    },
+    [CustomTheme.breakpoints.up(&quot;md&quot;)]: {
+      width: &quot;50%&quot;
+    }
+  },
+  textArea: {
+    width: &quot;100%&quot;,
+    &quot;&amp; .MuiInputBase-input&quot;: {
+      lineHeight: &quot;24px&quot;
+    },
+    &quot;&amp; .MuiInput-underline:before&quot;: {
+      borderBottom: `1px solid ${CustomTheme.palette.grey[300]}`
+    },
+  }
+};
+
+export default Styles;
+
+</code></pre><p>It worked, but it still did not feel right. It means the structure of practically every component in my app always includes these lines of code:</p><pre><code class=language-javascript>import { makeStyles } from '@material-ui/styles';
+import Styles from &quot;./Styles&quot;;
+
+const useStyles = makeStyles(Styles);
+
+export default function WidgetA() {
+  const classes = useStyles();
+
+}
+</code></pre><p>That means that <strong>WidgetA</strong> will import all styles from <code>Styles.js</code>. Although this isn&rsquo;t an immediate problem as the <em>CSS-in-JS</em> engine inside Material-UI ignores the styles it does not need. But as more styles are added to <code>Styles.js</code> it is becoming similar to using a single <code>Styles.css</code> file to style a complex app. Which is <strong>not</strong> something I would do and I consider that to be a regression. That is the reason I love <code>SCSS</code> partials.</p><h2 id=split-it-up>Split it up!</h2><p>Today I am beginning to break up the <code>Styles.js</code> file. First into smaller objects that all get exported like so:</p><pre><code class=language-javascript>import CustomTheme from &quot;../Theme&quot;;
+
+const form = {
+  formPreviewContainer: {
+    maxWidth: &quot;770px&quot;,
+    paddingTop: CustomTheme.spacing(8),
+    paddingBottom: CustomTheme.spacing(8)
+  },
+  formHeader: {
+    position: &quot;relative&quot;,
+    paddingTop: CustomTheme.spacing(4),
+    paddingBottom: CustomTheme.spacing(4),
+    paddingLeft: CustomTheme.spacing(4),
+    paddingRight: CustomTheme.spacing(8),
+    marginBottom: CustomTheme.spacing(4),
+    backgroundColor: CustomTheme.palette.primary.main
+  }
+};
+
+const inputs = {
+  textInput: {
+    &quot;&amp; .MuiInput-underline:before&quot;: {
+      borderBottom: `1px solid ${CustomTheme.palette.grey[300]}`
+    },
+    [CustomTheme.breakpoints.down(&quot;sm&quot;)]: {
+      width: &quot;100%&quot;
+    },
+    [CustomTheme.breakpoints.up(&quot;md&quot;)]: {
+      width: &quot;50%&quot;
+    }
+  },
+  textArea: {
+    width: &quot;100%&quot;,
+    &quot;&amp; .MuiInputBase-input&quot;: {
+      lineHeight: &quot;24px&quot;
+    },
+    &quot;&amp; .MuiInput-underline:before&quot;: {
+      borderBottom: `1px solid ${CustomTheme.palette.grey[300]}`
+    },
+  }
+};
+
+const Styles = {
+  ...form,
+  ...inputs
+};
+
+export default Styles;
+
+</code></pre><p>I am using the spread operator to clone the seperate objects into a combined <code>Styles</code> object. That means there are no breaking changes to the current code base&hellip;<em>yet</em>. I plan to now split those objects into seperate files and expose them as modules. Components can then import the styles they need.</p><h2 id=namespace-issues>Namespace issues</h2><p>Namespace issues have begun to be a problem as well, and eventually splitting the styles out should solve that problem. But it will also mean that each component will need its <code>className</code> references adjusted.</p><h3 id=old-example>Old example</h3><p>Everything has to be prefixed to make the object keys unique and understandable.</p><pre><code class=language-javascript>const Styles = {
+  formHeader: {
+    // ... styles
+  },
+  sectionHeader: {
+    // ... styles
+  },
+  questionHeader: {
+    // ... styles
+  },
+  myOtherWidgetHeader: {
+    // ... styles
+  }
+};
+</code></pre><h3 id=new-example>New example</h3><pre><code class=language-javascript>const form = {
+  header: {
+    // ... styles
+  }
+};
+
+const section = {
+  header: {
+    // ... styles
+  }
+};
+
+const question = {
+  header: {
+    // ... styles
+  }
+};
+
+const myOtherWidget = {
+  myOtherWidgetHeader: {
+    // ... styles
+  }
+};
+</code></pre><h3 id=future-example>Future example</h3><pre><code class=language-javascript>// form.js
+const form = {
+  header: {
+    // ... styles
+  }
+};
+
+export default form;
+</code></pre><pre><code class=language-javascript>// section.js
+const section = {
+  header: {
+    // ... styles
+  }
+};
+
+export default section;
+</code></pre></section><footer class=post__footer><ul class=post__tags><li class=post__tag><a href=https://til.neilmagee.com/tags/react/ class=post__tag-link><span class=post__tag-label>#</span>react</a></li><li class=post__tag><a href=https://til.neilmagee.com/tags/material-ui/ class=post__tag-link><span class=post__tag-label>#</span>material-ui</a></li></ul></footer></article><aside class=post-siblings><nav class=post-siblings__ctrl><a class="post-siblings__nav post-siblings__nav--previous" href=https://til.neilmagee.com/post/hugo-pagination/>Previous<span class=post-siblings__nav-icon><svg id="Chevron_right" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 20" enable-background="new 0 0 20 20"><path d="M9.163 4.516c.418.408 4.502 4.695 4.502 4.695C13.888 9.43 14 9.715 14 10s-.112.57-.335.787c0 0-4.084 4.289-4.502 4.695-.418.408-1.17.436-1.615.0-.446-.434-.481-1.041.0-1.574L11.295 10 7.548 6.092c-.481-.533-.446-1.141.0-1.576C7.993 4.08 8.745 4.107 9.163 4.516z" class="post-siblings__nav-icon-previous" /></svg></span></a></nav><span class=post-siblings__more>More posts</span></aside></main><footer class=site-footer><div class=site-footer__inner><p class=site-footer__copyright>&copy; 2019&nbsp;<a href=https://neilmagee.com>Neil Magee</a>
+. Icons from <a href=http://entypo.com>Entypo+</a>. Made with <a href=https://gohugo.io/ class=site-footer__hugo-logo><img src=https://til.neilmagee.com/images/hugo-logo.png alt="Hugo logo" width=22 height=22></a></p></div></footer></div></div><script src=https://til.neilmagee.com/js/highlight.pack.js></script><script>document.addEventListener("DOMContentLoaded",event=>{document.documentElement.classList.remove("no-js");document.querySelectorAll("pre:not(.chroma) code").forEach(block=>{hljs.highlightBlock(block);});});</script></body></html>

@@ -1,4 +1,44 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>react on TIL</title><link>https://til.neilmagee.com/tags/react/</link><description>Recent content in react on TIL</description><generator>Hugo -- gohugo.io</generator><language>en-gb</language><lastBuildDate>Tue, 25 Jun 2019 10:17:37 +0100</lastBuildDate><atom:link href="https://til.neilmagee.com/tags/react/index.xml" rel="self" type="application/rss+xml"/><item><title>React Redux is pretty great!</title><link>https://til.neilmagee.com/post/react-redux-is-pretty-great/</link><pubDate>Tue, 25 Jun 2019 10:17:37 +0100</pubDate><guid>https://til.neilmagee.com/post/react-redux-is-pretty-great/</guid><description>&lt;p&gt;Today I learned to really appreciate &lt;a href=&#34;https://react-redux.js.org/&#34;&gt;React Redux&lt;/a&gt;. I have used &lt;a href=&#34;https://redux.js.org/introduction/prior-art#flux&#34;&gt;Flux&lt;/a&gt; like patterns only a handful of times. Mainly in Vue using &lt;a href=&#34;https://vuex.vuejs.org/&#34;&gt;Vuex&lt;/a&gt;. But it&amp;rsquo;s been a while since I last used one.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>react on TIL</title><link>https://til.neilmagee.com/tags/react/</link><description>Recent content in react on TIL</description><generator>Hugo -- gohugo.io</generator><language>en-gb</language><lastBuildDate>Fri, 02 Aug 2019 14:49:47 +0100</lastBuildDate><atom:link href="https://til.neilmagee.com/tags/react/index.xml" rel="self" type="application/rss+xml"/><item><title>Material UI theming and style overrides - Part 4</title><link>https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt4/</link><pubDate>Fri, 02 Aug 2019 14:49:47 +0100</pubDate><guid>https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt4/</guid><description>&lt;p&gt;Today I learned I still don&amp;rsquo;t have a good answer when it comes to managing &lt;strong&gt;CSS-in-JS&lt;/strong&gt;. &lt;a href=&#34;https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt3/&#34;&gt;Last time&lt;/a&gt; I discussed this topic I had decided to make a single &lt;code&gt;Styles.js&lt;/code&gt; object that contained style overrides to Material UI. I consolidated all my components styles into that &lt;code&gt;Styles.js&lt;/code&gt; file. Abbreviated example below:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;import CustomTheme from &amp;quot;../Theme&amp;quot;;
+const Styles = {
+formPreviewContainer: {
+maxWidth: &amp;quot;770px&amp;quot;,
+paddingTop: CustomTheme.spacing(8),
+paddingBottom: CustomTheme.spacing(8)
+},
+formHeader: {
+position: &amp;quot;relative&amp;quot;,
+paddingTop: CustomTheme.spacing(4),
+paddingBottom: CustomTheme.spacing(4),
+paddingLeft: CustomTheme.spacing(4),
+paddingRight: CustomTheme.spacing(8),
+marginBottom: CustomTheme.spacing(4),
+backgroundColor: CustomTheme.palette.primary.main
+},
+// ... other styles omitted for brevity ...
+textInput: {
+&amp;quot;&amp;amp; .MuiInput-underline:before&amp;quot;: {
+borderBottom: `1px solid ${CustomTheme.palette.grey[300]}`
+},
+[CustomTheme.breakpoints.down(&amp;quot;sm&amp;quot;)]: {
+width: &amp;quot;100%&amp;quot;
+},
+[CustomTheme.breakpoints.up(&amp;quot;md&amp;quot;)]: {
+width: &amp;quot;50%&amp;quot;
+}
+},
+textArea: {
+width: &amp;quot;100%&amp;quot;,
+&amp;quot;&amp;amp; .MuiInputBase-input&amp;quot;: {
+lineHeight: &amp;quot;24px&amp;quot;
+},
+&amp;quot;&amp;amp; .MuiInput-underline:before&amp;quot;: {
+borderBottom: `1px solid ${CustomTheme.palette.grey[300]}`
+},
+}
+};
+export default Styles;
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>React Redux is pretty great!</title><link>https://til.neilmagee.com/post/react-redux-is-pretty-great/</link><pubDate>Tue, 25 Jun 2019 10:17:37 +0100</pubDate><guid>https://til.neilmagee.com/post/react-redux-is-pretty-great/</guid><description>&lt;p&gt;Today I learned to really appreciate &lt;a href=&#34;https://react-redux.js.org/&#34;&gt;React Redux&lt;/a&gt;. I have used &lt;a href=&#34;https://redux.js.org/introduction/prior-art#flux&#34;&gt;Flux&lt;/a&gt; like patterns only a handful of times. Mainly in Vue using &lt;a href=&#34;https://vuex.vuejs.org/&#34;&gt;Vuex&lt;/a&gt;. But it&amp;rsquo;s been a while since I last used one.&lt;/p&gt;
 &lt;p&gt;I am in the middle of building a prototype App in React and the &lt;em&gt;&amp;ldquo;main&amp;rdquo;&lt;/em&gt; component was becoming unwieldy. It contained all the main state, all the functions that were passed to child components as props and the way things were going, it was about to become responsible for asyncronous data as well. That is too much for one component.&lt;/p&gt;</description></item><item><title>Controlled inputs and performance</title><link>https://til.neilmagee.com/post/controlled-inputs-performance/</link><pubDate>Tue, 04 Jun 2019 09:48:31 +0100</pubDate><guid>https://til.neilmagee.com/post/controlled-inputs-performance/</guid><description>&lt;p&gt;Today I learned about the performance impact of using &lt;a href=&#34;https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/&#34;&gt;controlled inputs&lt;/a&gt; in React.&lt;/p&gt;
 &lt;p&gt;I noticed that once I had multiples of a component I&amp;rsquo;d made on screen &lt;em&gt;(that included text inputs)&lt;/em&gt; the typing performance would begin to lag. It also got exponentially worse for each additional component.&lt;/p&gt;
 &lt;h2 id=&#34;onchange-vs-onblur&#34;&gt;onChange vs onBlur&lt;/h2&gt;

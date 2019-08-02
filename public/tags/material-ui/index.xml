@@ -1,4 +1,44 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>material-ui on TIL</title><link>https://til.neilmagee.com/tags/material-ui/</link><description>Recent content in material-ui on TIL</description><generator>Hugo -- gohugo.io</generator><language>en-gb</language><lastBuildDate>Fri, 31 May 2019 14:54:14 +0100</lastBuildDate><atom:link href="https://til.neilmagee.com/tags/material-ui/index.xml" rel="self" type="application/rss+xml"/><item><title>Material UI theming and style overrides - Part 3</title><link>https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt3/</link><pubDate>Fri, 31 May 2019 14:54:14 +0100</pubDate><guid>https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt3/</guid><description>&lt;p&gt;Today I learned more about sharing styles across React components. Although CSS-in-JS is new to me, it is pretty easy to pick up (&lt;em&gt;Although I have not formed a final opinion on it yet&amp;hellip;&lt;/em&gt;). I think Material UI uses &lt;a href=&#34;https://github.com/cssinjs/react-jss&#34;&gt;React JSS&lt;/a&gt; under the hood, so a style can be written as an object:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>material-ui on TIL</title><link>https://til.neilmagee.com/tags/material-ui/</link><description>Recent content in material-ui on TIL</description><generator>Hugo -- gohugo.io</generator><language>en-gb</language><lastBuildDate>Fri, 02 Aug 2019 14:49:47 +0100</lastBuildDate><atom:link href="https://til.neilmagee.com/tags/material-ui/index.xml" rel="self" type="application/rss+xml"/><item><title>Material UI theming and style overrides - Part 4</title><link>https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt4/</link><pubDate>Fri, 02 Aug 2019 14:49:47 +0100</pubDate><guid>https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt4/</guid><description>&lt;p&gt;Today I learned I still don&amp;rsquo;t have a good answer when it comes to managing &lt;strong&gt;CSS-in-JS&lt;/strong&gt;. &lt;a href=&#34;https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt3/&#34;&gt;Last time&lt;/a&gt; I discussed this topic I had decided to make a single &lt;code&gt;Styles.js&lt;/code&gt; object that contained style overrides to Material UI. I consolidated all my components styles into that &lt;code&gt;Styles.js&lt;/code&gt; file. Abbreviated example below:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;import CustomTheme from &amp;quot;../Theme&amp;quot;;
+const Styles = {
+formPreviewContainer: {
+maxWidth: &amp;quot;770px&amp;quot;,
+paddingTop: CustomTheme.spacing(8),
+paddingBottom: CustomTheme.spacing(8)
+},
+formHeader: {
+position: &amp;quot;relative&amp;quot;,
+paddingTop: CustomTheme.spacing(4),
+paddingBottom: CustomTheme.spacing(4),
+paddingLeft: CustomTheme.spacing(4),
+paddingRight: CustomTheme.spacing(8),
+marginBottom: CustomTheme.spacing(4),
+backgroundColor: CustomTheme.palette.primary.main
+},
+// ... other styles omitted for brevity ...
+textInput: {
+&amp;quot;&amp;amp; .MuiInput-underline:before&amp;quot;: {
+borderBottom: `1px solid ${CustomTheme.palette.grey[300]}`
+},
+[CustomTheme.breakpoints.down(&amp;quot;sm&amp;quot;)]: {
+width: &amp;quot;100%&amp;quot;
+},
+[CustomTheme.breakpoints.up(&amp;quot;md&amp;quot;)]: {
+width: &amp;quot;50%&amp;quot;
+}
+},
+textArea: {
+width: &amp;quot;100%&amp;quot;,
+&amp;quot;&amp;amp; .MuiInputBase-input&amp;quot;: {
+lineHeight: &amp;quot;24px&amp;quot;
+},
+&amp;quot;&amp;amp; .MuiInput-underline:before&amp;quot;: {
+borderBottom: `1px solid ${CustomTheme.palette.grey[300]}`
+},
+}
+};
+export default Styles;
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>Material UI theming and style overrides - Part 3</title><link>https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt3/</link><pubDate>Fri, 31 May 2019 14:54:14 +0100</pubDate><guid>https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt3/</guid><description>&lt;p&gt;Today I learned more about sharing styles across React components. Although CSS-in-JS is new to me, it is pretty easy to pick up (&lt;em&gt;Although I have not formed a final opinion on it yet&amp;hellip;&lt;/em&gt;). I think Material UI uses &lt;a href=&#34;https://github.com/cssinjs/react-jss&#34;&gt;React JSS&lt;/a&gt; under the hood, so a style can be written as an object:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;import React from &#39;react&#39;;
 import { makeStyles } from &#39;@material-ui/styles&#39;;
 const useStyles = makeStyles({
