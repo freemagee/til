@@ -1,4 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>material-ui on TIL</title><link>https://til.neilmagee.com/tags/material-ui/</link><description>Recent content in material-ui on TIL</description><generator>Hugo -- gohugo.io</generator><language>en-gb</language><lastBuildDate>Fri, 02 Aug 2019 14:49:47 +0100</lastBuildDate><atom:link href="https://til.neilmagee.com/tags/material-ui/index.xml" rel="self" type="application/rss+xml"/><item><title>Material UI theming and style overrides - Part 4</title><link>https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt4/</link><pubDate>Fri, 02 Aug 2019 14:49:47 +0100</pubDate><guid>https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt4/</guid><description>&lt;p&gt;Today I learned I still don&amp;rsquo;t have a good answer when it comes to managing &lt;strong&gt;CSS-in-JS&lt;/strong&gt;. &lt;a href=&#34;https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt3/&#34;&gt;Last time&lt;/a&gt; I discussed this topic I had decided to make a single &lt;code&gt;Styles.js&lt;/code&gt; object that contained style overrides to Material UI. I consolidated all my components styles into that &lt;code&gt;Styles.js&lt;/code&gt; file. Abbreviated example below:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>material-ui on TIL</title><link>https://til.neilmagee.com/tags/material-ui/</link><description>Recent content in material-ui on TIL</description><generator>Hugo -- gohugo.io</generator><language>en-gb</language><lastBuildDate>Mon, 05 Aug 2019 11:54:29 +0100</lastBuildDate><atom:link href="https://til.neilmagee.com/tags/material-ui/index.xml" rel="self" type="application/rss+xml"/><item><title>Material UI theming and style overrides - Part 5</title><link>https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt5/</link><pubDate>Mon, 05 Aug 2019 11:54:29 +0100</pubDate><guid>https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt5/</guid><description>&lt;p&gt;Today I learned that sometimes a &lt;strong&gt;refactor&lt;/strong&gt; is not always better, just &lt;em&gt;different&lt;/em&gt;. I followed through with my plan to split my styles out into individual modules:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;// Example styles module &#39;body.js&#39;
+import CustomTheme from &amp;quot;../../Theme&amp;quot;;
+export default {
+formBuilder: {
+paddingBottom: CustomTheme.spacing(8)
+},
+formBuilderContainer: {
+maxWidth: &amp;quot;770px&amp;quot;,
+padding: 0
+}
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;That module sits in a &lt;code&gt;/Styles&lt;/code&gt; folder, at the same level as my container component, and is exposed via an &lt;code&gt;index.js&lt;/code&gt; file like so:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;export { default as body } from &amp;quot;./body&amp;quot;;
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>Material UI theming and style overrides - Part 4</title><link>https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt4/</link><pubDate>Fri, 02 Aug 2019 14:49:47 +0100</pubDate><guid>https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt4/</guid><description>&lt;p&gt;Today I learned I still don&amp;rsquo;t have a good answer when it comes to managing &lt;strong&gt;CSS-in-JS&lt;/strong&gt;. &lt;a href=&#34;https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt3/&#34;&gt;Last time&lt;/a&gt; I discussed this topic I had decided to make a single &lt;code&gt;Styles.js&lt;/code&gt; object that contained style overrides to Material UI. I consolidated all my components styles into that &lt;code&gt;Styles.js&lt;/code&gt; file. Abbreviated example below:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;import CustomTheme from &amp;quot;../Theme&amp;quot;;
 const Styles = {
 formPreviewContainer: {

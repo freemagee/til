@@ -1,0 +1,72 @@
+<!doctype html><html class=no-js lang=en-gb><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><title>TIL
+-
+Material UI theming and style overrides - Part 5</title><meta name=description content><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=author content="Neil Magee"><meta name=referrer content=no-referrer-when-downgrade><link href=https://til.neilmagee.com/images/favicon/favicon-16x16.png rel="shortcut icon" type=image/png><link rel=stylesheet href=https://til.neilmagee.com/css/style-16bb3f80.css><link rel=stylesheet href=https://til.neilmagee.com/css/code-highlighting-ad6ae847.css></head><body><header class=site-header><section class=site-header__ident><a href=https://til.neilmagee.com/ class=site-header__link>TIL</a></section><nav class=site-header__nav><a href=https://til.neilmagee.com/about/ class=site-header__nav-item>About</a></nav></header><div class=site-container><div class=site-container__inner><main role=main id=content><article class="post post--single" itemscope itemtype=http://schema.org/BlogPosting><header class=post__header><h1 class="post__title post__title--single" itemprop=title>Material UI theming and style overrides - Part 5</h1><div class=post__meta><time class=post__date datetime=2019-08-05 itemprop="dateCreated pubdate datePublished"><span class=post__published>Published:</span>
+<span class=post__published-value>2019-08-05</span></time><ul class=post__categories><li class=post__category><a href=https://til.neilmagee.com/categories/development/ class=post__category-link>development</a></li></ul></div></header><section class=post-content><p>Today I learned that sometimes a <strong>refactor</strong> is not always better, just <em>different</em>. I followed through with my plan to split my styles out into individual modules:</p><pre><code class=language-javascript>// Example styles module 'body.js'
+import CustomTheme from &quot;../../Theme&quot;;
+
+export default {
+  formBuilder: {
+    paddingBottom: CustomTheme.spacing(8)
+  },
+  formBuilderContainer: {
+    maxWidth: &quot;770px&quot;,
+    padding: 0
+  }
+};
+</code></pre><p>That module sits in a <code>/Styles</code> folder, at the same level as my container component, and is exposed via an <code>index.js</code> file like so:</p><pre><code class=language-javascript>export { default as body } from &quot;./body&quot;;
+</code></pre><p>Then the components that require those styles can access them via:</p><pre><code class=language-javascript>// Material UI
+import { makeStyles } from &quot;@material-ui/core/styles&quot;;
+// App custom
+import { body } from &quot;./Styles/&quot;;
+
+const useStyles = makeStyles({ ...body });
+
+const FormBuilder = () =&gt; {
+  const classes = useStyles();
+
+  return (
+    &lt;Container className={classes.formBuilderContainer} maxWidth={false}&gt;
+      &lt;p&gt;Content...&lt;/p&gt;
+    &lt;/Container&gt;
+  )
+
+};
+
+export default FormBuilder;
+</code></pre><p>That covers the basics of what I did. I do not feel like it was a <strong>big</strong> win, but maybe a <em>small</em> one. I now have seperate style modules. Which is good. But I have not fixed the namespace issues I mentioned in my <a href=https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt4/#namespace-issues>previous post</a>.</p><h2 id=namespace-issues-hellip-again>Namespace issues&hellip;again</h2><p>I believed that I would get to a point where my style modules would be similar to this:</p><pre><code class=language-javascript>// form.js
+const form = {
+  header: {
+    // ... styles
+  }
+};
+
+export default form;
+</code></pre><pre><code class=language-javascript>// section.js
+const section = {
+  header: {
+    // ... styles
+  }
+};
+
+export default section;
+</code></pre><p>And that a component that needs access to <code>form</code> and <code>section</code> styles could import both modules and would eventually access the styles via syntax such as <code>className={classes.form.header}</code>. It turns out my assumption was wrong. Material UI&rsquo;s <code>makeStyles</code> API takes an object and generates class names from it. So to feed an object to <code>makeStyles</code> you could do:</p><pre><code class=language-javascript>const useStyles = makeStyles({ ...form, ...section });
+// or
+const useStyles = makeStyles(Object.assign({}, form, section));
+</code></pre><p>That would mean the <code>header</code> property from <code>section</code> would overwrite the same property in <code>form</code> and the unique style would no longer be available.</p><p>So namespacing the property names is still important and for now, it seems like the style object would have to follow this pattern:</p><pre><code class=language-javascript>// form.js
+const form = {
+  formHeader: {
+    // ... styles
+  }
+};
+
+export default form;
+</code></pre><pre><code class=language-javascript>// section.js
+const section = {
+  sectionHeader: {
+    // ... styles
+  }
+};
+
+export default section;
+</code></pre><p>If I find out a different way, I am sure to make a note of it here!</p></section><footer class=post__footer><ul class=post__tags><li class=post__tag><a href=https://til.neilmagee.com/tags/react/ class=post__tag-link><span class=post__tag-label>#</span>react</a></li><li class=post__tag><a href=https://til.neilmagee.com/tags/material-ui/ class=post__tag-link><span class=post__tag-label>#</span>material-ui</a></li></ul></footer></article><aside class=post-siblings><nav class=post-siblings__ctrl><a class="post-siblings__nav post-siblings__nav--previous" href=https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt4/>Previous<span class=post-siblings__nav-icon><svg id="Chevron_right" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 20" enable-background="new 0 0 20 20"><path d="M9.163 4.516c.418.408 4.502 4.695 4.502 4.695C13.888 9.43 14 9.715 14 10s-.112.57-.335.787c0 0-4.084 4.289-4.502 4.695-.418.408-1.17.436-1.615.0-.446-.434-.481-1.041.0-1.574L11.295 10 7.548 6.092c-.481-.533-.446-1.141.0-1.576C7.993 4.08 8.745 4.107 9.163 4.516z" class="post-siblings__nav-icon-previous" /></svg></span></a></nav><span class=post-siblings__more>More posts</span></aside></main><footer class=site-footer><div class=site-footer__inner><p class=site-footer__copyright>&copy; 2019&nbsp;<a href=https://neilmagee.com>Neil Magee</a>
+. Icons from <a href=http://entypo.com>Entypo+</a>. Made with <a href=https://gohugo.io/ class=site-footer__hugo-logo><img src=https://til.neilmagee.com/images/hugo-logo.png alt="Hugo logo" width=22 height=22></a></p></div></footer></div></div><script src=https://til.neilmagee.com/js/highlight.pack.js></script><script>document.addEventListener("DOMContentLoaded",event=>{document.documentElement.classList.remove("no-js");document.querySelectorAll("pre:not(.chroma) code").forEach(block=>{hljs.highlightBlock(block);});});</script></body></html>
