@@ -1,4 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Post on TIL</title><link>https://til.neilmagee.com/post/</link><description>Recent content in Post on TIL</description><generator>Hugo -- gohugo.io</generator><language>en-gb</language><lastBuildDate>Mon, 05 Aug 2019 11:54:29 +0100</lastBuildDate><atom:link href="https://til.neilmagee.com/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Material UI theming and style overrides - Part 5</title><link>https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt5/</link><pubDate>Mon, 05 Aug 2019 11:54:29 +0100</pubDate><guid>https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt5/</guid><description>&lt;p&gt;Today I learned that sometimes a &lt;strong&gt;refactor&lt;/strong&gt; is not always better, just &lt;em&gt;different&lt;/em&gt;. I followed through with my plan to split my styles out into individual modules:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Post on TIL</title><link>https://til.neilmagee.com/post/</link><description>Recent content in Post on TIL</description><generator>Hugo -- gohugo.io</generator><language>en-gb</language><lastBuildDate>Thu, 08 Aug 2019 14:49:02 +0100</lastBuildDate><atom:link href="https://til.neilmagee.com/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Controlling Tailwind</title><link>https://til.neilmagee.com/post/controlling-tailwind/</link><pubDate>Thu, 08 Aug 2019 14:49:02 +0100</pubDate><guid>https://til.neilmagee.com/post/controlling-tailwind/</guid><description>&lt;p&gt;Today I learned how to control &lt;a href=&#34;https://tailwindcss.com&#34;&gt;Tailwind&lt;/a&gt;. I am planning on using &lt;strong&gt;Tailwind&lt;/strong&gt; on an upcoming project and in order to put something new like this onto a production website, I need to understand it deeply.&lt;/p&gt;
+&lt;h2 id=&#34;tailwind-out-of-the-box&#34;&gt;Tailwind out of the box&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-css&#34;&gt;/* input.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;// tailwind.config.js
+module.exports = {
+theme: {},
+variants: {},
+plugins: []
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# command
+tailwind build input.css -o output.css
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Putting the above together and running the command will output a &lt;code&gt;css&lt;/code&gt; file that is &lt;strong&gt;54309&lt;/strong&gt; lines of code and &lt;strong&gt;854.59KB&lt;/strong&gt; in file size! The developers talk about this on the &lt;a href=&#34;https://tailwindcss.com/docs/controlling-file-size&#34;&gt;official site&lt;/a&gt; and it is not the recommended way to use Tailwind. What I needed to know was what config settings could create a very minimal output that I could add to as I needed it.&lt;/p&gt;</description></item><item><title>Material UI theming and style overrides - Part 5</title><link>https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt5/</link><pubDate>Mon, 05 Aug 2019 11:54:29 +0100</pubDate><guid>https://til.neilmagee.com/post/material-ui-theming-and-style-overrides-pt5/</guid><description>&lt;p&gt;Today I learned that sometimes a &lt;strong&gt;refactor&lt;/strong&gt; is not always better, just &lt;em&gt;different&lt;/em&gt;. I followed through with my plan to split my styles out into individual modules:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;// Example styles module &#39;body.js&#39;
 import CustomTheme from &amp;quot;../../Theme&amp;quot;;
 export default {
