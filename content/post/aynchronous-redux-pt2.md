@@ -1,6 +1,6 @@
 ---
 title: "Asynchronous redux - Part 2"
-date: 
+date: 2019-11-12T19:31:41+00:00
 categories:
   - development
 tags:
