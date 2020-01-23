@@ -8,7 +8,7 @@ tags:
   - redux
 ---
 
-Following on from my [previous post](https://til.neilmagee.com/post/aynchronous-redux/), I am going to show a real example of asynchronous redux. The pattern below is used in many places in the app I am working on. It provides control for what is going to happen when the app needs to request/interact with data from the API.
+Following on from my [previous post](https://til.neilmagee.com/post/asynchronous-redux/), I am going to show a real example of asynchronous redux. The pattern below is used in many places in the app I am working on. It provides control for what is going to happen when the app needs to request/interact with data from the API.
 <!--more-->
 
 ## First, creating some thunks
