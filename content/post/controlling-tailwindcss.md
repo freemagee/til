@@ -1,5 +1,5 @@
 ---
-title: "Controlling Tailwind"
+title: "Controlling Tailwindcss"
 date: 2019-08-08T14:49:02+01:00
 categories:
   - development
@@ -7,9 +7,9 @@ tags:
   - css
 ---
 
-Today I learned how to control [Tailwind](https://tailwindcss.com). I am planning on using **Tailwind** on an upcoming project and in order to put something new like this onto a production website, I need to understand it deeply.
+Today I learned how to control [Tailwindcss](https://tailwindcss.com). I am planning on using **Tailwindcss** on an upcoming project and in order to put something new like this onto a production website, I need to understand it deeply.
 
-## Tailwind out of the box
+## Tailwindcss out of the box
 
 ```css
 /* input.css */
@@ -34,7 +34,7 @@ module.exports = {
 tailwind build input.css -o output.css
 ```
 
-Putting the above together and running the command will output a `css` file that is **54309** lines of code and **854.59KB** in file size! The developers  talk about this on the [official site](https://tailwindcss.com/docs/controlling-file-size) and it is not the recommended way to use Tailwind. What I needed to know was what config settings could create a very minimal output that I could add to as I needed it.
+Putting the above together and running the command will output a `css` file that is **54309** lines of code and **854.59KB** in file size! The developers  talk about this on the [official site](https://tailwindcss.com/docs/controlling-file-size) and it is not the recommended way to use Tailwindcss. What I needed to know was what config settings could create a very minimal output that I could add to as I needed it.
 <!--more-->
 
 ### Extreme - output no styles
@@ -103,7 +103,7 @@ module.exports = {
 };
 ```
 
-This config is contrived, but it is beginning to show the control the config has over the output `css`. It has default colour overrides, custom colours, white listing of Tailwind corePlugins, a custom spacing value, breakpoint overrides and responsive classes only for the `container` corePlugin.
+This config is contrived, but it is beginning to show the control the config has over the output `css`. It has default colour overrides, custom colours, white listing of Tailwindcss corePlugins, a custom spacing value, breakpoint overrides and responsive classes only for the `container` corePlugin.
 
 More importantly, I have full control of the output `css`. Running the build command results in the output below. Knowing all this gives me the confidence to use this on a production site.
 
