@@ -5,6 +5,7 @@ paginate = 7
 theme = "comfortable-basic"
 pluralizelisttitles = false
 pygmentsUseClasses = true
+enableRobotsTXT = false
 
 [params]
   author = "Neil Magee"
