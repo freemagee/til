@@ -8,7 +8,7 @@ tags:
   - css
 ---
 
-Today I learned more about controlling [Tailwindcss](https://tailwindcss.com) output CSS. Based on my [previous post](https://til.neilmagee.com/post/controlling-tailwind/) I am now in a position to use Tailwindcss on a client project. That means I have been digging into the documentation and that has revealed to me a few more intricacies of the `tailwind.config.js`.
+Today I learned more about controlling [Tailwindcss](https://tailwindcss.com) output CSS. Based on my [previous post](https://til.neilmagee.com/post/controlling-tailwindcss/) I am now in a position to use Tailwindcss on a client project. That means I have been digging into the documentation and that has revealed to me a few more intricacies of the `tailwind.config.js`.
 
 I started off by adding only the corePlugins I wanted to use to the config. But as that list grew it became clear that selectively disabling corePlugins was going to be simpler than adding the ones I wanted to use.
 

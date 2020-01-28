@@ -9,7 +9,7 @@ tags:
   - redux
 ---
 
-Following on from my [previous post](https://til.neilmagee.com/post/asynchronous-redux/), I am going to show a real example of asynchronous redux. The pattern below is used in many places in the app I am working on. It provides control for what is going to happen when the app needs to request/interact with data from the API.
+Following on from my [previous post](https://til.neilmagee.com/post/asynchronous-redux-pt1/), I am going to show a real example of asynchronous redux. The pattern below is used in many places in the app I am working on. It provides control for what is going to happen when the app needs to request/interact with data from the API.
 <!--more-->
 
 ## First, creating some thunks
@@ -95,7 +95,7 @@ export default requestQuestionOrderChange;
 
 ## Example of usage within component
 
-This is an example of using `requestQuestionOrderChange` within a component. It is passed in using [`mapDispatchToProps`](mapDispatchToProps) from React Redux. In the app I am working on, it displays a success message, closes a dialog etc.
+This is an example of using `requestQuestionOrderChange` within a component. It is passed in using [`mapDispatchToProps`](https://react-redux.js.org/using-react-redux/connect-mapdispatch) from React Redux. In the app I am working on, it displays a success message, closes a dialog etc.
 
 ```javascript
 //---- Within a component

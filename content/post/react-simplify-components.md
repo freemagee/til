@@ -8,7 +8,7 @@ tags:
   - react
 ---
 
-Today I learned a bit more about why setting props against state is considered an anti-pattern. After my [previous article](https://til.neilmagee.com/posts/react-update-state-from-props/), I was not happy with the component. It still felt like `getDerivedStateFromProps` was a hack rather than a maintainable fix. Plus in using the component, I was still triggering bugs that were quite situational.
+Today I learned a bit more about why setting props against state is considered an anti-pattern. After my [previous article](https://til.neilmagee.com/post/react-update-state-from-props/), I was not happy with the component. It still felt like `getDerivedStateFromProps` was a hack rather than a maintainable fix. Plus in using the component, I was still triggering bugs that were quite situational.
 
 I read more on [the react blog](https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html#recap) and the recap really nailed what I needed to do.
 

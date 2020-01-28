@@ -121,4 +121,4 @@ serial(promiseArray).then(() => {
 
 [Live example](https://jsbin.com/sikacovila/edit?js,console)
 
-So now I had a way to control the sequence of execution of async actions in my app. I will show the pattern of how this is used in my app in the upcoming [Part 2](https://til.neilmagee.com/post/aynchronous-redux-pt2/).
+So now I had a way to control the sequence of execution of async actions in my app. I will show the pattern of how this is used in my app in the upcoming [Part 2](https://til.neilmagee.com/post/asynchronous-redux-pt2/).
