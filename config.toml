@@ -12,6 +12,7 @@ enableRobotsTXT = false
   authorwebsite = "https://neilmagee.com"
   useHighlightJS = true
   description = "A blog for Neil Magee, a Lead Front-end Developer. Showing code examples of CSS, JavaScript, React and other areas of web development."
+  keywords = [ "front-end", "developer", "javascript", "css", "react" ]
 
 [taxonomies]
   category = "categories"
