@@ -1,6 +1,7 @@
 ---
 title: "Tachyons Components"
 date: 2018-11-19T14:54:11Z
+description: "Taking control of your component CSS with Tachyons"
 categories:
   - development
 tags:

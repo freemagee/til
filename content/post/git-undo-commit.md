@@ -1,6 +1,7 @@
 ---
 title: "Undo a Git commit and redo"
 date: 2019-01-03T14:52:45+00:00
+description: "How to undo a Git commit, make and edit and re-commit"
 categories:
   - development
 tags:

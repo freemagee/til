@@ -1,6 +1,7 @@
 ---
 title: "Subtle art of performance wins"
 date: 2019-12-12T09:45:52+00:00
+description: "How to improve JavaScript performance by refactoring your code"
 categories:
   - development
 tags:

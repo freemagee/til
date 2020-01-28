@@ -1,6 +1,7 @@
 ---
 title: "Controlling Tailwindcss"
 date: 2019-08-08T14:49:02+01:00
+description: "What Tailwindcss config settings can control CSS bundle file size"
 categories:
   - development
 tags:
@@ -103,7 +104,7 @@ module.exports = {
 };
 ```
 
-This config is contrived, but it is beginning to show the control the config has over the output `css`. It has default colour overrides, custom colours, white listing of Tailwindcss corePlugins, a custom spacing value, breakpoint overrides and responsive classes only for the `container` corePlugin.
+This config is contrived, but it is beginning to show the control the config has over the output `css`. It has default colour overrides, custom colours, whitelisting of Tailwindcss corePlugins, a custom spacing value, breakpoint overrides and responsive classes only for the `container` corePlugin.
 
 More importantly, I have full control of the output `css`. Running the build command results in the output below. Knowing all this gives me the confidence to use this on a production site.
 
@@ -266,3 +267,6 @@ Saved to output.css
 }
 ```
 
+**Update: 2020-01-28**
+
+I have spent a bit more time with Tailwindcss and have made some steps forward in understanding how to limit the CSS bundle that is generated. See my updated post, [Tailwindcss configs](https://til.neilmagee.com/post/tailwindcss-configs/).

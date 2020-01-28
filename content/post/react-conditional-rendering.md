@@ -1,6 +1,7 @@
 ---
 title: "React Conditional Rendering"
 date: 2018-11-05T17:13:02Z
+description: "How to conditionally render components using React in your app"
 categories:
   - development
 tags:

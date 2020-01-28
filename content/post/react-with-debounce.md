@@ -1,6 +1,7 @@
 ---
 title: "React With Debounce"
 date: 2018-10-24T20:10:38+01:00
+description: "How to debounce inputs in React using lodash"
 categories:
   - development
 tags:

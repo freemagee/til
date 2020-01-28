@@ -1,6 +1,7 @@
 ---
 title: "Asynchronous redux - Part 1"
 date: 2019-10-28T09:29:17+00:00
+description: "How to use Redux Thunk to make asynchronous data requests in React"
 categories:
   - development
 tags:

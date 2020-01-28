@@ -1,6 +1,7 @@
 ---
 title: "Front-end test drive: Material UI"
 date: 2019-05-16T16:37:08+01:00
+description: "The basics of using Material UI to build a React app"
 categories:
   - development
 tags:

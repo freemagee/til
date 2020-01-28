@@ -1,6 +1,7 @@
 ---
 title: "Tailwindcss configs"
 date: 2020-01-23T10:02:46+00:00
+description: "How to control Tailwindcss output file size using config"
 categories:
   - development
 tags:
@@ -40,3 +41,7 @@ variants: {
 ```
 
 This could then only generate the positive margin values. This may be a good opportunity to contribute to some open source code!
+
+**Update: 2020-01-28**
+
+I did the easy thing and opened an [issue on negative margins on the Tailwindcss repo](https://github.com/tailwindcss/tailwindcss/issues/1332). Maybe it will end up in a useful change!

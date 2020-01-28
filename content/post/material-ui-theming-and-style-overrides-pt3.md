@@ -1,6 +1,7 @@
 ---
 title: "Material UI theming and style overrides - Part 3"
 date: 2019-05-31T14:54:14+01:00
+description: "How to theme and style Material UI components in a React app - Part 3"
 categories:
   - development
 tags:

@@ -1,6 +1,7 @@
 ---
 title: "Hugo deploy"
 date: 2018-10-10T16:31:28+01:00
+description: "How to deploy your site with Go Hugo"
 categories:
   - development
 tags:

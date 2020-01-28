@@ -1,6 +1,7 @@
 ---
 title: "Using web fonts in email campaigns"
 date: 2019-06-27T16:01:37+01:00
+description: "Use web fonts in HTML email campaigns for greater styling control"
 categories:
   - development
 tags:

@@ -1,6 +1,7 @@
 ---
 title: "Resolve eslint and prettier conflicts"
 date: 2019-02-12T10:07:40+00:00
+description: "How to resolve eslint and prettier config conflicts"
 categories:
   - development
 tags:
@@ -10,7 +11,7 @@ tags:
 
 Today I learned about a handy utility called `eslint-config-prettier-check` which I saw referenced in this GitHub [issue](https://github.com/prettier/prettier/issues/2609).
 
-I was editting a `.vue` component in Visual Studio Code. I had a code section with red underlines, generally indicating that eslint was not happy with something. I could see it was a formatting issue, so I used `eslint --fix` to solve the issue and re-format the code. But then that triggered a new lint problem where *Prettier* was now unhappy with how *eslint* had formatted the code. The difference between the two is small, and involves a couple of indented spaces. See the images below for both examples.
+I was editing a `.vue` component in Visual Studio Code. I had a code section with red underlines, generally indicating that eslint was not happy with something. I could see it was a formatting issue, so I used `eslint --fix` to solve the issue and re-format the code. But then that triggered a new lint problem where *Prettier* was now unhappy with how *eslint* had formatted the code. The difference between the two is small, and involves a couple of indented spaces. See the images below for both examples.
 
 {{< figure src="/images/eslint-and-prettier-conflicts/eslint-formatted.png" title="eslint Formatted" alt="Example of code formatted with eslint" >}}
 

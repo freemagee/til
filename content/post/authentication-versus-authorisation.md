@@ -1,6 +1,7 @@
 ---
 title: "Authentication vs. Authorisation"
 date: 2019-04-09T12:26:24+01:00
+description: ""
 categories:
   - development
 tags:
@@ -10,7 +11,7 @@ tags:
 Today I learned more about the distinction between *authentication* and *authorisation*. I have probably thought of those terms as being synonymous with eachother and fulfilling the same needs. But I was wrong.
 <!--more-->
 
-I have been writing a personal project that uses an API. I had been writing methods such as `authenticateUser`, `authenticateToken`, `authoriseRequest` etc. I took a step back and looked at my code. It clicked that when I wanted to *authenticate* something, I needed to prove the information I had been provided was verifiable. Here is some example pseudocode:
+I have been writing a personal project that uses an API, accessing methods such as `authenticateUser`, `authenticateToken`, `authoriseRequest` etc. I took a step back and looked at my code. It clicked that when I wanted to *authenticate* something, I needed to prove the information I had been provided was verifiable. Here is some example pseudocode:
 
 ### Client Request
 ```
@@ -44,4 +45,4 @@ The general idea is the API Endpoint can *authenticate* the provided information
 
 *Authorisation* would involve the client submitting the users details, which would be looked up in a user table in a database. That users permissions can then be verified and their level of *authorisation* can be determined.
 
-As a frontend developer this can sometimes be taken for granted, as someone else has often developed the API you interact with or you do not control the authentication flow.
+As a front-end developer this can sometimes be taken for granted, as someone else has often developed the API you interact with or you do not control the authentication flow.

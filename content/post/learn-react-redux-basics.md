@@ -1,6 +1,7 @@
 ---
 title: "The basics of React Redux"
 date: 2019-05-20T16:39:16+01:00
+description: "An example of using React Redux in a basic React app"
 categories:
   - development
 tags:
@@ -9,7 +10,7 @@ tags:
 
 Today I learned the basics of [React Redux](https://react-redux.js.org/) because the `state` requirements of the React app I have been building are now in need of a better solution.
 
-I am a fairly experienced frontend developer, and I know how to use lots of technologies. But I was struggling with grasping the fundamentals of using React Redux. I have used [Vuex](https://vuex.vuejs.org/) previously, which I picked up pretty quickly and I thought it would be similar. They are similar in concept, but not in execution. I think Vue deserves a lot of credit for their documentation as it is really good.
+I am a fairly experienced front-end developer, and I know how to use lots of technologies. But I was struggling with grasping the fundamentals of using React Redux. I have used [Vuex](https://vuex.vuejs.org/) previously, which I picked up pretty quickly and I thought it would be similar. They are similar in concept, but not in execution. I think Vue deserves a lot of credit for their documentation as it is really good.
 
 What I was looking for was a basic tutorial, the *most* basic. But every "basic" tutorial was how to make a *todo* app. But I honestly needed a *Hello world*, just to see how the code was wired together. This is from the redux documentation:
 
