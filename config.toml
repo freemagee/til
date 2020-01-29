@@ -1,6 +1,6 @@
 baseURL= "https://til.neilmagee.com/"
 languageCode= "en-gb"
-title= "TIL"
+title= "TIL | Front-end web development | Neil Magee"
 paginate = 7
 theme = "comfortable-basic"
 pluralizelisttitles = false
@@ -8,6 +8,7 @@ pygmentsUseClasses = true
 enableRobotsTXT = false
 
 [params]
+  siteName = "TIL"
   author = "Neil Magee"
   authorwebsite = "https://neilmagee.com"
   useHighlightJS = true
