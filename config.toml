@@ -1,6 +1,6 @@
 baseURL= "https://til.neilmagee.com/"
 languageCode= "en-gb"
-title= "TIL | Front-end web development | Neil Magee"
+title= "Front-end web development | Neil Magee"
 paginate = 7
 theme = "comfortable-basic"
 pluralizelisttitles = false
