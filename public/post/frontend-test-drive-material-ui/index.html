@@ -1,206 +1,206 @@
-<!doctype html><html class=no-js lang=en-gb><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><title>Front-end test drive: Material UI | Front-end web development | Neil Magee</title><meta name=description content="The basics of using Material UI to build a React app" property=og:description><meta name=keywords content><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=author content="Neil Magee"><meta name=referrer content=no-referrer-when-downgrade><link href=/images/favicon/favicon-16x16.png rel="shortcut icon" type=image/png><link rel=stylesheet href=/css/style-b662c601.css><link rel=stylesheet href=/css/code-highlighting-52395fdb.css></head><body><header class=site-header><section class=site-header__ident><a href=https://til.neilmagee.com/ class=site-header__link>TIL</a></section><nav class=site-header__nav><a href=/about class=site-header__nav-item>About</a></nav></header><div class=site-container><div class=site-container__inner><main role=main id=content><article class="post post--single" itemscope itemtype=http://schema.org/BlogPosting><header class=post__header><h1 class="post__title post__title--single" itemprop=title>Front-end test drive: Material UI</h1><div class=post__meta><time class=post__date datetime=2019-05-16 itemprop="dateCreated pubdate datePublished"><span class=post__date-icon><svg id="Calendar" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 20" enable-background="new 0 0 20 20"><path d="M17 3h-1v2h-3V3H7v2H4V3H3C1.899 3 1 3.9 1 5v12c0 1.1.899 2 2 2h14c1.1.0 2-.9 2-2V5C19 3.9 18.1 3 17 3zm0 14H3V9h14v8zM6.5 1h-2v3.5h2V1zm9 0h-2v3.5h2V1z" class="post__meta-icon" /></svg></span><span class=post__date-label>2019-05-16</span></time><div class=post__read-time><span class=post__read-time-icon><svg id="Stopwatch" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 20" enable-background="new 0 0 20 20"><path d="M7.376 6.745c-.447.275 1.197 4.242 1.598 4.888.35.569 1.093.742 1.658.394.568-.352.745-1.094.395-1.66C10.63 9.719 7.822 6.469 7.376 6.745zM7.041 2.402C7.969 2.079 8.963 1.9 10 1.9s2.031.179 2.959.502c.329.114.765-.115.572-.611-.141-.36-.277-.712-.332-.855-.131-.339-.6-.619-.804-.665C11.623.097 10.823.0 10 0S8.377.097 7.604.271C7.4.317 6.932.597 6.801.936 6.746 1.079 6.609 1.431 6.469 1.791 6.276 2.287 6.712 2.517 7.041 2.402zM19.098 3.186c-.192-.23-.396-.455-.613-.672-.216-.217-.441-.42-.67-.613-.153-.129-.603-.234-.888.051-.284.285-1.648 1.647-1.648 1.647.402.288.793.605 1.155.966.362.361.677.752.966 1.155.0.0 1.363-1.362 1.647-1.647C19.333 3.787 19.228 3.338 19.098 3.186zM10 2.9c-4.475.0-8.101 3.626-8.101 8.1.0 4.475 3.626 8.101 8.101 8.101 4.473.0 8.1-3.626 8.1-8.101C18.1 6.527 14.473 2.9 10 2.9zM10 17.101c-3.368.0-6.1-2.731-6.1-6.1.0-3.369 2.731-6.1 6.1-6.1 3.369.0 6.101 2.731 6.101 6.1C16.101 14.369 13.369 17.101 10 17.101z" class="post__meta-icon" /></svg></span><span class=post__read-time-label>5 min read</span></div><ul class=post__categories><li class=post__category><a href=/categories/development class=post__category-link>development</a></li></ul></div></header><section class=post-content><p>Today I learned how to apply style overrides to <a href=https://next.material-ui.com>Material UI</a> (v4.0.0-beat.2), a React front-end component library.</p><p>The company I work for is looking to develop some new tools, which we want to get to a prototype stage as soon as possible. We have decided to use React as part of our tech stack (<em>which is good</em>), and knowing that the UI that these tools require is going to need a lot of UI components, I started to look at front-end component libraries (mainly Material UI and Ant Design).</p><p>I did a analysis of the types of UI components we need to build our tool - tooltips, various inputs, switch style buttons, modals, dialogs &amp; drop downs. I wanted to make a test &lsquo;App&rsquo; that would combine various components from the library. My main goal was to see how this library was going to be to work with.</p><p>After installing the relevant packages into a new <code>create-react-app</code> project, I began to import some components and read the docs. I also began to tweak anything that looked recognisable. At first things did not go well. I could not customise what I felt were basics, such as an inputs focused state.</p><p>After reading the docs (<em>again</em>) and looking at the examples, I got to this point using <code>withStyles</code>:</p><figure><img src=/images/frontend-test-drive-material-ui/custom-colours.png alt="UI Test Custom Colours" loading=lazy><figcaption><h4>A beautiful mess</h4></figcaption></figure><pre><code class=language-javascript>import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
-import Paper from '@material-ui/core/Paper';
-import Button from '@material-ui/core/Button';
-import Tooltip from '@material-ui/core/Tooltip';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Switch from '@material-ui/core/Switch';
+<!doctype html><html class=no-js lang=en-gb><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><title>Front-end test drive: Material UI | Front-end web development | Neil Magee</title><meta name=description content="The basics of using Material UI to build a React app" property="og:description"><meta name=keywords content><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=author content="Neil Magee"><meta name=referrer content="no-referrer-when-downgrade"><link href=/images/favicon/favicon-16x16.png rel="shortcut icon" type=image/png><link rel=stylesheet href=/css/style-b662c601.css><link rel=stylesheet href=/css/code-highlighting-52395fdb.css></head><body><header class=site-header><section class=site-header__ident><a href=https://til.neilmagee.com/ class=site-header__link>TIL</a></section><nav class=site-header__nav><a href=/about class=site-header__nav-item>About</a></nav></header><div class=site-container><div class=site-container__inner><main role=main id=content><article class="post post--single" itemscope itemtype=http://schema.org/BlogPosting><header class=post__header><h1 class="post__title post__title--single" itemprop=title>Front-end test drive: Material UI</h1><div class=post__meta><time class=post__date datetime=2019-05-16 itemprop="dateCreated pubdate datePublished"><span class=post__date-icon><svg id="Calendar" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 20" enable-background="new 0 0 20 20"><path d="M17 3h-1v2h-3V3H7v2H4V3H3C1.899 3 1 3.9 1 5v12c0 1.1.899 2 2 2h14c1.1.0 2-.9 2-2V5C19 3.9 18.1 3 17 3zm0 14H3V9h14v8zM6.5 1h-2v3.5h2V1zm9 0h-2v3.5h2V1z" class="post__meta-icon" /></svg></span><span class=post__date-label>2019-05-16</span></time><div class=post__read-time><span class=post__read-time-icon><svg id="Stopwatch" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 20" enable-background="new 0 0 20 20"><path d="M7.376 6.745c-.447.275 1.197 4.242 1.598 4.888.35.569 1.093.742 1.658.394.568-.352.745-1.094.395-1.66C10.63 9.719 7.822 6.469 7.376 6.745zM7.041 2.402C7.969 2.079 8.963 1.9 10 1.9s2.031.179 2.959.502c.329.114.765-.115.572-.611-.141-.36-.277-.712-.332-.855-.131-.339-.6-.619-.804-.665C11.623.097 10.823.0 10 0S8.377.097 7.604.271C7.4.317 6.932.597 6.801.936 6.746 1.079 6.609 1.431 6.469 1.791 6.276 2.287 6.712 2.517 7.041 2.402zM19.098 3.186c-.192-.23-.396-.455-.613-.672-.216-.217-.441-.42-.67-.613-.153-.129-.603-.234-.888.051-.284.285-1.648 1.647-1.648 1.647.402.288.793.605 1.155.966.362.361.677.752.966 1.155.0.0 1.363-1.362 1.647-1.647C19.333 3.787 19.228 3.338 19.098 3.186zM10 2.9c-4.475.0-8.101 3.626-8.101 8.1.0 4.475 3.626 8.101 8.101 8.101 4.473.0 8.1-3.626 8.1-8.101C18.1 6.527 14.473 2.9 10 2.9zM10 17.101c-3.368.0-6.1-2.731-6.1-6.1s2.731-6.1 6.1-6.1 6.101 2.731 6.101 6.1C16.101 14.369 13.369 17.101 10 17.101z" class="post__meta-icon" /></svg></span><span class=post__read-time-label>5 min read</span></div><ul class=post__categories><li class=post__category><a href=/categories/development class=post__category-link>development</a></li></ul></div></header><section class=post-content><p>Today I learned how to apply style overrides to <a href=https://next.material-ui.com>Material UI</a> (v4.0.0-beat.2), a React front-end component library.</p><p>The company I work for is looking to develop some new tools, which we want to get to a prototype stage as soon as possible. We have decided to use React as part of our tech stack (<em>which is good</em>), and knowing that the UI that these tools require is going to need a lot of UI components, I started to look at front-end component libraries (mainly Material UI and Ant Design).</p><p>I did a analysis of the types of UI components we need to build our tool - tooltips, various inputs, switch style buttons, modals, dialogs & drop downs. I wanted to make a test &lsquo;App&rsquo; that would combine various components from the library. My main goal was to see how this library was going to be to work with.</p><p>After installing the relevant packages into a new <code>create-react-app</code> project, I began to import some components and read the docs. I also began to tweak anything that looked recognisable. At first things did not go well. I could not customise what I felt were basics, such as an inputs focused state.</p><p>After reading the docs (<em>again</em>) and looking at the examples, I got to this point using <code>withStyles</code>:</p><figure><img src=/images/frontend-test-drive-material-ui/custom-colours.png alt="UI Test Custom Colours" loading=lazy><figcaption><h4>A beautiful mess</h4></figcaption></figure><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=kr>import</span> <span class=nx>React</span> <span class=nx>from</span> <span class=s1>&#39;react&#39;</span><span class=p>;</span>
+<span class=kr>import</span> <span class=p>{</span> <span class=nx>withStyles</span> <span class=p>}</span> <span class=nx>from</span> <span class=s1>&#39;@material-ui/core/styles&#39;</span><span class=p>;</span>
+<span class=kr>import</span> <span class=nx>Typography</span> <span class=nx>from</span> <span class=s1>&#39;@material-ui/core/Typography&#39;</span><span class=p>;</span>
+<span class=kr>import</span> <span class=nx>Container</span> <span class=nx>from</span> <span class=s1>&#39;@material-ui/core/Container&#39;</span><span class=p>;</span>
+<span class=kr>import</span> <span class=nx>Paper</span> <span class=nx>from</span> <span class=s1>&#39;@material-ui/core/Paper&#39;</span><span class=p>;</span>
+<span class=kr>import</span> <span class=nx>Button</span> <span class=nx>from</span> <span class=s1>&#39;@material-ui/core/Button&#39;</span><span class=p>;</span>
+<span class=kr>import</span> <span class=nx>Tooltip</span> <span class=nx>from</span> <span class=s1>&#39;@material-ui/core/Tooltip&#39;</span><span class=p>;</span>
+<span class=kr>import</span> <span class=nx>FormControlLabel</span> <span class=nx>from</span> <span class=s1>&#39;@material-ui/core/FormControlLabel&#39;</span><span class=p>;</span>
+<span class=kr>import</span> <span class=nx>Switch</span> <span class=nx>from</span> <span class=s1>&#39;@material-ui/core/Switch&#39;</span><span class=p>;</span>
 
-// Define a styles object
-const MyButtonstyles = {
-  root: {
-    backgroundColor: 'red',
-    '&amp;:hover': {
-      color: 'purple',
-    },
-  }
-};
-// Include the styles object
-const MyButton = withStyles(MyButtonstyles)(Button);
+<span class=c1>// Define a styles object
+</span><span class=c1></span><span class=kr>const</span> <span class=nx>MyButtonstyles</span> <span class=o>=</span> <span class=p>{</span>
+  <span class=nx>root</span><span class=o>:</span> <span class=p>{</span>
+    <span class=nx>backgroundColor</span><span class=o>:</span> <span class=s1>&#39;red&#39;</span><span class=p>,</span>
+    <span class=s1>&#39;&amp;:hover&#39;</span><span class=o>:</span> <span class=p>{</span>
+      <span class=nx>color</span><span class=o>:</span> <span class=s1>&#39;purple&#39;</span><span class=p>,</span>
+    <span class=p>}</span><span class=p>,</span>
+  <span class=p>}</span>
+<span class=p>}</span><span class=p>;</span>
+<span class=c1>// Include the styles object
+</span><span class=c1></span><span class=kr>const</span> <span class=nx>MyButton</span> <span class=o>=</span> <span class=nx>withStyles</span><span class=p>(</span><span class=nx>MyButtonstyles</span><span class=p>)</span><span class=p>(</span><span class=nx>Button</span><span class=p>)</span><span class=p>;</span>
 
-// Testing custom colours per component
+<span class=c1>// Testing custom colours per component
+</span><span class=c1></span>
+<span class=c1>// More concise syntax version
+</span><span class=c1></span><span class=kr>const</span> <span class=nx>MyContainer</span> <span class=o>=</span> <span class=nx>withStyles</span><span class=p>(</span><span class=p>{</span>
+  <span class=nx>root</span><span class=o>:</span> <span class=p>{</span>
+    <span class=nx>marginTop</span><span class=o>:</span> <span class=s1>&#39;4rem&#39;</span><span class=p>,</span>
+  <span class=p>}</span><span class=p>,</span>
+<span class=p>}</span><span class=p>)</span><span class=p>(</span><span class=nx>Container</span><span class=p>)</span><span class=p>;</span>
 
-// More concise syntax version
-const MyContainer = withStyles({
-  root: {
-    marginTop: '4rem',
-  },
-})(Container);
+<span class=kr>const</span> <span class=nx>MyPaper</span> <span class=o>=</span> <span class=nx>withStyles</span><span class=p>(</span><span class=p>{</span>
+  <span class=nx>root</span><span class=o>:</span> <span class=p>{</span>
+    <span class=nx>padding</span><span class=o>:</span> <span class=s1>&#39;1rem&#39;</span><span class=p>,</span>
+  <span class=p>}</span><span class=p>,</span>
+<span class=p>}</span><span class=p>)</span><span class=p>(</span><span class=nx>Paper</span><span class=p>)</span><span class=p>;</span>
 
-const MyPaper = withStyles({
-  root: {
-    padding: '1rem',
-  },
-})(Paper);
+<span class=kr>const</span> <span class=nx>Title</span> <span class=o>=</span> <span class=nx>withStyles</span><span class=p>(</span><span class=p>{</span>
+  <span class=nx>root</span><span class=o>:</span> <span class=p>{</span>
+    <span class=nx>fontSize</span><span class=o>:</span> <span class=s1>&#39;3rem&#39;</span><span class=p>,</span>
+  <span class=p>}</span><span class=p>,</span>
+<span class=p>}</span><span class=p>)</span><span class=p>(</span><span class=nx>Typography</span><span class=p>)</span><span class=p>;</span>
 
-const Title = withStyles({
-  root: {
-    fontSize: '3rem',
-  },
-})(Typography);
+<span class=kr>const</span> <span class=nx>MyTooltip</span> <span class=o>=</span> <span class=nx>withStyles</span><span class=p>(</span><span class=p>{</span>
+  <span class=nx>tooltip</span><span class=o>:</span> <span class=p>{</span>
+    <span class=nx>backgroundColor</span><span class=o>:</span> <span class=s1>&#39;white&#39;</span><span class=p>,</span>
+    <span class=nx>color</span><span class=o>:</span> <span class=s1>&#39;rgba(0, 0, 0, 0.8)&#39;</span><span class=p>,</span>
+    <span class=nx>boxShadow</span><span class=o>:</span> <span class=s1>&#39;0px 0px 4px rgba(0, 0, 0, 0.3)&#39;</span><span class=p>,</span>
+    <span class=nx>fontSize</span><span class=o>:</span> <span class=s1>&#39;16px&#39;</span><span class=p>,</span>
+  <span class=p>}</span><span class=p>,</span>
+<span class=p>}</span><span class=p>)</span><span class=p>(</span><span class=nx>Tooltip</span><span class=p>)</span><span class=p>;</span>
 
-const MyTooltip = withStyles({
-  tooltip: {
-    backgroundColor: 'white',
-    color: 'rgba(0, 0, 0, 0.8)',
-    boxShadow: '0px 0px 4px rgba(0, 0, 0, 0.3)',
-    fontSize: '16px',
-  },
-})(Tooltip);
+<span class=kr>const</span> <span class=nx>MySwitch</span> <span class=o>=</span> <span class=nx>withStyles</span><span class=p>(</span><span class=p>{</span>
+  <span class=nx>switchBase</span><span class=o>:</span> <span class=p>{</span>
+    <span class=nx>color</span><span class=o>:</span> <span class=s1>&#39;silver&#39;</span><span class=p>,</span>
+    <span class=s1>&#39;&amp;$checked&#39;</span><span class=o>:</span> <span class=p>{</span>
+      <span class=nx>color</span><span class=o>:</span> <span class=s1>&#39;red&#39;</span><span class=p>,</span>
+    <span class=p>}</span><span class=p>,</span>
+    <span class=s1>&#39;&amp;$checked + $track&#39;</span><span class=o>:</span> <span class=p>{</span>
+      <span class=nx>backgroundColor</span><span class=o>:</span> <span class=s1>&#39;green&#39;</span><span class=p>,</span>
+    <span class=p>}</span><span class=p>,</span>
+  <span class=p>}</span><span class=p>,</span>
+  <span class=nx>checked</span><span class=o>:</span> <span class=p>{</span><span class=p>}</span><span class=p>,</span>
+  <span class=nx>track</span><span class=o>:</span> <span class=p>{</span><span class=p>}</span><span class=p>,</span>
+<span class=p>}</span><span class=p>)</span><span class=p>(</span><span class=nx>Switch</span><span class=p>)</span><span class=p>;</span>
 
-const MySwitch = withStyles({
-  switchBase: {
-    color: 'silver',
-    '&amp;$checked': {
-      color: 'red',
-    },
-    '&amp;$checked + $track': {
-      backgroundColor: 'green',
-    },
-  },
-  checked: {},
-  track: {},
-})(Switch);
+<span class=kd>function</span> <span class=nx>UITester</span><span class=p>(</span><span class=p>)</span> <span class=p>{</span>
+  <span class=kr>const</span> <span class=p>[</span><span class=nx>state</span><span class=p>,</span> <span class=nx>setState</span><span class=p>]</span> <span class=o>=</span> <span class=nx>React</span><span class=p>.</span><span class=nx>useState</span><span class=p>(</span><span class=p>{</span>
+    <span class=nx>checkedA</span><span class=o>:</span> <span class=kc>true</span><span class=p>,</span>
+    <span class=nx>checkedB</span><span class=o>:</span> <span class=kc>true</span><span class=p>,</span>
+  <span class=p>}</span><span class=p>)</span><span class=p>;</span>
 
-function UITester() {
-  const [state, setState] = React.useState({
-    checkedA: true,
-    checkedB: true,
-  });
+  <span class=kr>const</span> <span class=nx>handleChange</span> <span class=o>=</span> <span class=nx>name</span> <span class=p>=&gt;</span> <span class=nx>event</span> <span class=p>=&gt;</span> <span class=p>{</span>
+    <span class=nx>setState</span><span class=p>(</span><span class=p>{</span> <span class=p>...</span><span class=nx>state</span><span class=p>,</span> <span class=p>[</span><span class=nx>name</span><span class=p>]</span><span class=o>:</span> <span class=nx>event</span><span class=p>.</span><span class=nx>target</span><span class=p>.</span><span class=nx>checked</span> <span class=p>}</span><span class=p>)</span><span class=p>;</span>
+  <span class=p>}</span><span class=p>;</span>
 
-  const handleChange = name =&gt; event =&gt; {
-    setState({ ...state, [name]: event.target.checked });
-  };
+  <span class=k>return</span> <span class=p>(</span>
+    <span class=o>&lt;</span><span class=nx>MyContainer</span><span class=o>&gt;</span>
+      <span class=o>&lt;</span><span class=nx>MyPaper</span><span class=o>&gt;</span>
+        <span class=o>&lt;</span><span class=nx>Title</span> <span class=nx>variant</span><span class=o>=</span><span class=s2>&#34;h2&#34;</span> <span class=nx>gutterBottom</span><span class=o>&gt;</span>
+          <span class=nx>UI</span> <span class=nx>Test</span> <span class=nx>Custom</span> <span class=nx>Colours</span>
+        <span class=o>&lt;</span><span class=err>/</span><span class=err>T</span><span class=err>i</span><span class=err>t</span><span class=err>l</span><span class=err>e</span><span class=err>&gt;</span><span class=err></span>
+        <span class=o>&lt;</span><span class=nx>MyTooltip</span> <span class=nx>title</span><span class=o>=</span><span class=s2>&#34;Hello!&#34;</span><span class=o>&gt;</span>
+          <span class=o>&lt;</span><span class=nx>MyButton</span><span class=o>&gt;</span><span class=nx>Say</span><span class=o>&lt;</span><span class=err>/</span><span class=err>M</span><span class=err>y</span><span class=err>B</span><span class=err>u</span><span class=err>t</span><span class=err>t</span><span class=err>o</span><span class=err>n</span><span class=err>&gt;</span><span class=err></span>
+        <span class=o>&lt;</span><span class=err>/</span><span class=err>M</span><span class=err>y</span><span class=err>T</span><span class=err>o</span><span class=err>o</span><span class=err>l</span><span class=err>t</span><span class=err>i</span><span class=err>p</span><span class=err>&gt;</span><span class=err></span>
+        <span class=o>&lt;</span><span class=nx>FormControlLabel</span>
+          <span class=nx>control</span><span class=o>=</span><span class=p>{</span>
+            <span class=o>&lt;</span><span class=nx>MySwitch</span>
+              <span class=nx>checked</span><span class=o>=</span><span class=p>{</span><span class=nx>state</span><span class=p>.</span><span class=nx>checkedA</span><span class=p>}</span>
+              <span class=nx>onChange</span><span class=o>=</span><span class=p>{</span><span class=nx>handleChange</span><span class=p>(</span><span class=s1>&#39;checkedA&#39;</span><span class=p>)</span><span class=p>}</span>
+              <span class=nx>value</span><span class=o>=</span><span class=s2>&#34;checkedA&#34;</span>
+            <span class=o>/</span><span class=o>&gt;</span>
+          <span class=p>}</span>
+          <span class=nx>label</span><span class=o>=</span><span class=s2>&#34;Switched&#34;</span>
+        <span class=o>/</span><span class=o>&gt;</span>
+      <span class=o>&lt;</span><span class=err>/</span><span class=err>M</span><span class=err>y</span><span class=err>P</span><span class=err>a</span><span class=err>p</span><span class=err>e</span><span class=err>r</span><span class=err>&gt;</span><span class=err></span>
+    <span class=o>&lt;</span><span class=err>/</span><span class=err>M</span><span class=err>y</span><span class=err>C</span><span class=err>o</span><span class=err>n</span><span class=err>t</span><span class=err>a</span><span class=err>i</span><span class=err>n</span><span class=err>e</span><span class=err>r</span><span class=err>&gt;</span><span class=err></span>
+  <span class=p>)</span><span class=p>;</span>
+<span class=p>}</span>
 
-  return (
-    &lt;MyContainer&gt;
-      &lt;MyPaper&gt;
-        &lt;Title variant=&quot;h2&quot; gutterBottom&gt;
-          UI Test Custom Colours
-        &lt;/Title&gt;
-        &lt;MyTooltip title=&quot;Hello!&quot;&gt;
-          &lt;MyButton&gt;Say&lt;/MyButton&gt;
-        &lt;/MyTooltip&gt;
-        &lt;FormControlLabel
-          control={
-            &lt;MySwitch
-              checked={state.checkedA}
-              onChange={handleChange('checkedA')}
-              value=&quot;checkedA&quot;
-            /&gt;
-          }
-          label=&quot;Switched&quot;
-        /&gt;
-      &lt;/MyPaper&gt;
-    &lt;/MyContainer&gt;
-  );
-}
+<span class=kr>export</span> <span class=k>default</span> <span class=nx>UITester</span><span class=p>;</span>
+</code></pre></div><p>This achieved some little goals. I could modify pseudo classes, states and component children. So that gave me some confidence that I could control the style on the components if I needed to.</p><p>I had seen in the <a href=https://next.material-ui.com/customization/default-theme/>docs</a> that the default theme had some nice utilities, such as pixel to rem functionality, that I wanted to take advantage of. The above code uses the <code>withStyles</code> Higher-order component API. I don&rsquo;t fully understand what a Higher-order component API is to be honest. It seemed like I could use the <code>makeStyles</code> Hook API to access the default theme utilities.</p><p>Again I found it tricky at first to get the correct syntax to be able to style component child elements, such as the switch&rsquo;s &lsquo;track&rsquo;. I looked at a lot of examples, re-read the docs (<em>once more</em>) and figured out this syntax pattern would override the default theme styling:</p><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript>  <span class=nx>switchBase</span><span class=o>:</span> <span class=p>{</span>
+    <span class=s1>&#39;&amp;$checked&#39;</span><span class=o>:</span> <span class=p>{</span>
+      <span class=nx>color</span><span class=o>:</span> <span class=nx>orange</span><span class=p>[</span><span class=mi>500</span><span class=p>]</span><span class=p>,</span>
+    <span class=p>}</span><span class=p>,</span>
+    <span class=s1>&#39;&amp;$checked + $track&#39;</span><span class=o>:</span> <span class=p>{</span>
+      <span class=nx>backgroundColor</span><span class=o>:</span> <span class=nx>orange</span><span class=p>[</span><span class=mi>400</span><span class=p>]</span><span class=p>,</span>
+    <span class=p>}</span><span class=p>,</span>
+  <span class=p>}</span><span class=p>,</span>
+  <span class=nx>track</span><span class=o>:</span> <span class=p>{</span><span class=p>}</span><span class=p>,</span>
+  <span class=nx>checked</span><span class=o>:</span> <span class=p>{</span><span class=p>}</span><span class=p>,</span>
+</code></pre></div><p>This allowed me to use the theme utilities such as <code>theme.spacing()</code> and also keep default theme styling where I wanted it. I gave the component a touch of orange:</p><figure><img src=/images/frontend-test-drive-material-ui/extended-default-theme.png alt="UI Test Modified Default Theme" loading=lazy><figcaption><h4>Tangerine dream</h4></figcaption></figure><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=kr>import</span> <span class=nx>React</span> <span class=nx>from</span> <span class=s1>&#39;react&#39;</span><span class=p>;</span>
+<span class=kr>import</span> <span class=p>{</span> <span class=nx>makeStyles</span> <span class=p>}</span> <span class=nx>from</span> <span class=s1>&#39;@material-ui/core/styles&#39;</span><span class=p>;</span>
+<span class=kr>import</span> <span class=nx>Typography</span> <span class=nx>from</span> <span class=s1>&#39;@material-ui/core/Typography&#39;</span><span class=p>;</span>
+<span class=kr>import</span> <span class=nx>Container</span> <span class=nx>from</span> <span class=s1>&#39;@material-ui/core/Container&#39;</span><span class=p>;</span>
+<span class=kr>import</span> <span class=nx>Paper</span> <span class=nx>from</span> <span class=s1>&#39;@material-ui/core/Paper&#39;</span><span class=p>;</span>
+<span class=kr>import</span> <span class=nx>Button</span> <span class=nx>from</span> <span class=s1>&#39;@material-ui/core/Button&#39;</span><span class=p>;</span>
+<span class=kr>import</span> <span class=nx>Tooltip</span> <span class=nx>from</span> <span class=s1>&#39;@material-ui/core/Tooltip&#39;</span><span class=p>;</span>
+<span class=kr>import</span> <span class=nx>FormControlLabel</span> <span class=nx>from</span> <span class=s1>&#39;@material-ui/core/FormControlLabel&#39;</span><span class=p>;</span>
+<span class=kr>import</span> <span class=nx>Switch</span> <span class=nx>from</span> <span class=s1>&#39;@material-ui/core/Switch&#39;</span><span class=p>;</span>
+<span class=kr>import</span> <span class=nx>orange</span> <span class=nx>from</span> <span class=s1>&#39;@material-ui/core/colors/orange&#39;</span><span class=p>;</span>
 
-export default UITester;
-</code></pre><p>This achieved some little goals. I could modify pseudo classes, states and component children. So that gave me some confidence that I could control the style on the components if I needed to.</p><p>I had seen in the <a href=https://next.material-ui.com/customization/default-theme/>docs</a> that the default theme had some nice utilities, such as pixel to rem functionality, that I wanted to take advantage of. The above code uses the <code>withStyles</code> Higher-order component API. I don&rsquo;t fully understand what a Higher-order component API is to be honest. It seemed like I could use the <code>makeStyles</code> Hook API to access the default theme utilities.</p><p>Again I found it tricky at first to get the correct syntax to be able to style component child elements, such as the switch&rsquo;s &lsquo;track&rsquo;. I looked at a lot of examples, re-read the docs (<em>once more</em>) and figured out this syntax pattern would override the default theme styling:</p><pre><code class=language-javascript>  switchBase: {
-    '&amp;$checked': {
-      color: orange[500],
-    },
-    '&amp;$checked + $track': {
-      backgroundColor: orange[400],
-    },
-  },
-  track: {},
-  checked: {},
-</code></pre><p>This allowed me to use the theme utilities such as <code>theme.spacing()</code> and also keep default theme styling where I wanted it. I gave the component a touch of orange:</p><figure><img src=/images/frontend-test-drive-material-ui/extended-default-theme.png alt="UI Test Modified Default Theme" loading=lazy><figcaption><h4>Tangerine dream</h4></figcaption></figure><pre><code class=language-javascript>import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
-import Paper from '@material-ui/core/Paper';
-import Button from '@material-ui/core/Button';
-import Tooltip from '@material-ui/core/Tooltip';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Switch from '@material-ui/core/Switch';
-import orange from '@material-ui/core/colors/orange';
+<span class=c1>// New styles that extend the default theme
+</span><span class=c1></span><span class=kr>const</span> <span class=nx>useStyles</span> <span class=o>=</span> <span class=nx>makeStyles</span><span class=p>(</span><span class=nx>theme</span> <span class=p>=&gt;</span> <span class=p>(</span><span class=p>{</span>
+  <span class=s1>&#39;@global&#39;</span><span class=o>:</span> <span class=p>{</span>
+    <span class=nx>body</span><span class=o>:</span> <span class=p>{</span>
+      <span class=nx>backgroundColor</span><span class=o>:</span> <span class=nx>theme</span><span class=p>.</span><span class=nx>palette</span><span class=p>.</span><span class=nx>grey</span><span class=p>[</span><span class=mi>50</span><span class=p>]</span><span class=p>,</span>
+    <span class=p>}</span><span class=p>,</span>
+  <span class=p>}</span><span class=p>,</span>
+  <span class=nx>title</span><span class=o>:</span> <span class=p>{</span>
+    <span class=nx>fontSize</span><span class=o>:</span> <span class=nx>theme</span><span class=p>.</span><span class=nx>typography</span><span class=p>.</span><span class=nx>pxToRem</span><span class=p>(</span><span class=mi>42</span><span class=p>)</span><span class=p>,</span>
+  <span class=p>}</span><span class=p>,</span>
+  <span class=nx>paper</span><span class=o>:</span> <span class=p>{</span>
+    <span class=nx>backgroundColor</span><span class=o>:</span> <span class=nx>orange</span><span class=p>[</span><span class=mi>50</span><span class=p>]</span><span class=p>,</span>
+    <span class=nx>marginTop</span><span class=o>:</span> <span class=nx>theme</span><span class=p>.</span><span class=nx>spacing</span><span class=p>(</span><span class=mi>8</span><span class=p>)</span><span class=p>,</span>
+    <span class=nx>padding</span><span class=o>:</span> <span class=nx>theme</span><span class=p>.</span><span class=nx>spacing</span><span class=p>(</span><span class=mi>2</span><span class=p>)</span><span class=p>,</span>
+  <span class=p>}</span><span class=p>,</span>
+  <span class=nx>switchBase</span><span class=o>:</span> <span class=p>{</span>
+    <span class=s1>&#39;&amp;$checked&#39;</span><span class=o>:</span> <span class=p>{</span>
+      <span class=nx>color</span><span class=o>:</span> <span class=nx>orange</span><span class=p>[</span><span class=mi>500</span><span class=p>]</span><span class=p>,</span>
+    <span class=p>}</span><span class=p>,</span>
+    <span class=s1>&#39;&amp;$checked + $track&#39;</span><span class=o>:</span> <span class=p>{</span>
+      <span class=nx>backgroundColor</span><span class=o>:</span> <span class=nx>orange</span><span class=p>[</span><span class=mi>400</span><span class=p>]</span><span class=p>,</span>
+    <span class=p>}</span><span class=p>,</span>
+  <span class=p>}</span><span class=p>,</span>
+  <span class=nx>track</span><span class=o>:</span> <span class=p>{</span><span class=p>}</span><span class=p>,</span>
+  <span class=nx>checked</span><span class=o>:</span> <span class=p>{</span><span class=p>}</span><span class=p>,</span>
+  <span class=nx>button</span><span class=o>:</span> <span class=p>{</span>
+    <span class=nx>backgroundColor</span><span class=o>:</span> <span class=nx>orange</span><span class=p>[</span><span class=mi>400</span><span class=p>]</span><span class=p>,</span>
+    <span class=s1>&#39;&amp;:hover&#39;</span><span class=o>:</span> <span class=p>{</span>
+      <span class=nx>color</span><span class=o>:</span> <span class=nx>orange</span><span class=p>[</span><span class=mi>800</span><span class=p>]</span><span class=p>,</span>
+    <span class=p>}</span><span class=p>,</span>
+  <span class=p>}</span><span class=p>,</span>
+  <span class=nx>tooltip</span><span class=o>:</span> <span class=p>{</span>
+    <span class=nx>backgroundColor</span><span class=o>:</span> <span class=s1>&#39;white&#39;</span><span class=p>,</span>
+    <span class=nx>color</span><span class=o>:</span> <span class=s1>&#39;rgba(0, 0, 0, 0.8)&#39;</span><span class=p>,</span>
+    <span class=nx>boxShadow</span><span class=o>:</span> <span class=s1>&#39;0px 0px 4px rgba(0, 0, 0, 0.3)&#39;</span><span class=p>,</span>
+    <span class=nx>fontSize</span><span class=o>:</span> <span class=s1>&#39;16px&#39;</span><span class=p>,</span>
+  <span class=p>}</span>
+<span class=p>}</span><span class=p>)</span><span class=p>)</span><span class=p>;</span>
 
-// New styles that extend the default theme
-const useStyles = makeStyles(theme =&gt; ({
-  '@global': {
-    body: {
-      backgroundColor: theme.palette.grey[50],
-    },
-  },
-  title: {
-    fontSize: theme.typography.pxToRem(42),
-  },
-  paper: {
-    backgroundColor: orange[50],
-    marginTop: theme.spacing(8),
-    padding: theme.spacing(2),
-  },
-  switchBase: {
-    '&amp;$checked': {
-      color: orange[500],
-    },
-    '&amp;$checked + $track': {
-      backgroundColor: orange[400],
-    },
-  },
-  track: {},
-  checked: {},
-  button: {
-    backgroundColor: orange[400],
-    '&amp;:hover': {
-      color: orange[800],
-    },
-  },
-  tooltip: {
-    backgroundColor: 'white',
-    color: 'rgba(0, 0, 0, 0.8)',
-    boxShadow: '0px 0px 4px rgba(0, 0, 0, 0.3)',
-    fontSize: '16px',
-  }
-}));
+<span class=kd>function</span> <span class=nx>UITesterThemed</span><span class=p>(</span><span class=p>)</span> <span class=p>{</span>
+  <span class=kr>const</span> <span class=nx>classes</span> <span class=o>=</span> <span class=nx>useStyles</span><span class=p>(</span><span class=p>)</span><span class=p>;</span>
 
-function UITesterThemed() {
-  const classes = useStyles();
+  <span class=kr>const</span> <span class=p>[</span><span class=nx>state</span><span class=p>,</span> <span class=nx>setState</span><span class=p>]</span> <span class=o>=</span> <span class=nx>React</span><span class=p>.</span><span class=nx>useState</span><span class=p>(</span><span class=p>{</span>
+    <span class=nx>checkedA</span><span class=o>:</span> <span class=kc>true</span><span class=p>,</span>
+    <span class=nx>checkedB</span><span class=o>:</span> <span class=kc>true</span><span class=p>,</span>
+  <span class=p>}</span><span class=p>)</span><span class=p>;</span>
 
-  const [state, setState] = React.useState({
-    checkedA: true,
-    checkedB: true,
-  });
+  <span class=kr>const</span> <span class=nx>handleChange</span> <span class=o>=</span> <span class=nx>name</span> <span class=p>=&gt;</span> <span class=nx>event</span> <span class=p>=&gt;</span> <span class=p>{</span>
+    <span class=nx>setState</span><span class=p>(</span><span class=p>{</span> <span class=p>...</span><span class=nx>state</span><span class=p>,</span> <span class=p>[</span><span class=nx>name</span><span class=p>]</span><span class=o>:</span> <span class=nx>event</span><span class=p>.</span><span class=nx>target</span><span class=p>.</span><span class=nx>checked</span> <span class=p>}</span><span class=p>)</span><span class=p>;</span>
+  <span class=p>}</span><span class=p>;</span>
 
-  const handleChange = name =&gt; event =&gt; {
-    setState({ ...state, [name]: event.target.checked });
-  };
+  <span class=k>return</span> <span class=p>(</span>
+    <span class=o>&lt;</span><span class=nx>Container</span><span class=o>&gt;</span>
+      <span class=o>&lt;</span><span class=nx>Paper</span> <span class=nx>className</span><span class=o>=</span><span class=p>{</span><span class=nx>classes</span><span class=p>.</span><span class=nx>paper</span><span class=p>}</span><span class=o>&gt;</span>
+        <span class=o>&lt;</span><span class=nx>Typography</span> <span class=nx>variant</span><span class=o>=</span><span class=s2>&#34;h2&#34;</span> <span class=nx>gutterBottom</span> <span class=nx>className</span><span class=o>=</span><span class=p>{</span><span class=nx>classes</span><span class=p>.</span><span class=nx>title</span><span class=p>}</span><span class=o>&gt;</span>
+          <span class=nx>UI</span> <span class=nx>Test</span> <span class=nx>Modified</span> <span class=nx>Default</span> <span class=nx>Theme</span>
+        <span class=o>&lt;</span><span class=err>/</span><span class=err>T</span><span class=err>y</span><span class=err>p</span><span class=err>o</span><span class=err>g</span><span class=err>r</span><span class=err>a</span><span class=err>p</span><span class=err>h</span><span class=err>y</span><span class=err>&gt;</span><span class=err></span>
+        <span class=o>&lt;</span><span class=nx>Tooltip</span> <span class=nx>title</span><span class=o>=</span><span class=s2>&#34;Hello!&#34;</span> <span class=nx>classes</span><span class=o>=</span><span class=p>{</span><span class=p>{</span> <span class=nx>tooltip</span><span class=o>:</span> <span class=nx>classes</span><span class=p>.</span><span class=nx>tooltip</span> <span class=p>}</span><span class=p>}</span><span class=o>&gt;</span>
+          <span class=o>&lt;</span><span class=nx>Button</span> <span class=nx>className</span><span class=o>=</span><span class=p>{</span><span class=nx>classes</span><span class=p>.</span><span class=nx>button</span><span class=p>}</span><span class=o>&gt;</span><span class=nx>Say</span><span class=o>&lt;</span><span class=err>/</span><span class=err>B</span><span class=err>u</span><span class=err>t</span><span class=err>t</span><span class=err>o</span><span class=err>n</span><span class=err>&gt;</span><span class=err></span>
+        <span class=o>&lt;</span><span class=err>/</span><span class=err>T</span><span class=err>o</span><span class=err>o</span><span class=err>l</span><span class=err>t</span><span class=err>i</span><span class=err>p</span><span class=err>&gt;</span><span class=err></span>
+        <span class=o>&lt;</span><span class=nx>FormControlLabel</span>
+          <span class=nx>control</span><span class=o>=</span><span class=p>{</span>
+            <span class=o>&lt;</span><span class=nx>Switch</span>
+              <span class=nx>classes</span><span class=o>=</span><span class=p>{</span><span class=p>{</span>
+                <span class=nx>switchBase</span><span class=o>:</span> <span class=nx>classes</span><span class=p>.</span><span class=nx>switchBase</span><span class=p>,</span>
+                <span class=nx>track</span><span class=o>:</span> <span class=nx>classes</span><span class=p>.</span><span class=nx>track</span><span class=p>,</span>
+                <span class=nx>checked</span><span class=o>:</span> <span class=nx>classes</span><span class=p>.</span><span class=nx>checked</span>
+              <span class=p>}</span><span class=p>}</span>
+              <span class=nx>checked</span><span class=o>=</span><span class=p>{</span><span class=nx>state</span><span class=p>.</span><span class=nx>checkedA</span><span class=p>}</span>
+              <span class=nx>onChange</span><span class=o>=</span><span class=p>{</span><span class=nx>handleChange</span><span class=p>(</span><span class=s1>&#39;checkedA&#39;</span><span class=p>)</span><span class=p>}</span>
+              <span class=nx>value</span><span class=o>=</span><span class=s2>&#34;checkedA&#34;</span>
+            <span class=o>/</span><span class=o>&gt;</span>
+          <span class=p>}</span>
+          <span class=nx>label</span><span class=o>=</span><span class=s2>&#34;Switched&#34;</span>
+        <span class=o>/</span><span class=o>&gt;</span>
+      <span class=o>&lt;</span><span class=err>/</span><span class=err>P</span><span class=err>a</span><span class=err>p</span><span class=err>e</span><span class=err>r</span><span class=err>&gt;</span><span class=err></span>
+    <span class=o>&lt;</span><span class=err>/</span><span class=err>C</span><span class=err>o</span><span class=err>n</span><span class=err>t</span><span class=err>a</span><span class=err>i</span><span class=err>n</span><span class=err>e</span><span class=err>r</span><span class=err>&gt;</span><span class=err></span>
+  <span class=p>)</span><span class=p>;</span>
+<span class=p>}</span>
 
-  return (
-    &lt;Container&gt;
-      &lt;Paper className={classes.paper}&gt;
-        &lt;Typography variant=&quot;h2&quot; gutterBottom className={classes.title}&gt;
-          UI Test Modified Default Theme
-        &lt;/Typography&gt;
-        &lt;Tooltip title=&quot;Hello!&quot; classes={{ tooltip: classes.tooltip }}&gt;
-          &lt;Button className={classes.button}&gt;Say&lt;/Button&gt;
-        &lt;/Tooltip&gt;
-        &lt;FormControlLabel
-          control={
-            &lt;Switch
-              classes={{
-                switchBase: classes.switchBase,
-                track: classes.track,
-                checked: classes.checked
-              }}
-              checked={state.checkedA}
-              onChange={handleChange('checkedA')}
-              value=&quot;checkedA&quot;
-            /&gt;
-          }
-          label=&quot;Switched&quot;
-        /&gt;
-      &lt;/Paper&gt;
-    &lt;/Container&gt;
-  );
-}
-
-export default UITesterThemed;
-</code></pre><p>CSS in JS is pretty much brand new to me and I am unsure if there is syntax here that is specific to Material UIs way of doing things. I am sure I will learn more about that soon.</p></section><footer class=post__footer><ul class=post__tags><li class=post__tag><a href=/tags/react class=post__tag-link><span class=post__tag-label>#</span>react</a></li><li class=post__tag><a href=/tags/material-ui class=post__tag-link><span class=post__tag-label>#</span>material-ui</a></li></ul></footer></article><aside class=post-siblings><nav class=post-siblings__ctrl><a class="post-siblings__nav post-siblings__nav--next" href=https://til.neilmagee.com/post/learn-react-redux-basics/ rel=nofollow><span class=post-siblings__nav-icon><svg id="Chevron_left" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 20" enable-background="new 0 0 20 20"><path d="M12.452 4.516c.446.436.481 1.043.0 1.576L8.705 10l3.747 3.908c.481.533.446 1.141.0 1.574-.445.436-1.197.408-1.615.0-.418-.406-4.502-4.695-4.502-4.695C6.112 10.57 6 10.285 6 10s.112-.57.335-.789c0 0 4.084-4.287 4.502-4.695C11.255 4.107 12.007 4.08 12.452 4.516z" class="post-siblings__nav-icon-next" /></svg></span>Next</a>
+<span class=kr>export</span> <span class=k>default</span> <span class=nx>UITesterThemed</span><span class=p>;</span>
+</code></pre></div><p>CSS in JS is pretty much brand new to me and I am unsure if there is syntax here that is specific to Material UIs way of doing things. I am sure I will learn more about that soon.</p></section><footer class=post__footer><ul class=post__tags><li class=post__tag><a href=/tags/react class=post__tag-link><span class=post__tag-label>#</span>react</a></li><li class=post__tag><a href=/tags/material-ui class=post__tag-link><span class=post__tag-label>#</span>material-ui</a></li></ul></footer></article><aside class=post-siblings><nav class=post-siblings__ctrl><a class="post-siblings__nav post-siblings__nav--next" href=https://til.neilmagee.com/post/learn-react-redux-basics/ rel=nofollow><span class=post-siblings__nav-icon><svg id="Chevron_left" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 20" enable-background="new 0 0 20 20"><path d="M12.452 4.516c.446.436.481 1.043.0 1.576L8.705 10l3.747 3.908c.481.533.446 1.141.0 1.574-.445.436-1.197.408-1.615.0-.418-.406-4.502-4.695-4.502-4.695C6.112 10.57 6 10.285 6 10s.112-.57.335-.789c0 0 4.084-4.287 4.502-4.695C11.255 4.107 12.007 4.08 12.452 4.516z" class="post-siblings__nav-icon-next" /></svg></span>Next</a>
 <a class="post-siblings__nav post-siblings__nav--previous" href=https://til.neilmagee.com/post/authentication-versus-authorisation/ rel=nofollow>Previous<span class=post-siblings__nav-icon><svg id="Chevron_right" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 20" enable-background="new 0 0 20 20"><path d="M9.163 4.516c.418.408 4.502 4.695 4.502 4.695C13.888 9.43 14 9.715 14 10s-.112.57-.335.787c0 0-4.084 4.289-4.502 4.695-.418.408-1.17.436-1.615.0-.446-.434-.481-1.041.0-1.574L11.295 10 7.548 6.092c-.481-.533-.446-1.141.0-1.576C7.993 4.08 8.745 4.107 9.163 4.516z" class="post-siblings__nav-icon-previous" /></svg></span></a></nav><span class=post-siblings__more>More posts</span></aside></main><footer class=site-footer><div class=site-footer__inner><p class=site-footer__copyright>&copy; 2020&nbsp;<a href=https://neilmagee.com>Neil Magee</a>
 . Icons from <a href=http://entypo.com>Entypo+</a>. Made with <a href=https://gohugo.io/ class=site-footer__hugo-logo><img src=/images/hugo-logo.png alt="Hugo logo" width=22 height=22></a></p></div></footer></div></div><script src=/js/highlight.pack.js></script><script>document.addEventListener("DOMContentLoaded",event=>{document.documentElement.classList.remove("no-js");document.querySelectorAll("pre:not(.chroma) code").forEach(block=>{hljs.highlightBlock(block);});});</script></body></html>

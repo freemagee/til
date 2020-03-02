@@ -1,171 +1,171 @@
-<!doctype html><html class=no-js lang=en-gb><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><title>Subtle art of performance wins | Front-end web development | Neil Magee</title><meta name=description content="How to improve JavaScript performance by refactoring your code" property=og:description><meta name=keywords content><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=author content="Neil Magee"><meta name=referrer content=no-referrer-when-downgrade><link href=/images/favicon/favicon-16x16.png rel="shortcut icon" type=image/png><link rel=stylesheet href=/css/style-b662c601.css><link rel=stylesheet href=/css/code-highlighting-52395fdb.css></head><body><header class=site-header><section class=site-header__ident><a href=https://til.neilmagee.com/ class=site-header__link>TIL</a></section><nav class=site-header__nav><a href=/about class=site-header__nav-item>About</a></nav></header><div class=site-container><div class=site-container__inner><main role=main id=content><article class="post post--single" itemscope itemtype=http://schema.org/BlogPosting><header class=post__header><h1 class="post__title post__title--single" itemprop=title>Subtle art of performance wins</h1><div class=post__meta><time class=post__date datetime=2019-12-12 itemprop="dateCreated pubdate datePublished"><span class=post__date-icon><svg id="Calendar" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 20" enable-background="new 0 0 20 20"><path d="M17 3h-1v2h-3V3H7v2H4V3H3C1.899 3 1 3.9 1 5v12c0 1.1.899 2 2 2h14c1.1.0 2-.9 2-2V5C19 3.9 18.1 3 17 3zm0 14H3V9h14v8zM6.5 1h-2v3.5h2V1zm9 0h-2v3.5h2V1z" class="post__meta-icon" /></svg></span><span class=post__date-label>2019-12-12</span></time><div class=post__read-time><span class=post__read-time-icon><svg id="Stopwatch" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 20" enable-background="new 0 0 20 20"><path d="M7.376 6.745c-.447.275 1.197 4.242 1.598 4.888.35.569 1.093.742 1.658.394.568-.352.745-1.094.395-1.66C10.63 9.719 7.822 6.469 7.376 6.745zM7.041 2.402C7.969 2.079 8.963 1.9 10 1.9s2.031.179 2.959.502c.329.114.765-.115.572-.611-.141-.36-.277-.712-.332-.855-.131-.339-.6-.619-.804-.665C11.623.097 10.823.0 10 0S8.377.097 7.604.271C7.4.317 6.932.597 6.801.936 6.746 1.079 6.609 1.431 6.469 1.791 6.276 2.287 6.712 2.517 7.041 2.402zM19.098 3.186c-.192-.23-.396-.455-.613-.672-.216-.217-.441-.42-.67-.613-.153-.129-.603-.234-.888.051-.284.285-1.648 1.647-1.648 1.647.402.288.793.605 1.155.966.362.361.677.752.966 1.155.0.0 1.363-1.362 1.647-1.647C19.333 3.787 19.228 3.338 19.098 3.186zM10 2.9c-4.475.0-8.101 3.626-8.101 8.1.0 4.475 3.626 8.101 8.101 8.101 4.473.0 8.1-3.626 8.1-8.101C18.1 6.527 14.473 2.9 10 2.9zM10 17.101c-3.368.0-6.1-2.731-6.1-6.1.0-3.369 2.731-6.1 6.1-6.1 3.369.0 6.101 2.731 6.101 6.1C16.101 14.369 13.369 17.101 10 17.101z" class="post__meta-icon" /></svg></span><span class=post__read-time-label>5 min read</span></div><ul class=post__categories><li class=post__category><a href=/categories/development class=post__category-link>development</a></li></ul></div></header><section class=post-content><p>Today I learned more about the subtle art of javascript performance. I have been doing a few algorithm challenges on <a href=https://www.freecodecamp.org/>freeCodeCamp</a>, which is a great resource. Whilst completing one titled <em>&ldquo;Intermediate Algorithm Scripting: Smallest Common Multiple&rdquo;</em> I had a look at what other solutions people had posted, and how they compared to mine. A user had put together a CodePen running <a href=https://benchmarkjs.com/>BenchmarkJS</a> that contained about four solutions. I added my solution (below) to the benchmark test and the results were surprising.</p><h3 id=my-initial-solution>My initial solution</h3><pre><code class=language-javascript>// smallestCommonsOriginal
-function smallestCommons(arr) {
-  const [smallest, largest] = arr.sort((a, b) =&gt; a - b);
-  const dividedByAll = (sum, sequence) =&gt; {
-    for (let i = sequence[0]; i &lt;= sequence[sequence.length - 1]; i++) {
-      if (sum % i !== 0) {
-        return false;
-      }
-    }
+<!doctype html><html class=no-js lang=en-gb><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><title>Subtle art of performance wins | Front-end web development | Neil Magee</title><meta name=description content="How to improve JavaScript performance by refactoring your code" property="og:description"><meta name=keywords content><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=author content="Neil Magee"><meta name=referrer content="no-referrer-when-downgrade"><link href=/images/favicon/favicon-16x16.png rel="shortcut icon" type=image/png><link rel=stylesheet href=/css/style-b662c601.css><link rel=stylesheet href=/css/code-highlighting-52395fdb.css></head><body><header class=site-header><section class=site-header__ident><a href=https://til.neilmagee.com/ class=site-header__link>TIL</a></section><nav class=site-header__nav><a href=/about class=site-header__nav-item>About</a></nav></header><div class=site-container><div class=site-container__inner><main role=main id=content><article class="post post--single" itemscope itemtype=http://schema.org/BlogPosting><header class=post__header><h1 class="post__title post__title--single" itemprop=title>Subtle art of performance wins</h1><div class=post__meta><time class=post__date datetime=2019-12-12 itemprop="dateCreated pubdate datePublished"><span class=post__date-icon><svg id="Calendar" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 20" enable-background="new 0 0 20 20"><path d="M17 3h-1v2h-3V3H7v2H4V3H3C1.899 3 1 3.9 1 5v12c0 1.1.899 2 2 2h14c1.1.0 2-.9 2-2V5C19 3.9 18.1 3 17 3zm0 14H3V9h14v8zM6.5 1h-2v3.5h2V1zm9 0h-2v3.5h2V1z" class="post__meta-icon" /></svg></span><span class=post__date-label>2019-12-12</span></time><div class=post__read-time><span class=post__read-time-icon><svg id="Stopwatch" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 20" enable-background="new 0 0 20 20"><path d="M7.376 6.745c-.447.275 1.197 4.242 1.598 4.888.35.569 1.093.742 1.658.394.568-.352.745-1.094.395-1.66C10.63 9.719 7.822 6.469 7.376 6.745zM7.041 2.402C7.969 2.079 8.963 1.9 10 1.9s2.031.179 2.959.502c.329.114.765-.115.572-.611-.141-.36-.277-.712-.332-.855-.131-.339-.6-.619-.804-.665C11.623.097 10.823.0 10 0S8.377.097 7.604.271C7.4.317 6.932.597 6.801.936 6.746 1.079 6.609 1.431 6.469 1.791 6.276 2.287 6.712 2.517 7.041 2.402zM19.098 3.186c-.192-.23-.396-.455-.613-.672-.216-.217-.441-.42-.67-.613-.153-.129-.603-.234-.888.051-.284.285-1.648 1.647-1.648 1.647.402.288.793.605 1.155.966.362.361.677.752.966 1.155.0.0 1.363-1.362 1.647-1.647C19.333 3.787 19.228 3.338 19.098 3.186zM10 2.9c-4.475.0-8.101 3.626-8.101 8.1.0 4.475 3.626 8.101 8.101 8.101 4.473.0 8.1-3.626 8.1-8.101C18.1 6.527 14.473 2.9 10 2.9zM10 17.101c-3.368.0-6.1-2.731-6.1-6.1s2.731-6.1 6.1-6.1 6.101 2.731 6.101 6.1C16.101 14.369 13.369 17.101 10 17.101z" class="post__meta-icon" /></svg></span><span class=post__read-time-label>5 min read</span></div><ul class=post__categories><li class=post__category><a href=/categories/development class=post__category-link>development</a></li></ul></div></header><section class=post-content><p>Today I learned more about the subtle art of javascript performance. I have been doing a few algorithm challenges on <a href=https://www.freecodecamp.org/>freeCodeCamp</a>, which is a great resource. Whilst completing one titled <em>&ldquo;Intermediate Algorithm Scripting: Smallest Common Multiple&rdquo;</em> I had a look at what other solutions people had posted, and how they compared to mine. A user had put together a CodePen running <a href=https://benchmarkjs.com/>BenchmarkJS</a> that contained about four solutions. I added my solution (below) to the benchmark test and the results were surprising.</p><h3 id=my-initial-solution>My initial solution</h3><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=c1>// smallestCommonsOriginal
+</span><span class=c1></span><span class=kd>function</span> <span class=nx>smallestCommons</span><span class=p>(</span><span class=nx>arr</span><span class=p>)</span> <span class=p>{</span>
+  <span class=kr>const</span> <span class=p>[</span><span class=nx>smallest</span><span class=p>,</span> <span class=nx>largest</span><span class=p>]</span> <span class=o>=</span> <span class=nx>arr</span><span class=p>.</span><span class=nx>sort</span><span class=p>(</span><span class=p>(</span><span class=nx>a</span><span class=p>,</span> <span class=nx>b</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=nx>a</span> <span class=o>-</span> <span class=nx>b</span><span class=p>)</span><span class=p>;</span>
+  <span class=kr>const</span> <span class=nx>dividedByAll</span> <span class=o>=</span> <span class=p>(</span><span class=nx>sum</span><span class=p>,</span> <span class=nx>sequence</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+    <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=nx>sequence</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;=</span> <span class=nx>sequence</span><span class=p>[</span><span class=nx>sequence</span><span class=p>.</span><span class=nx>length</span> <span class=o>-</span> <span class=mi>1</span><span class=p>]</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+      <span class=k>if</span> <span class=p>(</span><span class=nx>sum</span> <span class=o>%</span> <span class=nx>i</span> <span class=o>!==</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+        <span class=k>return</span> <span class=kc>false</span><span class=p>;</span>
+      <span class=p>}</span>
+    <span class=p>}</span>
 
-    return true;
-  };
+    <span class=k>return</span> <span class=kc>true</span><span class=p>;</span>
+  <span class=p>}</span><span class=p>;</span>
 
-  const sequence = [];
-  // Generate numbers between
-  for (let i = smallest; i &lt;= largest; i++) {
-    sequence.push(i);
-  }
+  <span class=kr>const</span> <span class=nx>sequence</span> <span class=o>=</span> <span class=p>[</span><span class=p>]</span><span class=p>;</span>
+  <span class=c1>// Generate numbers between
+</span><span class=c1></span>  <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=nx>smallest</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;=</span> <span class=nx>largest</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+    <span class=nx>sequence</span><span class=p>.</span><span class=nx>push</span><span class=p>(</span><span class=nx>i</span><span class=p>)</span><span class=p>;</span>
+  <span class=p>}</span>
 
-  let lowestCommonFound = false;
-  let sum = largest * (largest - 1);
+  <span class=kd>let</span> <span class=nx>lowestCommonFound</span> <span class=o>=</span> <span class=kc>false</span><span class=p>;</span>
+  <span class=kd>let</span> <span class=nx>sum</span> <span class=o>=</span> <span class=nx>largest</span> <span class=o>*</span> <span class=p>(</span><span class=nx>largest</span> <span class=o>-</span> <span class=mi>1</span><span class=p>)</span><span class=p>;</span>
 
-  // loop until the common is found
-  while (lowestCommonFound === false) {
-    lowestCommonFound = dividedByAll(sum, sequence);
-    if (lowestCommonFound) {
-      return sum;
-    }
+  <span class=c1>// loop until the common is found
+</span><span class=c1></span>  <span class=k>while</span> <span class=p>(</span><span class=nx>lowestCommonFound</span> <span class=o>===</span> <span class=kc>false</span><span class=p>)</span> <span class=p>{</span>
+    <span class=nx>lowestCommonFound</span> <span class=o>=</span> <span class=nx>dividedByAll</span><span class=p>(</span><span class=nx>sum</span><span class=p>,</span> <span class=nx>sequence</span><span class=p>)</span><span class=p>;</span>
+    <span class=k>if</span> <span class=p>(</span><span class=nx>lowestCommonFound</span><span class=p>)</span> <span class=p>{</span>
+      <span class=k>return</span> <span class=nx>sum</span><span class=p>;</span>
+    <span class=p>}</span>
 
-    sum = sum + largest;
-  }
-}
+    <span class=nx>sum</span> <span class=o>=</span> <span class=nx>sum</span> <span class=o>+</span> <span class=nx>largest</span><span class=p>;</span>
+  <span class=p>}</span>
+<span class=p>}</span>
 
-smallestCommons([1, 5]); //should return 60
-smallestCommons([5, 1]); //should return 60
-smallestCommons([2, 10]); //should return 2520
-smallestCommons([1, 13]); //should return 360360
-smallestCommons([23, 18]); //should return 6056820
-</code></pre><h3 id=the-freecodecamp-advanced-solution>The freeCodeCamp advanced solution</h3><pre><code class=language-javascript>const smallestCommonsAdv = arr =&gt; {
-  let max = Math.max(...arr);
-  let min = Math.min(...arr);
-  // Initially the solution is assigned to the highest value of the array
-  let sol = max;
+<span class=nx>smallestCommons</span><span class=p>(</span><span class=p>[</span><span class=mi>1</span><span class=p>,</span> <span class=mi>5</span><span class=p>]</span><span class=p>)</span><span class=p>;</span> <span class=c1>//should return 60
+</span><span class=c1></span><span class=nx>smallestCommons</span><span class=p>(</span><span class=p>[</span><span class=mi>5</span><span class=p>,</span> <span class=mi>1</span><span class=p>]</span><span class=p>)</span><span class=p>;</span> <span class=c1>//should return 60
+</span><span class=c1></span><span class=nx>smallestCommons</span><span class=p>(</span><span class=p>[</span><span class=mi>2</span><span class=p>,</span> <span class=mi>10</span><span class=p>]</span><span class=p>)</span><span class=p>;</span> <span class=c1>//should return 2520
+</span><span class=c1></span><span class=nx>smallestCommons</span><span class=p>(</span><span class=p>[</span><span class=mi>1</span><span class=p>,</span> <span class=mi>13</span><span class=p>]</span><span class=p>)</span><span class=p>;</span> <span class=c1>//should return 360360
+</span><span class=c1></span><span class=nx>smallestCommons</span><span class=p>(</span><span class=p>[</span><span class=mi>23</span><span class=p>,</span> <span class=mi>18</span><span class=p>]</span><span class=p>)</span><span class=p>;</span> <span class=c1>//should return 6056820
+</span></code></pre></div><h3 id=the-freecodecamp-advanced-solution>The freeCodeCamp advanced solution</h3><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=kr>const</span> <span class=nx>smallestCommonsAdv</span> <span class=o>=</span> <span class=nx>arr</span> <span class=p>=&gt;</span> <span class=p>{</span>
+  <span class=kd>let</span> <span class=nx>max</span> <span class=o>=</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>max</span><span class=p>(</span><span class=p>...</span><span class=nx>arr</span><span class=p>)</span><span class=p>;</span>
+  <span class=kd>let</span> <span class=nx>min</span> <span class=o>=</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>min</span><span class=p>(</span><span class=p>...</span><span class=nx>arr</span><span class=p>)</span><span class=p>;</span>
+  <span class=c1>// Initially the solution is assigned to the highest value of the array
+</span><span class=c1></span>  <span class=kd>let</span> <span class=nx>sol</span> <span class=o>=</span> <span class=nx>max</span><span class=p>;</span>
 
-  for (let i = max - 1; i &gt;= min; i--) {
-    // Each time the solution checks (i.e. sol%i===0) it won't be necessary to increment 'max' to our solution and restart the loop
-    if (sol % i) {
-      sol += max;
-      i = max;
-    }
-  }
-  return sol;
-};
-</code></pre><p>Against the advanced solution to the challenge, my solution ran approx. <em>2.5x</em> slower. Which was disappointing!</p><pre><code class=language-javascript>// Running with benchmark.js
-smallestCommons x 1,971,923 ops/sec ±1.55% (61 runs sampled)
-smallestCommonsAdv x 5,100,845 ops/sec ±0.58% (63 runs sampled)
-</code></pre><p>So I proceeded to refactor my solution. I tried a few things - running the loops in reverse and not generating an intermediate sequence. There is more I could have done, but I did not want to completely rewrite the function. This refactor had an improvement, but not as much as I hoped.</p><h3 id=my-refactored-solution>My refactored solution</h3><pre><code class=language-javascript>// smallestCommonsRefactor
-function smallestCommons(arr) {
-  const [min, max] = arr.sort((a, b) =&gt; a - b);
-  const dividedByAll = (sum, min, max) =&gt; {
-    for (let i = max; i &gt;= min; i--) {
-      if (sum % i !== 0) {
-        return false;
-      }
-    }
+  <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=nx>max</span> <span class=o>-</span> <span class=mi>1</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&gt;=</span> <span class=nx>min</span><span class=p>;</span> <span class=nx>i</span><span class=o>--</span><span class=p>)</span> <span class=p>{</span>
+    <span class=c1>// Each time the solution checks (i.e. sol%i===0) it won&#39;t be necessary to increment &#39;max&#39; to our solution and restart the loop
+</span><span class=c1></span>    <span class=k>if</span> <span class=p>(</span><span class=nx>sol</span> <span class=o>%</span> <span class=nx>i</span><span class=p>)</span> <span class=p>{</span>
+      <span class=nx>sol</span> <span class=o>+=</span> <span class=nx>max</span><span class=p>;</span>
+      <span class=nx>i</span> <span class=o>=</span> <span class=nx>max</span><span class=p>;</span>
+    <span class=p>}</span>
+  <span class=p>}</span>
+  <span class=k>return</span> <span class=nx>sol</span><span class=p>;</span>
+<span class=p>}</span><span class=p>;</span>
+</code></pre></div><p>Against the advanced solution to the challenge, my solution ran approx. <em>2.5x</em> slower. Which was disappointing!</p><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=c1>// Running with benchmark.js
+</span><span class=c1></span><span class=nx>smallestCommons</span> <span class=nx>x</span> <span class=mi>1</span><span class=p>,</span><span class=mi>971</span><span class=p>,</span><span class=mi>923</span> <span class=nx>ops</span><span class=o>/</span><span class=nx>sec</span> <span class=err>±</span><span class=mf>1.55</span><span class=o>%</span> <span class=p>(</span><span class=mi>61</span> <span class=nx>runs</span> <span class=nx>sampled</span><span class=p>)</span>
+<span class=nx>smallestCommonsAdv</span> <span class=nx>x</span> <span class=mi>5</span><span class=p>,</span><span class=mi>100</span><span class=p>,</span><span class=mi>845</span> <span class=nx>ops</span><span class=o>/</span><span class=nx>sec</span> <span class=err>±</span><span class=mf>0.58</span><span class=o>%</span> <span class=p>(</span><span class=mi>63</span> <span class=nx>runs</span> <span class=nx>sampled</span><span class=p>)</span>
+</code></pre></div><p>So I proceeded to refactor my solution. I tried a few things - running the loops in reverse and not generating an intermediate sequence. There is more I could have done, but I did not want to completely rewrite the function. This refactor had an improvement, but not as much as I hoped.</p><h3 id=my-refactored-solution>My refactored solution</h3><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=c1>// smallestCommonsRefactor
+</span><span class=c1></span><span class=kd>function</span> <span class=nx>smallestCommons</span><span class=p>(</span><span class=nx>arr</span><span class=p>)</span> <span class=p>{</span>
+  <span class=kr>const</span> <span class=p>[</span><span class=nx>min</span><span class=p>,</span> <span class=nx>max</span><span class=p>]</span> <span class=o>=</span> <span class=nx>arr</span><span class=p>.</span><span class=nx>sort</span><span class=p>(</span><span class=p>(</span><span class=nx>a</span><span class=p>,</span> <span class=nx>b</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=nx>a</span> <span class=o>-</span> <span class=nx>b</span><span class=p>)</span><span class=p>;</span>
+  <span class=kr>const</span> <span class=nx>dividedByAll</span> <span class=o>=</span> <span class=p>(</span><span class=nx>sum</span><span class=p>,</span> <span class=nx>min</span><span class=p>,</span> <span class=nx>max</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+    <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=nx>max</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&gt;=</span> <span class=nx>min</span><span class=p>;</span> <span class=nx>i</span><span class=o>--</span><span class=p>)</span> <span class=p>{</span>
+      <span class=k>if</span> <span class=p>(</span><span class=nx>sum</span> <span class=o>%</span> <span class=nx>i</span> <span class=o>!==</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+        <span class=k>return</span> <span class=kc>false</span><span class=p>;</span>
+      <span class=p>}</span>
+    <span class=p>}</span>
 
-    return true;
-  };
+    <span class=k>return</span> <span class=kc>true</span><span class=p>;</span>
+  <span class=p>}</span><span class=p>;</span>
 
-  let lowestCommonFound = false;
-  let sum = max * (max - 1);
+  <span class=kd>let</span> <span class=nx>lowestCommonFound</span> <span class=o>=</span> <span class=kc>false</span><span class=p>;</span>
+  <span class=kd>let</span> <span class=nx>sum</span> <span class=o>=</span> <span class=nx>max</span> <span class=o>*</span> <span class=p>(</span><span class=nx>max</span> <span class=o>-</span> <span class=mi>1</span><span class=p>)</span><span class=p>;</span>
 
-  // loop until the common is found
-  while (lowestCommonFound === false) {
-    lowestCommonFound = dividedByAll(sum, min, max);
-    if (lowestCommonFound) {
-      return sum;
-    }
+  <span class=c1>// loop until the common is found
+</span><span class=c1></span>  <span class=k>while</span> <span class=p>(</span><span class=nx>lowestCommonFound</span> <span class=o>===</span> <span class=kc>false</span><span class=p>)</span> <span class=p>{</span>
+    <span class=nx>lowestCommonFound</span> <span class=o>=</span> <span class=nx>dividedByAll</span><span class=p>(</span><span class=nx>sum</span><span class=p>,</span> <span class=nx>min</span><span class=p>,</span> <span class=nx>max</span><span class=p>)</span><span class=p>;</span>
+    <span class=k>if</span> <span class=p>(</span><span class=nx>lowestCommonFound</span><span class=p>)</span> <span class=p>{</span>
+      <span class=k>return</span> <span class=nx>sum</span><span class=p>;</span>
+    <span class=p>}</span>
 
-    sum = sum + max;
-  }
-}
-</code></pre><p>The refactored solution now ran <em>2.2x</em> slower than the advanced solution. An improvement of approx. <em>12%</em> over my original solution. A slight win 🎉.</p><pre><code class=language-javascript>// Running with benchmark.js
-smallestCommonsOriginal x 1,971,923 ops/sec ±1.55% (61 runs sampled)
-smallestCommonsRefactor x 2,328,185 ops/sec ±0.70% (61 runs sampled)
-smallestCommonsAdv x 5,100,845 ops/sec ±0.58% (63 runs sampled)
-</code></pre><p>I looked at the advanced solution. One of the main differences between mine and theirs was the initial sorting of the incoming array. I was using <a href=https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort><code>Array.prototype.sort</code></a> whereas they used native maths functions <a href=https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/max><code>Math.max()</code></a> and <a href=https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/min><code>Math.min()</code></a>. This got me intrigued. So I refactored once more to include this change.</p><h3 id=my-final-solution>My final solution</h3><pre><code class=language-javascript>// smallestCommonsMinMax
-function smallestCommons(arr) {
-  const [min, max] = arr.sort((a, b) =&gt; a - b);
-  const dividedByAll = (sum, min, max) =&gt; {
-    for (let i = max; i &gt;= min; i--) {
-      if (sum % i !== 0) {
-        return false;
-      }
-    }
+    <span class=nx>sum</span> <span class=o>=</span> <span class=nx>sum</span> <span class=o>+</span> <span class=nx>max</span><span class=p>;</span>
+  <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></div><p>The refactored solution now ran <em>2.2x</em> slower than the advanced solution. An improvement of approx. <em>12%</em> over my original solution. A slight win 🎉.</p><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=c1>// Running with benchmark.js
+</span><span class=c1></span><span class=nx>smallestCommonsOriginal</span> <span class=nx>x</span> <span class=mi>1</span><span class=p>,</span><span class=mi>971</span><span class=p>,</span><span class=mi>923</span> <span class=nx>ops</span><span class=o>/</span><span class=nx>sec</span> <span class=err>±</span><span class=mf>1.55</span><span class=o>%</span> <span class=p>(</span><span class=mi>61</span> <span class=nx>runs</span> <span class=nx>sampled</span><span class=p>)</span>
+<span class=nx>smallestCommonsRefactor</span> <span class=nx>x</span> <span class=mi>2</span><span class=p>,</span><span class=mi>328</span><span class=p>,</span><span class=mi>185</span> <span class=nx>ops</span><span class=o>/</span><span class=nx>sec</span> <span class=err>±</span><span class=mf>0.70</span><span class=o>%</span> <span class=p>(</span><span class=mi>61</span> <span class=nx>runs</span> <span class=nx>sampled</span><span class=p>)</span>
+<span class=nx>smallestCommonsAdv</span> <span class=nx>x</span> <span class=mi>5</span><span class=p>,</span><span class=mi>100</span><span class=p>,</span><span class=mi>845</span> <span class=nx>ops</span><span class=o>/</span><span class=nx>sec</span> <span class=err>±</span><span class=mf>0.58</span><span class=o>%</span> <span class=p>(</span><span class=mi>63</span> <span class=nx>runs</span> <span class=nx>sampled</span><span class=p>)</span>
+</code></pre></div><p>I looked at the advanced solution. One of the main differences between mine and theirs was the initial sorting of the incoming array. I was using <a href=https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort><code>Array.prototype.sort</code></a> whereas they used native maths functions <a href=https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/max><code>Math.max()</code></a> and <a href=https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/min><code>Math.min()</code></a>. This got me intrigued. So I refactored once more to include this change.</p><h3 id=my-final-solution>My final solution</h3><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=c1>// smallestCommonsMinMax
+</span><span class=c1></span><span class=kd>function</span> <span class=nx>smallestCommons</span><span class=p>(</span><span class=nx>arr</span><span class=p>)</span> <span class=p>{</span>
+  <span class=kr>const</span> <span class=p>[</span><span class=nx>min</span><span class=p>,</span> <span class=nx>max</span><span class=p>]</span> <span class=o>=</span> <span class=nx>arr</span><span class=p>.</span><span class=nx>sort</span><span class=p>(</span><span class=p>(</span><span class=nx>a</span><span class=p>,</span> <span class=nx>b</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=nx>a</span> <span class=o>-</span> <span class=nx>b</span><span class=p>)</span><span class=p>;</span>
+  <span class=kr>const</span> <span class=nx>dividedByAll</span> <span class=o>=</span> <span class=p>(</span><span class=nx>sum</span><span class=p>,</span> <span class=nx>min</span><span class=p>,</span> <span class=nx>max</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+    <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=nx>max</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&gt;=</span> <span class=nx>min</span><span class=p>;</span> <span class=nx>i</span><span class=o>--</span><span class=p>)</span> <span class=p>{</span>
+      <span class=k>if</span> <span class=p>(</span><span class=nx>sum</span> <span class=o>%</span> <span class=nx>i</span> <span class=o>!==</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+        <span class=k>return</span> <span class=kc>false</span><span class=p>;</span>
+      <span class=p>}</span>
+    <span class=p>}</span>
 
-    return true;
-  };
+    <span class=k>return</span> <span class=kc>true</span><span class=p>;</span>
+  <span class=p>}</span><span class=p>;</span>
 
-  let lowestCommonFound = false;
-  let sum = max * (max - 1);
+  <span class=kd>let</span> <span class=nx>lowestCommonFound</span> <span class=o>=</span> <span class=kc>false</span><span class=p>;</span>
+  <span class=kd>let</span> <span class=nx>sum</span> <span class=o>=</span> <span class=nx>max</span> <span class=o>*</span> <span class=p>(</span><span class=nx>max</span> <span class=o>-</span> <span class=mi>1</span><span class=p>)</span><span class=p>;</span>
 
-  // loop until the common is found
-  while (lowestCommonFound === false) {
-    lowestCommonFound = dividedByAll(sum, min, max);
-    if (lowestCommonFound) {
-      return sum;
-    }
+  <span class=c1>// loop until the common is found
+</span><span class=c1></span>  <span class=k>while</span> <span class=p>(</span><span class=nx>lowestCommonFound</span> <span class=o>===</span> <span class=kc>false</span><span class=p>)</span> <span class=p>{</span>
+    <span class=nx>lowestCommonFound</span> <span class=o>=</span> <span class=nx>dividedByAll</span><span class=p>(</span><span class=nx>sum</span><span class=p>,</span> <span class=nx>min</span><span class=p>,</span> <span class=nx>max</span><span class=p>)</span><span class=p>;</span>
+    <span class=k>if</span> <span class=p>(</span><span class=nx>lowestCommonFound</span><span class=p>)</span> <span class=p>{</span>
+      <span class=k>return</span> <span class=nx>sum</span><span class=p>;</span>
+    <span class=p>}</span>
 
-    sum = sum + max;
-  }
-}
-</code></pre><p>Running <em>(smallestCommonsMinMax)</em> this solution in the benchmark suite gave these results.</p><pre><code class=language-javascript>// Running with benchmark.js
-smallestCommonsOriginal x 1,971,923 ops/sec ±1.55% (61 runs sampled)
-smallestCommonsRefactor x 2,328,185 ops/sec ±0.70% (61 runs sampled)
-smallestCommonsMinMax x 4,293,900 ops/sec ±1.34% (62 runs sampled)
-smallestCommonsAdv x 5,100,845 ops/sec ±0.58% (63 runs sampled)
-</code></pre><p>My final solution <em>(smallestCommonsMinMax)</em> was now only <em>1.18x</em> slower than the advanced solution. This was an improvement of <strong>52.8%</strong> over my original solution. That is a lot better. Maybe if I continued with this I would eventually write a solution that was faster than the advanced solution, but for now this satisfies my curiousity.</p><p>To finish it all off, I wrote a benchmark test to compare <code>sort</code> against <code>min/max</code>. The results speak for themselves.</p><pre><code class=language-javascript>// Running with benchmark.js
-arraySort x 3,183,926 ops/sec ±4.44% (56 runs sampled)
-minMax x 10,454,070 ops/sec ±0.52% (63 runs sampled)
-</code></pre><h3 id=the-benchmark-test>The benchmark test</h3><pre><code class=language-javascript>function run() {
-  const suite = new Benchmark.Suite();
-  const output = document.getElementById(&quot;console&quot;);
-  const winner = document.getElementById(&quot;winner&quot;);
+    <span class=nx>sum</span> <span class=o>=</span> <span class=nx>sum</span> <span class=o>+</span> <span class=nx>max</span><span class=p>;</span>
+  <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></div><p>Running <em>(smallestCommonsMinMax)</em> this solution in the benchmark suite gave these results.</p><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=c1>// Running with benchmark.js
+</span><span class=c1></span><span class=nx>smallestCommonsOriginal</span> <span class=nx>x</span> <span class=mi>1</span><span class=p>,</span><span class=mi>971</span><span class=p>,</span><span class=mi>923</span> <span class=nx>ops</span><span class=o>/</span><span class=nx>sec</span> <span class=err>±</span><span class=mf>1.55</span><span class=o>%</span> <span class=p>(</span><span class=mi>61</span> <span class=nx>runs</span> <span class=nx>sampled</span><span class=p>)</span>
+<span class=nx>smallestCommonsRefactor</span> <span class=nx>x</span> <span class=mi>2</span><span class=p>,</span><span class=mi>328</span><span class=p>,</span><span class=mi>185</span> <span class=nx>ops</span><span class=o>/</span><span class=nx>sec</span> <span class=err>±</span><span class=mf>0.70</span><span class=o>%</span> <span class=p>(</span><span class=mi>61</span> <span class=nx>runs</span> <span class=nx>sampled</span><span class=p>)</span>
+<span class=nx>smallestCommonsMinMax</span> <span class=nx>x</span> <span class=mi>4</span><span class=p>,</span><span class=mi>293</span><span class=p>,</span><span class=mi>900</span> <span class=nx>ops</span><span class=o>/</span><span class=nx>sec</span> <span class=err>±</span><span class=mf>1.34</span><span class=o>%</span> <span class=p>(</span><span class=mi>62</span> <span class=nx>runs</span> <span class=nx>sampled</span><span class=p>)</span>
+<span class=nx>smallestCommonsAdv</span> <span class=nx>x</span> <span class=mi>5</span><span class=p>,</span><span class=mi>100</span><span class=p>,</span><span class=mi>845</span> <span class=nx>ops</span><span class=o>/</span><span class=nx>sec</span> <span class=err>±</span><span class=mf>0.58</span><span class=o>%</span> <span class=p>(</span><span class=mi>63</span> <span class=nx>runs</span> <span class=nx>sampled</span><span class=p>)</span>
+</code></pre></div><p>My final solution <em>(smallestCommonsMinMax)</em> was now only <em>1.18x</em> slower than the advanced solution. This was an improvement of <strong>52.8%</strong> over my original solution. That is a lot better. Maybe if I continued with this I would eventually write a solution that was faster than the advanced solution, but for now this satisfies my curiousity.</p><p>To finish it all off, I wrote a benchmark test to compare <code>sort</code> against <code>min/max</code>. The results speak for themselves.</p><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=c1>// Running with benchmark.js
+</span><span class=c1></span><span class=nx>arraySort</span> <span class=nx>x</span> <span class=mi>3</span><span class=p>,</span><span class=mi>183</span><span class=p>,</span><span class=mi>926</span> <span class=nx>ops</span><span class=o>/</span><span class=nx>sec</span> <span class=err>±</span><span class=mf>4.44</span><span class=o>%</span> <span class=p>(</span><span class=mi>56</span> <span class=nx>runs</span> <span class=nx>sampled</span><span class=p>)</span>
+<span class=nx>minMax</span> <span class=nx>x</span> <span class=mi>10</span><span class=p>,</span><span class=mi>454</span><span class=p>,</span><span class=mi>070</span> <span class=nx>ops</span><span class=o>/</span><span class=nx>sec</span> <span class=err>±</span><span class=mf>0.52</span><span class=o>%</span> <span class=p>(</span><span class=mi>63</span> <span class=nx>runs</span> <span class=nx>sampled</span><span class=p>)</span>
+</code></pre></div><h3 id=the-benchmark-test>The benchmark test</h3><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=kd>function</span> <span class=nx>run</span><span class=p>(</span><span class=p>)</span> <span class=p>{</span>
+  <span class=kr>const</span> <span class=nx>suite</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Benchmark</span><span class=p>.</span><span class=nx>Suite</span><span class=p>(</span><span class=p>)</span><span class=p>;</span>
+  <span class=kr>const</span> <span class=nx>output</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>getElementById</span><span class=p>(</span><span class=s2>&#34;console&#34;</span><span class=p>)</span><span class=p>;</span>
+  <span class=kr>const</span> <span class=nx>winner</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>getElementById</span><span class=p>(</span><span class=s2>&#34;winner&#34;</span><span class=p>)</span><span class=p>;</span>
 
-  // Add functions to test
-  function arraySort(arr) {
-    return arr.sort((a, b) =&gt; a - b);
-  }
+  <span class=c1>// Add functions to test
+</span><span class=c1></span>  <span class=kd>function</span> <span class=nx>arraySort</span><span class=p>(</span><span class=nx>arr</span><span class=p>)</span> <span class=p>{</span>
+    <span class=k>return</span> <span class=nx>arr</span><span class=p>.</span><span class=nx>sort</span><span class=p>(</span><span class=p>(</span><span class=nx>a</span><span class=p>,</span> <span class=nx>b</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=nx>a</span> <span class=o>-</span> <span class=nx>b</span><span class=p>)</span><span class=p>;</span>
+  <span class=p>}</span>
 
-  function minMax(arr) {
-    return [Math.min(...arr), Math.max(...arr)];
-  }
+  <span class=kd>function</span> <span class=nx>minMax</span><span class=p>(</span><span class=nx>arr</span><span class=p>)</span> <span class=p>{</span>
+    <span class=k>return</span> <span class=p>[</span><span class=nb>Math</span><span class=p>.</span><span class=nx>min</span><span class=p>(</span><span class=p>...</span><span class=nx>arr</span><span class=p>)</span><span class=p>,</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>max</span><span class=p>(</span><span class=p>...</span><span class=nx>arr</span><span class=p>)</span><span class=p>]</span><span class=p>;</span>
+  <span class=p>}</span>
 
-  // add tests
-  const input = [14, 7];
+  <span class=c1>// add tests
+</span><span class=c1></span>  <span class=kr>const</span> <span class=nx>input</span> <span class=o>=</span> <span class=p>[</span><span class=mi>14</span><span class=p>,</span> <span class=mi>7</span><span class=p>]</span><span class=p>;</span>
 
-  suite
-    .add(&quot;arraySort&quot;, function() {
-      arraySort(input);
-    })
-    .add(&quot;minMax&quot;, function() {
-      minMax(input);
-    })
+  <span class=nx>suite</span>
+    <span class=p>.</span><span class=nx>add</span><span class=p>(</span><span class=s2>&#34;arraySort&#34;</span><span class=p>,</span> <span class=kd>function</span><span class=p>(</span><span class=p>)</span> <span class=p>{</span>
+      <span class=nx>arraySort</span><span class=p>(</span><span class=nx>input</span><span class=p>)</span><span class=p>;</span>
+    <span class=p>}</span><span class=p>)</span>
+    <span class=p>.</span><span class=nx>add</span><span class=p>(</span><span class=s2>&#34;minMax&#34;</span><span class=p>,</span> <span class=kd>function</span><span class=p>(</span><span class=p>)</span> <span class=p>{</span>
+      <span class=nx>minMax</span><span class=p>(</span><span class=nx>input</span><span class=p>)</span><span class=p>;</span>
+    <span class=p>}</span><span class=p>)</span>
 
-    // add listeners
-    .on(&quot;cycle&quot;, function(event) {
-      const p = document.createElement(&quot;p&quot;);
+    <span class=c1>// add listeners
+</span><span class=c1></span>    <span class=p>.</span><span class=nx>on</span><span class=p>(</span><span class=s2>&#34;cycle&#34;</span><span class=p>,</span> <span class=kd>function</span><span class=p>(</span><span class=nx>event</span><span class=p>)</span> <span class=p>{</span>
+      <span class=kr>const</span> <span class=nx>p</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>createElement</span><span class=p>(</span><span class=s2>&#34;p&#34;</span><span class=p>)</span><span class=p>;</span>
 
-      p.innerText = String(event.target);
-      output.append(p);
-    })
-    .on(&quot;complete&quot;, function() {
-      const p = document.createElement(&quot;p&quot;);
+      <span class=nx>p</span><span class=p>.</span><span class=nx>innerText</span> <span class=o>=</span> <span class=nb>String</span><span class=p>(</span><span class=nx>event</span><span class=p>.</span><span class=nx>target</span><span class=p>)</span><span class=p>;</span>
+      <span class=nx>output</span><span class=p>.</span><span class=nx>append</span><span class=p>(</span><span class=nx>p</span><span class=p>)</span><span class=p>;</span>
+    <span class=p>}</span><span class=p>)</span>
+    <span class=p>.</span><span class=nx>on</span><span class=p>(</span><span class=s2>&#34;complete&#34;</span><span class=p>,</span> <span class=kd>function</span><span class=p>(</span><span class=p>)</span> <span class=p>{</span>
+      <span class=kr>const</span> <span class=nx>p</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>createElement</span><span class=p>(</span><span class=s2>&#34;p&#34;</span><span class=p>)</span><span class=p>;</span>
 
-      p.innerHTML = `✨ 👑 Fastest is &lt;strong&gt;${this.filter(&quot;fastest&quot;).map(
-        &quot;name&quot;
-      )}&lt;/strong&gt; 🦄 ✨`;
-      winner.append(p);
-    })
+      <span class=nx>p</span><span class=p>.</span><span class=nx>innerHTML</span> <span class=o>=</span> <span class=sb>`</span><span class=sb>✨ 👑 Fastest is &lt;strong&gt;</span><span class=si>${</span><span class=k>this</span><span class=p>.</span><span class=nx>filter</span><span class=p>(</span><span class=s2>&#34;fastest&#34;</span><span class=p>)</span><span class=p>.</span><span class=nx>map</span><span class=p>(</span>
+        <span class=s2>&#34;name&#34;</span>
+      <span class=p>)</span><span class=si>}</span><span class=sb>&lt;/strong&gt; 🦄 ✨</span><span class=sb>`</span><span class=p>;</span>
+      <span class=nx>winner</span><span class=p>.</span><span class=nx>append</span><span class=p>(</span><span class=nx>p</span><span class=p>)</span><span class=p>;</span>
+    <span class=p>}</span><span class=p>)</span>
 
-    // run async
-    .run({ async: true });
-}
+    <span class=c1>// run async
+</span><span class=c1></span>    <span class=p>.</span><span class=nx>run</span><span class=p>(</span><span class=p>{</span> <span class=nx>async</span><span class=o>:</span> <span class=kc>true</span> <span class=p>}</span><span class=p>)</span><span class=p>;</span>
+<span class=p>}</span>
 
-window.addEventListener(&quot;DOMContentLoaded&quot;, event =&gt; {
-  run();
-});
-</code></pre><h2 id=in-conclusion>In conclusion</h2><p>I learnt a lot from this, but there are no specific takeaways. Performance is hard, and you really need to understand a programming language deeply to be able to write fast code. Just writing a function that uses one language feature over another could make the function 2.5x slower.</p><p>This is just at the script level. Compound on top of that frameworks, 3rd party plugins, CSS, HTML, browsers, bandwidth, device bottlenecks, etc and it is not surprising that modern web pages can be slow and fair from performant.</p><p>But it proves that it is worth it to try and make improvements to the areas you have control over.</p></section><footer class=post__footer><ul class=post__tags><li class=post__tag><a href=/tags/meta class=post__tag-link><span class=post__tag-label>#</span>meta</a></li><li class=post__tag><a href=/tags/javascript class=post__tag-link><span class=post__tag-label>#</span>javascript</a></li></ul></footer></article><aside class=post-siblings><nav class=post-siblings__ctrl><a class="post-siblings__nav post-siblings__nav--next" href=https://til.neilmagee.com/post/tailwindcss-configs/ rel=nofollow><span class=post-siblings__nav-icon><svg id="Chevron_left" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 20" enable-background="new 0 0 20 20"><path d="M12.452 4.516c.446.436.481 1.043.0 1.576L8.705 10l3.747 3.908c.481.533.446 1.141.0 1.574-.445.436-1.197.408-1.615.0-.418-.406-4.502-4.695-4.502-4.695C6.112 10.57 6 10.285 6 10s.112-.57.335-.789c0 0 4.084-4.287 4.502-4.695C11.255 4.107 12.007 4.08 12.452 4.516z" class="post-siblings__nav-icon-next" /></svg></span>Next</a>
+<span class=nb>window</span><span class=p>.</span><span class=nx>addEventListener</span><span class=p>(</span><span class=s2>&#34;DOMContentLoaded&#34;</span><span class=p>,</span> <span class=nx>event</span> <span class=p>=&gt;</span> <span class=p>{</span>
+  <span class=nx>run</span><span class=p>(</span><span class=p>)</span><span class=p>;</span>
+<span class=p>}</span><span class=p>)</span><span class=p>;</span>
+</code></pre></div><h2 id=in-conclusion>In conclusion</h2><p>I learnt a lot from this, but there are no specific takeaways. Performance is hard, and you really need to understand a programming language deeply to be able to write fast code. Just writing a function that uses one language feature over another could make the function 2.5x slower.</p><p>This is just at the script level. Compound on top of that frameworks, 3rd party plugins, CSS, HTML, browsers, bandwidth, device bottlenecks, etc and it is not surprising that modern web pages can be slow and fair from performant.</p><p>But it proves that it is worth it to try and make improvements to the areas you have control over.</p></section><footer class=post__footer><ul class=post__tags><li class=post__tag><a href=/tags/meta class=post__tag-link><span class=post__tag-label>#</span>meta</a></li><li class=post__tag><a href=/tags/javascript class=post__tag-link><span class=post__tag-label>#</span>javascript</a></li></ul></footer></article><aside class=post-siblings><nav class=post-siblings__ctrl><a class="post-siblings__nav post-siblings__nav--next" href=https://til.neilmagee.com/post/tailwindcss-configs/ rel=nofollow><span class=post-siblings__nav-icon><svg id="Chevron_left" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 20" enable-background="new 0 0 20 20"><path d="M12.452 4.516c.446.436.481 1.043.0 1.576L8.705 10l3.747 3.908c.481.533.446 1.141.0 1.574-.445.436-1.197.408-1.615.0-.418-.406-4.502-4.695-4.502-4.695C6.112 10.57 6 10.285 6 10s.112-.57.335-.789c0 0 4.084-4.287 4.502-4.695C11.255 4.107 12.007 4.08 12.452 4.516z" class="post-siblings__nav-icon-next" /></svg></span>Next</a>
 <a class="post-siblings__nav post-siblings__nav--previous" href=https://til.neilmagee.com/post/asynchronous-redux-pt2/ rel=nofollow>Previous<span class=post-siblings__nav-icon><svg id="Chevron_right" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 20" enable-background="new 0 0 20 20"><path d="M9.163 4.516c.418.408 4.502 4.695 4.502 4.695C13.888 9.43 14 9.715 14 10s-.112.57-.335.787c0 0-4.084 4.289-4.502 4.695-.418.408-1.17.436-1.615.0-.446-.434-.481-1.041.0-1.574L11.295 10 7.548 6.092c-.481-.533-.446-1.141.0-1.576C7.993 4.08 8.745 4.107 9.163 4.516z" class="post-siblings__nav-icon-previous" /></svg></span></a></nav><span class=post-siblings__more>More posts</span></aside></main><footer class=site-footer><div class=site-footer__inner><p class=site-footer__copyright>&copy; 2020&nbsp;<a href=https://neilmagee.com>Neil Magee</a>
 . Icons from <a href=http://entypo.com>Entypo+</a>. Made with <a href=https://gohugo.io/ class=site-footer__hugo-logo><img src=/images/hugo-logo.png alt="Hugo logo" width=22 height=22></a></p></div></footer></div></div><script src=/js/highlight.pack.js></script><script>document.addEventListener("DOMContentLoaded",event=>{document.documentElement.classList.remove("no-js");document.querySelectorAll("pre:not(.chroma) code").forEach(block=>{hljs.highlightBlock(block);});});</script></body></html>
