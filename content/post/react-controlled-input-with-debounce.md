@@ -1,7 +1,7 @@
 ---
-title: "React controlled inpput with debounce"
+title: "React controlled input with debounce"
 date: 2020-03-02T11:31:54+00:00
-description: "How to debounce inputs in React using lodash"
+description: "How to write a controlled input in React with debounce effect"
 categories:
   - development
 tags:
@@ -17,7 +17,7 @@ So the scope for this component would be to take an initial value from it's pare
 After writing the new component to use Lodash debounce, and taking advantage of `useEffect` to trigger side effects based on the input value changing I immediately saw a problem. I have increased the debounce "delay" to two seconds to exaggerate the effect.
 
 {{< figure src="/images/react-controlled-input-with-debounce/debounce-fail.gif" title="Debounce gone wrong!" alt="Animated gif showing a debounce not working correctly" >}}
-
+<!--more-->
 What is happening here, is as the user types, the debounce is being triggered after every value change. So each letter is passed to the parent two seconds after is was typed. So from the **gif** you can see the parent receiving the new value one letter at a time. This is clearly not right.
 
 ## Trying to fix the issue
