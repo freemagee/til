@@ -1,0 +1,3 @@
+[submodule "themes/comfortable-basic"]
+	path = themes/comfortable-basic
+	url = https://github.com/freemagee/comfortable-basic.git
