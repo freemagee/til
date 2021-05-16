@@ -10,7 +10,7 @@ tags:
 
 I put this blog together at a time when I was learning modern React based web development and trying to better myself. This was largely driven by my personal interest, but I also saw React as a good career opportunity. Writing a personal blog helped in that process.
 
-Fast-forward almost two years and I am working as a Software Developer, develping with React daily and learning TypeScript as well. This blog has sadly been put on the back-burner for quite a while and I am not happy about that.
+Fast-forward almost two years and I am working as a Software Developer, developing with React daily and learning TypeScript as well. This blog has sadly been put on the back-burner for quite a while and I am not happy about that.
 
 I have limited personal development opportunity at the moment, being a father and working in a new-ish role in lockdown has meant personal projects have had to be put aside or even sunsetted.
 <!--more-->
